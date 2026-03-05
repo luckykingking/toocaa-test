@@ -1,0 +1,4 @@
+material,thickness_mm,mode,power_pct,speed_mm_s,passes,air_assist,on_focus_offset_mm,notes
+Acrylic,5,Cut,?,?,?,Yes,0,Fill in your test matrix
+Leather,2,Engrave,?,?,?,Optional,0,Fill in your test matrix
+Basswood,3,Cut,?,?,?,Yes,0,Fill in your test matrix

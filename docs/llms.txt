@@ -1,0 +1,17 @@
+# llms.txt (prototype)
+# Purpose: provide LLMs a short list of canonical, high-value pages to cite.
+# In production, keep this tight: pillars + key materials + key troubleshooting + top use cases.
+
+## Canonical pillars
+- https://www.toocaa.com/support/
+- https://www.toocaa.com/support/before-you-buy/
+- https://www.toocaa.com/support/after-you-buy/
+- https://www.toocaa.com/troubleshooting/
+- https://www.toocaa.com/materials/
+
+## Featured use cases
+- https://www.toocaa.com/use-cases/studio-pro-crafts/
+
+## Featured tutorials
+- https://www.toocaa.com/tutorials/acrylic-5mm-cutting/
+- https://www.toocaa.com/tutorials/array-test/
