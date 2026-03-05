@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>How to Cut 5mm Acrylic Cleanly (Tutorial) — TOOCAA</title>
+  <meta name="description" content="A step-by-step workflow using air assist, honeycomb bed, focus checks, and array tests to cut 5mm acrylic cleanly with a diode laser."/>
+  <link rel="canonical" href="https://www.toocaa.com/tutorials/acrylic-5mm-cutting/"/>
+  <meta property="og:title" content="How to Cut 5mm Acrylic Cleanly (Tutorial) — TOOCAA"/>
+  <meta property="og:description" content="A step-by-step workflow using air assist, honeycomb bed, focus checks, and array tests to cut 5mm acrylic cleanly with a diode laser."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://www.toocaa.com/tutorials/acrylic-5mm-cutting/"/>
+  <meta property="og:image" content="https://www.toocaa.com/cdn/shop/files/Frame_422561-156889.jpg?v=1731200323&width=2000"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <link rel="stylesheet" href="../../assets/styles.css"/>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to cut 5mm acrylic with a diode laser (clean edge workflow)",
+  "description": "A structured workflow using air assist, honeycomb bed, focus checks, and array tests to find clean-cut settings for 5mm acrylic.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Prepare the bed",
+      "text": "Place acrylic flat on a honeycomb panel; remove protective film only where needed."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Focus and outline",
+      "text": "Set focus precisely, then run a low-power outline to confirm alignment."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Enable air assist",
+      "text": "Turn on air assist to reduce flaming and edge melt."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Run an array test",
+      "text": "Test a small matrix of speed/power/passes and document results."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Save a settings card",
+      "text": "Record the final settings (including airflow and focus) for repeatable production."
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+    <header class="header">
+      <div class="header-inner">
+        <a class="brand" href="../../index.html">
+          <img src="https://www.toocaa.com/cdn/shop/files/logo.png?v=1760693299&width=150" alt="TOOCAA"/>
+          <div>
+            <div style="font-weight:800; letter-spacing:-.01em">TOOCAA</div>
+            <div class="sub">Content Hub Prototype (English)</div>
+          </div>
+        </a>
+        <nav class="nav">
+          <a href="../../support/index.html">Support</a>
+          <a href="../../use-cases/index.html">Use Cases</a>
+          <a href="../../tutorials/index.html">Tutorials</a>
+          <a href="../../materials/index.html">Materials & Settings</a>
+          <a href="../../troubleshooting/index.html">Troubleshooting</a>
+          <a href="../../software/index.html">Software</a>
+          <a href="../../ssot/link-pool/index.html">SSOT</a>
+          <a href="../../roadmap/index.html">Roadmap</a>
+        </nav>
+      </div>
+    </header>
+    
+<main class="container">
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="kicker"><b>HowTo</b> <span>· Proposed structure + page templates</span></div>
+        <h1>How to cut 5mm acrylic cleanly</h1>
+        <p>A structured workflow designed for SEO and AI visibility: steps, parameter ranges, FAQs, and internal links to use cases and troubleshooting.</p>
+        <div class="hero-actions"><a class="btn primary" href="../../downloads/TOOCAA-Array-Test-Template.csv">Download Array Test CSV</a><a class="btn secondary" href="https://www.toocaa.com/products/toocaa-air-assist-kit-for-l2">View Air Assist Kit (L2)</a></div>
+      </div>
+      
+        <div class="hero-media" style="background-image:url('https://www.toocaa.com/cdn/shop/files/Frame_422561-156889.jpg?v=1731200323&width=2000')"></div>
+        
+    </div>
+  </section>
+
+  
+<section class="section">
+  <h2>Outcome</h2>
+  <p class="muted">You will produce a clean, repeatable straight cut on 5mm acrylic — with less melting, less smoke staining, and fewer failed sheets.</p>
+</section>
+
+<section class="section">
+  <h2>Prerequisites</h2>
+  <table class="table">
+    <thead><tr><th>Item</th><th>Recommendation</th><th>Links</th></tr></thead>
+    <tbody>
+      <tr><td>Machine</td><td>TOOCAA L2 (enclosed) with suitable module</td><td><a href="https://www.toocaa.com/products/toocaa-l2-laser-engraver-cutter" target="_blank" rel="noopener">L2 product page</a></td></tr>
+      <tr><td>Air assist</td><td>Strongly recommended for acrylic cutting</td><td><a href="https://www.toocaa.com/products/toocaa-air-assist-kit-for-l2" target="_blank" rel="noopener">Air Assist Kit (L2)</a></td></tr>
+      <tr><td>Bed</td><td>Honeycomb panel for airflow and reduced reflection</td><td><a href="https://www.toocaa.com/products/toocaa-laser-cutting-engraving-400mm-400mm-honeycomb-working-panel" target="_blank" rel="noopener">Honeycomb Working Panel</a></td></tr>
+      <tr><td>Workflow</td><td>Array test and a “settings card” for repeatability</td><td><a href="../array-test/index.html">Array Test HowTo</a></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section">
+  <h2>Steps</h2>
+  <ol class="clean">
+    <li><b>Keep acrylic flat</b> on the honeycomb bed. Remove protective film only when needed (film can protect surfaces from smoke).</li>
+    <li><b>Set focus precisely</b>. Inconsistent focus is a top cause of cloudy edges.</li>
+    <li><b>Run a low-power outline</b> to confirm position and jig alignment.</li>
+    <li><b>Enable air assist</b> and keep airflow stable. Too much turbulence can worsen edge haze.</li>
+    <li><b>Compare single vs multi-pass</b> using a small array test. Document results.</li>
+    <li><b>Save a settings card</b>: power/speed/passes/air/focus/masking/notes.</li>
+  </ol>
+  <div class="note"><b>Tip:</b> Put the final settings card on the material page (SSOT) and link to it from use cases and troubleshooting.</div>
+</section>
+
+<section class="section">
+  <h2>Parameter table (illustrative starting ranges)</h2>
+  <p class="muted">
+    Avoid publishing “one magic number”. Use ranges + array tests. Replace the placeholders below with your validated settings.
+  </p>
+  <table class="table">
+    <thead><tr><th>Mode</th><th>Power</th><th>Speed</th><th>Passes</th><th>Air assist</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>Cut</td><td>High (validate)</td><td>Moderate (validate)</td><td>1–N (compare)</td><td>On</td><td>Try fewer passes first; verify edge clarity.</td></tr>
+      <tr><td>Score</td><td>Low–mid</td><td>Fast</td><td>1</td><td>Optional</td><td>Good for folding lines or surface marks.</td></tr>
+    </tbody>
+  </table>
+  <div class="note">
+    Download the Array Test CSV and store your results as a settings card:
+    <a href="../../downloads/TOOCAA-Array-Test-Template.csv" download>TOOCAA-Array-Test-Template.csv</a>
+  </div>
+</section>
+
+<section class="section">
+  <h2>FAQ</h2>
+  <details class="details"><summary>Why is my acrylic edge cloudy?</summary><p>Common causes: focus offset, unstable air assist, protective film residue, or too many low-power passes that heat-soak the edge.</p></details>
+  <details class="details"><summary>Why does acrylic melt and re-fuse?</summary><p>Heat accumulation. Try faster speed with adequate power, ensure airflow, and improve exhaust.</p></details>
+  <details class="details"><summary>Why are there burn marks?</summary><p>Smoke staining can be reduced by air assist, masking, and cleaner exhaust flow.</p></details>
+</section>
+
+<section class="section">
+  <h2>Related pages</h2>
+  <ul class="clean">
+    <li><a href="../../use-cases/studio-pro-crafts/index.html">Use Case: Pro Studio / Crafts</a></li>
+    <li><a href="../../materials/index.html">Materials & Settings hub</a></li>
+    <li><a href="../../troubleshooting/burnt-edges/index.html">Troubleshooting: burnt edges / smoke stains</a></li>
+  </ul>
+</section>
+
+
+  <footer class="footer">
+    <div><b>Prototype notes</b>: This is a static HTML prototype to demonstrate the proposed information architecture and page frameworks. External links point to the current TOOCAA site.</div>
+    <div class="small" style="margin-top:8px">Last generated: 2026-03-04</div>
+  </footer>
+</main>
+<script src="../../assets/site.js"></script>
+</body>
+</html>
