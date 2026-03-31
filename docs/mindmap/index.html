@@ -1,361 +1,488 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>TOOCAA Content Hub — Mind Map</title>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>TOOCAA Content Hub — Planning Mind Map</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#0c0f1a;color:#e2e8f0;min-height:100vh;overflow:auto}
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #0f1117;
-      color: #e2e8f0;
-      min-height: 100vh;
-      overflow-x: auto;
-    }
+/* ── Top bar ── */
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:12px 24px;border-bottom:1px solid #1a2035;position:sticky;top:0;z-index:100;background:#0c0f1a}
+.topbar-left{display:flex;align-items:center;gap:12px}
+.topbar a{color:#475569;font-size:.78rem;text-decoration:none}
+.topbar a:hover{color:#94a3b8}
+.topbar h1{font-size:.9rem;font-weight:700;color:#f1f5f9}
+.topbar-hint{font-size:.72rem;color:#334155}
+.legend-pills{display:flex;gap:8px;flex-wrap:wrap}
+.lp{font-size:.68rem;padding:3px 10px;border-radius:20px;font-weight:600;letter-spacing:.03em}
 
-    header {
-      padding: 20px 32px 12px;
-      border-bottom: 1px solid #1e2535;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    header a {
-      color: #64748b;
-      font-size: .8rem;
-      text-decoration: none;
-    }
-    header a:hover { color: #94a3b8; }
-    header h1 { font-size: 1rem; font-weight: 700; color: #f1f5f9; }
-    header span { font-size: .8rem; color: #64748b; }
+/* ── Canvas ── */
+.canvas{position:relative;min-width:1300px;min-height:900px;padding:60px 40px 80px}
 
-    .canvas {
-      padding: 48px 32px 80px;
-      min-width: 1100px;
-    }
+/* SVG connector layer */
+#svg-layer{position:absolute;inset:0;pointer-events:none;z-index:0}
 
-    /* ── Tree layout ── */
-    .tree {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
+/* ── Nodes ── */
+.node{position:absolute;border-radius:10px;cursor:pointer;user-select:none;transition:transform .15s,box-shadow .15s;z-index:2}
+.node:hover{transform:translateY(-2px)}
 
-    /* Root node */
-    .root {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: linear-gradient(135deg, #f97316, #ea580c);
-      color: #fff;
-      font-weight: 800;
-      font-size: 1.05rem;
-      padding: 14px 24px;
-      border-radius: 12px;
-      margin-bottom: 40px;
-      box-shadow: 0 4px 24px rgba(249,115,22,.35);
-      width: fit-content;
-    }
+/* Root */
+.root{background:linear-gradient(135deg,#f97316,#dc2626);color:#fff;font-weight:800;font-size:.95rem;padding:16px 28px;border-radius:14px;box-shadow:0 0 40px rgba(249,115,22,.4);text-align:center;line-height:1.35;width:180px}
+.root .sub{font-size:.68rem;font-weight:400;opacity:.85;margin-top:4px}
 
-    /* Branch rows */
-    .branches {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      align-items: flex-start;
-    }
+/* Branch nodes */
+.branch-node{padding:9px 16px;font-weight:700;font-size:.78rem;border-radius:8px;text-align:center;width:160px;line-height:1.3}
 
-    /* Individual branch */
-    .branch {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      min-width: 200px;
-      max-width: 240px;
-      flex: 1;
-    }
+/* Leaf nodes */
+.leaf-node{padding:6px 12px;font-size:.72rem;border-radius:6px;width:150px;line-height:1.3;color:#cbd5e1}
 
-    /* Branch header */
-    .b-head {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 14px;
-      border-radius: 8px 8px 0 0;
-      font-weight: 700;
-      font-size: .82rem;
-      letter-spacing: .01em;
-      text-decoration: none;
-      color: inherit;
-      transition: filter .15s;
-    }
-    .b-head:hover { filter: brightness(1.15); }
-    .b-head .dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      flex-shrink: 0;
-      background: currentColor;
-      opacity: .7;
-    }
+/* ── Colour palettes ── */
+/* strategy */
+.c-orange .branch-node{background:rgba(249,115,22,.2);border:1px solid rgba(249,115,22,.4);color:#fb923c}
+.c-orange .leaf-node{background:rgba(249,115,22,.07);border:1px solid rgba(249,115,22,.15);color:#fdba74}
+/* roadmap */
+.c-amber .branch-node{background:rgba(245,158,11,.2);border:1px solid rgba(245,158,11,.4);color:#fbbf24}
+.c-amber .leaf-node{background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.15);color:#fde68a}
+/* kpi */
+.c-emerald .branch-node{background:rgba(16,185,129,.2);border:1px solid rgba(16,185,129,.4);color:#34d399}
+.c-emerald .leaf-node{background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.15);color:#6ee7b7}
+/* ssot */
+.c-slate .branch-node{background:rgba(148,163,184,.15);border:1px solid rgba(148,163,184,.3);color:#cbd5e1}
+.c-slate .leaf-node{background:rgba(148,163,184,.06);border:1px solid rgba(148,163,184,.12);color:#94a3b8}
+/* template */
+.c-violet .branch-node{background:rgba(139,92,246,.2);border:1px solid rgba(139,92,246,.4);color:#a78bfa}
+.c-violet .leaf-node{background:rgba(139,92,246,.07);border:1px solid rgba(139,92,246,.15);color:#c4b5fd}
+/* content sections */
+.c-blue .branch-node{background:rgba(59,130,246,.2);border:1px solid rgba(59,130,246,.4);color:#60a5fa}
+.c-blue .leaf-node{background:rgba(59,130,246,.07);border:1px solid rgba(59,130,246,.15);color:#93c5fd}
+.c-teal .branch-node{background:rgba(20,184,166,.2);border:1px solid rgba(20,184,166,.4);color:#2dd4bf}
+.c-teal .leaf-node{background:rgba(20,184,166,.07);border:1px solid rgba(20,184,166,.15);color:#5eead4}
+.c-green .branch-node{background:rgba(34,197,94,.2);border:1px solid rgba(34,197,94,.4);color:#4ade80}
+.c-green .leaf-node{background:rgba(34,197,94,.07);border:1px solid rgba(34,197,94,.15);color:#86efac}
+.c-rose .branch-node{background:rgba(244,63,94,.2);border:1px solid rgba(244,63,94,.4);color:#fb7185}
+.c-rose .leaf-node{background:rgba(244,63,94,.07);border:1px solid rgba(244,63,94,.15);color:#fda4af}
+.c-indigo .branch-node{background:rgba(99,102,241,.2);border:1px solid rgba(99,102,241,.4);color:#818cf8}
+.c-indigo .leaf-node{background:rgba(99,102,241,.07);border:1px solid rgba(99,102,241,.15);color:#a5b4fc}
+.c-pink .branch-node{background:rgba(236,72,153,.2);border:1px solid rgba(236,72,153,.4);color:#f472b6}
+.c-pink .leaf-node{background:rgba(236,72,153,.07);border:1px solid rgba(236,72,153,.15);color:#f9a8d4}
+.c-cyan .branch-node{background:rgba(6,182,212,.2);border:1px solid rgba(6,182,212,.4);color:#22d3ee}
+.c-cyan .leaf-node{background:rgba(6,182,212,.07);border:1px solid rgba(6,182,212,.15);color:#67e8f9}
 
-    /* Leaf list */
-    .b-leaves {
-      border-radius: 0 0 8px 8px;
-      padding: 8px 0 10px;
-      display: flex;
-      flex-direction: column;
-      gap: 1px;
-    }
+/* ── Tag badges inside leaf nodes ── */
+.tag{display:inline-block;font-size:.6rem;font-weight:700;padding:1px 6px;border-radius:20px;margin-left:4px;vertical-align:middle;background:rgba(255,255,255,.1);color:rgba(255,255,255,.6)}
+.tag-new{background:rgba(34,197,94,.25);color:#4ade80}
+.tag-kpi{background:rgba(245,158,11,.25);color:#fbbf24}
 
-    .leaf {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 5px 14px 5px 20px;
-      font-size: .78rem;
-      color: #94a3b8;
-      text-decoration: none;
-      transition: color .12s, background .12s;
-      border-radius: 4px;
-    }
-    .leaf:hover { color: #e2e8f0; background: rgba(255,255,255,.04); }
-    .leaf::before {
-      content: '';
-      width: 5px; height: 5px;
-      border-radius: 50%;
-      background: currentColor;
-      opacity: .5;
-      flex-shrink: 0;
-    }
-
-    /* Sub-section label inside leaves */
-    .leaf-label {
-      font-size: .68rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      padding: 6px 14px 2px 14px;
-      color: #475569;
-    }
-
-    /* Colour themes per branch */
-    .col-orange  .b-head { background: rgba(249,115,22,.18); color: #fb923c; }
-    .col-orange  .b-leaves { background: rgba(249,115,22,.06); }
-
-    .col-blue    .b-head { background: rgba(59,130,246,.18); color: #60a5fa; }
-    .col-blue    .b-leaves { background: rgba(59,130,246,.06); }
-
-    .col-green   .b-head { background: rgba(34,197,94,.18); color: #4ade80; }
-    .col-green   .b-leaves { background: rgba(34,197,94,.06); }
-
-    .col-purple  .b-head { background: rgba(168,85,247,.18); color: #c084fc; }
-    .col-purple  .b-leaves { background: rgba(168,85,247,.06); }
-
-    .col-teal    .b-head { background: rgba(20,184,166,.18); color: #2dd4bf; }
-    .col-teal    .b-leaves { background: rgba(20,184,166,.06); }
-
-    .col-rose    .b-head { background: rgba(244,63,94,.18); color: #fb7185; }
-    .col-rose    .b-leaves { background: rgba(244,63,94,.06); }
-
-    .col-amber   .b-head { background: rgba(245,158,11,.18); color: #fbbf24; }
-    .col-amber   .b-leaves { background: rgba(245,158,11,.06); }
-
-    .col-indigo  .b-head { background: rgba(99,102,241,.18); color: #818cf8; }
-    .col-indigo  .b-leaves { background: rgba(99,102,241,.06); }
-
-    .col-slate   .b-head { background: rgba(148,163,184,.18); color: #cbd5e1; }
-    .col-slate   .b-leaves { background: rgba(148,163,184,.06); }
-
-    /* Legend */
-    .legend {
-      margin-top: 48px;
-      padding: 16px 20px;
-      background: #161b27;
-      border: 1px solid #1e2535;
-      border-radius: 10px;
-      width: fit-content;
-      font-size: .76rem;
-      color: #64748b;
-      line-height: 1.8;
-    }
-    .legend strong { color: #94a3b8; }
-  </style>
+/* ── Timeline strip ── */
+.timeline{position:absolute;z-index:1;border-radius:8px;border:1px dashed rgba(255,255,255,.08);background:rgba(255,255,255,.02);display:flex;flex-direction:column;justify-content:center;padding:6px 10px}
+.timeline-label{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#334155;margin-bottom:4px}
+</style>
 </head>
 <body>
 
-<header>
-  <a href="../index.html">← Content Hub</a>
-  <h1>TOOCAA Content Hub — Mind Map</h1>
-  <span>Click any node to open the page</span>
-</header>
-
-<div class="canvas">
-  <div class="tree">
-
-    <!-- Root -->
-    <div class="root">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-      TOOCAA Content Hub Prototype
-    </div>
-
-    <!-- Branches -->
-    <div class="branches">
-
-      <!-- 1. Scene Library -->
-      <div class="branch col-orange">
-        <a class="b-head" href="../scene-library/index.html">
-          <span class="dot"></span>Scene Library
-        </a>
-        <div class="b-leaves">
-          <div class="leaf-label">File categories</div>
-          <span class="leaf">Featured Scenes (6)</span>
-          <span class="leaf">Animals (3)</span>
-          <span class="leaf">Nature (3+)</span>
-          <div class="leaf-label">Formats</div>
-          <span class="leaf">SVG · DXF · LightBurn</span>
-          <div class="leaf-label">Linked</div>
-          <a class="leaf" href="../application-scenarios/index.html">→ Application Scenarios</a>
-        </div>
-      </div>
-
-      <!-- 2. Use Cases (test) -->
-      <div class="branch col-blue">
-        <a class="b-head" href="../use-cases/index.html">
-          <span class="dot"></span>Use Cases test
-        </a>
-        <div class="b-leaves">
-          <span class="leaf">Redirects → Scene Library</span>
-        </div>
-      </div>
-
-      <!-- 3. Application Scenarios -->
-      <div class="branch col-green">
-        <a class="b-head" href="../application-scenarios/index.html">
-          <span class="dot"></span>Application Scenarios
-        </a>
-        <div class="b-leaves">
-          <a class="leaf" href="../application-scenarios/studio-pro-crafts/index.html">1 · Pro Studio / Crafts</a>
-          <a class="leaf" href="../application-scenarios/beginner-first-project/index.html">2 · Beginner Path</a>
-          <a class="leaf" href="../application-scenarios/classroom-safety/index.html">3 · Classroom / Education</a>
-          <a class="leaf" href="../application-scenarios/small-business-batch/index.html">4 · Small Business</a>
-          <a class="leaf" href="../application-scenarios/gifts-irregular-shapes/index.html">5 · Gifts</a>
-          <a class="leaf" href="../application-scenarios/signage-qr-readability/index.html">6 · Signage / QR</a>
-          <a class="leaf" href="../application-scenarios/home-decor-personalization/index.html">7 · Home Decor</a>
-          <a class="leaf" href="../application-scenarios/jewelry-precision-engraving/index.html">8 · Jewelry</a>
-          <a class="leaf" href="../application-scenarios/packaging-branding/index.html">9 · Packaging &amp; Branding</a>
-          <a class="leaf" href="../application-scenarios/photo-engraving-portraits/index.html">10 · Photo Engraving</a>
-        </div>
-      </div>
-
-      <!-- 4. Support -->
-      <div class="branch col-teal">
-        <a class="b-head" href="../support/index.html">
-          <span class="dot"></span>Support Entry
-        </a>
-        <div class="b-leaves">
-          <a class="leaf" href="../support/before-you-buy/index.html">Before You Buy</a>
-          <a class="leaf" href="../support/after-you-buy/index.html">After You Buy</a>
-          <a class="leaf" href="../support/contact/index.html">Contact / Ticket</a>
-          <div class="leaf-label">Also covers</div>
-          <span class="leaf">Materials &amp; Settings</span>
-          <span class="leaf">Use Cases (cross-link)</span>
-        </div>
-      </div>
-
-      <!-- 5. Tutorials -->
-      <div class="branch col-purple">
-        <a class="b-head" href="../tutorials/index.html">
-          <span class="dot"></span>Tutorials (How-to)
-        </a>
-        <div class="b-leaves">
-          <a class="leaf" href="../tutorials/acrylic-5mm-cutting/index.html">Acrylic 5mm Clean Cut</a>
-          <a class="leaf" href="../tutorials/array-test/index.html">Array Test Template</a>
-          <div class="leaf-label">Linked to</div>
-          <span class="leaf">Use Cases (cross-link)</span>
-          <span class="leaf">Materials hub</span>
-        </div>
-      </div>
-
-      <!-- 6. Materials -->
-      <div class="branch col-amber">
-        <a class="b-head" href="../materials/index.html">
-          <span class="dot"></span>Materials &amp; Settings
-        </a>
-        <div class="b-leaves">
-          <span class="leaf">Settings tables (SSOT)</span>
-          <span class="leaf">Array test results</span>
-          <span class="leaf">Quality troubleshooting</span>
-          <div class="leaf-label">Downloads</div>
-          <a class="leaf" href="../downloads/TOOCAA-Array-Test-Template.csv">Array Test CSV</a>
-          <a class="leaf" href="../downloads/Jig-Checklist.txt">Jig Checklist</a>
-          <a class="leaf" href="../downloads/Acrylic-Display-Stand-Set.svg">Acrylic Stand SVG</a>
-          <a class="leaf" href="../downloads/Adjustable-Jig-Base-01.svg">Adjustable Jig SVG</a>
-        </div>
-      </div>
-
-      <!-- 7. Troubleshooting -->
-      <div class="branch col-rose">
-        <a class="b-head" href="../troubleshooting/index.html">
-          <span class="dot"></span>Troubleshooting
-        </a>
-        <div class="b-leaves">
-          <a class="leaf" href="../troubleshooting/burnt-edges/index.html">Burnt Edges</a>
-          <a class="leaf" href="../troubleshooting/camera-offset/index.html">Camera Offset</a>
-          <div class="leaf-label">Pattern</div>
-          <span class="leaf">Symptom → Test → Fix → Ticket</span>
-        </div>
-      </div>
-
-      <!-- 8. Software -->
-      <div class="branch col-indigo">
-        <a class="b-head" href="../software/index.html">
-          <span class="dot"></span>Software
-        </a>
-        <div class="b-leaves">
-          <span class="leaf">TOOCAA Studio</span>
-          <span class="leaf">LightBurn</span>
-          <span class="leaf">Setup &amp; workflow guides</span>
-        </div>
-      </div>
-
-      <!-- 9. SSOT -->
-      <div class="branch col-slate">
-        <a class="b-head" href="../ssot/link-pool/index.html">
-          <span class="dot"></span>SSOT / Governance
-        </a>
-        <div class="b-leaves">
-          <span class="leaf">Link Pool (canonical URLs)</span>
-          <span class="leaf">Canonical + noindex rules</span>
-          <span class="leaf">301 redirect map</span>
-          <a class="leaf" href="../llms.txt">llms.txt</a>
-          <a class="leaf" href="../robots.txt">robots.txt</a>
-          <a class="leaf" href="../sitemap.xml">sitemap.xml</a>
-        </div>
-      </div>
-
-      <!-- 10. Roadmap -->
-      <div class="branch col-slate">
-        <a class="b-head" href="../roadmap/index.html">
-          <span class="dot"></span>Roadmap
-        </a>
-        <div class="b-leaves">
-          <span class="leaf">1-year content plan</span>
-          <span class="leaf">SEO / GEO milestones</span>
-        </div>
-      </div>
-
-    </div><!-- /branches -->
-
-    <div class="legend">
-      <strong>Goal:</strong> SEO (search) + GEO (AI citations) + Support ticket reduction<br>
-      <strong>Pattern:</strong> Each page → TL;DR · Setup · HowTo · FAQ · Downloads · CTAs<br>
-      <strong>SSOT rule:</strong> One canonical page per topic · duplicates 301 or noindex
-    </div>
-
-  </div><!-- /tree -->
+<div class="topbar">
+  <div class="topbar-left">
+    <a href="../index.html">← Content Hub</a>
+    <h1>Planning Mind Map</h1>
+    <span class="topbar-hint">TOOCAA Content Hub Prototype · March 2026</span>
+  </div>
+  <div class="legend-pills">
+    <span class="lp" style="background:rgba(249,115,22,.2);color:#fb923c">Strategy</span>
+    <span class="lp" style="background:rgba(245,158,11,.2);color:#fbbf24">Roadmap</span>
+    <span class="lp" style="background:rgba(16,185,129,.2);color:#34d399">KPIs</span>
+    <span class="lp" style="background:rgba(148,163,184,.15);color:#cbd5e1">Governance</span>
+    <span class="lp" style="background:rgba(59,130,246,.2);color:#60a5fa">Content</span>
+    <span class="lp" style="background:rgba(34,197,94,.2);color:#4ade80">Scenarios</span>
+  </div>
 </div>
 
+<div class="canvas" id="canvas">
+  <svg id="svg-layer" xmlns="http://www.w3.org/2000/svg"></svg>
+
+  <!-- ═══════════════════════════════════════════════
+       ROOT
+  ════════════════════════════════════════════════ -->
+  <div class="node root" id="root" style="left:580px;top:390px">
+    TOOCAA<br>Content Hub
+    <div class="sub">Prototype · EN</div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       LEFT SIDE — STRATEGY / PLANNING
+  ════════════════════════════════════════════════ -->
+
+  <!-- L1: Strategic Goals -->
+  <div class="node c-orange" id="L1">
+    <div class="branch-node">Strategic Goals</div>
+  </div>
+  <div class="node c-orange" id="L1a"><div class="leaf-node">SEO — Searchability<br><span style="font-size:.67rem;opacity:.7">Queries: settings / how-to / troubleshooting</span></div></div>
+  <div class="node c-orange" id="L1b"><div class="leaf-node">GEO — AI Citations<br><span style="font-size:.67rem;opacity:.7">Quotable by ChatGPT / Gemini / Perplexity</span></div></div>
+  <div class="node c-orange" id="L1c"><div class="leaf-node">Support — Reduce Tickets<br><span style="font-size:.67rem;opacity:.7">Self-solve before contacting CS</span></div></div>
+
+  <!-- L2: KPIs -->
+  <div class="node c-emerald" id="L2">
+    <div class="branch-node">KPIs <span class="tag tag-kpi">Measure</span></div>
+  </div>
+  <div class="node c-emerald" id="L2a"><div class="leaf-node">Organic clicks + rankings</div></div>
+  <div class="node c-emerald" id="L2b"><div class="leaf-node">Self-solve rate<br><span style="font-size:.67rem;opacity:.7">Help Center sessions → no ticket</span></div></div>
+  <div class="node c-emerald" id="L2c"><div class="leaf-node">AI citations / mentions<br><span style="font-size:.67rem;opacity:.7">LLM answers citing canonical URLs</span></div></div>
+
+  <!-- L3: Roadmap -->
+  <div class="node c-amber" id="L3">
+    <div class="branch-node">Roadmap</div>
+  </div>
+  <div class="node c-amber" id="L3a"><div class="leaf-node"><b>0–90 days</b> Foundation<br>
+    <span style="font-size:.66rem;opacity:.75">· SSOT rules + Link Pool<br>· 3 pillar pages (Before/After/Troubleshoot)<br>· 1 Use Case + 2 Tutorials<br>· Materials template + Array Test</span>
+  </div></div>
+  <div class="node c-amber" id="L3b"><div class="leaf-node"><b>4–12 months</b> Scale<br>
+    <span style="font-size:.66rem;opacity:.75">· 2–4 use cases / month<br>· Troubleshooting trees from tickets<br>· Programmatic Materials library<br>· Measure SEO + Support + GEO</span>
+  </div></div>
+
+  <!-- L4: SSOT / Governance -->
+  <div class="node c-slate" id="L4">
+    <div class="branch-node">SSOT Governance</div>
+  </div>
+  <div class="node c-slate" id="L4a"><div class="leaf-node">1 canonical URL per topic</div></div>
+  <div class="node c-slate" id="L4b"><div class="leaf-node">301 redirect for duplicates</div></div>
+  <div class="node c-slate" id="L4c"><div class="leaf-node">Noindex thin / UX-only pages</div></div>
+  <div class="node c-slate" id="L4d"><div class="leaf-node">Link Pool — monthly audit<br><span style="font-size:.67rem;opacity:.7">Blog → pillar, Wiki → canonical</span></div></div>
+  <div class="node c-slate" id="L4e"><div class="leaf-node">llms.txt · robots.txt · sitemap.xml</div></div>
+
+  <!-- L5: Page Template -->
+  <div class="node c-violet" id="L5">
+    <div class="branch-node">Page Template Pattern</div>
+  </div>
+  <div class="node c-violet" id="L5a"><div class="leaf-node">TL;DR (3–5 lines)</div></div>
+  <div class="node c-violet" id="L5b"><div class="leaf-node">Recommended Setup<br><span style="font-size:.67rem;opacity:.7">Machine · Module · Accessories</span></div></div>
+  <div class="node c-violet" id="L5c"><div class="leaf-node">HowTo (step table)</div></div>
+  <div class="node c-violet" id="L5d"><div class="leaf-node">FAQ (failure modes)</div></div>
+  <div class="node c-violet" id="L5e"><div class="leaf-node">Downloads (jigs, CSVs)</div></div>
+  <div class="node c-violet" id="L5f"><div class="leaf-node">CTAs → product + support</div></div>
+
+  <!-- ═══════════════════════════════════════════════
+       RIGHT SIDE — CONTENT SECTIONS
+  ════════════════════════════════════════════════ -->
+
+  <!-- R1: Scene Library -->
+  <div class="node c-blue" id="R1">
+    <div class="branch-node">Scene Library <span class="tag tag-new">New</span></div>
+  </div>
+  <div class="node c-blue" id="R1a"><div class="leaf-node">Featured scenes (6)</div></div>
+  <div class="node c-blue" id="R1b"><div class="leaf-node">Animals (3) · Nature (3+)</div></div>
+  <div class="node c-blue" id="R1c"><div class="leaf-node">SVG · DXF · LightBurn (.lbrn2)</div></div>
+  <div class="node c-blue" id="R1d"><div class="leaf-node">38 files · 8 categories · Free</div></div>
+
+  <!-- R2: Application Scenarios -->
+  <div class="node c-green" id="R2">
+    <div class="branch-node">Application Scenarios <span class="tag tag-new">10</span></div>
+  </div>
+  <div class="node c-green" id="R2a"><div class="leaf-node">1 · Pro Studio / Crafts</div></div>
+  <div class="node c-green" id="R2b"><div class="leaf-node">2 · Beginner Path</div></div>
+  <div class="node c-green" id="R2c"><div class="leaf-node">3 · Classroom / Education</div></div>
+  <div class="node c-green" id="R2d"><div class="leaf-node">4 · Small Business</div></div>
+  <div class="node c-green" id="R2e"><div class="leaf-node">5 · Gifts · 6 · Signage / QR</div></div>
+  <div class="node c-green" id="R2f"><div class="leaf-node">7 · Home Decor · 8 · Jewelry</div></div>
+  <div class="node c-green" id="R2g"><div class="leaf-node">9 · Packaging · 10 · Photo Engraving</div></div>
+
+  <!-- R3: Support Entry -->
+  <div class="node c-teal" id="R3">
+    <div class="branch-node">Support Entry</div>
+  </div>
+  <div class="node c-teal" id="R3a"><div class="leaf-node">Before You Buy</div></div>
+  <div class="node c-teal" id="R3b"><div class="leaf-node">After You Buy</div></div>
+  <div class="node c-teal" id="R3c"><div class="leaf-node">Contact / Ticket escalation</div></div>
+
+  <!-- R4: Tutorials -->
+  <div class="node c-indigo" id="R4">
+    <div class="branch-node">Tutorials (How-to)</div>
+  </div>
+  <div class="node c-indigo" id="R4a"><div class="leaf-node">Acrylic 5mm Clean Cut</div></div>
+  <div class="node c-indigo" id="R4b"><div class="leaf-node">Array Test Template</div></div>
+
+  <!-- R5: Materials & Settings -->
+  <div class="node c-amber" id="R5">
+    <div class="branch-node">Materials &amp; Settings</div>
+  </div>
+  <div class="node c-amber" id="R5a"><div class="leaf-node">Settings tables (SSOT)</div></div>
+  <div class="node c-amber" id="R5b"><div class="leaf-node">Array test results</div></div>
+  <div class="node c-amber" id="R5c"><div class="leaf-node">Downloads: CSV · SVG jigs</div></div>
+
+  <!-- R6: Troubleshooting -->
+  <div class="node c-rose" id="R6">
+    <div class="branch-node">Troubleshooting</div>
+  </div>
+  <div class="node c-rose" id="R6a"><div class="leaf-node">Burnt Edges</div></div>
+  <div class="node c-rose" id="R6b"><div class="leaf-node">Camera Offset</div></div>
+  <div class="node c-rose" id="R6c"><div class="leaf-node">Pattern: Symptom→Test→Fix→Ticket</div></div>
+
+  <!-- R7: Software -->
+  <div class="node c-violet" id="R7">
+    <div class="branch-node">Software</div>
+  </div>
+  <div class="node c-violet" id="R7a"><div class="leaf-node">TOOCAA Studio</div></div>
+  <div class="node c-violet" id="R7b"><div class="leaf-node">LightBurn</div></div>
+
+  <!-- R8: Existing Site Integration -->
+  <div class="node c-cyan" id="R8">
+    <div class="branch-node">Existing Site<br><span style="font-size:.68rem;font-weight:400">Integration</span></div>
+  </div>
+  <div class="node c-cyan" id="R8a"><div class="leaf-node">Help Center (official entry)</div></div>
+  <div class="node c-cyan" id="R8b"><div class="leaf-node">Blog — map into new IA</div></div>
+  <div class="node c-cyan" id="R8c"><div class="leaf-node">Wiki — treat as docs / SSOT</div></div>
+  <div class="node c-cyan" id="R8d"><div class="leaf-node">Shopify Pages (final target)</div></div>
+
+</div><!-- /canvas -->
+
+<script>
+// ── Position map: id → [left, top] (px) ──────────────────────────────
+const POS = {
+  root: [580, 390],
+
+  // Left side — strategy
+  L1:  [370, 100],
+  L1a: [140, 60],
+  L1b: [140, 112],
+  L1c: [140, 164],
+
+  L2:  [370, 240],
+  L2a: [140, 210],
+  L2b: [140, 262],
+  L2c: [140, 314],
+
+  L3:  [360, 380],
+  L3a: [100, 345],
+  L3b: [100, 440],
+
+  L4:  [350, 530],
+  L4a: [100, 487],
+  L4b: [100, 527],
+  L4c: [100, 567],
+  L4d: [100, 607],
+  L4e: [100, 647],
+
+  L5:  [360, 680],
+  L5a: [140, 645],
+  L5b: [140, 685],
+  L5c: [140, 725],
+  L5d: [140, 765],
+  L5e: [140, 805],
+  L5f: [140, 845],
+
+  // Right side — content
+  R1:  [830, 70],
+  R1a: [1010, 40],
+  R1b: [1010, 82],
+  R1c: [1010, 124],
+  R1d: [1010, 166],
+
+  R2:  [830, 210],
+  R2a: [1010, 170],
+  R2b: [1010, 210],
+  R2c: [1010, 250],
+  R2d: [1010, 290],
+  R2e: [1010, 330],
+  R2f: [1010, 370],
+  R2g: [1010, 410],
+
+  R3:  [830, 390],
+  R3a: [1010, 460],
+  R3b: [1010, 498],
+  R3c: [1010, 536],
+
+  R4:  [830, 510],
+  R4a: [1010, 575],
+  R4b: [1010, 613],
+
+  R5:  [830, 620],
+  R5a: [1010, 650],
+  R5b: [1010, 688],
+  R5c: [1010, 726],
+
+  R6:  [830, 720],
+  R6a: [1010, 764],
+  R6b: [1010, 802],
+  R6c: [1010, 840],
+
+  R7:  [830, 820],
+  R7a: [1010, 878],
+  R7b: [1010, 916],
+
+  R8:  [830, 920],
+  R8a: [1010, 955],
+  R8b: [1010, 993],
+  R8c: [1010, 1031],
+  R8d: [1010, 1069],
+};
+
+// ── Edges: [from, to, colour] ────────────────────────────────────────
+const EDGES = [
+  // root → branches
+  ['root','L1','rgba(249,115,22,.5)'],
+  ['root','L2','rgba(16,185,129,.5)'],
+  ['root','L3','rgba(245,158,11,.5)'],
+  ['root','L4','rgba(148,163,184,.4)'],
+  ['root','L5','rgba(139,92,246,.5)'],
+  ['root','R1','rgba(59,130,246,.5)'],
+  ['root','R2','rgba(34,197,94,.5)'],
+  ['root','R3','rgba(20,184,166,.5)'],
+  ['root','R4','rgba(99,102,241,.5)'],
+  ['root','R5','rgba(245,158,11,.5)'],
+  ['root','R6','rgba(244,63,94,.5)'],
+  ['root','R7','rgba(139,92,246,.4)'],
+  ['root','R8','rgba(6,182,212,.5)'],
+
+  // L1 leaves
+  ['L1','L1a','rgba(249,115,22,.3)'],
+  ['L1','L1b','rgba(249,115,22,.3)'],
+  ['L1','L1c','rgba(249,115,22,.3)'],
+  // L2 leaves
+  ['L2','L2a','rgba(16,185,129,.3)'],
+  ['L2','L2b','rgba(16,185,129,.3)'],
+  ['L2','L2c','rgba(16,185,129,.3)'],
+  // L3 leaves
+  ['L3','L3a','rgba(245,158,11,.3)'],
+  ['L3','L3b','rgba(245,158,11,.3)'],
+  // L4 leaves
+  ['L4','L4a','rgba(148,163,184,.25)'],
+  ['L4','L4b','rgba(148,163,184,.25)'],
+  ['L4','L4c','rgba(148,163,184,.25)'],
+  ['L4','L4d','rgba(148,163,184,.25)'],
+  ['L4','L4e','rgba(148,163,184,.25)'],
+  // L5 leaves
+  ['L5','L5a','rgba(139,92,246,.25)'],
+  ['L5','L5b','rgba(139,92,246,.25)'],
+  ['L5','L5c','rgba(139,92,246,.25)'],
+  ['L5','L5d','rgba(139,92,246,.25)'],
+  ['L5','L5e','rgba(139,92,246,.25)'],
+  ['L5','L5f','rgba(139,92,246,.25)'],
+  // R1 leaves
+  ['R1','R1a','rgba(59,130,246,.25)'],
+  ['R1','R1b','rgba(59,130,246,.25)'],
+  ['R1','R1c','rgba(59,130,246,.25)'],
+  ['R1','R1d','rgba(59,130,246,.25)'],
+  // R2 leaves
+  ['R2','R2a','rgba(34,197,94,.25)'],
+  ['R2','R2b','rgba(34,197,94,.25)'],
+  ['R2','R2c','rgba(34,197,94,.25)'],
+  ['R2','R2d','rgba(34,197,94,.25)'],
+  ['R2','R2e','rgba(34,197,94,.25)'],
+  ['R2','R2f','rgba(34,197,94,.25)'],
+  ['R2','R2g','rgba(34,197,94,.25)'],
+  // R3 leaves
+  ['R3','R3a','rgba(20,184,166,.25)'],
+  ['R3','R3b','rgba(20,184,166,.25)'],
+  ['R3','R3c','rgba(20,184,166,.25)'],
+  // R4 leaves
+  ['R4','R4a','rgba(99,102,241,.25)'],
+  ['R4','R4b','rgba(99,102,241,.25)'],
+  // R5 leaves
+  ['R5','R5a','rgba(245,158,11,.25)'],
+  ['R5','R5b','rgba(245,158,11,.25)'],
+  ['R5','R5c','rgba(245,158,11,.25)'],
+  // R6 leaves
+  ['R6','R6a','rgba(244,63,94,.25)'],
+  ['R6','R6b','rgba(244,63,94,.25)'],
+  ['R6','R6c','rgba(244,63,94,.25)'],
+  // R7 leaves
+  ['R7','R7a','rgba(139,92,246,.25)'],
+  ['R7','R7b','rgba(139,92,246,.25)'],
+  // R8 leaves
+  ['R8','R8a','rgba(6,182,212,.25)'],
+  ['R8','R8b','rgba(6,182,212,.25)'],
+  ['R8','R8c','rgba(6,182,212,.25)'],
+  ['R8','R8d','rgba(6,182,212,.25)'],
+];
+
+// ── Node sizes (w, h) ──────────────────────────────────────────────
+function nodeSize(id){
+  const el = document.getElementById(id);
+  return el ? [el.offsetWidth, el.offsetHeight] : [160, 36];
+}
+
+function center(id){
+  const p = POS[id];
+  const [w,h] = nodeSize(id);
+  return [p[0] + w/2, p[1] + h/2];
+}
+
+// ── Place nodes ───────────────────────────────────────────────────
+function placeNodes(){
+  Object.entries(POS).forEach(([id,[l,t]])=>{
+    const el = document.getElementById(id);
+    if(el){ el.style.left = l+'px'; el.style.top = t+'px'; }
+  });
+}
+
+// ── Draw SVG bezier curves ────────────────────────────────────────
+function drawEdges(){
+  const svg = document.getElementById('svg-layer');
+  const canvas = document.getElementById('canvas');
+  svg.setAttribute('width', canvas.scrollWidth);
+  svg.setAttribute('height', canvas.scrollHeight);
+  svg.innerHTML = '';
+
+  EDGES.forEach(([from, to, colour])=>{
+    const [x1,y1] = center(from);
+    const [x2,y2] = center(to);
+    // Bezier control points
+    const dx = (x2-x1)*0.5;
+    const path = document.createElementNS('http://www.w3.org/2000/svg','path');
+    path.setAttribute('d',`M${x1},${y1} C${x1+dx},${y1} ${x2-dx},${y2} ${x2},${y2}`);
+    path.setAttribute('stroke', colour);
+    path.setAttribute('stroke-width','1.5');
+    path.setAttribute('fill','none');
+    svg.appendChild(path);
+  });
+}
+
+// ── Page links ────────────────────────────────────────────────────
+const LINKS = {
+  root:'../index.html',
+  R1:'../scene-library/index.html',
+  R1a:'../scene-library/index.html',
+  R2:'../application-scenarios/index.html',
+  R2a:'../application-scenarios/studio-pro-crafts/index.html',
+  R2b:'../application-scenarios/beginner-first-project/index.html',
+  R2c:'../application-scenarios/classroom-safety/index.html',
+  R2d:'../application-scenarios/small-business-batch/index.html',
+  R2e:'../application-scenarios/gifts-irregular-shapes/index.html',
+  R2f:'../application-scenarios/home-decor-personalization/index.html',
+  R2g:'../application-scenarios/photo-engraving-portraits/index.html',
+  R3:'../support/index.html',
+  R3a:'../support/before-you-buy/index.html',
+  R3b:'../support/after-you-buy/index.html',
+  R3c:'../support/contact/index.html',
+  R4:'../tutorials/index.html',
+  R4a:'../tutorials/acrylic-5mm-cutting/index.html',
+  R4b:'../tutorials/array-test/index.html',
+  R5:'../materials/index.html',
+  R6:'../troubleshooting/index.html',
+  R6a:'../troubleshooting/burnt-edges/index.html',
+  R6b:'../troubleshooting/camera-offset/index.html',
+  R7:'../software/index.html',
+  L4:'../ssot/link-pool/index.html',
+  L4e:'../llms.txt',
+  L3:'../roadmap/index.html',
+};
+
+function addLinks(){
+  Object.entries(LINKS).forEach(([id,href])=>{
+    const el = document.getElementById(id);
+    if(!el) return;
+    el.style.cursor='pointer';
+    el.addEventListener('click',()=>{ window.location.href = href; });
+  });
+}
+
+// ── Init ──────────────────────────────────────────────────────────
+window.addEventListener('load',()=>{
+  placeNodes();
+  setTimeout(()=>{ drawEdges(); }, 50);
+  addLinks();
+});
+window.addEventListener('resize', drawEdges);
+</script>
 </body>
 </html>
