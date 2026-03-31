@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>TOOCAA Content Hub — Mind Map</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0f1117;
+      color: #e2e8f0;
+      min-height: 100vh;
+      overflow-x: auto;
+    }
+
+    header {
+      padding: 20px 32px 12px;
+      border-bottom: 1px solid #1e2535;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    header a {
+      color: #64748b;
+      font-size: .8rem;
+      text-decoration: none;
+    }
+    header a:hover { color: #94a3b8; }
+    header h1 { font-size: 1rem; font-weight: 700; color: #f1f5f9; }
+    header span { font-size: .8rem; color: #64748b; }
+
+    .canvas {
+      padding: 48px 32px 80px;
+      min-width: 1100px;
+    }
+
+    /* ── Tree layout ── */
+    .tree {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    /* Root node */
+    .root {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #f97316, #ea580c);
+      color: #fff;
+      font-weight: 800;
+      font-size: 1.05rem;
+      padding: 14px 24px;
+      border-radius: 12px;
+      margin-bottom: 40px;
+      box-shadow: 0 4px 24px rgba(249,115,22,.35);
+      width: fit-content;
+    }
+
+    /* Branch rows */
+    .branches {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+
+    /* Individual branch */
+    .branch {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      min-width: 200px;
+      max-width: 240px;
+      flex: 1;
+    }
+
+    /* Branch header */
+    .b-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 8px 8px 0 0;
+      font-weight: 700;
+      font-size: .82rem;
+      letter-spacing: .01em;
+      text-decoration: none;
+      color: inherit;
+      transition: filter .15s;
+    }
+    .b-head:hover { filter: brightness(1.15); }
+    .b-head .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      background: currentColor;
+      opacity: .7;
+    }
+
+    /* Leaf list */
+    .b-leaves {
+      border-radius: 0 0 8px 8px;
+      padding: 8px 0 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .leaf {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 14px 5px 20px;
+      font-size: .78rem;
+      color: #94a3b8;
+      text-decoration: none;
+      transition: color .12s, background .12s;
+      border-radius: 4px;
+    }
+    .leaf:hover { color: #e2e8f0; background: rgba(255,255,255,.04); }
+    .leaf::before {
+      content: '';
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: currentColor;
+      opacity: .5;
+      flex-shrink: 0;
+    }
+
+    /* Sub-section label inside leaves */
+    .leaf-label {
+      font-size: .68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      padding: 6px 14px 2px 14px;
+      color: #475569;
+    }
+
+    /* Colour themes per branch */
+    .col-orange  .b-head { background: rgba(249,115,22,.18); color: #fb923c; }
+    .col-orange  .b-leaves { background: rgba(249,115,22,.06); }
+
+    .col-blue    .b-head { background: rgba(59,130,246,.18); color: #60a5fa; }
+    .col-blue    .b-leaves { background: rgba(59,130,246,.06); }
+
+    .col-green   .b-head { background: rgba(34,197,94,.18); color: #4ade80; }
+    .col-green   .b-leaves { background: rgba(34,197,94,.06); }
+
+    .col-purple  .b-head { background: rgba(168,85,247,.18); color: #c084fc; }
+    .col-purple  .b-leaves { background: rgba(168,85,247,.06); }
+
+    .col-teal    .b-head { background: rgba(20,184,166,.18); color: #2dd4bf; }
+    .col-teal    .b-leaves { background: rgba(20,184,166,.06); }
+
+    .col-rose    .b-head { background: rgba(244,63,94,.18); color: #fb7185; }
+    .col-rose    .b-leaves { background: rgba(244,63,94,.06); }
+
+    .col-amber   .b-head { background: rgba(245,158,11,.18); color: #fbbf24; }
+    .col-amber   .b-leaves { background: rgba(245,158,11,.06); }
+
+    .col-indigo  .b-head { background: rgba(99,102,241,.18); color: #818cf8; }
+    .col-indigo  .b-leaves { background: rgba(99,102,241,.06); }
+
+    .col-slate   .b-head { background: rgba(148,163,184,.18); color: #cbd5e1; }
+    .col-slate   .b-leaves { background: rgba(148,163,184,.06); }
+
+    /* Legend */
+    .legend {
+      margin-top: 48px;
+      padding: 16px 20px;
+      background: #161b27;
+      border: 1px solid #1e2535;
+      border-radius: 10px;
+      width: fit-content;
+      font-size: .76rem;
+      color: #64748b;
+      line-height: 1.8;
+    }
+    .legend strong { color: #94a3b8; }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="../index.html">← Content Hub</a>
+  <h1>TOOCAA Content Hub — Mind Map</h1>
+  <span>Click any node to open the page</span>
+</header>
+
+<div class="canvas">
+  <div class="tree">
+
+    <!-- Root -->
+    <div class="root">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+      TOOCAA Content Hub Prototype
+    </div>
+
+    <!-- Branches -->
+    <div class="branches">
+
+      <!-- 1. Scene Library -->
+      <div class="branch col-orange">
+        <a class="b-head" href="../scene-library/index.html">
+          <span class="dot"></span>Scene Library
+        </a>
+        <div class="b-leaves">
+          <div class="leaf-label">File categories</div>
+          <span class="leaf">Featured Scenes (6)</span>
+          <span class="leaf">Animals (3)</span>
+          <span class="leaf">Nature (3+)</span>
+          <div class="leaf-label">Formats</div>
+          <span class="leaf">SVG · DXF · LightBurn</span>
+          <div class="leaf-label">Linked</div>
+          <a class="leaf" href="../application-scenarios/index.html">→ Application Scenarios</a>
+        </div>
+      </div>
+
+      <!-- 2. Use Cases (test) -->
+      <div class="branch col-blue">
+        <a class="b-head" href="../use-cases/index.html">
+          <span class="dot"></span>Use Cases test
+        </a>
+        <div class="b-leaves">
+          <span class="leaf">Redirects → Scene Library</span>
+        </div>
+      </div>
+
+      <!-- 3. Application Scenarios -->
+      <div class="branch col-green">
+        <a class="b-head" href="../application-scenarios/index.html">
+          <span class="dot"></span>Application Scenarios
+        </a>
+        <div class="b-leaves">
+          <a class="leaf" href="../application-scenarios/studio-pro-crafts/index.html">1 · Pro Studio / Crafts</a>
+          <a class="leaf" href="../application-scenarios/beginner-first-project/index.html">2 · Beginner Path</a>
+          <a class="leaf" href="../application-scenarios/classroom-safety/index.html">3 · Classroom / Education</a>
+          <a class="leaf" href="../application-scenarios/small-business-batch/index.html">4 · Small Business</a>
+          <a class="leaf" href="../application-scenarios/gifts-irregular-shapes/index.html">5 · Gifts</a>
+          <a class="leaf" href="../application-scenarios/signage-qr-readability/index.html">6 · Signage / QR</a>
+          <a class="leaf" href="../application-scenarios/home-decor-personalization/index.html">7 · Home Decor</a>
+          <a class="leaf" href="../application-scenarios/jewelry-precision-engraving/index.html">8 · Jewelry</a>
+          <a class="leaf" href="../application-scenarios/packaging-branding/index.html">9 · Packaging &amp; Branding</a>
+          <a class="leaf" href="../application-scenarios/photo-engraving-portraits/index.html">10 · Photo Engraving</a>
+        </div>
+      </div>
+
+      <!-- 4. Support -->
+      <div class="branch col-teal">
+        <a class="b-head" href="../support/index.html">
+          <span class="dot"></span>Support Entry
+        </a>
+        <div class="b-leaves">
+          <a class="leaf" href="../support/before-you-buy/index.html">Before You Buy</a>
+          <a class="leaf" href="../support/after-you-buy/index.html">After You Buy</a>
+          <a class="leaf" href="../support/contact/index.html">Contact / Ticket</a>
+          <div class="leaf-label">Also covers</div>
+          <span class="leaf">Materials &amp; Settings</span>
+          <span class="leaf">Use Cases (cross-link)</span>
+        </div>
+      </div>
+
+      <!-- 5. Tutorials -->
+      <div class="branch col-purple">
+        <a class="b-head" href="../tutorials/index.html">
+          <span class="dot"></span>Tutorials (How-to)
+        </a>
+        <div class="b-leaves">
+          <a class="leaf" href="../tutorials/acrylic-5mm-cutting/index.html">Acrylic 5mm Clean Cut</a>
+          <a class="leaf" href="../tutorials/array-test/index.html">Array Test Template</a>
+          <div class="leaf-label">Linked to</div>
+          <span class="leaf">Use Cases (cross-link)</span>
+          <span class="leaf">Materials hub</span>
+        </div>
+      </div>
+
+      <!-- 6. Materials -->
+      <div class="branch col-amber">
+        <a class="b-head" href="../materials/index.html">
+          <span class="dot"></span>Materials &amp; Settings
+        </a>
+        <div class="b-leaves">
+          <span class="leaf">Settings tables (SSOT)</span>
+          <span class="leaf">Array test results</span>
+          <span class="leaf">Quality troubleshooting</span>
+          <div class="leaf-label">Downloads</div>
+          <a class="leaf" href="../downloads/TOOCAA-Array-Test-Template.csv">Array Test CSV</a>
+          <a class="leaf" href="../downloads/Jig-Checklist.txt">Jig Checklist</a>
+          <a class="leaf" href="../downloads/Acrylic-Display-Stand-Set.svg">Acrylic Stand SVG</a>
+          <a class="leaf" href="../downloads/Adjustable-Jig-Base-01.svg">Adjustable Jig SVG</a>
+        </div>
+      </div>
+
+      <!-- 7. Troubleshooting -->
+      <div class="branch col-rose">
+        <a class="b-head" href="../troubleshooting/index.html">
+          <span class="dot"></span>Troubleshooting
+        </a>
+        <div class="b-leaves">
+          <a class="leaf" href="../troubleshooting/burnt-edges/index.html">Burnt Edges</a>
+          <a class="leaf" href="../troubleshooting/camera-offset/index.html">Camera Offset</a>
+          <div class="leaf-label">Pattern</div>
+          <span class="leaf">Symptom → Test → Fix → Ticket</span>
+        </div>
+      </div>
+
+      <!-- 8. Software -->
+      <div class="branch col-indigo">
+        <a class="b-head" href="../software/index.html">
+          <span class="dot"></span>Software
+        </a>
+        <div class="b-leaves">
+          <span class="leaf">TOOCAA Studio</span>
+          <span class="leaf">LightBurn</span>
+          <span class="leaf">Setup &amp; workflow guides</span>
+        </div>
+      </div>
+
+      <!-- 9. SSOT -->
+      <div class="branch col-slate">
+        <a class="b-head" href="../ssot/link-pool/index.html">
+          <span class="dot"></span>SSOT / Governance
+        </a>
+        <div class="b-leaves">
+          <span class="leaf">Link Pool (canonical URLs)</span>
+          <span class="leaf">Canonical + noindex rules</span>
+          <span class="leaf">301 redirect map</span>
+          <a class="leaf" href="../llms.txt">llms.txt</a>
+          <a class="leaf" href="../robots.txt">robots.txt</a>
+          <a class="leaf" href="../sitemap.xml">sitemap.xml</a>
+        </div>
+      </div>
+
+      <!-- 10. Roadmap -->
+      <div class="branch col-slate">
+        <a class="b-head" href="../roadmap/index.html">
+          <span class="dot"></span>Roadmap
+        </a>
+        <div class="b-leaves">
+          <span class="leaf">1-year content plan</span>
+          <span class="leaf">SEO / GEO milestones</span>
+        </div>
+      </div>
+
+    </div><!-- /branches -->
+
+    <div class="legend">
+      <strong>Goal:</strong> SEO (search) + GEO (AI citations) + Support ticket reduction<br>
+      <strong>Pattern:</strong> Each page → TL;DR · Setup · HowTo · FAQ · Downloads · CTAs<br>
+      <strong>SSOT rule:</strong> One canonical page per topic · duplicates 301 or noindex
+    </div>
+
+  </div><!-- /tree -->
+</div>
+
+</body>
+</html>
