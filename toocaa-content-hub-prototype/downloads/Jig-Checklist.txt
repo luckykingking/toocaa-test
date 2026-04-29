@@ -1,6 +1,0 @@
-Fixture/Jig checklist (placeholder)
-- Identify repeatable origin
-- Add hard stops (X/Y)
-- Add swappable blocks
-- Test alignment with low-power outline
-- Document settings card
