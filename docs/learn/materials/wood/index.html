@@ -3,29 +3,49 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Wood Laser Cutting Guide: Settings, Best Wood & Safety | TOOCAA</title>
-  <meta name="description" content="Complete laser cutting wood guide: best wood for laser cutting, MDF & plywood settings, power/speed parameter tables, safety, FAQs. Cut and engrave wood with confidence."/>
+  <title>Wood Laser Cutting Guide: Settings, Best Wood, Safety | TOOCAA</title>
+  <meta name="description" content="A practical guide to laser cutting wood: choose the best wood, calculate diode laser settings, compare plywood and MDF parameters, reduce burnt edges, and plan safe projects."/>
   <meta name="keywords" content="laser cutting wood, wood laser cutter, laser cut wood, laser engrave wood, cutting plywood with laser cutter, mdf laser cutting machine, laser cut mdf, good wood for laser cutting, wood cutting laser machines, laser carving on wood"/>
   <link rel="canonical" href="https://luckykingking.github.io/toocaa-test/learn/materials/wood/"/>
+  <link rel="icon" href="https://www.toocaa.com/cdn/shop/files/logo.png?v=1760693299&width=64"/>
 
   <meta property="og:type" content="article"/>
-  <meta property="og:title" content="Wood Laser Cutting Guide: Settings, Best Wood & Safety"/>
-  <meta property="og:description" content="The complete guide to laser cutting wood — best species, plywood and MDF settings, parameter tables, safety, and FAQs."/>
+  <meta property="og:title" content="Wood Laser Cutting Guide: Settings, Best Wood, Safety"/>
+  <meta property="og:description" content="Choose wood, set power and speed, prevent char, and build safer laser cut wood projects with TOOCAA."/>
   <meta property="og:url" content="https://luckykingking.github.io/toocaa-test/learn/materials/wood/"/>
+  <meta property="og:image" content="https://www.toocaa.com/cdn/shop/files/Frame_422561-156889.jpg?v=1731200323&width=2000"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
-  <link rel="stylesheet" href="../../../assets/main.css"/>
+  <link rel="stylesheet" href="../../../assets/main.css?v=wood-guide-20260429"/>
+  <style>
+    html { scroll-padding-top: 96px; }
+    @media (max-width: 720px) { html { scroll-padding-top: 132px; } }
+  </style>
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "Wood Laser Cutting Guide: Settings, Best Wood & Safety",
-    "description": "Complete guide to laser cutting wood: best wood species, plywood and MDF parameters, kerf control, and safety.",
+    "headline": "Wood Laser Cutting Guide: Settings, Best Wood, Safety",
+    "description": "A practical guide to laser cutting wood, choosing materials, dialing in diode laser settings, reducing burn marks, and planning safe projects.",
     "author": { "@type": "Organization", "name": "TOOCAA" },
-    "publisher": { "@type": "Organization", "name": "TOOCAA" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "TOOCAA",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.toocaa.com/cdn/shop/files/logo.png?v=1760693299&width=150"
+      }
+    },
+    "image": "https://www.toocaa.com/cdn/shop/files/Frame_422561-156889.jpg?v=1731200323&width=2000",
     "mainEntityOfPage": "https://luckykingking.github.io/toocaa-test/learn/materials/wood/",
-    "about": ["laser cutting wood", "wood laser cutter", "plywood laser cutting", "MDF laser cutting"]
+    "about": [
+      "laser cutting wood",
+      "wood laser cutter",
+      "laser engrave wood",
+      "cutting plywood with laser cutter",
+      "MDF laser cutting"
+    ]
   }
   </script>
 
@@ -33,14 +53,23 @@
   {
     "@context": "https://schema.org",
     "@type": "HowTo",
-    "name": "How to Laser Cut Wood",
-    "description": "Step-by-step instructions for cutting wood with a desktop diode laser, from material prep to safe finishing.",
+    "name": "How to laser cut wood cleanly",
+    "description": "A desktop diode laser workflow for selecting wood, running a parameter test, cutting with air assist, and finishing the edge safely.",
+    "totalTime": "PT30M",
+    "supply": [
+      { "@type": "HowToSupply", "name": "Basswood, birch plywood, MDF, or hardwood blank" },
+      { "@type": "HowToSupply", "name": "Masking tape or transfer tape" }
+    ],
+    "tool": [
+      { "@type": "HowToTool", "name": "Desktop diode laser cutter" },
+      { "@type": "HowToTool", "name": "Air assist and ventilation" }
+    ],
     "step": [
-      { "@type": "HowToStep", "name": "Choose the right wood", "text": "Pick a clean, low-resin species such as basswood, birch plywood, or MDF. Avoid oily hardwoods, knots, and warped boards." },
-      { "@type": "HowToStep", "name": "Prepare the workspace", "text": "Place the board on a honeycomb bed, level the laser, and clear smoke through ventilation or a fume extractor." },
-      { "@type": "HowToStep", "name": "Dial in settings", "text": "Run an array test to confirm power, speed, and pass count for the exact thickness and species you are cutting." },
-      { "@type": "HowToStep", "name": "Cut with air assist", "text": "Enable air assist to clear smoke from the kerf, reduce charring, and produce cleaner edges." },
-      { "@type": "HowToStep", "name": "Inspect and finish", "text": "Check that all parts are fully cut through, sand lightly to remove char, and apply finish if desired." }
+      { "@type": "HowToStep", "name": "Choose a stable wood", "text": "Start with flat, low-resin wood such as basswood, birch plywood, poplar plywood, MDF, walnut, or cherry." },
+      { "@type": "HowToStep", "name": "Prepare the board", "text": "Mask the face, place it flat on a honeycomb bed, set focus, and confirm air assist and ventilation are running." },
+      { "@type": "HowToStep", "name": "Run a small settings test", "text": "Use the calculator and table on this page as a starting point, then cut a small test square before the full job." },
+      { "@type": "HowToStep", "name": "Cut or engrave", "text": "Use higher power and slower movement for cutting, or lower power and faster movement for engraving." },
+      { "@type": "HowToStep", "name": "Inspect and finish", "text": "Check tabs and inner corners, sand char lightly, and adjust speed or passes for the next sheet." }
     ]
   }
   </script>
@@ -53,449 +82,585 @@
       {
         "@type": "Question",
         "name": "What is the best wood for laser cutting?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Basswood, birch plywood, poplar, and MDF are the easiest woods to laser cut because they have low resin content, even density, and a light color that reduces visible char. Walnut and cherry cut beautifully but burn faster, so they need slower speeds or extra passes." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Basswood, birch plywood, poplar plywood, and MDF are the easiest woods for a diode laser because they are flat, light colored, and consistent. Walnut and cherry also engrave well, but need slower speeds and closer fire monitoring." }
       },
       {
         "@type": "Question",
         "name": "Can a diode laser cut wood?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes. A 10W diode laser can cut up to 5–6 mm basswood or birch plywood in 1–3 passes. A 20W diode laser handles 8–10 mm wood and most 3 mm hardwoods in a single pass with air assist enabled." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. A 10W diode laser can usually cut 3 mm wood cleanly and may cut 5 to 6 mm wood with multiple passes. A 20W diode laser is better for 6 to 10 mm wood when air assist and good focus are used." }
       },
       {
         "@type": "Question",
-        "name": "How do I avoid burnt edges when laser cutting wood?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Reduce char by applying masking tape to the surface, using air assist, lowering power and using more passes, and choosing low-resin woods. Wipe scorch marks with a damp cloth or 320-grit sandpaper." }
+        "name": "How do I reduce burnt edges when laser cutting wood?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Use air assist, keep the board flat, mask the surface, clean the lens, and avoid too much power in a single pass. Multiple cleaner passes often produce a better edge than one very hot pass." }
       },
       {
         "@type": "Question",
-        "name": "How thick of wood can a laser cut?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Maximum cut depth depends on laser power. A 10W diode can handle up to 6 mm wood; a 20W diode reaches 8–10 mm in multiple passes. A 40W+ CO2 laser cuts 15 mm and beyond cleanly in a single pass." }
+        "name": "Is MDF safe to laser cut?",
+        "acceptedAnswer": { "@type": "Answer", "text": "MDF can be laser cut, but it produces heavy smoke from its binder. Use an enclosure, strong exhaust, and a fume filter. Do not cut MDF in an unventilated room." }
       },
       {
         "@type": "Question",
-        "name": "Is laser cutting MDF safe?",
-        "acceptedAnswer": { "@type": "Answer", "text": "MDF cuts cleanly with a laser but produces formaldehyde-bearing smoke from its binder. Always run an enclosed machine with strong ventilation or a dedicated fume extractor. Never cut MDF in an unventilated space." }
+        "name": "Why is plywood not cutting all the way through?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Plywood can contain dense glue, hidden knots, or inner voids. Refocus, slow the speed, add a pass, and test another corner of the sheet before assuming the laser is underpowered." }
       }
     ]
   }
   </script>
 </head>
-<body>
+<body class="wood-page">
+  <header class="hub-header">
+    <div class="hub-header__inner">
+      <a class="hub-logo" href="../../../index.html" aria-label="TOOCAA home">
+        <img src="https://www.toocaa.com/cdn/shop/files/logo.png?v=1760693299&width=150" alt="TOOCAA"/>
+      </a>
 
-  <!-- Utility bar -->
-  <div class="utility-bar">
-    <div class="utility-bar-inner">
-      <span class="utility-item caret">English</span>
-      <span class="utility-item caret"><span class="flag" aria-hidden="true"></span>United States (USD $)</span>
-    </div>
-  </div>
+      <button class="hub-menu-btn" type="button" aria-label="Open navigation" aria-expanded="false" data-menu-toggle>
+        <span></span><span></span><span></span>
+      </button>
 
-  <!-- Site header -->
-  <header class="site-header">
-    <div class="site-header-inner">
-      <a class="brand-logo" href="../../../index.html">TOOCAA</a>
-
-      <form class="search" role="search" onsubmit="return false;">
-        <input type="search" placeholder="What are you looking for?" aria-label="Search"/>
-        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <circle cx="11" cy="11" r="7"/>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-        </svg>
-      </form>
-
-      <div class="header-actions">
-        <a class="icon-btn" href="#" aria-label="Account">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-            <circle cx="12" cy="7" r="4"/>
-          </svg>
-        </a>
-        <a class="icon-btn" href="#" aria-label="Cart">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/>
-            <line x1="3" y1="6" x2="21" y2="6"/>
-            <path d="M16 10a4 4 0 0 1-8 0"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-  </header>
-
-  <!-- Main nav -->
-  <div class="main-nav-wrap">
-    <nav class="main-nav" aria-label="Main">
-      <div class="nav-item">
-        <a class="nav-link" href="#">Products
-          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </a>
-        <div class="dropdown"><ul class="dropdown-list">
-          <li><a class="dropdown-link" href="#">Machine</a></li>
-          <li><a class="dropdown-link" href="#">Accessories</a></li>
-          <li><a class="dropdown-link" href="#">Materials</a></li>
-        </ul></div>
-      </div>
-      <div class="nav-item">
-        <a class="nav-link" href="#">Software
-          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </a>
-        <div class="dropdown"><ul class="dropdown-list">
-          <li><a class="dropdown-link" href="#">TOOCAA Studio</a></li>
-        </ul></div>
-      </div>
-      <div class="nav-item">
-        <a class="nav-link active" href="#">Learn
-          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </a>
-        <div class="dropdown"><ul class="dropdown-list">
-          <li><a class="dropdown-link" href="#">Use Cases</a></li>
-          <li><a class="dropdown-link" href="#">Tutorials</a></li>
-          <li><a class="dropdown-link" href="index.html">Materials &nbsp;›&nbsp; Wood</a></li>
-          <li><a class="dropdown-link" href="#">Blog</a></li>
-          <li><a class="dropdown-link" href="#">Community</a></li>
-        </ul></div>
-      </div>
-      <div class="nav-item">
-        <a class="nav-link" href="#">Support
-          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </a>
-        <div class="dropdown"><ul class="dropdown-list">
-          <li><a class="dropdown-link" href="#">Before You Buy</a></li>
-          <li><a class="dropdown-link" href="#">Material Settings</a></li>
-          <li><a class="dropdown-link" href="#">Contact</a></li>
-        </ul></div>
-      </div>
-      <div class="nav-item">
-        <a class="nav-link" href="#">About TOOCAA</a>
-      </div>
-    </nav>
-  </div>
-
-  <!-- Page body -->
-  <main class="guide-wrap">
-
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="../../../index.html">Home</a><span class="sep">/</span>
-      <a href="#">Learn</a><span class="sep">/</span>
-      <a href="#">Materials</a><span class="sep">/</span>
-      <span>Wood</span>
-    </nav>
-
-    <header class="guide-hero">
-      <span class="eyebrow">Materials Guide</span>
-      <h1>Wood Laser Cutting Guide</h1>
-      <p class="lede">Everything you need to laser cut and engrave wood at home or in the studio — best wood species, plywood and MDF settings, kerf control, safe-to-cut materials, project ideas, and FAQs.</p>
-      <p class="meta">Updated 2026 · For 10W and 20W diode lasers · ~6 min read</p>
-    </header>
-
-    <nav class="toc" aria-label="On this page">
-      <strong>On this page</strong>
-      <ul class="toc-list">
-        <li><a href="#m1"><span class="num">1</span>Material selection</a></li>
-        <li><a href="#m2"><span class="num">2</span>Parameter simulator</a></li>
-        <li><a href="#m3"><span class="num">3</span>Settings table</a></li>
-        <li><a href="#m4"><span class="num">4</span>Safe vs. avoid</a></li>
-        <li><a href="#m5"><span class="num">5</span>Project gallery</a></li>
-        <li><a href="#m6"><span class="num">6</span>Related reading</a></li>
-        <li><a href="#m7"><span class="num">7</span>FAQ</a></li>
-      </ul>
-    </nav>
-
-    <p style="margin:28px 0 8px;">If you are new to <strong>laser cutting wood</strong>, start with the recommendations below. Diode lasers cut and engrave most softwoods, plywoods and MDF, but a small amount of prep — and the right power, speed, and pass count — saves time, char, and ruined material. The settings here target a TOOCAA L2 or NOVA class desktop laser; adjust for your specific machine.</p>
-
-    <!-- ============================================================ -->
-    <!-- MODULE 1 — Material selection -->
-    <section class="module" id="m1">
-      <div class="module-num">1</div>
-      <h2>Recommended wood for laser cutting</h2>
-      <p class="subtitle">Helps you pick a wood or board that cuts cleanly on a desktop laser.</p>
-
-      <div class="material-grid">
-        <article class="material-card">
-          <div class="material-swatch maple" aria-hidden="true"></div>
-          <h3>Basswood / Maple</h3>
-          <p>Low resin, smooth grain, light color — the easiest wood to cut and engrave.</p>
-          <div class="dot-row"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></div>
-        </article>
-        <article class="material-card">
-          <div class="material-swatch birch" aria-hidden="true"></div>
-          <h3>Birch Plywood</h3>
-          <p>Even layers, glue with low char. Best general-purpose laser plywood.</p>
-          <div class="dot-row"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span></div>
-        </article>
-        <article class="material-card">
-          <div class="material-swatch mdf" aria-hidden="true"></div>
-          <h3>MDF Board</h3>
-          <p>Cheap, uniform density, great for engraving. Cuts cleanly with strong ventilation.</p>
-          <div class="dot-row"><span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span></div>
-        </article>
-        <article class="material-card">
-          <div class="material-swatch walnut" aria-hidden="true"></div>
-          <h3>Walnut</h3>
-          <p>Deep, rich tone. Ideal for keepsakes and signage; needs slower passes.</p>
-          <div class="dot-row"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></div>
-        </article>
-        <article class="material-card">
-          <div class="material-swatch plywood" aria-hidden="true"></div>
-          <h3>Poplar Plywood</h3>
-          <p>Light and inexpensive — common big-box ply. Watch for inner voids.</p>
-          <div class="dot-row"><span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span></div>
-        </article>
-        <article class="material-card">
-          <div class="material-swatch cherry" aria-hidden="true"></div>
-          <h3>Cherry</h3>
-          <p>Reddish hardwood with high contrast engraving. Avoid pieces with sap pockets.</p>
-          <div class="dot-row"><span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span></div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ============================================================ -->
-    <!-- MODULE 2 — Parameter simulator -->
-    <section class="module" id="m2">
-      <div class="module-num">2</div>
-      <h2>Parameter input &amp; cut preview</h2>
-      <p class="subtitle">Pick a material and thickness; preview suggests a starting point. Always run a small test before a full job.</p>
-
-      <div class="sim-grid">
-        <div>
-          <div class="sim-tabs">
-            <button class="sim-tab active" type="button">Simulate</button>
-            <button class="sim-tab" type="button">Result</button>
-          </div>
-          <div class="sim-preview" aria-hidden="true">
-            <div class="sim-shape"></div>
+      <nav class="hub-nav" aria-label="TOOCAA guides">
+        <div class="hub-nav__item">
+          <a href="../../../use-cases/index.html">Use Cases</a>
+          <div class="hub-dropdown">
+            <a href="../../../use-cases/studio-pro-crafts/index.html">Professional Studio</a>
+            <a href="../../../use-cases/gifts-irregular-shapes/index.html">Gifts</a>
+            <a href="../../../use-cases/signage-qr-readability/index.html">Signage / QR</a>
+            <a href="../../../use-cases/home-decor-personalization/index.html">Home Decor</a>
+            <a href="../../../use-cases/jewelry-precision-engraving/index.html">Jewelry</a>
+            <a href="../../../use-cases/beginner-first-project/index.html">Beginner Path</a>
           </div>
         </div>
 
-        <aside class="sim-controls" aria-label="Suggested settings">
-          <h4>Settings</h4>
-          <div class="sim-row"><label>Material</label><span class="val">Basswood</span></div>
-          <div class="sim-row"><label>Thickness</label><span class="val">3 mm</span></div>
-          <div class="sim-row"><label>Laser power</label><span class="val">40 %</span></div>
-          <div class="sim-row"><label>Speed</label><span class="val">15 mm/s</span></div>
-          <div class="sim-row"><label>Mode</label><span class="val">Cut</span></div>
-          <button class="sim-cta" type="button">Start simulation</button>
-        </aside>
+        <div class="hub-nav__item">
+          <a href="../../../tutorials/index.html">Tutorials</a>
+          <div class="hub-dropdown">
+            <a href="../../../tutorials/acrylic-5mm-cutting/index.html">Acrylic 5mm Clean Cut</a>
+            <a href="../../../tutorials/array-test/index.html">Array Test Template</a>
+            <a href="#">Camera Alignment</a>
+          </div>
+        </div>
+
+        <div class="hub-nav__item">
+          <a class="is-active" href="../../../materials/index.html">Materials</a>
+          <div class="hub-dropdown">
+            <a class="is-current" href="index.html">Wood</a>
+            <a href="#">Acrylic</a>
+            <a href="#">Leather</a>
+            <a href="#">Glass</a>
+            <a href="#">Metal</a>
+            <a href="#">Stone</a>
+            <a href="#">Settings Framework</a>
+          </div>
+        </div>
+
+        <div class="hub-nav__item">
+          <a href="../../../support/index.html">Support</a>
+          <div class="hub-dropdown">
+            <a href="../../../support/before-you-buy/index.html">Before You Buy</a>
+            <a href="../../../support/after-you-buy/index.html">After You Buy</a>
+            <a href="../../../support/contact/index.html">Contact</a>
+            <a href="#">Ticket Checklist</a>
+          </div>
+        </div>
+
+        <div class="hub-nav__item">
+          <a href="../../../troubleshooting/index.html">Troubleshooting</a>
+          <div class="hub-dropdown">
+            <a href="../../../troubleshooting/burnt-edges/index.html">Burnt Edges</a>
+            <a href="../../../troubleshooting/camera-offset/index.html">Camera Offset</a>
+            <a href="#">Connection / Firmware</a>
+          </div>
+        </div>
+      </nav>
+
+      <form class="hub-search" role="search" onsubmit="return false;">
+        <input type="search" aria-label="Search TOOCAA guides" placeholder="Search settings, materials, guides"/>
+        <button type="submit" aria-label="Search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+        </button>
+      </form>
+    </div>
+  </header>
+
+  <main>
+    <section class="wood-hero">
+      <div class="wood-hero__content">
+        <nav class="wood-breadcrumb" aria-label="Breadcrumb">
+          <a href="../../../index.html">Home</a>
+          <span>/</span>
+          <a href="../../../materials/index.html">Materials</a>
+          <span>/</span>
+          <span>Wood</span>
+        </nav>
+        <p class="wood-eyebrow">TOOCAA Materials Guide</p>
+        <h1>Wood Laser Cutting Guide</h1>
+        <p class="wood-lede">Choose the right wood, calculate starting parameters, reduce burnt edges, and build cleaner projects on a desktop diode laser.</p>
+        <div class="wood-hero__actions">
+          <a class="wood-btn wood-btn--primary" href="#settings-calculator">Find my settings</a>
+          <a class="wood-btn wood-btn--secondary" href="#settings-table">View parameter table</a>
+        </div>
+        <dl class="wood-quick-stats" aria-label="Wood laser cutting summary">
+          <div><dt>Best first sheet</dt><dd>3 mm basswood</dd></div>
+          <div><dt>Cleaner edge</dt><dd>Air assist + masking</dd></div>
+          <div><dt>Common range</dt><dd>10W to 20W diode</dd></div>
+        </dl>
+      </div>
+
+      <figure class="wood-hero__visual">
+        <img src="https://www.toocaa.com/cdn/shop/files/Frame_422561-156889.jpg?v=1731200323&width=1600" alt="TOOCAA laser materials and project setup"/>
+        <figcaption>
+          <strong>Start with a test grid.</strong>
+          Wood density, glue layers, grain direction, and moisture change the final cut.
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="wood-section wood-intro">
+      <div>
+        <p>Laser cutting wood rewards small setup details. A flat board, clean focus, air assist, and a realistic first pass can be the difference between a crisp edge and a smoky, half-cut job. Use this guide to choose a wood, set up a wood laser cutter, compare plywood and MDF settings, and learn when to cut, engrave, or slow down for a cleaner result.</p>
+      </div>
+      <aside>
+        <strong>Quick answer</strong>
+        <p>For a first project, use 3 mm basswood or birch plywood. Cut with air assist, 100% power, moderate speed, and one small test square before the final design.</p>
+      </aside>
+    </section>
+
+    <section class="wood-section" id="material-selection">
+      <div class="wood-section__head">
+        <h2>Choose the best wood for laser cutting</h2>
+        <p>Use these cards to pick a material. Selecting a card also updates the settings calculator below.</p>
+      </div>
+
+      <div class="wood-materials" aria-label="Recommended wood materials">
+        <button class="wood-material is-selected" type="button" data-material-card="basswood">
+          <span class="wood-swatch wood-swatch--basswood"></span>
+          <span class="wood-material__body">
+            <strong>Basswood</strong>
+            <span>Best beginner wood. Light, low resin, smooth engraving, low char.</span>
+          </span>
+          <span class="wood-rating" aria-label="Clean cut rating 5 of 5"><i></i><i></i><i></i><i></i><i></i></span>
+        </button>
+
+        <button class="wood-material" type="button" data-material-card="birch">
+          <span class="wood-swatch wood-swatch--birch"></span>
+          <span class="wood-material__body">
+            <strong>Birch plywood</strong>
+            <span>Strong, common, and precise. Watch glue layers on thicker sheets.</span>
+          </span>
+          <span class="wood-rating" aria-label="Clean cut rating 4 of 5"><i></i><i></i><i></i><i></i><i class="muted"></i></span>
+        </button>
+
+        <button class="wood-material" type="button" data-material-card="mdf">
+          <span class="wood-swatch wood-swatch--mdf"></span>
+          <span class="wood-material__body">
+            <strong>MDF</strong>
+            <span>Uniform and affordable for signs. Needs strong ventilation.</span>
+          </span>
+          <span class="wood-rating" aria-label="Clean cut rating 3 of 5"><i></i><i></i><i></i><i class="muted"></i><i class="muted"></i></span>
+        </button>
+
+        <button class="wood-material" type="button" data-material-card="walnut">
+          <span class="wood-swatch wood-swatch--walnut"></span>
+          <span class="wood-material__body">
+            <strong>Walnut</strong>
+            <span>Premium dark finish for plaques, gifts, and contrast engraving.</span>
+          </span>
+          <span class="wood-rating" aria-label="Clean cut rating 4 of 5"><i></i><i></i><i></i><i></i><i class="muted"></i></span>
+        </button>
+
+        <button class="wood-material" type="button" data-material-card="poplar">
+          <span class="wood-swatch wood-swatch--poplar"></span>
+          <span class="wood-material__body">
+            <strong>Poplar plywood</strong>
+            <span>Budget-friendly and light. Test for voids before detail work.</span>
+          </span>
+          <span class="wood-rating" aria-label="Clean cut rating 3 of 5"><i></i><i></i><i></i><i class="muted"></i><i class="muted"></i></span>
+        </button>
+
+        <button class="wood-material" type="button" data-material-card="cherry">
+          <span class="wood-swatch wood-swatch--cherry"></span>
+          <span class="wood-material__body">
+            <strong>Cherry</strong>
+            <span>Warm color and beautiful engraving. Slow down to avoid scorching.</span>
+          </span>
+          <span class="wood-rating" aria-label="Clean cut rating 4 of 5"><i></i><i></i><i></i><i></i><i class="muted"></i></span>
+        </button>
       </div>
     </section>
 
-    <!-- ============================================================ -->
-    <!-- MODULE 3 — Parameter table -->
-    <section class="module" id="m3">
-      <div class="module-num">3</div>
-      <h2>Wood laser cutting settings table</h2>
-      <p class="subtitle">Starting parameters for common woods on a 10–20W diode laser. Tune ±20% to fit your machine.</p>
+    <section class="wood-section wood-calculator" id="settings-calculator">
+      <div class="wood-section__head">
+        <h2>Wood laser settings calculator</h2>
+        <p>Use this as a starting point for 10W and 20W diode lasers. Final settings depend on your exact sheet and machine condition.</p>
+      </div>
 
-      <div class="param-table-wrap">
-        <table class="param-table">
+      <div class="calc-grid">
+        <form class="calc-panel" aria-label="Wood laser settings inputs">
+          <label>
+            Material
+            <select id="woodMaterial">
+              <option value="basswood">Basswood</option>
+              <option value="birch">Birch plywood</option>
+              <option value="mdf">MDF</option>
+              <option value="walnut">Walnut</option>
+              <option value="poplar">Poplar plywood</option>
+              <option value="cherry">Cherry</option>
+            </select>
+          </label>
+
+          <label>
+            Thickness
+            <select id="woodThickness">
+              <option value="3">3 mm</option>
+              <option value="4">4 mm</option>
+              <option value="6">6 mm</option>
+              <option value="8">8 mm</option>
+            </select>
+          </label>
+
+          <label>
+            Laser module
+            <select id="woodPowerClass">
+              <option value="10">10W diode</option>
+              <option value="20" selected>20W diode</option>
+              <option value="40">40W diode</option>
+            </select>
+          </label>
+
+          <fieldset>
+            <legend>Job type</legend>
+            <label class="radio-line"><input type="radio" name="woodMode" value="cut" checked/> Cut through</label>
+            <label class="radio-line"><input type="radio" name="woodMode" value="engrave"/> Engrave surface</label>
+          </fieldset>
+        </form>
+
+        <div class="calc-preview" aria-live="polite">
+          <div class="laser-bed">
+            <div class="laser-path">
+              <span class="path-line path-line--x"></span>
+              <span class="path-line path-line--y"></span>
+              <span class="sample-piece" id="previewPiece"></span>
+            </div>
+          </div>
+
+          <div class="calc-result">
+            <p class="result-label">Suggested start point</p>
+            <div class="result-values">
+              <div><span id="resultPower">100%</span><small>Power</small></div>
+              <div><span id="resultSpeed">260 mm/min</span><small>Speed</small></div>
+              <div><span id="resultPasses">1 pass</span><small>Passes</small></div>
+            </div>
+            <p id="resultNote">Basswood cuts cleanly with air assist and a flat honeycomb bed.</p>
+            <button class="wood-btn wood-btn--primary" type="button" id="testButton">Generate test plan</button>
+            <p class="test-plan" id="testPlan">Mask the surface, cut a 20 mm square, then adjust speed by 10% if the bottom fibers remain attached.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wood-section" id="settings-table">
+      <div class="wood-section__head">
+        <h2>Wood laser cutting settings table</h2>
+        <p>Baseline settings for common wood cutting and engraving jobs. Start here, then tune for char, kerf, and full cut-through.</p>
+      </div>
+
+      <div class="table-toolbar" aria-label="Filter settings table">
+        <button type="button" class="is-active" data-filter="all">All</button>
+        <button type="button" data-filter="cut">Cut</button>
+        <button type="button" data-filter="engrave">Engrave</button>
+        <button type="button" data-filter="care">Needs care</button>
+      </div>
+
+      <div class="wood-table-wrap">
+        <table class="wood-table">
           <thead>
             <tr>
               <th>Material</th>
-              <th>Thickness (mm)</th>
-              <th>Power (%)</th>
-              <th>Speed (mm/min)</th>
+              <th>Thickness</th>
+              <th>Laser</th>
+              <th>Power</th>
+              <th>Speed</th>
               <th>Passes</th>
-              <th>Mode</th>
-              <th>Notes</th>
+              <th>Use</th>
+              <th>Adjustment note</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Basswood</td><td>3</td><td>100</td><td>250</td><td>1</td>
-              <td><span class="tag tag-cut">Cut</span></td>
-              <td>Clean edge, minimal char</td>
-            </tr>
-            <tr>
-              <td>Birch plywood</td><td>3</td><td>100</td><td>200</td><td>1–2</td>
-              <td><span class="tag tag-cut">Cut</span></td>
-              <td>Air assist on; check first pass</td>
-            </tr>
-            <tr>
-              <td>Birch plywood</td><td>6</td><td>100</td><td>120</td><td>2–3</td>
-              <td><span class="tag tag-multi">Multi-pass</span></td>
-              <td>Slow scan in dense layers</td>
-            </tr>
-            <tr>
-              <td>MDF</td><td>3</td><td>100</td><td>150</td><td>2</td>
-              <td><span class="tag tag-multi">Multi-pass</span></td>
-              <td>Strong ventilation required</td>
-            </tr>
-            <tr>
-              <td>Walnut</td><td>3</td><td>100</td><td>180</td><td>2</td>
-              <td><span class="tag tag-cut">Cut</span></td>
-              <td>Slower speed prevents flare-ups</td>
-            </tr>
-            <tr>
-              <td>Cherry</td><td>3</td><td>100</td><td>200</td><td>1–2</td>
-              <td><span class="tag tag-cut">Cut</span></td>
-              <td>Watch for sap pockets</td>
-            </tr>
-            <tr>
-              <td>Basswood (engrave)</td><td>—</td><td>30</td><td>3000</td><td>1</td>
-              <td><span class="tag tag-engrave">Engrave</span></td>
-              <td>Light brown shading</td>
-            </tr>
-            <tr>
-              <td>Walnut (engrave)</td><td>—</td><td>40</td><td>2500</td><td>1</td>
-              <td><span class="tag tag-engrave">Engrave</span></td>
-              <td>High contrast tone</td>
-            </tr>
+            <tr data-row-type="cut"><td>Basswood</td><td>3 mm</td><td>10W</td><td>100%</td><td>180 mm/min</td><td>1-2</td><td><span class="pill pill--cut">Cut</span></td><td>Good first test sheet. Add masking for pale faces.</td></tr>
+            <tr data-row-type="cut"><td>Basswood</td><td>3 mm</td><td>20W</td><td>90-100%</td><td>260 mm/min</td><td>1</td><td><span class="pill pill--cut">Cut</span></td><td>Increase speed if the edge is too dark.</td></tr>
+            <tr data-row-type="cut care"><td>Birch plywood</td><td>3 mm</td><td>10W</td><td>100%</td><td>150 mm/min</td><td>2</td><td><span class="pill pill--care">Care</span></td><td>Glue layers vary. Test both corners of the sheet.</td></tr>
+            <tr data-row-type="cut"><td>Birch plywood</td><td>3 mm</td><td>20W</td><td>100%</td><td>220 mm/min</td><td>1-2</td><td><span class="pill pill--cut">Cut</span></td><td>Use air assist to clear smoke from the kerf.</td></tr>
+            <tr data-row-type="cut care"><td>MDF</td><td>3 mm</td><td>20W</td><td>100%</td><td>180 mm/min</td><td>2</td><td><span class="pill pill--care">Care</span></td><td>Heavy smoke. Enclosure and exhaust are required.</td></tr>
+            <tr data-row-type="cut"><td>Walnut</td><td>3 mm</td><td>20W</td><td>95-100%</td><td>190 mm/min</td><td>2</td><td><span class="pill pill--cut">Cut</span></td><td>Slow, steady cuts prevent flare-ups on dark grain.</td></tr>
+            <tr data-row-type="cut"><td>Poplar plywood</td><td>4 mm</td><td>20W</td><td>100%</td><td>160 mm/min</td><td>2</td><td><span class="pill pill--cut">Cut</span></td><td>Inspect for internal voids before detailed designs.</td></tr>
+            <tr data-row-type="cut care"><td>Cherry</td><td>3 mm</td><td>20W</td><td>90-100%</td><td>200 mm/min</td><td>1-2</td><td><span class="pill pill--care">Care</span></td><td>Great engraving contrast, but sap pockets scorch.</td></tr>
+            <tr data-row-type="engrave"><td>Basswood</td><td>Surface</td><td>10W</td><td>25-35%</td><td>2500-3200 mm/min</td><td>1</td><td><span class="pill pill--engrave">Engrave</span></td><td>Use 0.08 to 0.12 mm line interval for detail.</td></tr>
+            <tr data-row-type="engrave"><td>Walnut</td><td>Surface</td><td>20W</td><td>25-40%</td><td>3000-4200 mm/min</td><td>1</td><td><span class="pill pill--engrave">Engrave</span></td><td>Lower power keeps fine text from filling in.</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="note">Always run an array test for a new board, finish, or species — wood density and moisture vary batch to batch.</p>
     </section>
 
-    <!-- ============================================================ -->
-    <!-- MODULE 4 — Safety & cuttable -->
-    <section class="module" id="m4">
-      <div class="module-num">4</div>
-      <h2>Safe to cut, cut with care, do not cut</h2>
-      <p class="subtitle">Quick safety reference before you press start.</p>
+    <section class="wood-section" id="clean-workflow">
+      <div class="wood-section__head">
+        <h2>Clean cut workflow</h2>
+        <p>A repeatable process for better edges, fewer failed sheets, and more predictable laser cut wood projects.</p>
+      </div>
 
-      <div class="safety-grid">
-        <article class="safety-card ok">
-          <div class="head"><span class="icon-circle ok">✓</span>Safe to laser cut</div>
+      <div class="workflow-grid">
+        <article><span>01</span><h3>Flatten and focus</h3><p>Pin warped corners, set the laser focus at the top surface, and keep the workpiece level across the whole bed.</p></article>
+        <article><span>02</span><h3>Mask the face</h3><p>Apply low-tack masking tape or transfer tape before cutting pale wood. Peel after the job to remove smoke staining.</p></article>
+        <article><span>03</span><h3>Turn on air assist</h3><p>Air assist clears smoke from the kerf, cools the edge, reduces flame, and improves cut-through consistency.</p></article>
+        <article><span>04</span><h3>Test before the design</h3><p>Cut a small square with one inner circle. If the circle drops out cleanly, the larger job is much safer to run.</p></article>
+        <article><span>05</span><h3>Finish lightly</h3><p>Use a damp cloth, 320-grit sandpaper, or a soft brush to clean the edge. Avoid over-sanding engraved detail.</p></article>
+      </div>
+    </section>
+
+    <section class="wood-section" id="safety">
+      <div class="wood-section__head">
+        <h2>Safe to cut, cut with care, and avoid</h2>
+        <p>Wood can burn quickly. Keep the machine supervised and treat smoke management as part of the setup, not an optional accessory.</p>
+      </div>
+
+      <div class="safety-matrix">
+        <article class="safe-card safe-card--good">
+          <h3>Safe to laser cut</h3>
           <ul>
-            <li>Solid hardwoods &amp; softwoods</li>
-            <li>Birch, poplar &amp; maple plywood</li>
-            <li>MDF (with ventilation)</li>
-            <li>Cork, cardboard, balsa</li>
+            <li>Basswood, balsa, poplar, maple</li>
+            <li>Birch and poplar plywood with known glue</li>
+            <li>Untreated solid hardwoods</li>
+            <li>Cork and clean cardboard</li>
           </ul>
         </article>
-
-        <article class="safety-card warn">
-          <div class="head"><span class="icon-circle warn">!</span>Cut with care</div>
+        <article class="safe-card safe-card--watch">
+          <h3>Cut with care</h3>
           <ul>
-            <li>Resinous pine — flare risk</li>
-            <li>Boards with knots or voids</li>
-            <li>Treated or stained wood</li>
-            <li>Test new sheet glue first</li>
+            <li>MDF with strong exhaust only</li>
+            <li>Pine or resinous wood</li>
+            <li>Painted or stained wood with unknown finish</li>
+            <li>Thick plywood with dense glue layers</li>
           </ul>
         </article>
-
-        <article class="safety-card bad">
-          <div class="head"><span class="icon-circle bad">✕</span>Do NOT laser cut</div>
+        <article class="safe-card safe-card--bad">
+          <h3>Do not laser cut</h3>
           <ul>
-            <li>PVC / vinyl — toxic chlorine gas</li>
-            <li>ABS plastic — cyanide fumes</li>
-            <li>Polycarbonate (Lexan)</li>
-            <li>Fiberglass / carbon fiber</li>
+            <li>PVC, vinyl, and faux leather with chlorine</li>
+            <li>Pressure-treated lumber</li>
+            <li>Fiberglass, carbon fiber, and epoxy boards</li>
+            <li>Unknown plastics laminated to wood</li>
           </ul>
         </article>
-
-        <article class="safety-card info">
-          <div class="head"><span class="icon-circle info">i</span>Safety checklist</div>
+        <article class="safe-card safe-card--tool">
+          <h3>Before pressing start</h3>
           <ul>
-            <li>Goggles for the laser wavelength</li>
-            <li>Air assist + fume extractor</li>
-            <li>Fire extinguisher within reach</li>
-            <li>Never leave the machine unattended</li>
+            <li>Ventilation or fume extractor is running</li>
+            <li>Air assist is on and lens is clean</li>
+            <li>Fire extinguisher is reachable</li>
+            <li>The machine is supervised</li>
           </ul>
         </article>
       </div>
     </section>
 
-    <!-- ============================================================ -->
-    <!-- MODULE 5 — Project gallery -->
-    <section class="module" id="m5">
-      <div class="module-num">5</div>
-      <h2>Wood laser cutting project ideas</h2>
-      <p class="subtitle">A few starter projects that work great on basswood, plywood, and MDF.</p>
+    <section class="wood-section" id="projects">
+      <div class="wood-section__head">
+        <h2>Wood laser cutting project ideas</h2>
+        <p>Use these project types to match material, thickness, and settings to an actual outcome.</p>
+      </div>
 
-      <div class="case-grid">
-        <a class="case-card" href="#">
-          <div class="case-img house" role="img" aria-label="Laser-cut wooden house model"></div>
-          <div class="title">3D Wooden House</div>
-          <div class="meta">Birch ply 3mm · ~45 min</div>
+      <div class="project-grid">
+        <a class="project-card" href="../../../use-cases/home-decor-personalization/index.html">
+          <span class="project-art project-art--house"></span>
+          <strong>Layered home decor</strong>
+          <small>3 mm basswood, fine engraving, easy finishing</small>
         </a>
-        <a class="case-card" href="#">
-          <div class="case-img lattice" role="img" aria-label="Decorative lattice ornament"></div>
-          <div class="title">Filigree Coaster</div>
-          <div class="meta">MDF 3mm · ~10 min</div>
+        <a class="project-card" href="../../../use-cases/gifts-irregular-shapes/index.html">
+          <span class="project-art project-art--gift"></span>
+          <strong>Personalized gift tags</strong>
+          <small>Thin birch plywood, quick batches, low waste</small>
         </a>
-        <a class="case-card" href="#">
-          <div class="case-img box" role="img" aria-label="Living-hinge gift box"></div>
-          <div class="title">Living-Hinge Gift Box</div>
-          <div class="meta">Birch ply 3mm · ~30 min</div>
+        <a class="project-card" href="../../../use-cases/signage-qr-readability/index.html">
+          <span class="project-art project-art--sign"></span>
+          <strong>Small business signage</strong>
+          <small>Walnut or MDF, crisp text, high contrast</small>
         </a>
-        <a class="case-card" href="#">
-          <div class="case-img lantern" role="img" aria-label="Decorative wooden lantern"></div>
-          <div class="title">Decorative Lantern</div>
-          <div class="meta">Walnut 3mm · ~60 min</div>
+        <a class="project-card" href="../../../downloads/Adjustable-Jig-Base-01.svg">
+          <span class="project-art project-art--jig"></span>
+          <strong>Reusable cutting jig</strong>
+          <small>Template workflow for repeatable placement</small>
         </a>
       </div>
     </section>
 
-    <!-- ============================================================ -->
-    <!-- MODULE 6 — Related articles -->
-    <section class="module" id="m6">
-      <div class="module-num">6</div>
-      <h2>Related reading</h2>
-      <p class="subtitle">More wood laser cutting tips, machine guides, and tutorials.</p>
+    <section class="wood-section reading-section">
+      <div class="wood-section__head">
+        <p class="wood-kicker">Related reading</p>
+        <h2>Keep learning</h2>
+        <p>These guides help you test settings, solve common cut problems, and choose the right material for the next project.</p>
+      </div>
 
-      <div class="article-grid">
-        <article class="article-card">
-          <div class="img"></div>
-          <h3>Beginner's Guide to Laser Engraving</h3>
-          <p>Your first laser project from unboxing to finished piece in under 30 minutes.</p>
-          <a href="#">Read article →</a>
-        </article>
-        <article class="article-card">
-          <div class="img"></div>
-          <h3>How to Pick the Right Laser for Wood</h3>
-          <p>Power, bed size, and software — what really matters when choosing a machine.</p>
-          <a href="#">Read article →</a>
-        </article>
-        <article class="article-card">
-          <div class="img"></div>
-          <h3>Common Laser Cutting Wood Issues</h3>
-          <p>Burnt edges, smoke stains, incomplete cuts — diagnose and fix in minutes.</p>
-          <a href="#">Read article →</a>
-        </article>
+      <div class="reading-grid">
+        <a href="../../../tutorials/array-test/index.html"><strong>Run an array test</strong><span>Find power and speed with a small matrix before cutting a full sheet.</span></a>
+        <a href="../../../troubleshooting/burnt-edges/index.html"><strong>Fix burnt edges</strong><span>Diagnose smoke stains, dark kerf, incomplete cuts, and flare-ups.</span></a>
+        <a href="../../../materials/index.html"><strong>Compare materials</strong><span>See how acrylic, leather, glass, stone, and wood fit different laser jobs.</span></a>
       </div>
     </section>
 
-    <!-- ============================================================ -->
-    <!-- MODULE 7 — FAQ -->
-    <section class="module" id="m7">
-      <div class="module-num">7</div>
-      <h2>Frequently asked questions</h2>
-      <p class="subtitle">Answers to the most common laser-cutting-wood questions.</p>
+    <section class="wood-section" id="faq">
+      <div class="wood-section__head">
+        <h2>Frequently asked questions</h2>
+        <p>Short answers for the questions users search before buying or using a wood laser cutter.</p>
+      </div>
 
-      <div class="faq-list">
-        <details class="faq-item">
-          <summary><span><span class="faq-q-icon">?</span>What is the best wood for laser cutting?</span></summary>
-          <div class="answer">Basswood, birch plywood, poplar, and MDF are the easiest woods to laser cut. They have low resin, even density, and a light tone that minimizes visible char. Walnut and cherry cut beautifully but burn faster — slow your speed or add an extra pass.</div>
+      <div class="wood-faq">
+        <details open>
+          <summary>What wood should I use first on a laser cutter?</summary>
+          <p>Use 3 mm basswood or birch plywood. They cut faster than hardwood, show engraving clearly, and are forgiving while you learn focus, speed, and air assist.</p>
         </details>
-        <details class="faq-item">
-          <summary><span><span class="faq-q-icon">?</span>Can a diode laser cut wood?</span></summary>
-          <div class="answer">Yes. A 10W diode laser can cut up to 5–6 mm basswood or birch plywood in 1–3 passes. A 20W diode laser handles 8–10 mm wood and most 3 mm hardwoods in a single pass with air assist enabled.</div>
+        <details>
+          <summary>Can a diode laser cut plywood?</summary>
+          <p>Yes, but plywood quality matters. Thin birch or poplar plywood is best. Dense glue layers, knots, and internal gaps can stop the beam, so test each sheet before the final design.</p>
         </details>
-        <details class="faq-item">
-          <summary><span><span class="faq-q-icon">?</span>How do I avoid burnt edges and smoke stains on wood?</span></summary>
-          <div class="answer">Apply masking tape to the surface before cutting, turn on air assist, drop power and add a pass instead of pushing harder, and choose low-resin woods. After cutting, wipe smoke with a damp cloth or 320-grit sandpaper.</div>
+        <details>
+          <summary>How do I engrave wood without making it too dark?</summary>
+          <p>Lower the power, raise the speed, and use a tighter line interval only when detail requires it. On dark woods like walnut, very low power often creates cleaner text than a heavy burn.</p>
         </details>
-        <details class="faq-item">
-          <summary><span><span class="faq-q-icon">?</span>How thick of wood can a laser cut?</span></summary>
-          <div class="answer">Cut depth depends on laser power. A 10W diode reaches about 6 mm wood; a 20W diode 8–10 mm with multi-pass; a 40W+ CO2 laser cuts 15 mm and beyond cleanly in one pass. Hardwoods cut slightly slower than softwoods at the same setting.</div>
+        <details>
+          <summary>Why are the edges black after laser cutting wood?</summary>
+          <p>Black edges usually come from too much heat, poor air flow, dirty optics, or resin in the board. Try air assist, masking, faster speed with an extra pass, and a cleaner low-resin wood.</p>
         </details>
-        <details class="faq-item">
-          <summary><span><span class="faq-q-icon">?</span>Is it safe to laser cut MDF?</span></summary>
-          <div class="answer">MDF cuts cleanly but its resin binder produces formaldehyde-bearing smoke. Always run an enclosed machine with strong ventilation or a dedicated fume extractor. Do not cut MDF in an unventilated room.</div>
-        </details>
-        <details class="faq-item">
-          <summary><span><span class="faq-q-icon">?</span>Why is my laser not cutting all the way through plywood?</span></summary>
-          <div class="answer">Most often the inner glue layer is denser than the outer veneer. Lower the speed by 20%, add a pass, confirm the focus, and check the board for warp — even a 1 mm gap can leave the bottom uncut.</div>
+        <details>
+          <summary>Can I laser cut painted wood?</summary>
+          <p>Only cut painted wood when you know the paint and substrate are laser-safe. Avoid unknown finishes, PVC-containing coatings, pressure-treated lumber, and any material with strong chemical odor.</p>
         </details>
       </div>
     </section>
 
-    <p class="design-note"><strong>Design note:</strong> This page follows the modular framework — material selection → parameter simulator → settings table → safety guide → project gallery → related articles → FAQ. Tables, structured data (Article + HowTo + FAQPage), and primary keywords (<em>laser cutting wood, wood laser cutter, MDF laser cutting, plywood laser cutting</em>) are mapped for SEO.</p>
+    <section class="wood-cta">
+      <div>
+        <p class="wood-kicker">Ready to test?</p>
+        <h2>Start with one small square before the full design.</h2>
+        <p>Save the settings from the calculator, run a 20 mm sample, then tune speed and passes for your exact sheet.</p>
+      </div>
+      <a class="wood-btn wood-btn--primary" href="#settings-calculator">Return to calculator</a>
+    </section>
   </main>
 
-  <footer class="site-footer">
-    <p>© TOOCAA — Wood Laser Cutting Guide</p>
+  <footer class="wood-footer">
+    <a href="../../../index.html">TOOCAA Guides</a>
+    <span>Wood Laser Cutting Guide</span>
   </footer>
 
+  <script>
+    (function () {
+      const materials = {
+        basswood: { label: "Basswood", power: 90, speed: 260, passes: 1, note: "Basswood cuts cleanly with air assist and a flat honeycomb bed.", color: "basswood" },
+        birch: { label: "Birch plywood", power: 100, speed: 220, passes: 2, note: "Birch plywood is strong, but glue layers vary. Add a pass if the back face has fibers attached.", color: "birch" },
+        mdf: { label: "MDF", power: 100, speed: 180, passes: 2, note: "MDF needs strong ventilation. Reduce speed only after confirming smoke extraction is working.", color: "mdf" },
+        walnut: { label: "Walnut", power: 95, speed: 190, passes: 2, note: "Walnut engraves beautifully. Cut slower and keep watch for sap or dark flare marks.", color: "walnut" },
+        poplar: { label: "Poplar plywood", power: 100, speed: 170, passes: 2, note: "Poplar plywood is light and affordable. Test for voids before fine details.", color: "poplar" },
+        cherry: { label: "Cherry", power: 92, speed: 200, passes: 2, note: "Cherry produces warm engraving contrast. Keep power moderate to avoid dark scorch.", color: "cherry" }
+      };
+
+      const materialSelect = document.getElementById("woodMaterial");
+      const thicknessSelect = document.getElementById("woodThickness");
+      const powerSelect = document.getElementById("woodPowerClass");
+      const resultPower = document.getElementById("resultPower");
+      const resultSpeed = document.getElementById("resultSpeed");
+      const resultPasses = document.getElementById("resultPasses");
+      const resultNote = document.getElementById("resultNote");
+      const previewPiece = document.getElementById("previewPiece");
+      const testButton = document.getElementById("testButton");
+      const testPlan = document.getElementById("testPlan");
+
+      function getMode() {
+        const checked = document.querySelector("input[name='woodMode']:checked");
+        return checked ? checked.value : "cut";
+      }
+
+      function pluralPasses(value) {
+        return value === 1 ? "1 pass" : value + " passes";
+      }
+
+      function updateCalculator() {
+        const material = materials[materialSelect.value];
+        const thickness = Number(thicknessSelect.value);
+        const module = Number(powerSelect.value);
+        const mode = getMode();
+        const moduleBoost = module === 10 ? 0.72 : module === 40 ? 1.32 : 1;
+        const thicknessPenalty = Math.max(0, thickness - 3);
+
+        let power = material.power;
+        let speed = Math.round((material.speed * moduleBoost) / (1 + thicknessPenalty * 0.22));
+        let passes = material.passes + Math.floor(thicknessPenalty / 2);
+        let note = material.note;
+
+        if (mode === "engrave") {
+          power = module === 10 ? 30 : module === 20 ? 28 : 22;
+          speed = material.label === "Walnut" ? 3600 : 3200;
+          passes = 1;
+          note = "Engrave a small grayscale strip first. Lower power if text fills in or the grain gets muddy.";
+        }
+
+        resultPower.textContent = power + "%";
+        resultSpeed.textContent = speed + " mm/min";
+        resultPasses.textContent = pluralPasses(passes);
+        resultNote.textContent = note;
+        previewPiece.className = "sample-piece sample-piece--" + material.color;
+        testPlan.textContent = "Test " + material.label.toLowerCase() + " at " + thickness + " mm with " + power + "% power, " + speed + " mm/min, and " + pluralPasses(passes) + ". Adjust speed by 10% after checking the back face.";
+      }
+
+      document.querySelectorAll("[data-material-card]").forEach(function (card) {
+        card.addEventListener("click", function () {
+          document.querySelectorAll("[data-material-card]").forEach(function (item) {
+            item.classList.remove("is-selected");
+          });
+          card.classList.add("is-selected");
+          materialSelect.value = card.getAttribute("data-material-card");
+          updateCalculator();
+        });
+      });
+
+      [materialSelect, thicknessSelect, powerSelect].forEach(function (control) {
+        control.addEventListener("change", updateCalculator);
+      });
+
+      document.querySelectorAll("input[name='woodMode']").forEach(function (radio) {
+        radio.addEventListener("change", updateCalculator);
+      });
+
+      testButton.addEventListener("click", function () {
+        testPlan.classList.add("is-highlighted");
+        window.setTimeout(function () {
+          testPlan.classList.remove("is-highlighted");
+        }, 900);
+      });
+
+      document.querySelectorAll("[data-filter]").forEach(function (button) {
+        button.addEventListener("click", function () {
+          const filter = button.getAttribute("data-filter");
+          document.querySelectorAll("[data-filter]").forEach(function (item) {
+            item.classList.toggle("is-active", item === button);
+          });
+          document.querySelectorAll("[data-row-type]").forEach(function (row) {
+            const type = row.getAttribute("data-row-type");
+            row.hidden = filter !== "all" && !type.includes(filter);
+          });
+        });
+      });
+
+      const menuButton = document.querySelector("[data-menu-toggle]");
+      const nav = document.querySelector(".hub-nav");
+      if (menuButton && nav) {
+        menuButton.addEventListener("click", function () {
+          const open = nav.classList.toggle("is-open");
+          menuButton.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+      }
+
+      updateCalculator();
+    })();
+  </script>
 </body>
 </html>
