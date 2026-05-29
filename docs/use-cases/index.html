@@ -3,62 +3,236 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>TOOCAA Laser Cutter Application Scenarios & Project Ideas | TOOCAA</title>
-  <meta name="description" content="Explore 7 TOOCAA laser cutter application scenarios: professional studio crafts, gifts, QR code signage, home decor, jewelry, gift box packaging, and photo engraving."/>
-  <meta name="keywords" content="laser cutter application scenarios, laser cut project ideas, laser cutter use cases, laser engraved gifts, laser cut home decor, laser cut jewelry, laser engraved qr code"/>
+  <title>What Can You Make With a TOOCAA Laser Cutter? | Use Cases</title>
+  <meta name="description" content="Explore real TOOCAA laser cutter use cases: studio crafts, personalized gifts, QR code signs, home decor, jewelry, gift box packaging, and photo engraving."/>
+  <meta name="keywords" content="TOOCAA laser cutter use cases, laser cut project ideas, laser engraved gifts, laser cut home decor, laser cut jewelry, laser engraved QR code, laser photo engraving"/>
   <link rel="canonical" href="https://luckykingking.github.io/toocaa-test/use-cases/"/>
   <link rel="icon" href="https://www.toocaa.com/cdn/shop/files/logo.png?v=1760693299&width=64"/>
   <meta property="og:type" content="website"/>
-  <meta property="og:title" content="TOOCAA Laser Cutter Application Scenarios & Project Ideas"/>
-  <meta property="og:description" content="Seven practical laser cutter scenarios with project ideas, materials, parameters, workflow, and FAQs."/>
+  <meta property="og:title" content="What Can You Make With a TOOCAA Laser Cutter?"/>
+  <meta property="og:description" content="Real customer-facing laser cutter ideas, material guidance, and safety notes across seven practical application scenarios."/>
   <meta property="og:url" content="https://luckykingking.github.io/toocaa-test/use-cases/"/>
   <meta property="og:image" content="https://www.toocaa.com/cdn/shop/files/Frame_422561-156889.jpg?v=1731200323&width=2000"/>
   <meta name="twitter:card" content="summary_large_image"/>
   <link rel="stylesheet" href="../assets/main.css?v=20260529"/>
+  <style>
+    .customer-hero {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 58px 28px 48px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(360px, .9fr);
+      gap: 46px;
+      align-items: center;
+    }
+    .customer-hero h1 {
+      margin: 0;
+      max-width: 760px;
+      font-size: clamp(40px, 5.4vw, 72px);
+      line-height: .98;
+      letter-spacing: 0;
+    }
+    .customer-hero p {
+      max-width: 650px;
+      margin: 22px 0 0;
+      color: var(--wood-muted);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+    .customer-hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+    .customer-hero__visual {
+      margin: 0;
+      border: 1px solid var(--wood-line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: var(--wood-shadow);
+    }
+    .customer-hero__visual img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1.12;
+      object-fit: cover;
+    }
+    .customer-hero__visual figcaption {
+      padding: 16px 18px;
+      color: var(--wood-muted);
+      font-size: 14px;
+      line-height: 1.55;
+      background: #fff;
+    }
+    .customer-proof {
+      max-width: 1184px;
+      margin: 0 auto;
+      padding: 0 28px 34px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .customer-proof article {
+      padding: 18px;
+      border: 1px solid var(--wood-line);
+      border-radius: 8px;
+      background: var(--wood-soft);
+    }
+    .customer-proof strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 15px;
+    }
+    .customer-proof span {
+      color: var(--wood-muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+    .customer-section {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 70px 28px;
+    }
+    .customer-section__head {
+      max-width: 760px;
+      margin-bottom: 34px;
+    }
+    .customer-section__head h2 {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+    .customer-section__head p {
+      color: var(--wood-muted);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+    .customer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .customer-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      color: var(--wood-ink);
+      text-decoration: none;
+      border: 1px solid var(--wood-line);
+      border-radius: 8px;
+      background: #fff;
+      overflow: hidden;
+      transition: transform .16s ease, box-shadow .16s ease;
+    }
+    .customer-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--wood-shadow);
+    }
+    .customer-card__media {
+      min-height: 158px;
+      position: relative;
+    }
+    .customer-card__body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex: 1;
+    }
+    .customer-card h3 {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1.2;
+    }
+    .customer-card p {
+      margin: 0;
+      color: var(--wood-muted);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+    .customer-card ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--wood-muted);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+    .customer-card__link {
+      margin-top: auto;
+      color: var(--wood-brand);
+      font-weight: 800;
+      font-size: 14px;
+    }
+    .customer-notes {
+      background: var(--wood-soft);
+      border-top: 1px solid var(--wood-line);
+      border-bottom: 1px solid var(--wood-line);
+    }
+    .truth-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .truth-grid article {
+      padding: 20px;
+      border: 1px solid var(--wood-line);
+      border-radius: 8px;
+      background: #fff;
+    }
+    .truth-grid h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+    }
+    .truth-grid p {
+      margin: 0;
+      color: var(--wood-muted);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+    @media (max-width: 980px) {
+      .customer-hero,
+      .customer-grid,
+      .truth-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .customer-hero__visual {
+        grid-column: 1 / -1;
+      }
+    }
+    @media (max-width: 720px) {
+      .customer-hero,
+      .customer-proof,
+      .customer-grid,
+      .truth-grid {
+        grid-template-columns: 1fr;
+      }
+      .customer-hero {
+        padding: 38px 18px 30px;
+      }
+      .customer-section {
+        padding: 52px 18px;
+      }
+    }
+  </style>
   <script type="application/ld+json">
   {
-  "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  "headline": "TOOCAA Laser Cutter Application Scenarios",
-  "description": "Seven practical TOOCAA laser cutter application scenarios with project ideas, materials, parameters, workflow, and FAQs.",
-  "mainEntity": [
-    {
-      "@type": "Article",
-      "headline": "Professional Studio & Craft Production",
-      "url": "https://luckykingking.github.io/toocaa-test/use-cases/professional-studio-crafts/"
-    },
-    {
-      "@type": "Article",
-      "headline": "Personalized Laser Engraved Gifts",
-      "url": "https://luckykingking.github.io/toocaa-test/use-cases/personalized-gifts/"
-    },
-    {
-      "@type": "Article",
-      "headline": "Laser Engraved QR Code Signs",
-      "url": "https://luckykingking.github.io/toocaa-test/use-cases/qr-code-signage/"
-    },
-    {
-      "@type": "Article",
-      "headline": "Laser Cut Home Decor",
-      "url": "https://luckykingking.github.io/toocaa-test/use-cases/home-decor/"
-    },
-    {
-      "@type": "Article",
-      "headline": "Laser Cut Jewelry Ideas",
-      "url": "https://luckykingking.github.io/toocaa-test/use-cases/jewelry/"
-    },
-    {
-      "@type": "Article",
-      "headline": "Laser Cut Gift Boxes & Packaging",
-      "url": "https://luckykingking.github.io/toocaa-test/use-cases/gift-box-packaging/"
-    },
-    {
-      "@type": "Article",
-      "headline": "Laser Photo Engraving on Wood",
-      "url": "https://luckykingking.github.io/toocaa-test/use-cases/photo-engraving/"
-    }
-  ]
-}
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "headline": "What Can You Make With a TOOCAA Laser Cutter?",
+    "description": "Customer-facing guide to practical TOOCAA laser cutter use cases, including crafts, gifts, QR code signage, home decor, jewelry, packaging, and photo engraving.",
+    "mainEntity": [
+      {"@type":"Article","headline":"Professional Studio and Craft Production","url":"https://luckykingking.github.io/toocaa-test/use-cases/professional-studio-crafts/"},
+      {"@type":"Article","headline":"Personalized Laser Engraved Gifts","url":"https://luckykingking.github.io/toocaa-test/use-cases/personalized-gifts/"},
+      {"@type":"Article","headline":"Laser Engraved QR Code Signs","url":"https://luckykingking.github.io/toocaa-test/use-cases/qr-code-signage/"},
+      {"@type":"Article","headline":"Laser Cut Home Decor","url":"https://luckykingking.github.io/toocaa-test/use-cases/home-decor/"},
+      {"@type":"Article","headline":"Laser Cut Jewelry Ideas","url":"https://luckykingking.github.io/toocaa-test/use-cases/jewelry/"},
+      {"@type":"Article","headline":"Laser Cut Gift Boxes and Packaging","url":"https://luckykingking.github.io/toocaa-test/use-cases/gift-box-packaging/"},
+      {"@type":"Article","headline":"Laser Photo Engraving on Wood","url":"https://luckykingking.github.io/toocaa-test/use-cases/photo-engraving/"}
+    ]
+  }
   </script>
 </head>
 <body class="uc-page">
@@ -86,19 +260,10 @@
           </div>
         </div>
         <div class="hub-nav__item">
-          <a href="../learn/materials/wood/#clean-workflow">Tutorials</a>
-          <div class="hub-dropdown">
-            <a href="../learn/materials/wood/#settings-calculator">Settings Calculator</a>
-            <a href="../learn/materials/wood/#clean-workflow">Clean Cut Workflow</a>
-            <a href="../learn/materials/wood/#settings-table">Parameter Table</a>
-          </div>
-        </div>
-        <div class="hub-nav__item">
           <a href="../learn/materials/wood/">Materials</a>
           <div class="hub-dropdown">
-            <a href="../learn/materials/wood/">Wood</a>
-            <a href="../learn/materials/wood/#material-selection">Material Selection</a>
-            <a href="../learn/materials/wood/#settings-table">Wood Settings</a>
+            <a href="../learn/materials/wood/">Wood Guide</a>
+            <a href="../learn/materials/wood/#settings-calculator">Settings Calculator</a>
             <a href="../learn/materials/wood/#safety">Safety Notes</a>
           </div>
         </div>
@@ -115,152 +280,192 @@
       </form>
     </div>
   </header>
+
   <main>
-    <section class="uc-hub-hero">
-      <p class="wood-eyebrow">TOOCAA Application Scenarios</p>
-      <h1>Laser Cutter Ideas for 7 Real User Scenarios</h1>
-      <p>Choose the scene closest to the user's goal. Each page includes practical project ideas, material choices, starter parameters, workflow notes, FAQ, and links back to the wood settings guide.</p>
-      <div class="uc-hub-hero__actions">
-        <a class="wood-btn wood-btn--primary" href="#scenarios">Explore scenarios</a>
-        <a class="wood-btn wood-btn--secondary" href="../learn/materials/wood/">Wood settings guide</a>
+    <section class="customer-hero">
+      <div>
+        <p class="wood-eyebrow">TOOCAA Use Cases</p>
+        <h1>What can you make with a TOOCAA laser cutter?</h1>
+        <p>From personalized gifts to QR code signs and photo engraving, a desktop laser cutter is most useful when the project, material, and settings match. Start with one of these real application scenarios, then test on your own material before making the final piece.</p>
+        <div class="customer-hero__actions">
+          <a class="wood-btn wood-btn--primary" href="#scenarios">Explore use cases</a>
+          <a class="wood-btn wood-btn--secondary" href="../learn/materials/wood/">View wood settings</a>
+        </div>
       </div>
-      <div class="uc-hub-stats" aria-label="Scenario summary">
-        <span>7 application scenarios</span>
-        <span>42 project ideas</span>
-        <span>SEO-friendly articles</span>
+      <figure class="customer-hero__visual">
+        <img src="https://www.toocaa.com/cdn/shop/files/Frame_422561-156889.jpg?v=1731200323&width=1600" alt="TOOCAA laser cutter with sample projects and materials"/>
+        <figcaption>Use these ideas as practical starting points. Final results depend on material type, thickness, focus, air assist, ventilation, and test settings.</figcaption>
+      </figure>
+    </section>
+
+    <section class="customer-proof" aria-label="Important project guidance">
+      <article>
+        <strong>Cut and engrave real materials</strong>
+        <span>Wood, paper, leather, coated metals, and compatible acrylic colors are common laser projects. Clear or light acrylic may not cut well with a diode laser.</span>
+      </article>
+      <article>
+        <strong>Always test first</strong>
+        <span>Settings are starting points, not guarantees. Run a small test before a full project, especially for plywood, MDF, photos, and QR codes.</span>
+      </article>
+      <article>
+        <strong>Work safely</strong>
+        <span>Use ventilation and supervision. Do not laser cut PVC, vinyl, unknown plastics, pressure-treated wood, or materials that may release toxic fumes.</span>
+      </article>
+    </section>
+
+    <section class="customer-section" id="scenarios">
+      <div class="customer-section__head">
+        <h2>Choose your application scenario</h2>
+        <p>Each guide below focuses on a real customer need: what you can make, which materials are sensible, what to test first, and where mistakes usually happen.</p>
+      </div>
+      <div class="customer-grid">
+        <a class="customer-card" href="professional-studio-crafts/">
+          <div class="customer-card__media uc-scene-art uc-scene-art--studio" aria-hidden="true"></div>
+          <div class="customer-card__body">
+            <h3>Professional Studio / Crafts</h3>
+            <p>For craft studios, Etsy-style sellers, workshops, and creators who need repeatable small-batch production.</p>
+            <ul>
+              <li>Reusable jigs and sample boards</li>
+              <li>Batch engraving and product lines</li>
+              <li>Wood crafts, acrylic accents, tags</li>
+            </ul>
+            <span class="customer-card__link">Open guide</span>
+          </div>
+        </a>
+
+        <a class="customer-card" href="personalized-gifts/">
+          <div class="customer-card__media uc-scene-art uc-scene-art--gifts" aria-hidden="true"></div>
+          <div class="customer-card__body">
+            <h3>Gifts</h3>
+            <p>For names, dates, messages, handwriting-style graphics, and keepsakes that feel personal.</p>
+            <ul>
+              <li>Keychains, ornaments, luggage tags</li>
+              <li>Wedding and family keepsakes</li>
+              <li>Photo plaques and monogram boxes</li>
+            </ul>
+            <span class="customer-card__link">Open guide</span>
+          </div>
+        </a>
+
+        <a class="customer-card" href="qr-code-signage/">
+          <div class="customer-card__media uc-scene-art uc-scene-art--qr" aria-hidden="true"></div>
+          <div class="customer-card__body">
+            <h3>QR Code Signage</h3>
+            <p>For menu signs, event check-in signs, product info labels, and retail wayfinding.</p>
+            <ul>
+              <li>High-contrast engraved QR codes</li>
+              <li>Tabletop and wall signs</li>
+              <li>Scan testing before finishing</li>
+            </ul>
+            <span class="customer-card__link">Open guide</span>
+          </div>
+        </a>
+
+        <a class="customer-card" href="home-decor/">
+          <div class="customer-card__media uc-scene-art uc-scene-art--decor" aria-hidden="true"></div>
+          <div class="customer-card__body">
+            <h3>Home Decor</h3>
+            <p>For wall art, coasters, picture frames, shelf accents, plant labels, and seasonal signs.</p>
+            <ul>
+              <li>3 mm basswood and birch projects</li>
+              <li>Engrave-first, cut-second workflow</li>
+              <li>Light sanding and matte finishing</li>
+            </ul>
+            <span class="customer-card__link">Open guide</span>
+          </div>
+        </a>
+
+        <a class="customer-card" href="jewelry/">
+          <div class="customer-card__media uc-scene-art uc-scene-art--jewelry" aria-hidden="true"></div>
+          <div class="customer-card__body">
+            <h3>Jewelry</h3>
+            <p>For lightweight earrings, pendants, charms, display cards, and small jewelry collections.</p>
+            <ul>
+              <li>Thin wood and compatible acrylic</li>
+              <li>Small holes and delicate outlines</li>
+              <li>Sealing before adding hardware</li>
+            </ul>
+            <span class="customer-card__link">Open guide</span>
+          </div>
+        </a>
+
+        <a class="customer-card" href="gift-box-packaging/">
+          <div class="customer-card__media uc-scene-art uc-scene-art--packaging" aria-hidden="true"></div>
+          <div class="customer-card__body">
+            <h3>Gift Box Packaging</h3>
+            <p>For custom gift boxes, sleeves, inserts, hang tags, and short-run packaging prototypes.</p>
+            <ul>
+              <li>Score, cut, and engrave layers</li>
+              <li>Kraft board tests before wood</li>
+              <li>Product inserts and branded tags</li>
+            </ul>
+            <span class="customer-card__link">Open guide</span>
+          </div>
+        </a>
+
+        <a class="customer-card" href="photo-engraving/">
+          <div class="customer-card__media uc-scene-art uc-scene-art--photo" aria-hidden="true"></div>
+          <div class="customer-card__body">
+            <h3>Photo Engraving</h3>
+            <p>For portraits, pets, memorial plaques, wedding photos, and family keepsakes on pale wood.</p>
+            <ul>
+              <li>Basswood or maple works best</li>
+              <li>Use dithering and test strips</li>
+              <li>Control highlights and shadows</li>
+            </ul>
+            <span class="customer-card__link">Open guide</span>
+          </div>
+        </a>
       </div>
     </section>
 
-    <section class="uc-scene-grid" id="scenarios" aria-label="TOOCAA application scenario pages">
-    <a class="uc-scene-card" href="professional-studio-crafts/">
-      <div class="uc-scene-art uc-scene-art--studio" aria-hidden="true"></div>
-      <div class="uc-scene-card__body">
-        <h2 class="uc-scene-card__title">01. Professional Studio / Crafts</h2>
-        <p class="uc-scene-card__desc">Build a repeatable studio workflow for wood crafts, acrylic details, product samples, and small-batch orders without turning every job into a one-off experiment.</p>
-        <div class="uc-scene-card__footer">
-          <span class="uc-diff uc-diff--medium">Medium</span>
-          <span class="uc-project-count">9 project ideas</span>
+    <section class="customer-notes">
+      <div class="customer-section">
+        <div class="customer-section__head">
+          <h2>Before you start a project</h2>
+          <p>These practical limits help customers get better results and avoid unsafe materials.</p>
         </div>
-        <span class="uc-scene-card__cta">Open scenario →</span>
-      </div>
-    </a>
-    <a class="uc-scene-card" href="personalized-gifts/">
-      <div class="uc-scene-art uc-scene-art--gifts" aria-hidden="true"></div>
-      <div class="uc-scene-card__body">
-        <h2 class="uc-scene-card__title">02. Gifts</h2>
-        <p class="uc-scene-card__desc">Turn names, dates, photos, and small personal details into gifts that feel custom, finished, and easy to repeat for holidays or events.</p>
-        <div class="uc-scene-card__footer">
-          <span class="uc-diff uc-diff--easy">Easy</span>
-          <span class="uc-project-count">8 project ideas</span>
-        </div>
-        <span class="uc-scene-card__cta">Open scenario →</span>
-      </div>
-    </a>
-    <a class="uc-scene-card" href="qr-code-signage/">
-      <div class="uc-scene-art uc-scene-art--qr" aria-hidden="true"></div>
-      <div class="uc-scene-card__body">
-        <h2 class="uc-scene-card__title">03. QR Code Signage</h2>
-        <p class="uc-scene-card__desc">Make QR code signs that scan reliably, look professional on a counter or wall, and connect customers to menus, forms, product pages, or event content.</p>
-        <div class="uc-scene-card__footer">
-          <span class="uc-diff uc-diff--medium">Medium</span>
-          <span class="uc-project-count">7 project ideas</span>
-        </div>
-        <span class="uc-scene-card__cta">Open scenario →</span>
-      </div>
-    </a>
-    <a class="uc-scene-card" href="home-decor/">
-      <div class="uc-scene-art uc-scene-art--decor" aria-hidden="true"></div>
-      <div class="uc-scene-card__body">
-        <h2 class="uc-scene-card__title">04. Home Decor</h2>
-        <p class="uc-scene-card__desc">Turn blank wood sheets into wall panels, coasters, frames, shelf accents, and personalized room details with a clean engrave-first workflow.</p>
-        <div class="uc-scene-card__footer">
-          <span class="uc-diff uc-diff--easy">Easy</span>
-          <span class="uc-project-count">8 project ideas</span>
-        </div>
-        <span class="uc-scene-card__cta">Open scenario →</span>
-      </div>
-    </a>
-    <a class="uc-scene-card" href="jewelry/">
-      <div class="uc-scene-art uc-scene-art--jewelry" aria-hidden="true"></div>
-      <div class="uc-scene-card__body">
-        <h2 class="uc-scene-card__title">05. Jewelry</h2>
-        <p class="uc-scene-card__desc">Create lightweight earrings, pendants, charms, display cards, and small jewelry collections with clean edges and repeatable batch layouts.</p>
-        <div class="uc-scene-card__footer">
-          <span class="uc-diff uc-diff--medium">Medium</span>
-          <span class="uc-project-count">7 project ideas</span>
-        </div>
-        <span class="uc-scene-card__cta">Open scenario →</span>
-      </div>
-    </a>
-    <a class="uc-scene-card" href="gift-box-packaging/">
-      <div class="uc-scene-art uc-scene-art--packaging" aria-hidden="true"></div>
-      <div class="uc-scene-card__body">
-        <h2 class="uc-scene-card__title">06. Gift Box Packaging</h2>
-        <p class="uc-scene-card__desc">Design custom boxes, sleeves, inserts, tags, and packaging prototypes that make handmade products feel more premium and organized.</p>
-        <div class="uc-scene-card__footer">
-          <span class="uc-diff uc-diff--medium">Medium</span>
-          <span class="uc-project-count">8 project ideas</span>
-        </div>
-        <span class="uc-scene-card__cta">Open scenario →</span>
-      </div>
-    </a>
-    <a class="uc-scene-card" href="photo-engraving/">
-      <div class="uc-scene-art uc-scene-art--photo" aria-hidden="true"></div>
-      <div class="uc-scene-card__body">
-        <h2 class="uc-scene-card__title">07. Photo Engraving</h2>
-        <p class="uc-scene-card__desc">Turn portraits, pets, family memories, and special moments into engraved wood pieces with better contrast, cleaner highlights, and fewer over-burned shadows.</p>
-        <div class="uc-scene-card__footer">
-          <span class="uc-diff uc-diff--advanced">Advanced</span>
-          <span class="uc-project-count">6 project ideas</span>
-        </div>
-        <span class="uc-scene-card__cta">Open scenario →</span>
-      </div>
-    </a>
-    </section>
-
-    <section class="uc-mat-section">
-      <div class="wood-section__head">
-        <h2>Scenario planning matrix</h2>
-        <p>Use this table to match the user's intent with the strongest page, material direction, and working mode.</p>
-      </div>
-      <div class="uc-mat-strip">
-        <div class="uc-mat-row uc-mat-row--seven is-header">
-          <span>Decision point</span>
-          <span>Studio / Crafts</span><span>Gifts</span><span>QR Codes</span><span>Home Decor</span><span>Jewelry</span><span>Packaging</span><span>Photo Engraving</span>
-        </div>
-        <div class="uc-mat-row uc-mat-row--seven">
-          <span class="uc-mat-row__label">Best for</span>
-          <span class="uc-mat-cell">Cut + Engrave + Batch</span><span class="uc-mat-cell">Engrave + Cut</span><span class="uc-mat-cell">Engrave + Contrast</span><span class="uc-mat-cell">Cut + Engrave</span><span class="uc-mat-cell">Fine cut + Engrave</span><span class="uc-mat-cell">Cut + Score + Engrave</span><span class="uc-mat-cell">Photo engrave</span>
-        </div>
-        <div class="uc-mat-row uc-mat-row--seven">
-          <span class="uc-mat-row__label">Main material</span>
-          <span class="uc-mat-cell">Basswood, birch, acrylic</span><span class="uc-mat-cell">Basswood, walnut, cherry</span><span class="uc-mat-cell">Birch, maple, acrylic</span><span class="uc-mat-cell">Basswood, birch, walnut</span><span class="uc-mat-cell">Basswood, walnut, acrylic</span><span class="uc-mat-cell">Basswood, kraft board, MDF</span><span class="uc-mat-cell">Basswood, maple, birch</span>
-        </div>
-        <div class="uc-mat-row uc-mat-row--seven">
-          <span class="uc-mat-row__label">Difficulty</span>
-          <span class="uc-mat-cell"><span class="uc-diff uc-diff--medium">Medium</span></span><span class="uc-mat-cell"><span class="uc-diff uc-diff--easy">Easy</span></span><span class="uc-mat-cell"><span class="uc-diff uc-diff--medium">Medium</span></span><span class="uc-mat-cell"><span class="uc-diff uc-diff--easy">Easy</span></span><span class="uc-mat-cell"><span class="uc-diff uc-diff--medium">Medium</span></span><span class="uc-mat-cell"><span class="uc-diff uc-diff--medium">Medium</span></span><span class="uc-mat-cell"><span class="uc-diff uc-diff--advanced">Advanced</span></span>
+        <div class="truth-grid">
+          <article>
+            <h3>Material matters</h3>
+            <p>Basswood, birch plywood, maple, walnut, kraft board, and some coated materials are common choices. Plywood quality can vary because of glue layers and voids.</p>
+          </article>
+          <article>
+            <h3>Diode lasers need contrast</h3>
+            <p>Photo engraving and QR codes work best on pale wood with clear contrast. Clear acrylic is usually not a good diode-laser cutting material.</p>
+          </article>
+          <article>
+            <h3>Ventilation is required</h3>
+            <p>Wood, MDF, paper, and leather create smoke. Use ventilation or a fume extractor and never leave the laser running unattended.</p>
+          </article>
+          <article>
+            <h3>A test saves the final piece</h3>
+            <p>Run a small sample using the same material, finish, focus, and air assist before cutting or engraving the full project.</p>
+          </article>
         </div>
       </div>
     </section>
 
     <section class="wood-section reading-section">
       <div class="wood-section__head">
-        <p class="wood-kicker">Supporting resources</p>
-        <h2>Build every scenario from the same settings foundation</h2>
-        <p>These scenario pages now point back to the wood material guide and keyword table instead of unsupported legacy pages.</p>
+        <p class="wood-kicker">Need settings?</p>
+        <h2>Start with the material guide</h2>
+        <p>The use-case pages show what to make. The wood guide helps with material choice, starter parameters, clean edges, and safety checks.</p>
       </div>
       <div class="reading-grid">
-        <a href="../learn/materials/wood/"><strong>Wood laser cutting guide</strong><span>Material selection, starter settings, safety notes, clean-cut workflow, and FAQ.</span></a>
-        <a href="../learn/materials/wood/#settings-calculator"><strong>Settings calculator</strong><span>Estimate power, speed, and passes before running a test piece.</span></a>
-        <a href="../keyword-table/"><strong>Keyword table</strong><span>Review the existing TDK and keyword coverage table for the current website.</span></a>
+        <a href="../learn/materials/wood/"><strong>Wood laser cutting guide</strong><span>Compare wood types, cutting behavior, safety notes, and clean-cut workflow.</span></a>
+        <a href="../learn/materials/wood/#settings-calculator"><strong>Settings calculator</strong><span>Estimate a starting point before running a real test on your material.</span></a>
+        <a href="../keyword-table/"><strong>Keyword table</strong><span>Review the page TDK and keyword coverage for the current website.</span></a>
       </div>
     </section>
   </main>
+
   <footer class="wood-footer">
     <a href="../index.html">TOOCAA Guides</a>
-    <a href="./">Use Cases</a>
-    <span>Application Scenarios</span>
+    <a href="../learn/materials/wood/">Wood Guide</a>
+    <span>Use Cases</span>
   </footer>
+
   <script>
     (function () {
       const btn = document.querySelector("[data-menu-toggle]");
