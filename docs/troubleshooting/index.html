@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../assets/main.css?v=troubleshooting-20260629"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
@@ -335,9 +336,239 @@ section{padding:96px 0}
 @media(max-width:480px){
   .cat-grid{grid-template-columns:1fr}
 }
+
+/* TOOCAA site theme override */
+:root{
+  --brand:#ff6a00;
+  --brand-dim:#fff2e6;
+  --brand-glow:rgba(255,106,0,.18);
+  --nova:#6C5CE7;
+  --nova-dim:rgba(108,92,231,.12);
+  --l2:#ff6a00;
+  --surface:#ffffff;
+  --surface2:#fafaf7;
+  --surface3:#f4efe7;
+  --border:#e6e2da;
+  --border2:#d8d1c5;
+  --muted:#626262;
+}
+body.troubleshooting-page{
+  background:#ffffff;
+  color:#141414;
+}
+.troubleshooting-page .hub-header{
+  font-family:'Inter',sans-serif;
+}
+.troubleshooting-page .bc{
+  background:#fafaf7;
+  border-bottom:1px solid var(--border);
+  color:var(--muted);
+}
+.troubleshooting-page .bc a{color:var(--muted)}
+.troubleshooting-page .bc a:hover{color:var(--brand)}
+.troubleshooting-page .bc .cur{color:#141414;font-weight:700}
+.troubleshooting-page .hero{
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%,#fff4ea 0%,transparent 65%),
+    #ffffff;
+  color:#141414;
+  padding:96px 0 86px;
+}
+.troubleshooting-page .hero-bg-grid{
+  background-image:
+    linear-gradient(rgba(255,106,0,.07) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,106,0,.07) 1px,transparent 1px);
+}
+.troubleshooting-page .hero-glow{
+  background:radial-gradient(ellipse,rgba(255,106,0,.14) 0%,transparent 68%);
+}
+.troubleshooting-page .hero-eyebrow{
+  border-color:#ffd1a8;
+  background:#fff2e6;
+  color:var(--brand);
+}
+.troubleshooting-page .hero h1 .accent{color:var(--brand)}
+.troubleshooting-page .hero-sub,
+.troubleshooting-page .cat-header p,
+.troubleshooting-page .cat-card p,
+.troubleshooting-page .deep-desc,
+.troubleshooting-page .article-info span,
+.troubleshooting-page .article-est,
+.troubleshooting-page .prevent-card p,
+.troubleshooting-page .stuck p,
+.troubleshooting-page .faq-a p{
+  color:var(--muted);
+}
+.troubleshooting-page .emergency-bar{
+  background:#fff5f2;
+  border-color:#ffd4c6;
+  color:#b3261e;
+}
+.troubleshooting-page .emergency-bar:hover{
+  background:#ffece5;
+  border-color:#ffbca5;
+}
+.troubleshooting-page .model-selector-wrap{
+  top:74px;
+  z-index:70;
+  background:rgba(255,255,255,.94);
+  border-bottom:1px solid var(--border);
+  box-shadow:0 12px 30px rgba(22,22,22,.04);
+}
+.troubleshooting-page .model-btn{
+  background:#ffffff;
+  color:var(--muted);
+  border-color:var(--border);
+}
+.troubleshooting-page .model-btn:hover{
+  color:#141414;
+  border-color:var(--brand);
+}
+.troubleshooting-page .model-btn.active{
+  background:#fff2e6;
+  border-color:var(--brand);
+  color:var(--brand);
+}
+.troubleshooting-page .model-badge.all{
+  background:#f4efe7;
+  color:#626262;
+}
+.troubleshooting-page .cat-card,
+.troubleshooting-page .prevent-card,
+.troubleshooting-page .faq-item{
+  background:#ffffff;
+  border-color:var(--border);
+  box-shadow:0 12px 34px rgba(22,22,22,.05);
+}
+.troubleshooting-page .cat-card:hover,
+.troubleshooting-page .prevent-card:hover,
+.troubleshooting-page .faq-item:hover{
+  border-color:#ffb070;
+  box-shadow:0 18px 46px rgba(22,22,22,.08);
+}
+.troubleshooting-page .deep-section,
+.troubleshooting-page .deep-section:nth-child(odd),
+.troubleshooting-page .deep-section:nth-child(even){
+  background:#ffffff;
+}
+.troubleshooting-page .deep-section:nth-of-type(even){
+  background:#fafaf7;
+}
+.troubleshooting-page .deep-head{
+  border-bottom:1px solid var(--border);
+}
+.troubleshooting-page .article-link{
+  background:#ffffff;
+  border-color:transparent;
+}
+.troubleshooting-page .article-link:hover{
+  background:#fffaf5;
+  border-color:#ffd1a8;
+}
+.troubleshooting-page .article-index{
+  background:#fff2e6;
+  color:var(--brand);
+}
+.troubleshooting-page .prevention-grid .prevent-card,
+.troubleshooting-page .faq-list .faq-item{
+  background:#ffffff;
+}
+.troubleshooting-page .stuck{
+  background:linear-gradient(180deg,#ffffff,#fff8ef);
+  border-color:#ffd1a8;
+  box-shadow:0 22px 54px rgba(255,106,0,.10);
+}
+.troubleshooting-page .stuck h2{color:#141414}
+.troubleshooting-page .stuck-btn.secondary{
+  color:#141414;
+  background:#ffffff;
+  border-color:var(--border);
+}
+.troubleshooting-page .stuck-btn.secondary:hover{
+  border-color:var(--brand);
+  color:var(--brand);
+  background:#fff8ef;
+}
+.troubleshooting-page section[style*="background:#0a0a0a"],
+.troubleshooting-page section[style*="background:var(--surface)"]{
+  background:#ffffff!important;
+}
+@media(max-width:720px){
+  .troubleshooting-page .model-selector-wrap{top:120px}
+}
 </style>
 </head>
-<body>
+<body class="wood-page troubleshooting-page">
+<header class="hub-header">
+  <div class="hub-header__inner">
+    <a class="hub-logo" href="../index.html" aria-label="TOOCAA home">
+      <img src="https://www.toocaa.com/cdn/shop/files/logo.png?v=1760693299&width=150" alt="TOOCAA"/>
+    </a>
+
+    <button class="hub-menu-btn" type="button" aria-label="Open navigation" aria-expanded="false" data-menu-toggle>
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="hub-nav" aria-label="TOOCAA guides">
+      <div class="hub-nav__item">
+        <a href="../use-cases/">Use Cases</a>
+        <div class="hub-dropdown">
+          <a href="../use-cases/professional-studio-crafts/">Professional Studio / Crafts</a>
+          <a href="../use-cases/personalized-gifts/">Gifts</a>
+          <a href="../use-cases/qr-code-signage/">QR Code Signage</a>
+          <a href="../use-cases/home-decor/">Home Decor</a>
+          <a href="../use-cases/jewelry/">Jewelry</a>
+          <a href="../use-cases/gift-box-packaging/">Gift Box Packaging</a>
+          <a href="../use-cases/photo-engraving/">Photo Engraving</a>
+        </div>
+      </div>
+
+      <div class="hub-nav__item">
+        <a href="../learn/materials/wood/#clean-workflow">Tutorials</a>
+        <div class="hub-dropdown">
+          <a href="../learn/materials/wood/#settings-calculator">Settings Calculator</a>
+          <a href="../learn/materials/wood/#clean-workflow">Clean Cut Workflow</a>
+          <a href="../learn/materials/wood/#settings-table">Parameter Table</a>
+        </div>
+      </div>
+
+      <div class="hub-nav__item">
+        <a href="../learn/materials/wood/">Materials</a>
+        <div class="hub-dropdown">
+          <a href="../learn/materials/wood/">Wood</a>
+          <a href="../learn/materials/wood/#material-selection">Material Selection</a>
+          <a href="../learn/materials/wood/#settings-table">Wood Settings</a>
+          <a href="../learn/materials/wood/#safety">Safety Notes</a>
+        </div>
+      </div>
+
+      <div class="hub-nav__item">
+        <a href="../learn/materials/wood/#faq">Support</a>
+        <div class="hub-dropdown">
+          <a href="../learn/materials/wood/#material-selection">Before You Buy</a>
+          <a href="../learn/materials/wood/#clean-workflow">After You Buy</a>
+          <a href="../learn/materials/wood/#faq">Common Questions</a>
+        </div>
+      </div>
+
+      <div class="hub-nav__item">
+        <a class="is-active" href="./">Troubleshooting</a>
+        <div class="hub-dropdown">
+          <a href="#laser-cutting">Laser &amp; Cutting</a>
+          <a href="#software">Software &amp; Connection</a>
+          <a href="#safety">Safety &amp; Ventilation</a>
+        </div>
+      </div>
+    </nav>
+
+    <form class="hub-search" role="search" onsubmit="return false;">
+      <input type="search" aria-label="Search TOOCAA troubleshooting" placeholder="Search fixes, model, symptom"/>
+      <button type="submit" aria-label="Search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+      </button>
+    </form>
+  </div>
+</header>
 
 <!-- Breadcrumb -->
 <div class="bc">
@@ -1125,6 +1356,15 @@ section{padding:96px 0}
 
 <!-- Model Filter Script -->
 <script>
+const menuButton = document.querySelector("[data-menu-toggle]");
+const siteNav = document.querySelector(".hub-nav");
+if (menuButton && siteNav) {
+  menuButton.addEventListener("click", function () {
+    const open = siteNav.classList.toggle("is-open");
+    menuButton.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+}
+
 function filterModel(model) {
   // Update button states
   document.querySelectorAll('.model-btn').forEach(btn => {
