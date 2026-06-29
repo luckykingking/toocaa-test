@@ -3,10 +3,118 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>TOOCAA Troubleshooting Guide — L2 &amp; NOVA Laser Cutter Fixes | TOOCAA</title>
-<meta name="description" content="Laser not firing? Engraving misaligned? Connection issues? Find step-by-step fixes for TOOCAA L2 and NOVA. Covers cutting, engraving, hardware, software, smart features, safety &amp; maintenance."/>
+<title>TOOCAA Troubleshooting Guide: Fix L2 &amp; NOVA Laser Problems</title>
+<meta name="description" content="Fix common TOOCAA L2 and NOVA laser cutter problems: laser not firing, weak output, not cutting through, engraving misaligned, USB or Wi-Fi connection issues, smoke, alarms, and maintenance."/>
+<meta name="keywords" content="TOOCAA troubleshooting, TOOCAA L2 troubleshooting, TOOCAA NOVA troubleshooting, laser not firing, laser cutter not cutting through, engraving misalignment, LightBurn not connecting, laser cutter smoke, laser safety alarm"/>
 <link rel="canonical" href="https://luckykingking.github.io/toocaa-test/troubleshooting/"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="TOOCAA Troubleshooting Guide: Fix L2 &amp; NOVA Laser Problems"/>
+<meta property="og:description" content="Troubleshoot TOOCAA L2 and NOVA issues including laser output, cutting depth, engraving quality, connection, smoke, alarms, and maintenance."/>
+<meta property="og:url" content="https://luckykingking.github.io/toocaa-test/troubleshooting/"/>
+<meta property="og:image" content="https://www.toocaa.com/cdn/shop/files/Frame_422561-156889.jpg?v=1731200323&width=2000"/>
+<meta name="twitter:card" content="summary_large_image"/>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why is my TOOCAA laser not firing?","acceptedAnswer":{"@type":"Answer","text":"Common causes include: safety interlock not engaged (check lid/cover is fully closed), focus distance incorrect, or laser module failure. For L2, check the USB key switch and outer enclosure sensors. For NOVA, check the protective lid magnet sensor and that the child lock is not engaged."}},{"@type":"Question","name":"Why is my engraving blurry or misaligned?","acceptedAnswer":{"@type":"Answer","text":"Blurry engraving is often caused by loose belts, incorrect focus distance, too high speed, or mechanical vibration. Check belt tension first, then verify focus distance matches the material thickness. NOVA users should also recalibrate the auto-focus sensor."}},{"@type":"Question","name":"How do I fix TOOCAA connection issues?","acceptedAnswer":{"@type":"Answer","text":"For USB: verify the cable is a data cable (not charge-only) and install the CH340 USB driver. For NOVA Wi-Fi: ensure 2.4GHz band, check IP address in touchscreen settings, and verify firewall isn't blocking the connection."}},{"@type":"Question","name":"Why does my laser cutter produce so much smoke?","acceptedAnswer":{"@type":"Answer","text":"Some materials (MDF, acrylic, leather) naturally produce more smoke. For L2, ensure the external exhaust hose vents outdoors with no kinks. For NOVA, check the dual-channel exhaust fan speed settings in the touchscreen menu and clean the internal exhaust filter."}},{"@type":"Question","name":"How often should I clean the laser lens and mirrors?","acceptedAnswer":{"@type":"Answer","text":"Clean lenses after every 8-10 hours of cutting, or immediately if you notice reduced power. Use 99% isopropyl alcohol and lint-free lens wipes. Never use paper towels as they scratch the coating. NOVA's modular laser head makes lens access easier — see the module removal guide."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "TOOCAA Troubleshooting Guide",
+  "description": "A troubleshooting hub for TOOCAA L2 and NOVA laser cutter problems, including laser output, cutting, engraving, hardware, software, connection, safety, ventilation, and maintenance issues.",
+  "url": "https://luckykingking.github.io/toocaa-test/troubleshooting/",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "TOOCAA Guides",
+    "url": "https://luckykingking.github.io/toocaa-test/"
+  },
+  "about": [
+    "TOOCAA troubleshooting",
+    "TOOCAA L2 troubleshooting",
+    "TOOCAA NOVA troubleshooting",
+    "laser cutter not firing",
+    "engraving misalignment",
+    "laser cutter connection issues"
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "name": "TOOCAA",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.toocaa.com/cdn/shop/files/logo.png?v=1760693299&width=150"
+    }
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://luckykingking.github.io/toocaa-test/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Troubleshooting",
+      "item": "https://luckykingking.github.io/toocaa-test/troubleshooting/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "TOOCAA troubleshooting categories",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Laser and cutting issues",
+      "url": "https://luckykingking.github.io/toocaa-test/troubleshooting/#laser-cutting"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Engraving quality issues",
+      "url": "https://luckykingking.github.io/toocaa-test/troubleshooting/#engraving"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Hardware and mechanical issues",
+      "url": "https://luckykingking.github.io/toocaa-test/troubleshooting/#hardware"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Software and connection issues",
+      "url": "https://luckykingking.github.io/toocaa-test/troubleshooting/#software"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "Safety and ventilation issues",
+      "url": "https://luckykingking.github.io/toocaa-test/troubleshooting/#safety"
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "name": "Maintenance and care",
+      "url": "https://luckykingking.github.io/toocaa-test/troubleshooting/#maintenance"
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "name": "NOVA smart feature issues",
+      "url": "https://luckykingking.github.io/toocaa-test/troubleshooting/#nova-smart"
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
@@ -493,8 +601,210 @@ body.troubleshooting-page{
 .troubleshooting-page section[style*="background:var(--surface)"]{
   background:#ffffff!important;
 }
+.seo-support-section{
+  padding:72px 0;
+  background:#fafaf7;
+}
+.seo-support-section .cat-header{
+  margin-bottom:34px;
+}
+.seo-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+.seo-grid--three{
+  grid-template-columns:repeat(3,1fr);
+}
+.seo-card{
+  background:#ffffff;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:24px;
+  box-shadow:0 12px 34px rgba(22,22,22,.05);
+}
+.seo-card h3{
+  font-size:16px;
+  line-height:1.35;
+  margin:0 0 8px;
+  color:#141414;
+}
+.seo-card p{
+  font-size:13px;
+  line-height:1.65;
+  color:var(--muted);
+  margin:0 0 14px;
+}
+.seo-card a{
+  display:inline-flex;
+  color:var(--brand);
+  font-size:12px;
+  font-weight:800;
+}
+.seo-kicker{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:34px;
+  height:34px;
+  border-radius:10px;
+  margin-bottom:14px;
+  background:#fff2e6;
+  color:var(--brand);
+  font-size:12px;
+  font-weight:900;
+}
+.model-compare{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  margin-top:24px;
+}
+.model-compare-card{
+  background:#ffffff;
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:28px;
+  box-shadow:0 12px 34px rgba(22,22,22,.05);
+}
+.model-compare-card h3{
+  margin:0 0 12px;
+  font-size:20px;
+}
+.model-compare-card ul{
+  margin:0;
+  padding-left:18px;
+  color:var(--muted);
+  font-size:13.5px;
+  line-height:1.8;
+}
+.related-links{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-top:26px;
+}
+.related-link{
+  background:#ffffff;
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:20px;
+  box-shadow:0 12px 34px rgba(22,22,22,.05);
+}
+.related-link strong{
+  display:block;
+  margin-bottom:6px;
+  color:#141414;
+}
+.related-link span{
+  display:block;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.55;
+}
+.seo-note{
+  margin-top:18px;
+  padding:16px 18px;
+  border:1px solid #ffe1c4;
+  border-radius:14px;
+  background:#fff8ef;
+  color:#5d4032;
+  font-size:13px;
+  line-height:1.65;
+}
+.fix-table-wrap{
+  overflow-x:auto;
+  border:1px solid var(--border);
+  border-radius:18px;
+  background:#ffffff;
+  box-shadow:0 12px 34px rgba(22,22,22,.05);
+}
+.fix-table{
+  width:100%;
+  min-width:860px;
+  border-collapse:collapse;
+  color:#141414;
+}
+.fix-table th,
+.fix-table td{
+  padding:16px 18px;
+  border-bottom:1px solid var(--border);
+  text-align:left;
+  vertical-align:top;
+}
+.fix-table th{
+  background:#fff8ef;
+  color:#141414;
+  font-size:12px;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+.fix-table td{
+  font-size:13px;
+  line-height:1.65;
+}
+.fix-table tr:last-child td{
+  border-bottom:0;
+}
+.fix-table strong{
+  display:block;
+  margin-bottom:4px;
+  font-size:14px;
+}
+.product-recommendations{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-top:28px;
+}
+.product-card{
+  display:flex;
+  flex-direction:column;
+  min-height:100%;
+  background:#ffffff;
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:26px;
+  box-shadow:0 12px 34px rgba(22,22,22,.05);
+}
+.product-card small{
+  color:var(--brand);
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.product-card h3{
+  margin:10px 0 10px;
+  color:#141414;
+  font-size:22px;
+}
+.product-card p{
+  margin:0 0 16px;
+  color:var(--muted);
+  font-size:13.5px;
+  line-height:1.7;
+}
+.product-card ul{
+  margin:0 0 18px;
+  padding-left:18px;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.75;
+}
+.product-card__cta{
+  margin-top:auto;
+  color:var(--brand);
+  font-size:12px;
+  font-weight:900;
+}
 @media(max-width:720px){
   .troubleshooting-page .model-selector-wrap{top:120px}
+  .seo-grid,
+  .seo-grid--three,
+  .model-compare,
+  .related-links,
+  .product-recommendations{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -585,8 +895,8 @@ body.troubleshooting-page{
     <div class="hero-eyebrow">
       <span class="hero-eyebrow-dot"></span>Troubleshooting Center
     </div>
-    <h1>Something <span class="accent">not working?</span><br>We'll get you back to making.</h1>
-    <p class="hero-sub">Browse by symptom or filter by your machine model. Every fix includes clear steps, photos, and estimated time — for L2 and NOVA.</p>
+    <h1>TOOCAA Troubleshooting Guide<br><span class="accent">for L2 &amp; NOVA</span></h1>
+    <p class="hero-sub">Fix common laser cutter problems including laser not firing, weak output, not cutting through, engraving misalignment, USB or Wi-Fi connection issues, smoke, safety alarms, and maintenance.</p>
     <a href="#emergency" class="emergency-bar">
       <span class="emergency-dot"></span>
       Emergency Stop triggered? Cover alarm? Click here for immediate help
@@ -613,12 +923,109 @@ body.troubleshooting-page{
   </div>
 </div>
 
+<!-- Quick Diagnosis -->
+<section class="seo-support-section" id="quick-diagnosis">
+  <div class="container">
+    <div class="cat-header">
+      <h2>Start With the Symptom</h2>
+      <p>Most TOOCAA L2 and NOVA issues fall into four search patterns: laser output, engraving quality, software connection, or safety and ventilation.</p>
+    </div>
+    <div class="seo-grid">
+      <div class="seo-card">
+        <div class="seo-kicker">01</div>
+        <h3>Laser not firing or weak output</h3>
+        <p>Check the lid or cover sensor, emergency stop, focus distance, material settings, lens cleanliness, and whether the laser module output has dropped.</p>
+        <a href="#laser-cutting">Open laser fixes &#8594;</a>
+      </div>
+      <div class="seo-card">
+        <div class="seo-kicker">02</div>
+        <h3>Material not cutting through</h3>
+        <p>Start with power, speed, focus, air assist, lens condition, wood density, plywood glue layers, and whether the job needs multiple cleaner passes.</p>
+        <a href="#laser-cutting">Check cutting depth &#8594;</a>
+      </div>
+      <div class="seo-card">
+        <div class="seo-kicker">03</div>
+        <h3>Engraving is blurry or misaligned</h3>
+        <p>Look at belt tension, loose fixtures, focus height, vibration, image settings, camera offset, and whether the workpiece moved during the job.</p>
+        <a href="#engraving">Fix engraving quality &#8594;</a>
+      </div>
+      <div class="seo-card">
+        <div class="seo-kicker">04</div>
+        <h3>USB, Wi-Fi, smoke, or alarm issues</h3>
+        <p>Connection problems usually start with drivers, cables, Wi-Fi band, firewall, or firmware. Smoke and alarms usually start with airflow and sensors.</p>
+        <a href="#software">Check connection fixes &#8594;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Symptom Checklist -->
+<section class="seo-support-section" id="symptom-checklist">
+  <div class="container">
+    <div class="cat-header">
+      <h2>Common TOOCAA Problems and First Checks</h2>
+      <p>Use this table before replacing parts or changing many settings at once. It maps high-intent troubleshooting searches to the first checks a customer can safely verify.</p>
+    </div>
+    <div class="fix-table-wrap">
+      <table class="fix-table">
+        <thead>
+          <tr>
+            <th>Search intent</th>
+            <th>Most likely area</th>
+            <th>First checks</th>
+            <th>Best next guide</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>TOOCAA laser not firing</strong>Laser does not mark or cut when the job starts.</td>
+            <td>Safety interlock, emergency stop, focus height, or laser module contact.</td>
+            <td>Close the lid or cover, release emergency stop, confirm the correct focus distance, and inspect the module connection.</td>
+            <td><a href="#laser-cutting">Laser &amp; Cutting</a></td>
+          </tr>
+          <tr>
+            <td><strong>Laser cutter not cutting through wood</strong>Cut lines are visible but pieces stay attached.</td>
+            <td>Power/speed balance, dirty lens, wood density, glue layer, or weak airflow.</td>
+            <td>Clean the lens, verify material thickness, lower speed first, then use multiple passes before increasing power heavily.</td>
+            <td><a href="../learn/materials/wood/#settings-table">Wood settings table</a></td>
+          </tr>
+          <tr>
+            <td><strong>Engraving is blurry or shifted</strong>Text, photos, or lines look doubled, soft, or offset.</td>
+            <td>Belt tension, loose fixture, vibration, focus height, camera offset, or workpiece movement.</td>
+            <td>Secure the material, check X/Y belt tension, refocus, and recalibrate the camera if using NOVA preview positioning.</td>
+            <td><a href="#engraving">Engraving Quality</a></td>
+          </tr>
+          <tr>
+            <td><strong>LightBurn or Wi-Fi not connecting</strong>Computer or software cannot find the machine.</td>
+            <td>USB data cable, CH340/CH341 driver, COM port, 2.4 GHz Wi-Fi, IP address, or firewall.</td>
+            <td>Use a data-capable USB cable, install the driver, select the correct port, or confirm NOVA is on the same 2.4 GHz network.</td>
+            <td><a href="#software">Software &amp; Connection</a></td>
+          </tr>
+          <tr>
+            <td><strong>Too much smoke or smell</strong>Smoke builds up inside the enclosure or edges look dirty.</td>
+            <td>Exhaust route, fan speed, air assist, material choice, honeycomb bed, or filter maintenance.</td>
+            <td>Check the exhaust hose, remove kinks, clean the bed, turn on air assist, and avoid unknown plastics or coated materials.</td>
+            <td><a href="#safety">Safety &amp; Ventilation</a></td>
+          </tr>
+          <tr>
+            <td><strong>NOVA camera or autofocus error</strong>Preview position is wrong, or autofocus cannot complete.</td>
+            <td>Camera calibration, material height, sensor obstruction, module seating, or firmware settings.</td>
+            <td>Keep material flat, clean the sensor area, confirm module seating, and run camera or autofocus calibration again.</td>
+            <td><a href="#nova-smart">NOVA Smart Features</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="seo-note">Safety note: if you see flame, smell unknown plastic fumes, or the machine triggers a safety alarm repeatedly, stop the job first. Resolve ventilation, material, and sensor issues before running another full-power cut.</p>
+  </div>
+</section>
+
 <!-- Category Navigation Grid -->
 <section id="cat-section">
   <div class="container">
     <div class="cat-header">
-      <h2>What's the problem area?</h2>
-      <p>Pick the category that matches your symptom. Use the model filter above to see only your machine's guides.</p>
+      <h2>Choose a Troubleshooting Path</h2>
+      <p>Pick the area that matches the customer's symptom. Use the model filter above to show only the guides that apply to L2, NOVA, or both models.</p>
     </div>
     <div class="cat-grid">
       <a href="#laser-cutting" class="cat-card">
@@ -662,6 +1069,81 @@ body.troubleshooting-page{
         <h3>NOVA Smart Features</h3>
         <p>Wi-Fi setup, camera calibration, auto-focus, touchscreen, AI recognition, smart air assist, child lock</p>
         <span class="cat-card-articles" style="color:#8B7CF6">11 guides — NOVA only &#8594;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Model Differences -->
+<section class="seo-support-section" id="model-differences">
+  <div class="container">
+    <div class="cat-header">
+      <h2>TOOCAA L2 vs NOVA Troubleshooting</h2>
+      <p>Many cutting and engraving problems are shared across both machines, but connection, exhaust, camera, autofocus, and smart-module checks differ by model.</p>
+    </div>
+    <div class="model-compare">
+      <div class="model-compare-card">
+        <h3>TOOCAA L2 checks</h3>
+        <ul>
+          <li>Start with USB data cable, CH340/CH341 driver, LightBurn device settings, and the correct COM port.</li>
+          <li>Check protective cover or enclosure sensors before assuming the laser module has failed.</li>
+          <li>Confirm manual focus, air assist, exhaust hose routing, and material settings before increasing power.</li>
+          <li>For rotary engraving, verify the rotary connection, enable settings, and steps-per-rotation before running a full job.</li>
+        </ul>
+      </div>
+      <div class="model-compare-card">
+        <h3>TOOCAA NOVA checks</h3>
+        <ul>
+          <li>For Wi-Fi issues, confirm 2.4 GHz network, touchscreen IP address, and firewall access.</li>
+          <li>For camera offset or preview problems, recalibrate the camera and confirm the material is flat on the bed.</li>
+          <li>For autofocus errors, inspect the sensor area, material height, and module seating before retrying.</li>
+          <li>For smart feature issues, check firmware, module recognition, touchscreen settings, and dual-channel exhaust status.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Product Recommendations -->
+<section class="seo-support-section" id="product-recommendations">
+  <div class="container">
+    <div class="cat-header">
+      <h2>Product Recommendations by Workflow</h2>
+      <p>If the troubleshooting issue comes from workflow mismatch, choose the machine or accessory path that fits the customer's project volume, positioning needs, and material setup.</p>
+    </div>
+    <div class="product-recommendations">
+      <a class="product-card" href="https://www.toocaa.com/products/toocaa-l2-laser-engraver" target="_blank" rel="noopener">
+        <small>Best for compact studios</small>
+        <h3>TOOCAA L2</h3>
+        <p>A practical recommendation for small-batch crafts, gifts, signs, leather tags, acrylic charms, and wood projects where USB/LightBurn workflow and manual setup are acceptable.</p>
+        <ul>
+          <li>Good fit when the customer wants a simpler desktop laser workflow.</li>
+          <li>Useful for repeatable craft jobs after focus, air assist, and material settings are dialed in.</li>
+          <li>Recommend checking lens, belts, exhaust, and focus before assuming the machine lacks power.</li>
+        </ul>
+        <span class="product-card__cta">View L2 product details &#8594;</span>
+      </a>
+      <a class="product-card" href="https://www.toocaa.com/products/toocaa-nova-laser-engraver" target="_blank" rel="noopener">
+        <small>Best for guided setup</small>
+        <h3>TOOCAA NOVA</h3>
+        <p>A stronger recommendation when the customer needs camera preview, autofocus, touchscreen guidance, Wi-Fi workflow, smart module recognition, and a more integrated desktop experience.</p>
+        <ul>
+          <li>Good fit for customers who often align artwork to finished blanks or irregular pieces.</li>
+          <li>Useful when autofocus and camera preview reduce setup mistakes on repeated jobs.</li>
+          <li>Recommend recalibration when the issue is camera offset, autofocus failure, or preview mismatch.</li>
+        </ul>
+        <span class="product-card__cta">View NOVA product details &#8594;</span>
+      </a>
+      <a class="product-card" href="../learn/materials/wood/#clean-workflow">
+        <small>Best for cleaner results</small>
+        <h3>Airflow, Bed, and Material Setup</h3>
+        <p>If the customer already has the right machine, many quality problems come from the setup around the machine: air assist, exhaust path, honeycomb bed, clean lens, and material choice.</p>
+        <ul>
+          <li>Use air assist and clean exhaust routing for cutting wood, MDF, leather, and acrylic.</li>
+          <li>Use a flat, clean bed and secure fixtures to prevent alignment and smoke-shadow issues.</li>
+          <li>Run small material tests before committing to a customer order or finished product.</li>
+        </ul>
+        <span class="product-card__cta">Open clean workflow &#8594;</span>
       </a>
     </div>
   </div>
@@ -1314,6 +1796,30 @@ body.troubleshooting-page{
         <a href="https://www.toocaa.com/pages/contact" class="stuck-btn primary">&#x2709;&#xFE0F; Contact Support</a>
         <a href="https://www.facebook.com/groups/toocaa" target="_blank" rel="noopener" class="stuck-btn secondary">&#x1F465; Ask the Community</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- Related Resources -->
+<section class="seo-support-section" id="related-resources">
+  <div class="container">
+    <div class="cat-header">
+      <h2>Related TOOCAA Guides</h2>
+      <p>If the machine is working but the result still looks wrong, these related guides help you tune materials, settings, and project setup.</p>
+    </div>
+    <div class="related-links">
+      <a class="related-link" href="../learn/materials/wood/#settings-table">
+        <strong>Wood laser settings table</strong>
+        <span>Compare starting power, speed, passes, and material notes for basswood, plywood, MDF, walnut, and cherry.</span>
+      </a>
+      <a class="related-link" href="../learn/materials/wood/#settings-calculator">
+        <strong>Settings calculator</strong>
+        <span>Estimate a safer starting point before changing power or speed on a cutting or engraving job.</span>
+      </a>
+      <a class="related-link" href="../use-cases/">
+        <strong>Laser cutter project ideas</strong>
+        <span>See practical applications for gifts, QR signs, home decor, jewelry, packaging, photo engraving, and studio work.</span>
+      </a>
     </div>
   </div>
 </section>
