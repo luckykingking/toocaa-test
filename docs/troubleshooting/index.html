@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>TOOCAA Troubleshooting Guide — L2 &amp; NOVA Laser Cutter Fixes | TOOCAA</title>
+<meta name="description" content="Laser not firing? Engraving misaligned? Connection issues? Find step-by-step fixes for TOOCAA L2 and NOVA. Covers cutting, engraving, hardware, software, smart features, safety &amp; maintenance."/>
+<link rel="canonical" href="https://luckykingking.github.io/toocaa-test/troubleshooting/"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why is my TOOCAA laser not firing?","acceptedAnswer":{"@type":"Answer","text":"Common causes include: safety interlock not engaged (check lid/cover is fully closed), focus distance incorrect, or laser module failure. For L2, check the USB key switch and outer enclosure sensors. For NOVA, check the protective lid magnet sensor and that the child lock is not engaged."}},{"@type":"Question","name":"Why is my engraving blurry or misaligned?","acceptedAnswer":{"@type":"Answer","text":"Blurry engraving is often caused by loose belts, incorrect focus distance, too high speed, or mechanical vibration. Check belt tension first, then verify focus distance matches the material thickness. NOVA users should also recalibrate the auto-focus sensor."}},{"@type":"Question","name":"How do I fix TOOCAA connection issues?","acceptedAnswer":{"@type":"Answer","text":"For USB: verify the cable is a data cable (not charge-only) and install the CH340 USB driver. For NOVA Wi-Fi: ensure 2.4GHz band, check IP address in touchscreen settings, and verify firewall isn't blocking the connection."}},{"@type":"Question","name":"Why does my laser cutter produce so much smoke?","acceptedAnswer":{"@type":"Answer","text":"Some materials (MDF, acrylic, leather) naturally produce more smoke. For L2, ensure the external exhaust hose vents outdoors with no kinks. For NOVA, check the dual-channel exhaust fan speed settings in the touchscreen menu and clean the internal exhaust filter."}},{"@type":"Question","name":"How often should I clean the laser lens and mirrors?","acceptedAnswer":{"@type":"Answer","text":"Clean lenses after every 8-10 hours of cutting, or immediately if you notice reduced power. Use 99% isopropyl alcohol and lint-free lens wipes. Never use paper towels as they scratch the coating. NOVA's modular laser head makes lens access easier — see the module removal guide."}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;line-height:1.6;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+
+:root{
+  --brand:#FF6B35;
+  --brand-dim:rgba(255,107,53,.12);
+  --brand-glow:rgba(255,107,53,.25);
+  --nova:#6C5CE7;
+  --nova-dim:rgba(108,92,231,.12);
+  --l2:#FF6B35;
+  --surface:#111;
+  --surface2:#161616;
+  --surface3:#1c1c1c;
+  --border:rgba(255,255,255,.08);
+  --border2:rgba(255,255,255,.14);
+  --muted:rgba(255,255,255,.45);
+  --radius:14px;
+  --radius-lg:20px;
+  --radius-xl:28px;
+  --ease:.22s cubic-bezier(.4,0,.2,1);
+}
+
+.container{max-width:1200px;margin:0 auto;padding:0 28px}
+section{padding:96px 0}
+
+/* ─── BREADCRUMB ─── */
+.bc{background:#0a0a0a;border-bottom:1px solid var(--border);padding:14px 0;font-size:12px;color:var(--muted)}
+.bc a{color:var(--muted);transition:color var(--ease)}.bc a:hover{color:#fff}
+.bc .sep{margin:0 8px;opacity:.3}
+.bc .cur{color:var(--brand)}
+
+/* ─── HERO ─── */
+.hero{
+  position:relative;
+  padding:120px 0 100px;
+  overflow:hidden;
+  background:#0a0a0a;
+}
+.hero-bg-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,107,53,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,107,53,.04) 1px,transparent 1px);
+  background-size:60px 60px;
+  mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 40%,transparent 100%);
+}
+.hero-glow{
+  position:absolute;
+  width:700px;height:400px;
+  top:-100px;left:50%;transform:translateX(-50%);
+  background:radial-gradient(ellipse,rgba(255,107,53,.18) 0%,transparent 65%);
+  pointer-events:none;
+}
+.hero-inner{position:relative;text-align:center;max-width:720px;margin:0 auto}
+
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  border:1px solid rgba(255,140,80,.35);
+  background:rgba(255,107,53,.08);
+  color:#FF9166;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  padding:6px 16px;border-radius:999px;margin-bottom:28px;
+}
+.hero-eyebrow-dot{width:6px;height:6px;border-radius:50%;background:#FF6B35;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+
+.hero h1{
+  font-size:clamp(38px,5.5vw,64px);
+  font-weight:900;letter-spacing:-.02em;
+  line-height:1.12;margin-bottom:20px;
+}
+.hero h1 .accent{color:#FF6B35}
+.hero-sub{
+  font-size:17px;color:var(--muted);max-width:540px;margin:0 auto 42px;
+}
+
+/* Emergency CTA */
+.emergency-bar{
+  display:inline-flex;align-items:center;gap:12px;
+  background:rgba(255,59,48,.12);border:1px solid rgba(255,59,48,.25);
+  border-radius:var(--radius);padding:14px 24px;
+  font-size:14px;color:#FF6B6B;font-weight:600;
+  transition:all var(--ease);margin-bottom:32px;
+}
+.emergency-bar:hover{background:rgba(255,59,48,.2);border-color:rgba(255,59,48,.4)}
+.emergency-dot{width:8px;height:8px;border-radius:50%;background:#FF3B30;animation:pulse 1.5s infinite}
+
+/* ─── MODEL SELECTOR ─── */
+.model-selector-wrap{
+  position:sticky;top:0;z-index:100;
+  background:rgba(10,10,10,.88);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  padding:0;
+}
+.model-selector{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  padding:16px 0;
+}
+.model-btn{
+  padding:10px 24px;border-radius:999px;
+  font-size:14px;font-weight:700;font-family:inherit;
+  cursor:pointer;border:1px solid var(--border);
+  background:transparent;color:var(--muted);
+  transition:all var(--ease);
+  display:flex;align-items:center;gap:8px;
+}
+.model-btn:hover{border-color:var(--border2);color:#fff}
+.model-btn.active{background:var(--brand-dim);border-color:var(--brand);color:var(--brand)}
+.model-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.model-dot.l2{background:#FF6B35}
+.model-dot.nova{background:#6C5CE7}
+.model-results{font-size:12px;color:var(--muted);margin-left:12px;display:none}
+
+/* ─── MODEL BADGES ─── */
+.model-badge{
+  display:inline-flex;align-items:center;gap:4px;
+  padding:2px 8px;border-radius:5px;
+  font-size:10px;font-weight:700;letter-spacing:.03em;
+  margin-left:6px;flex-shrink:0;
+  white-space:nowrap;
+}
+.model-badge.l2{background:rgba(255,107,53,.15);color:#FF6B35}
+.model-badge.nova{background:rgba(108,92,231,.15);color:#8B7CF6}
+.model-badge.all{background:rgba(255,255,255,.06);color:var(--muted)}
+
+/* ─── CATEGORY GRID ─── */
+.cat-header{text-align:center;margin-bottom:56px}
+.cat-header h2{font-size:clamp(28px,3.5vw,42px);font-weight:800;margin-bottom:12px;letter-spacing:-.02em}
+.cat-header p{font-size:15px;color:var(--muted);max-width:500px;margin:0 auto}
+
+.cat-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+@media(max-width:900px){.cat-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.cat-grid{grid-template-columns:1fr}}
+
+.cat-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  padding:32px 28px;
+  cursor:pointer;
+  transition:all var(--ease);
+  position:relative;overflow:hidden;
+  display:flex;flex-direction:column;gap:14px;
+}
+.cat-card::before{
+  content:'';position:absolute;inset:0;
+  opacity:0;transition:opacity var(--ease);
+  border-radius:var(--radius-lg);
+}
+.cat-card:nth-child(1)::before{background:radial-gradient(ellipse at 50% 0%,rgba(255,107,53,.08),transparent 70%)}
+.cat-card:nth-child(2)::before{background:radial-gradient(ellipse at 50% 0%,rgba(80,120,255,.08),transparent 70%)}
+.cat-card:nth-child(3)::before{background:radial-gradient(ellipse at 50% 0%,rgba(255,180,50,.08),transparent 70%)}
+.cat-card:nth-child(4)::before{background:radial-gradient(ellipse at 50% 0%,rgba(100,220,140,.08),transparent 70%)}
+.cat-card:nth-child(5)::before{background:radial-gradient(ellipse at 50% 0%,rgba(255,80,120,.08),transparent 70%)}
+.cat-card:nth-child(6)::before{background:radial-gradient(ellipse at 50% 0%,rgba(160,120,255,.08),transparent 70%)}
+.cat-card:hover{transform:translateY(-3px);border-color:var(--brand);box-shadow:0 8px 40px rgba(255,107,53,.08)}
+.cat-card:hover::before{opacity:1}
+.cat-card>*{position:relative;z-index:1}
+
+.cat-icon{
+  width:52px;height:52px;border-radius:var(--radius);
+  display:flex;align-items:center;justify-content:center;
+  font-size:26px;
+}
+.cat-card:nth-child(1) .cat-icon{background:rgba(255,107,53,.15);color:#FF6B35}
+.cat-card:nth-child(2) .cat-icon{background:rgba(80,120,255,.15);color:#6B8FFF}
+.cat-card:nth-child(3) .cat-icon{background:rgba(255,180,50,.15);color:#FFB432}
+.cat-card:nth-child(4) .cat-icon{background:rgba(100,220,140,.15);color:#64DC8C}
+.cat-card:nth-child(5) .cat-icon{background:rgba(255,80,120,.15);color:#FF5078}
+.cat-card:nth-child(6) .cat-icon{background:rgba(160,120,255,.15);color:#A078FF}
+
+.cat-card h3{font-size:19px;font-weight:700;margin-bottom:0}
+.cat-card p{font-size:13px;color:var(--muted);line-height:1.55;flex:1}
+.cat-card-articles{font-size:12px;color:var(--brand);font-weight:600;display:flex;align-items:center;gap:6px}
+
+/* ─── DEEP-DIVE SECTIONS ─── */
+.deep-section{padding:80px 0;transition:opacity .3s ease}
+.deep-section.filtered-out{display:none}
+.deep-section:nth-child(even){background:var(--surface)}
+.deep-section:nth-child(odd){background:#0a0a0a}
+
+.deep-head{display:flex;align-items:center;gap:18px;margin-bottom:16px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+.deep-icon{
+  width:48px;height:48px;border-radius:var(--radius);
+  display:flex;align-items:center;justify-content:center;
+  font-size:24px;flex-shrink:0;
+}
+.deep-head h2{font-size:30px;font-weight:800;letter-spacing:-.01em}
+
+.deep-desc{font-size:14px;color:var(--muted);margin-bottom:32px;max-width:640px}
+
+.article-list{display:flex;flex-direction:column;gap:4px}
+.article-link{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:17px 20px;
+  border-radius:var(--radius);
+  border:1px solid transparent;
+  background:transparent;
+  transition:all var(--ease);
+  cursor:pointer;
+  flex-wrap:wrap;gap:8px;
+}
+.article-link:hover{
+  border-color:var(--border);
+  background:var(--surface2);
+}
+.article-link.filtered-out{display:none}
+.article-left{display:flex;align-items:center;gap:14px;flex:1;min-width:0}
+.article-index{
+  width:28px;height:28px;border-radius:8px;
+  background:rgba(255,107,53,.1);
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:700;color:var(--brand);
+  flex-shrink:0;
+}
+.article-info h4{font-size:15px;font-weight:600;margin-bottom:2px;display:flex;align-items:center;flex-wrap:wrap;gap:4px}
+.article-info span{font-size:12px;color:var(--muted)}
+.article-est{font-size:12px;color:var(--muted);white-space:nowrap;display:flex;align-items:center;gap:4px;flex-shrink:0}
+
+/* ─── PREVENTION ─── */
+.prevention-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+@media(max-width:900px){.prevention-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.prevention-grid{grid-template-columns:1fr}}
+
+.prevent-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  padding:28px 24px;
+  text-align:center;
+  transition:all var(--ease);
+}
+.prevent-card:hover{border-color:var(--border2);transform:translateY(-2px)}
+.prevent-icon{
+  width:48px;height:48px;border-radius:50%;
+  background:rgba(255,107,53,.1);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 14px;
+  font-size:22px;
+}
+.prevent-card h4{font-size:15px;font-weight:700;margin-bottom:8px}
+.prevent-card p{font-size:12px;color:var(--muted);line-height:1.55}
+.prevent-link{font-size:12px;font-weight:700;color:var(--brand);margin-top:8px;display:inline-flex;align-items:center;gap:4px}
+
+/* ─── STILL STUCK CTA ─── */
+.stuck{
+  text-align:center;
+  background:linear-gradient(180deg,var(--surface),rgba(255,107,53,.04));
+  border:1px solid var(--border);
+  border-radius:var(--radius-xl);
+  padding:64px 40px;
+  position:relative;overflow:hidden;
+}
+.stuck::before{
+  content:'';position:absolute;
+  width:400px;height:400px;
+  top:-150px;left:50%;transform:translateX(-50%);
+  background:radial-gradient(ellipse,rgba(255,107,53,.1),transparent 60%);
+  pointer-events:none;
+}
+.stuck>*{position:relative}
+.stuck h2{font-size:34px;font-weight:800;margin-bottom:12px;letter-spacing:-.01em}
+.stuck p{font-size:15px;color:var(--muted);max-width:480px;margin:0 auto 32px}
+.stuck-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.stuck-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:14px 28px;border-radius:var(--radius);
+  font-size:14px;font-weight:700;font-family:inherit;
+  cursor:pointer;transition:all var(--ease);
+}
+.stuck-btn.primary{background:var(--brand);color:#fff;border:none}
+.stuck-btn.primary:hover{background:#E55A2A}
+.stuck-btn.secondary{background:transparent;color:#fff;border:1px solid var(--border2)}
+.stuck-btn.secondary:hover{border-color:var(--brand);background:rgba(255,107,53,.06)}
+
+/* ─── FAQ ─── */
+.faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+.faq-item{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  overflow:hidden;
+  transition:all var(--ease);
+}
+.faq-item:hover{border-color:var(--border2)}
+.faq-q{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 24px;cursor:pointer;font-weight:600;font-size:15px;
+  user-select:none;gap:12px;
+}
+.faq-q::after{content:'+';font-size:22px;font-weight:300;color:var(--muted);flex-shrink:0;transition:transform var(--ease)}
+.faq-item.open .faq-q::after{content:'\u2212'}
+.faq-a{
+  max-height:0;overflow:hidden;
+  transition:max-height .3s ease,padding .3s ease;
+}
+.faq-item.open .faq-a{max-height:500px;padding:0 24px 20px}
+.faq-a p{font-size:14px;color:var(--muted);line-height:1.7}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:768px){
+  section{padding:64px 0}
+  .hero{padding:80px 0 60px}
+  .cat-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .deep-section{padding:56px 0}
+  .container{padding:0 16px}
+  .article-info h4{font-size:13px}
+  .stuck{padding:48px 20px}
+  .model-btn{padding:8px 16px;font-size:13px}
+  .model-results{display:none!important}
+}
+@media(max-width:480px){
+  .cat-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- Breadcrumb -->
+<div class="bc">
+  <div class="container">
+    <a href="../">Home</a><span class="sep">/</span><span class="cur">Troubleshooting</span>
+  </div>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-dot"></span>Troubleshooting Center
+    </div>
+    <h1>Something <span class="accent">not working?</span><br>We'll get you back to making.</h1>
+    <p class="hero-sub">Browse by symptom or filter by your machine model. Every fix includes clear steps, photos, and estimated time — for L2 and NOVA.</p>
+    <a href="#emergency" class="emergency-bar">
+      <span class="emergency-dot"></span>
+      Emergency Stop triggered? Cover alarm? Click here for immediate help
+      <span style="font-size:16px">&#8594;</span>
+    </a>
+  </div>
+</section>
+
+<!-- Model Selector -->
+<div class="model-selector-wrap" id="modelSelectorBar">
+  <div class="container">
+    <div class="model-selector">
+      <button class="model-btn active" data-model="all" onclick="filterModel('all')">
+        All Models
+      </button>
+      <button class="model-btn" data-model="l2" onclick="filterModel('l2')">
+        <span class="model-dot l2"></span>TOOCAA L2
+      </button>
+      <button class="model-btn" data-model="nova" onclick="filterModel('nova')">
+        <span class="model-dot nova"></span>TOOCAA NOVA
+      </button>
+      <span class="model-results" id="modelResults"></span>
+    </div>
+  </div>
+</div>
+
+<!-- Category Navigation Grid -->
+<section id="cat-section">
+  <div class="container">
+    <div class="cat-header">
+      <h2>What's the problem area?</h2>
+      <p>Pick the category that matches your symptom. Use the model filter above to see only your machine's guides.</p>
+    </div>
+    <div class="cat-grid">
+      <a href="#laser-cutting" class="cat-card">
+        <div class="cat-icon">&#x1F4A1;</div>
+        <h3>Laser &amp; Cutting</h3>
+        <p>Laser not firing, weak output, material not cutting through, burnt edges, uneven depth</p>
+        <span class="cat-card-articles">6 guides &#8594;</span>
+      </a>
+      <a href="#engraving" class="cat-card">
+        <div class="cat-icon">&#x1F3A8;</div>
+        <h3>Engraving Quality</h3>
+        <p>Too light or dark, misalignment, wavy lines, gradient banding, scorch marks on surface</p>
+        <span class="cat-card-articles">5 guides &#8594;</span>
+      </a>
+      <a href="#hardware" class="cat-card">
+        <div class="cat-icon">&#x2699;</div>
+        <h3>Hardware &amp; Mechanical</h3>
+        <p>Machine won't turn on, homing failure, motor skipping, strange noises, axis drift, rotary issues</p>
+        <span class="cat-card-articles">8 guides &#8594;</span>
+      </a>
+      <a href="#software" class="cat-card">
+        <div class="cat-icon">&#x1F4BB;</div>
+        <h3>Software &amp; Connection</h3>
+        <p>USB/Wi-Fi not connecting, LightBurn/TOOCAA Studio detection, file transfer failed, firmware stuck</p>
+        <span class="cat-card-articles">8 guides &#8594;</span>
+      </a>
+      <a href="#safety" class="cat-card">
+        <div class="cat-icon">&#x1F6E1;</div>
+        <h3>Safety &amp; Ventilation</h3>
+        <p>Excessive smoke, flame detection alarm, cover sensor fault, overheating warning, emergency stop</p>
+        <span class="cat-card-articles">6 guides &#8594;</span>
+      </a>
+      <a href="#maintenance" class="cat-card">
+        <div class="cat-icon">&#x1F527;</div>
+        <h3>Maintenance &amp; Care</h3>
+        <p>Lens cleaning, belt adjustment, rail lubrication, air pump upkeep, bed cleaning, module lifespan</p>
+        <span class="cat-card-articles">7 guides &#8594;</span>
+      </a>
+      <a href="#nova-smart" class="cat-card">
+        <div class="cat-icon" style="background:rgba(108,92,231,.15);color:#8B7CF6">&#x1F916;</div>
+        <h3>NOVA Smart Features</h3>
+        <p>Wi-Fi setup, camera calibration, auto-focus, touchscreen, AI recognition, smart air assist, child lock</p>
+        <span class="cat-card-articles" style="color:#8B7CF6">11 guides — NOVA only &#8594;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Deep Dive 1: Laser & Cutting -->
+<section class="deep-section" id="laser-cutting">
+  <div class="container">
+    <div class="deep-head">
+      <div class="deep-icon">&#x1F4A1;</div>
+      <h2>Laser &amp; Cutting Issues</h2>
+    </div>
+    <p class="deep-desc">The most common category — if your laser won't fire, cuts are incomplete, or edges are burnt, start here. Applicable to both L2 and NOVA diode laser systems.</p>
+    <div class="article-list">
+      <a href="https://www.toocaa.com/troubleshooting/laser-not-firing/" class="article-link" data-model="all">
+        <div class="article-left">
+          <span class="article-index">01</span>
+          <div class="article-info">
+            <h4>Laser Not Firing: Complete Troubleshooting Guide <span class="model-badge all">L2 &amp; NOVA</span></h4>
+            <span>Safety interlock check, focus verification, laser module diagnosis — for both models</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 5-10 min</span>
+      </a>
+      <a href="https://www.toocaa.com/troubleshooting/weak-laser-output/" class="article-link" data-model="all">
+        <div class="article-left">
+          <span class="article-index">02</span>
+          <div class="article-info">
+            <h4>Weak Laser Output: Lens Cleaning &amp; Power Diagnosis <span class="model-badge all">L2 &amp; NOVA</span></h4>
+            <span>Power drop reasons, lens contamination check, module aging test, output measurement</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 10-15 min</span>
+      </a>
+      <a href="https://www.toocaa.com/troubleshooting/not-cutting-through/" class="article-link" data-model="all">
+        <div class="article-left">
+          <span class="article-index">03</span>
+          <div class="article-info">
+            <h4>Material Not Cutting Through: Power, Speed &amp; Multi-Pass Settings <span class="model-badge all">L2 &amp; NOVA</span></h4>
+            <span>Incorrect parameters, focus distance error, material thickness verification</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 5 min</span>
+      </a>
+      <a href="https://www.toocaa.com/troubleshooting/uneven-cutting-depth/" class="article-link" data-model="all">
+        <div class="article-left">
+          <span class="article-index">04</span>
+          <div class="article-info">
+            <h4>Uneven Cutting Depth: Bed Leveling &amp; Focus Calibration <span class="model-badge all">L2 &amp; NOVA</span></h4>
+            <span>Warped honeycomb bed, uneven material, focus ramp/manual adjustment</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 8-12 min</span>
+      </a>
+      <a href="https://www.toocaa.com/troubleshooting/burnt-charred-edges/" class="article-link" data-model="all">
+        <div class="article-left">
+          <span class="article-index">05</span>
+          <div class="article-info">
+            <h4>Burnt or Charred Edges: Air Assist &amp; Speed Optimization Guide <span class="model-badge all">L2 &amp; NOVA</span></h4>
+            <span>Air assist pressure, speed-to-power ratio, masking tape technique — L2 manual / NOVA auto</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 5 min</span>
+      </a>
+      <a href="https://www.toocaa.com/troubleshooting/kerf-too-wide/" class="article-link" data-model="all">
+        <div class="article-left">
+          <span class="article-index">06</span>
+          <div class="article-info">
+            <h4>Kerf Too Wide: Focus Distance &amp; Lens Selection <span class="model-badge all">L2 &amp; NOVA</span></h4>
+            <span>Focal length impact, focus calibration, material-specific kerf offset reference table</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 5 min</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Deep Dive 2: Engraving Quality -->
+<section class="deep-section" id="engraving">
+  <div class="container">
+    <div class="deep-head">
+      <div class="deep-icon" style="background:rgba(80,120,255,.15);color:#6B8FFF">&#x1F3A8;</div>
+      <h2>Engraving Quality Issues</h2>
+    </div>
+    <p class="deep-desc">When the result doesn't match the preview — too dark, too light, blurry, or misaligned. Most are quick parameter fixes.</p>
+    <div class="article-list">
+      <a href="https://www.toocaa.com/troubleshooting/engraving-too-light-or-dark/" class="article-link" data-model="all">
+        <div class="article-left">
+          <span class="article-index">01</span>
+          <div class="article-info">
+            <h4>Engraving Too Light or Too Dark: DPI &amp; Power Settings Explained <span class="model-badge all">L2 &amp; NOVA</span></h4>
+            <span>DPI vs line interval, min/max power in LightBurn / TOOCAA Studio, material test grid</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 5-8 min</span>
+      </a>
+      <a href="https://www.toocaa.com/troubleshooting/engraving-misalignment/" class="article-link" data-model="all">
+        <div class="article-left">
+          <span class="article-index">02</span>
+          <div class="article-info">
+            <h4>Engraving Misalignment: Belt Tension &amp; Calibration Fix <span class="model-badge all">L2 &amp; NOVA</span></h4>
+            <span>X/Y belt check, pulley set screw, axis calibration, rotary alignment</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 10-15 min</span>
+      </a>
+      <a href="https://www.toocaa.com/troubleshooting/wavy-blurry-engraving/" class="article-link" data-model="all">
+        <div class="article-left">
+          <span class="article-index">03</span>
+          <div class="article-info">
+            <h4>Wavy or Blurry Engraving Patterns: Vibration Diagnosis <span class="model-badge all">L2 &amp; NOVA</span></h4>
+            <span>Table stability, speed setting trade-off, belt resonance, frame squareness</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 5-10 min</span>
+      </a>
+      <a href="https://www.toocaa.com/troubleshooting/gradient-banding-photos/" class="article-link" data-model="all">
+        <div class="article-left">
+          <span class="article-index">04</span>
+          <div class="article-info">
+            <h4>Gradient Banding in Photos: Grayscale &amp; Dithering Settings <span class="model-badge all">L2 &amp; NOVA</span></h4>
+            <span>Jarvis vs Stucki dither, grayscale mode, image preprocessing tips</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 5 min</span>
+      </a>
+      <a href="https://www.toocaa.com/troubleshooting/scorch-marks-engraving/" class="article-link" data-model="all">
+        <div class="article-left">
+          <span class="article-index">05</span>
+          <div class="article-info">
+            <h4>Surface Scorch Marks During Engraving: Speed &amp; Air Flow Fix <span class="model-badge all">L2 &amp; NOVA</span></h4>
+            <span>Air assist during engraving, masking application, speed-power balance</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 3-5 min</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Deep Dive 3: Hardware & Mechanical -->
+<section class="deep-section" id="hardware">
+  <div class="container">
+    <div class="deep-head">
+      <div class="deep-icon" style="background:rgba(255,180,50,.15);color:#FFB432">&#x2699;</div>
+      <h2>Hardware &amp; Mechanical Issues</h2>
+    </div>
+    <p class="deep-desc">Physical and mechanical problems — power, movement, noise, and structural alignment. Most can be fixed without sending the machine back.</p>
+    <div class="article-list">
+      <a href="https://www.toocaa.com/troubleshooting/machine-wont-turn-on/" class="article-link" data-model="all">
+        <div class="article-left">
+          <span class="article-index">01</span>
+          <div class="article-info">
+            <h4>Machine Won't Turn On: Power Supply &amp; Fuse Check <span class="model-badge all">L2 &amp; NOVA</span></h4>
+            <span>Power cord check, emergency stop reset — L2 external adapter / NOVA internal PSU</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 5 min</span>
+      </a>
+      <a href="https://www.toocaa.com/troubleshooting/homing-failure/" class="article-link" data-model="all">
+        <div class="article-left">
+          <span class="article-index">02</span>
+          <div class="article-info">
+            <h4>Homing Failure: Limit Switch Diagnosis &amp; Reset <span class="model-badge all">L2 &amp; NOVA</span></h4>
+            <span>Limit switch wiring, physical obstruction check, firmware homing direction setting</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 8-12 min</span>
+      </a>
+      <a href="https://www.toocaa.com/troubleshooting/motor-skipping-grinding/" class="article-link" data-model="all">
+        <div class="article-left">
+          <span class="article-index">03</span>
+          <div class="article-info">
+            <h4>Stepper Motor Skipping or Grinding: Belt &amp; Driver Adjustment <span class="model-badge all">L2 &amp; NOVA</span></h4>
+            <span>Belt tension, V-wheel inspection, stepper driver current, acceleration settings</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 10-15 min</span>
+      </a>
+      <a href="https://www.toocaa.com/troubleshooting/strange-noises-during-operation/" class="article-link" data-model="all">
+        <div class="article-left">
+          <span class="article-index">04</span>
+          <div class="article-info">
+            <h4>Strange Noises During Operation: Full Mechanical Inspection <span class="model-badge all">L2 &amp; NOVA</span></h4>
+            <span>Bearing wear, loose screws, rail debris, resonance frequencies at speed</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 10-20 min</span>
+      </a>
+      <a href="https://www.toocaa.com/troubleshooting/axis-drift-calibration/" class="article-link" data-model="all">
+        <div class="article-left">
+          <span class="article-index">05</span>
+          <div class="article-info">
+            <h4>X/Y Axis Drift: Calibration &amp; Firmware Sync <span class="model-badge all">L2 &amp; NOVA</span></h4>
+            <span>Steps-per-mm calibration, backlash compensation, origin offset, firmware save</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 12-18 min</span>
+      </a>
+      <a href="https://www.toocaa.com/troubleshooting/rotary-attachment-issues/" class="article-link" data-model="all">
+        <div class="article-left">
+          <span class="article-index">06</span>
+          <div class="article-info">
+            <h4>Rotary Attachment Not Working: Connection &amp; Setup Guide <span class="model-badge all">L2 &amp; NOVA</span></h4>
+            <span>Y-axis swap, rotary enable in firmware, steps-per-rotation — L2 standard / NOVA 90° flip</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 8-12 min</span>
+      </a>
+      <a href="https://www.toocaa.com/troubleshooting/frame-squareness-alignment/" class="article-link" data-model="all">
+        <div class="article-left">
+          <span class="article-index">07</span>
+          <div class="article-info">
+            <h4>Frame Not Square: Assembly Re-Alignment Guide <span class="model-badge all">L2 &amp; NOVA</span></h4>
+            <span>Diagonal measurement check, corner bracket adjustment, gantry squareness</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 15-25 min</span>
+      </a>
+      <a href="https://www.toocaa.com/troubleshooting/nova-rotary-90-degree/" class="article-link" data-model="nova">
+        <div class="article-left">
+          <span class="article-index">08</span>
+          <div class="article-info">
+            <h4>NOVA 90° X-Axis Rotation for Rotary: Setup &amp; Calibration <span class="model-badge nova">NOVA</span></h4>
+            <span>X-axis flip mechanism, rotary chuck alignment, steps-per-rotation for NOVA-specific mode</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 8-12 min</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Deep Dive 4: Software & Connection -->
+<section class="deep-section" id="software">
+  <div class="container">
+    <div class="deep-head">
+      <div class="deep-icon" style="background:rgba(100,220,140,.15);color:#64DC8C">&#x1F4BB;</div>
+      <h2>Software &amp; Connection Issues</h2>
+    </div>
+    <p class="deep-desc">When your computer and TOOCAA won't talk — USB, Wi-Fi, LightBurn, TOOCAA Studio, or firmware. Driver issues are the #1 cause across both models.</p>
+    <div class="article-list">
+      <a href="https://www.toocaa.com/troubleshooting/usb-not-connecting/" class="article-link" data-model="all">
+        <div class="article-left">
+          <span class="article-index">01</span>
+          <div class="article-info">
+            <h4>TOOCAA Not Connecting via USB: Driver Installation Fix <span class="model-badge all">L2 &amp; NOVA</span></h4>
+            <span>CH340/CH341 driver, port selection, data vs charge-only cable, Windows/Mac steps</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 5-8 min</span>
+      </a>
+      <a href="https://www.toocaa.com/troubleshooting/wifi-connection-troubleshooting/" class="article-link" data-model="nova">
+        <div class="article-left">
+          <span class="article-index">02</span>
+          <div class="article-info">
+            <h4>Wi-Fi Connection Troubleshooting: Complete Setup Guide <span class="model-badge nova">NOVA</span></h4>
+            <span>2.4GHz requirement, IP address finding via touchscreen, firewall exception, router channel</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 8-12 min</span>
+      </a>
+      <a href="https://www.toocaa.com/troubleshooting/lightburn-not-detecting/" class="article-link" data-model="all">
+        <div class="article-left">
+          <span class="article-index">03</span>
+          <div class="article-info">
+            <h4>LightBurn Not Detecting TOOCAA: Connection Protocol Fix <span class="model-badge all">L2 &amp; NOVA</span></h4>
+            <span>GRBL selection, baud rate 115200, device list refresh, manual COM / IP entry</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 5 min</span>
+      </a>
+      <a href="https://www.toocaa.com/troubleshooting/toocaa-studio-connection/" class="article-link" data-model="nova">
+        <div class="article-left">
+          <span class="article-index">04</span>
+          <div class="article-info">
+            <h4>TOOCAA Studio Not Connecting to NOVA <span class="model-badge nova">NOVA</span></h4>
+            <span>App version check, device discovery, Wi-Fi vs USB preference, firewall permissions</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 5-8 min</span>
+      </a>
+      <a href="https://www.toocaa.com/troubleshooting/file-transfer-failed/" class="article-link" data-model="all">
+        <div class="article-left">
+          <span class="article-index">05</span>
+          <div class="article-info">
+            <h4>File Transfer Failed: SD Card &amp; USB Troubleshooting <span class="model-badge all">L2 &amp; NOVA</span></h4>
+            <span>File format compatibility, SD card formatting, file name length — L2 TF card / NOVA USB</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 3-5 min</span>
+      </a>
+      <a href="https://www.toocaa.com/troubleshooting/firmware-update-stuck/" class="article-link" data-model="all">
+        <div class="article-left">
+          <span class="article-index">06</span>
+          <div class="article-info">
+            <h4>Firmware Update Stuck or Failed: Recovery Guide <span class="model-badge all">L2 &amp; NOVA</span></h4>
+            <span>Bootloader mode, manual flash, backup before update, brick recovery — model-specific steps</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 10-20 min</span>
+      </a>
+      <a href="https://www.toocaa.com/troubleshooting/toocaa-app-crashes/" class="article-link" data-model="nova">
+        <div class="article-left">
+          <span class="article-index">07</span>
+          <div class="article-info">
+            <h4>TOOCAA Studio App Crashes or Freezes: Troubleshooting <span class="model-badge nova">NOVA</span></h4>
+            <span>App version check, cache clear, device compatibility, reinstallation on Windows/Mac/iOS</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 5 min</span>
+      </a>
+      <a href="https://www.toocaa.com/troubleshooting/nova-firmware-ota/" class="article-link" data-model="nova">
+        <div class="article-left">
+          <span class="article-index">08</span>
+          <div class="article-info">
+            <h4>NOVA OTA Firmware Update: Wi-Fi Update Troubleshooting <span class="model-badge nova">NOVA</span></h4>
+            <span>Over-the-air update procedure, update stuck at X%, recovery via USB fallback</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 8-12 min</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Deep Dive 5: NOVA Smart Features -->
+<section class="deep-section" id="nova-smart" style="background:var(--surface)">
+  <div class="container">
+    <div class="deep-head">
+      <div class="deep-icon" style="background:rgba(108,92,231,.15);color:#8B7CF6">&#x1F916;</div>
+      <h2>NOVA Smart Features — Exclusive</h2>
+    </div>
+    <p class="deep-desc">TOOCAA NOVA includes advanced smart features not found on L2. These guides cover camera, auto-focus, AI recognition, touchscreen, and other NOVA-exclusive systems.</p>
+    <div class="article-list">
+      <a href="https://www.toocaa.com/troubleshooting/nova-camera-positioning-offset/" class="article-link" data-model="nova">
+        <div class="article-left">
+          <span class="article-index">01</span>
+          <div class="article-info">
+            <h4>Camera Positioning Offset: Calibration &amp; Realignment <span class="model-badge nova">NOVA</span></h4>
+            <span>5MP camera calibration grid, crosshair alignment, lighting conditions, recalibration steps</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 10-15 min</span>
+      </a>
+      <a href="https://www.toocaa.com/troubleshooting/nova-autofocus-failed/" class="article-link" data-model="nova">
+        <div class="article-left">
+          <span class="article-index">02</span>
+          <div class="article-info">
+            <h4>Auto-Focus Calibration Failed: Manual Override &amp; Sensor Check <span class="model-badge nova">NOVA</span></h4>
+            <span>3-second auto-focus sensor, manual focus override, probe cleaning, height offset correction</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 5-10 min</span>
+      </a>
+      <a href="https://www.toocaa.com/troubleshooting/nova-touchscreen-issues/" class="article-link" data-model="nova">
+        <div class="article-left">
+          <span class="article-index">03</span>
+          <div class="article-info">
+            <h4>Touchscreen Unresponsive / Frozen / Glitchy Display <span class="model-badge nova">NOVA</span></h4>
+            <span>2.4" touchscreen reboot, calibration, firmware reflash, static discharge issue</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 5-8 min</span>
+      </a>
+      <a href="https://www.toocaa.com/troubleshooting/nova-ai-material-recognition/" class="article-link" data-model="nova">
+        <div class="article-left">
+          <span class="article-index">04</span>
+          <div class="article-info">
+            <h4>AI Material Recognition Not Working / Incorrect Suggestions <span class="model-badge nova">NOVA</span></h4>
+            <span>AI model update, lighting conditions, material database sync, manual override workflow</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 5-8 min</span>
+      </a>
+      <a href="https://www.toocaa.com/troubleshooting/nova-smart-air-assist/" class="article-link" data-model="nova">
+        <div class="article-left">
+          <span class="article-index">05</span>
+          <div class="article-info">
+            <h4>Smart Air Assist Not Auto-Adjusting / No Air Output <span class="model-badge nova">NOVA</span></h4>
+            <span>Auto air assist calibration, pump check, tube blockage, manual override in touchscreen</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 5-10 min</span>
+      </a>
+      <a href="https://www.toocaa.com/troubleshooting/nova-dual-exhaust-weak/" class="article-link" data-model="nova">
+        <div class="article-left">
+          <span class="article-index">06</span>
+          <div class="article-info">
+            <h4>Dual-Channel Exhaust Weak Airflow / Fan Not Spinning <span class="model-badge nova">NOVA</span></h4>
+            <span>Fan speed settings, internal filter cleaning, exhaust path obstruction, motor check</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 8-12 min</span>
+      </a>
+      <a href="https://www.toocaa.com/troubleshooting/nova-breathing-light-status/" class="article-link" data-model="nova">
+        <div class="article-left">
+          <span class="article-index">07</span>
+          <div class="article-info">
+            <h4>Breathing Light Shows Abnormal Color / Pattern <span class="model-badge nova">NOVA</span></h4>
+            <span>LED status code reference: green=ready, blue=working, red=error, flashing patterns</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 3-5 min</span>
+      </a>
+      <a href="https://www.toocaa.com/troubleshooting/nova-child-lock-forgot-password/" class="article-link" data-model="nova">
+        <div class="article-left">
+          <span class="article-index">08</span>
+          <div class="article-info">
+            <h4>Child Safety Lock — Forgot Password / Lock Stuck <span class="model-badge nova">NOVA</span></h4>
+            <span>Password reset via TOOCAA Studio, factory reset option, master unlock code procedure</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 5-8 min</span>
+      </a>
+      <a href="https://www.toocaa.com/troubleshooting/nova-module-swap-not-recognized/" class="article-link" data-model="nova">
+        <div class="article-left">
+          <span class="article-index">09</span>
+          <div class="article-info">
+            <h4>Laser Module Not Recognized After Swap <span class="model-badge nova">NOVA</span></h4>
+            <span>Module seating check, contact pin cleaning, module type auto-detect, firmware recognition</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 5-8 min</span>
+      </a>
+      <a href="https://www.toocaa.com/troubleshooting/nova-camera-preview-lag/" class="article-link" data-model="nova">
+        <div class="article-left">
+          <span class="article-index">10</span>
+          <div class="article-info">
+            <h4>Camera Preview Lag or Freezing in TOOCAA Studio <span class="model-badge nova">NOVA</span></h4>
+            <span>USB bandwidth, Wi-Fi latency vs wired, camera resolution setting, GPU acceleration</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 5-8 min</span>
+      </a>
+      <a href="https://www.toocaa.com/troubleshooting/nova-smart-settings-reset/" class="article-link" data-model="nova">
+        <div class="article-left">
+          <span class="article-index">11</span>
+          <div class="article-info">
+            <h4>NOVA Smart Settings Reset: Restore All Defaults <span class="model-badge nova">NOVA</span></h4>
+            <span>Factory reset via touchscreen, TOOCAA Studio reset, calibration backup &amp; restore</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 5 min</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Deep Dive 6: Safety & Ventilation -->
+<section class="deep-section" id="safety">
+  <div class="container">
+    <div class="deep-head">
+      <div class="deep-icon" style="background:rgba(255,80,120,.15);color:#FF5078">&#x1F6E1;</div>
+      <h2>Safety &amp; Ventilation Issues</h2>
+    </div>
+    <p class="deep-desc">Smoke, alarms, and safety triggers. These issues demand immediate attention — we'll help you diagnose and resolve them safely for both L2 and NOVA.</p>
+    <div class="article-list">
+      <a href="https://www.toocaa.com/troubleshooting/excessive-smoke-odor/" class="article-link" data-model="all">
+        <div class="article-left">
+          <span class="article-index">01</span>
+          <div class="article-info">
+            <h4>Smoke &amp; Odor Control: Exhaust System Setup &amp; Optimization <span class="model-badge all">L2 &amp; NOVA</span></h4>
+            <span>L2 external hose routing / NOVA dual-channel fan settings, inline booster, window vent</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 8-12 min</span>
+      </a>
+      <a href="https://www.toocaa.com/troubleshooting/flame-detection-false-alarm/" class="article-link" data-model="all">
+        <div class="article-left">
+          <span class="article-index">02</span>
+          <div class="article-info">
+            <h4>Flame Detection Keeps Triggering: False Alarm Fix <span class="model-badge all">L2 &amp; NOVA</span></h4>
+            <span>Sensor cleaning, sensitivity adjustment, bright ambient light interference</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 5-8 min</span>
+      </a>
+      <a href="https://www.toocaa.com/troubleshooting/protective-cover-sensor/" class="article-link" data-model="all">
+        <div class="article-left">
+          <span class="article-index">03</span>
+          <div class="article-info">
+            <h4>Protective Cover Won't Close / Sensor Error <span class="model-badge all">L2 &amp; NOVA</span></h4>
+            <span>L2 outer enclosure magnetic sensor / NOVA lid magnet sensor, hinge adjustment, wiring</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 5 min</span>
+      </a>
+      <a href="https://www.toocaa.com/troubleshooting/emergency-stop-reset/" class="article-link" data-model="all" id="emergency">
+        <div class="article-left">
+          <span class="article-index">04</span>
+          <div class="article-info">
+            <h4>Emergency Stop Activated: Reset Procedure &amp; System Self-Check <span class="model-badge all">L2 &amp; NOVA</span></h4>
+            <span>E-stop release, controller reset sequence, safety system verification checklist</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 3-5 min</span>
+      </a>
+      <a href="https://www.toocaa.com/troubleshooting/overheating-warning/" class="article-link" data-model="all">
+        <div class="article-left">
+          <span class="article-index">05</span>
+          <div class="article-info">
+            <h4>Overheating Warning: Cooling Fan Diagnosis <span class="model-badge all">L2 &amp; NOVA</span></h4>
+            <span>Fan obstruction check, ambient temperature limits, duty cycle management for both models</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 5-10 min</span>
+      </a>
+      <a href="https://www.toocaa.com/troubleshooting/nova-exhaust-filter-replacement/" class="article-link" data-model="nova">
+        <div class="article-left">
+          <span class="article-index">06</span>
+          <div class="article-info">
+            <h4>NOVA Internal Exhaust Filter: Cleaning &amp; Replacement <span class="model-badge nova">NOVA</span></h4>
+            <span>Filter location, cleaning frequency, replacement part number, lifespan by usage</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 5-8 min</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Deep Dive 7: Maintenance & Care -->
+<section class="deep-section" id="maintenance">
+  <div class="container">
+    <div class="deep-head">
+      <div class="deep-icon" style="background:rgba(160,120,255,.15);color:#A078FF">&#x1F527;</div>
+      <h2>Maintenance &amp; Care</h2>
+    </div>
+    <p class="deep-desc">Preventative maintenance is the best troubleshooting. Regular care keeps your machine running like new — applicable across L2 and NOVA.</p>
+    <div class="article-list">
+      <a href="https://www.toocaa.com/troubleshooting/lens-mirror-cleaning/" class="article-link" data-model="all">
+        <div class="article-left">
+          <span class="article-index">01</span>
+          <div class="article-info">
+            <h4>Lens Cleaning: Step-by-Step with Photos <span class="model-badge all">L2 &amp; NOVA</span></h4>
+            <span>99% IPA method, lint-free wipes, cleaning frequency, NOVA modular head easy access guide</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 8-12 min</span>
+      </a>
+      <a href="https://www.toocaa.com/troubleshooting/belt-tension-adjustment/" class="article-link" data-model="all">
+        <div class="article-left">
+          <span class="article-index">02</span>
+          <div class="article-info">
+            <h4>Belt Tension Adjustment: When &amp; How to Tighten <span class="model-badge all">L2 &amp; NOVA</span></h4>
+            <span>Tension test frequency, over-tightening risk, belt replacement signs</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 5-10 min</span>
+      </a>
+      <a href="https://www.toocaa.com/troubleshooting/rail-lubrication-guide/" class="article-link" data-model="all">
+        <div class="article-left">
+          <span class="article-index">03</span>
+          <div class="article-info">
+            <h4>Rail Lubrication Guide: Recommended Products &amp; Schedule <span class="model-badge all">L2 &amp; NOVA</span></h4>
+            <span>Grease vs oil, application method, frequency by usage, contamination warning</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 5-8 min</span>
+      </a>
+      <a href="https://www.toocaa.com/troubleshooting/air-assist-pump-maintenance/" class="article-link" data-model="all">
+        <div class="article-left">
+          <span class="article-index">04</span>
+          <div class="article-info">
+            <h4>Air Assist Pump Maintenance: Filter Cleaning &amp; Replacement <span class="model-badge all">L2 &amp; NOVA</span></h4>
+            <span>L2 external pump / NOVA internal smart pump, intake filter, air tube inspection</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 5-8 min</span>
+      </a>
+      <a href="https://www.toocaa.com/troubleshooting/honeycomb-bed-cleaning/" class="article-link" data-model="all">
+        <div class="article-left">
+          <span class="article-index">05</span>
+          <div class="article-info">
+            <h4>Bed Cleaning: Removing Residue &amp; Debris <span class="model-badge all">L2 &amp; NOVA</span></h4>
+            <span>Resin removal, degreaser choice, compressed air method, bed replacement timing</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 5-10 min</span>
+      </a>
+      <a href="https://www.toocaa.com/troubleshooting/laser-module-lifespan/" class="article-link" data-model="all">
+        <div class="article-left">
+          <span class="article-index">06</span>
+          <div class="article-info">
+            <h4>Laser Module Lifespan: When to Replace &amp; What to Expect <span class="model-badge all">L2 &amp; NOVA</span></h4>
+            <span>Power drop measurement, expected lifetime by usage, L2 fixed module / NOVA swappable</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 8-12 min</span>
+      </a>
+      <a href="https://www.toocaa.com/troubleshooting/nova-module-removal-install/" class="article-link" data-model="nova">
+        <div class="article-left">
+          <span class="article-index">07</span>
+          <div class="article-info">
+            <h4>NOVA Laser Module Removal &amp; Installation Guide <span class="model-badge nova">NOVA</span></h4>
+            <span>Safe module swap procedure, contact pin alignment, 10W/20W/2W IR compatibility check</span>
+          </div>
+        </div>
+        <span class="article-est">&#x23F1; 5-8 min</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Preventative Maintenance -->
+<section style="padding:96px 0;background:#0a0a0a">
+  <div class="container">
+    <div class="cat-header">
+      <h2>Prevent Problems Before They Start</h2>
+      <p>Simple routines that keep your TOOCAA running smoothly — whether you own an L2 or NOVA.</p>
+    </div>
+    <div class="prevention-grid">
+      <div class="prevent-card">
+        <div class="prevent-icon">&#x1F50D;</div>
+        <h4>Clean Lens Weekly</h4>
+        <p>Dirty lenses cut power by up to 30%. Use 99% IPA and lint-free wipes.</p>
+        <a href="https://www.toocaa.com/troubleshooting/lens-mirror-cleaning/" class="prevent-link">How to clean &#8594;</a>
+      </div>
+      <div class="prevent-card">
+        <div class="prevent-icon">&#x1F4CF;</div>
+        <h4>Check Belt Tension</h4>
+        <p>Loose belts = blurry engraving. Test every 40 hours with a light pluck.</p>
+        <a href="https://www.toocaa.com/troubleshooting/belt-tension-adjustment/" class="prevent-link">Tension guide &#8594;</a>
+      </div>
+      <div class="prevent-card">
+        <div class="prevent-icon">&#x1F9F9;</div>
+        <h4>Clean the Bed</h4>
+        <p>Resin buildup blocks airflow. Spray with degreaser and rinse every 20 hours.</p>
+        <a href="https://www.toocaa.com/troubleshooting/honeycomb-bed-cleaning/" class="prevent-link">Bed cleaning &#8594;</a>
+      </div>
+      <div class="prevent-card">
+        <div class="prevent-icon">&#x1F4E6;</div>
+        <h4>Check Exhaust System</h4>
+        <p>Kinked hoses reduce suction. Inspect the full exhaust path monthly.</p>
+        <a href="https://www.toocaa.com/troubleshooting/excessive-smoke-odor/" class="prevent-link">Exhaust check &#8594;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Still Stuck CTA -->
+<section style="padding:80px 0;background:#0a0a0a">
+  <div class="container">
+    <div class="stuck">
+      <h2>Still stuck? We're real humans.</h2>
+      <p>If none of the guides above solved your problem, our support team will respond within 24 hours. Mention your model (L2 or NOVA) and include your order number for faster service.</p>
+      <div class="stuck-btns">
+        <a href="https://www.toocaa.com/pages/contact" class="stuck-btn primary">&#x2709;&#xFE0F; Contact Support</a>
+        <a href="https://www.facebook.com/groups/toocaa" target="_blank" rel="noopener" class="stuck-btn secondary">&#x1F465; Ask the Community</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="padding:96px 0;background:var(--surface)">
+  <div class="container">
+    <div class="cat-header">
+      <h2>Frequently Asked Questions</h2>
+      <p>Quick answers to the most common troubleshooting questions — for both L2 and NOVA.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Why is my TOOCAA laser not firing?</div>
+        <div class="faq-a"><p>Start with the safety interlock: make sure the protective lid/cover is fully closed. For L2, check the USB key switch and outer enclosure sensors. For NOVA, check the lid magnet sensor and that the child lock is not engaged. Then verify the focus distance is correct. If those are all fine, inspect the laser module contacts for dirt or oxidation.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How do I know if my laser module needs replacing?</div>
+        <div class="faq-a"><p>Measure the actual output power. If a 20W module can no longer cut 3mm plywood at the settings that used to work, or the output has dropped below 60% of rated power, it's time to replace. Diode modules typically last 5,000-10,000 hours. NOVA modules are field-swappable — see the module replacement guide. L2 modules require service center replacement.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Why does LightBurn say "Waiting for connection"?</div>
+        <div class="faq-a"><p>This usually means the USB driver is missing. Install the CH340/CH341 driver for your OS. Then in LightBurn go to Devices, select the correct COM port (Windows) or /dev/cu.usbserial (Mac), and ensure baud rate is set to 115200. For NOVA Wi-Fi users, ensure the IP address shown on the touchscreen matches what you entered in LightBurn.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What's the difference between L2 and NOVA troubleshooting?</div>
+        <div class="faq-a"><p>Core cutting/engraving/mechanical issues are identical since both use diode laser technology and GRBL control. The key differences: NOVA has Wi-Fi (adds connection troubleshooting), a touchscreen (adds UI troubleshooting), camera + auto-focus (adds calibration guides), smart air assist (auto vs manual), TOOCAA Studio software (proprietary app issues), and swappable laser modules. L2 is simpler — use the "All Models" or "L2" filter to see only relevant guides.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I use my TOOCAA without an exhaust system?</div>
+        <div class="faq-a"><p>No — this is a safety requirement, not optional. Laser cutting produces fumes and particulates that are harmful to inhale. L2 requires an external exhaust hose vented outdoors. NOVA has a built-in dual-channel exhaust — ensure both fans are running and the internal filter is clean. For indoor use without window access, add a fume extractor with activated carbon and HEPA filtration.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How do I reset my TOOCAA to factory settings?</div>
+        <div class="faq-a"><p>For GRBL reset (both models): in LightBurn Console, type $RST=* and press Enter, then re-enter your calibration values (printed on the control box sticker). For NOVA smart settings: go to Settings > System > Factory Reset on the touchscreen, or use TOOCAA Studio > Device Settings > Restore Defaults. Always backup your material profiles before resetting.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Model Filter Script -->
+<script>
+function filterModel(model) {
+  // Update button states
+  document.querySelectorAll('.model-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.model === model);
+  });
+
+  // Filter article links
+  document.querySelectorAll('.article-link').forEach(link => {
+    const linkModel = link.dataset.model;
+    if (model === 'all') {
+      link.classList.remove('filtered-out');
+    } else {
+      // Show if model matches, OR if it's for "all"
+      link.classList.toggle('filtered-out', linkModel !== model && linkModel !== 'all');
+    }
+  });
+
+  // Show/hide the NOVA smart features section
+  const novaSection = document.getElementById('nova-smart');
+  if (model === 'l2') {
+    novaSection.style.display = 'none';
+  } else {
+    novaSection.style.display = '';
+  }
+
+  // Update result count
+  const visible = document.querySelectorAll('.article-link:not(.filtered-out)').length;
+  const total = document.querySelectorAll('.article-link').length;
+  const resEl = document.getElementById('modelResults');
+  if (model !== 'all') {
+    resEl.textContent = visible + ' of ' + total + ' guides shown';
+    resEl.style.display = 'inline';
+  } else {
+    resEl.style.display = 'none';
+  }
+}
+</script>
+
+</body>
+</html>
