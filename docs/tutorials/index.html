@@ -14,6 +14,7 @@
   <meta property="og:url" content="https://luckykingking.github.io/toocaa-test/tutorials/"/>
   <meta property="og:image" content="https://www.toocaa.com/cdn/shop/files/20241201-180837.jpg?v=1733047705&width=1920"/>
   <meta name="twitter:card" content="summary_large_image"/>
+  <link rel="stylesheet" href="../assets/main.css?v=tutorials-20260810"/>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -100,23 +101,23 @@
   </script>
   <style>
     :root{
-      --bg:#0b0f14;
-      --panel:#0f1722;
-      --card:#121c29;
-      --text:#e9eef6;
-      --muted:#a9b4c2;
-      --muted-2:#7a8696;
+      --bg:#ffffff;
+      --panel:#ffffff;
+      --card:#ffffff;
+      --text:#1a1a1a;
+      --muted:#626262;
+      --muted-2:#777777;
       --brand:#ff6a00;
-      --brand-soft:rgba(255,106,0,.12);
-      --brand-2:#22c55e;
-      --brand-2-soft:rgba(34,197,94,.1);
-      --blue:#3b82f6;
-      --blue-soft:rgba(59,130,246,.1);
-      --purple:#a855f7;
-      --purple-soft:rgba(168,85,247,.1);
-      --border:rgba(255,255,255,.08);
-      --border-hover:rgba(255,106,0,.25);
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --brand-soft:#fff2e8;
+      --brand-2:#14833b;
+      --brand-2-soft:#eaf7ee;
+      --blue:#2251ff;
+      --blue-soft:#edf1ff;
+      --purple:#7c3aed;
+      --purple-soft:#f3eeff;
+      --border:#e6e2da;
+      --border-hover:#ffb77f;
+      --shadow:0 16px 40px rgba(22,22,22,.09);
       --max: 1140px;
       --radius: 18px;
       --radius-sm: 12px;
@@ -130,97 +131,11 @@
       margin:0;
       font-family:var(--font);
       color:var(--text);
-      background:
-        radial-gradient(1200px 700px at 20% 0%, rgba(255,106,0,.15), transparent 55%),
-        radial-gradient(900px 600px at 80% 10%, rgba(34,197,94,.08), transparent 60%),
-        linear-gradient(180deg, #070a0f 0%, #0b0f14 55%, #070a0f 100%);
+      background:#ffffff;
       min-height:100vh;
     }
     a{color:inherit;text-decoration:none}
     a:hover{color:var(--brand)}
-
-    /* ============ Header ============ */
-    .header{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(12px);
-      background: rgba(11,15,20,.82);
-      border-bottom:1px solid var(--border);
-    }
-    .header-inner{
-      max-width:var(--max);
-      margin:0 auto;
-      display:flex; align-items:center; justify-content:space-between;
-      padding: 12px 18px;
-      gap: 14px;
-    }
-    .brand{
-      display:flex; align-items:center; gap:10px;
-    }
-    .brand img{height:26px; width:auto; display:block}
-    .brand .brand-name{
-      font-weight:800; letter-spacing:-.01em; font-size:15px;
-    }
-    .brand .sub{
-      font-size:11px; color:var(--muted-2);
-      margin-top:1px;
-    }
-    .nav{
-      display:flex; gap: 4px; align-items:center; flex-wrap:wrap;
-      font-size: 13px;
-    }
-    .nav a{
-      color:var(--muted);
-      padding: 7px 11px;
-      border-radius: 10px;
-      transition: all .15s;
-    }
-    .nav a:hover{color:var(--text);background:rgba(255,255,255,.05)}
-    .nav a.active{
-      color: var(--text);
-      background: rgba(255,255,255,.06);
-      border: 1px solid var(--border);
-    }
-    .menu-toggle{
-      display:none;
-      width:40px; height:40px;
-      align-items:center; justify-content:center;
-      border:1px solid var(--border);
-      border-radius:10px;
-      color:var(--text);
-      background:rgba(255,255,255,.04);
-      cursor:pointer;
-    }
-    .menu-toggle svg{width:20px;height:20px;stroke:currentColor;stroke-width:2;fill:none}
-    .menu-toggle:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
-    .nav-cta{
-      background: linear-gradient(135deg, rgba(255,106,0,.95), rgba(255,106,0,.7)) !important;
-      color:#111 !important;
-      font-weight:600;
-      border:none !important;
-    }
-    .nav-cta:hover{color:#111 !important; transform:translateY(-1px)}
-    @media(max-width:768px){
-      .header-inner{position:relative}
-      .brand img{height:22px}
-      .brand > div{display:none}
-      .menu-toggle{display:inline-flex}
-      .nav{
-        display:none;
-        position:absolute;
-        top:calc(100% + 8px);
-        left:18px; right:18px;
-        flex-direction:column;
-        align-items:stretch;
-        gap:4px;
-        padding:10px;
-        border:1px solid var(--border);
-        border-radius:12px;
-        background:rgba(11,15,20,.98);
-        box-shadow:var(--shadow);
-      }
-      .nav.is-open{display:flex}
-      .nav a{padding:10px 12px}
-    }
 
     /* ============ Container ============ */
     .container{max-width:var(--max); margin:0 auto; padding: 28px 18px 60px;}
@@ -230,7 +145,7 @@
       border: 1px solid var(--border);
       border-radius: var(--radius);
       overflow:hidden;
-      background: var(--panel);
+      background:linear-gradient(135deg,#fff7f0 0%,#ffffff 62%);
       box-shadow: var(--shadow);
       position:relative;
     }
@@ -245,14 +160,14 @@
       display:inline-flex; gap:8px; align-items:center;
       font-size: 12px; color: var(--muted);
       border: 1px solid var(--border);
-      background: rgba(255,255,255,.03);
+      background:#ffffff;
       padding: 6px 12px; border-radius: 999px;
     }
     .kicker b{color: var(--text)}
     .kicker .dot{width:6px;height:6px;border-radius:50%;background:var(--brand);box-shadow:0 0 8px var(--brand)}
     .hero h1{
       font-size: 38px; margin: 16px 0 12px 0;
-      letter-spacing: -0.025em; line-height:1.15;
+      letter-spacing:0; line-height:1.15;
     }
     .hero h1 .grad{
       background: linear-gradient(135deg, var(--brand), #ff9a4a);
@@ -267,7 +182,7 @@
       display:flex; gap: 24px; margin: 20px 0 0 0; flex-wrap:wrap;
     }
     .hero-stat .num{
-      font-size: 24px; font-weight:800; letter-spacing:-.02em;
+      font-size: 24px; font-weight:800; letter-spacing:0;
       background: linear-gradient(135deg, var(--brand), #ff9a4a);
       -webkit-background-clip:text; background-clip:text;
       -webkit-text-fill-color:transparent;
@@ -281,12 +196,12 @@
       font-weight: 600; font-size: 14px; transition: all .15s;
     }
     .btn.primary{
-      background: linear-gradient(135deg, rgba(255,106,0,.95), rgba(255,106,0,.65));
-      border-color: rgba(255,106,0,.4); color: #111;
+      background:var(--brand);
+      border-color:var(--brand); color:#ffffff;
     }
-    .btn.primary:hover{color:#111;transform:translateY(-1px);box-shadow:0 6px 20px rgba(255,106,0,.3)}
-    .btn.secondary{background: rgba(255,255,255,.04); color: var(--text);}
-    .btn.secondary:hover{background:rgba(255,255,255,.07);transform:translateY(-1px)}
+    .btn.primary:hover{color:#ffffff;transform:translateY(-1px);box-shadow:0 6px 20px rgba(255,106,0,.22)}
+    .btn.secondary{background:#ffffff;color:var(--text)}
+    .btn.secondary:hover{background:#f7f7f4;transform:translateY(-1px)}
     .btn.ghost{background: transparent; color: var(--muted); border-color:transparent}
     .hero-media{
       min-height: 360px;
@@ -295,12 +210,12 @@
     }
     .hero-media::after{
       content:""; position:absolute; inset:0;
-      background: linear-gradient(180deg, rgba(15,23,34,.1), rgba(15,23,34,.7));
+      background:linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,.12));
     }
     .hero-media .media-badge{
       position:absolute; bottom:20px; left:20px; z-index:2;
       display:flex; align-items:center; gap:8px;
-      background: rgba(11,15,20,.85); backdrop-filter:blur(8px);
+      background:rgba(255,255,255,.94); backdrop-filter:blur(8px);
       border:1px solid var(--border); border-radius:999px;
       padding:8px 14px; font-size:13px;
     }
@@ -317,14 +232,14 @@
     .section{
       margin-top: 24px; padding: 24px 24px;
       border: 1px solid var(--border); border-radius: var(--radius);
-      background: rgba(15,23,34,.55);
+      background:#fafafa;
     }
     .section-head{
       display:flex; align-items:flex-end; justify-content:space-between;
       gap:16px; margin-bottom:16px; flex-wrap:wrap;
     }
     .section h2{
-      margin: 0; font-size: 22px; letter-spacing: -0.015em;
+      margin: 0; font-size: 22px; letter-spacing:0;
     }
     .section .subtitle{color: var(--muted); margin: 6px 0 0 0; font-size:14px; line-height:1.5}
 
@@ -338,7 +253,7 @@
     }
     .search-box input{
       width:100%; padding:12px 16px 12px 42px;
-      background: rgba(15,23,34,.7);
+      background:#ffffff;
       border:1px solid var(--border);
       border-radius:12px; color:var(--text);
       font-size:14px; font-family:var(--font);
@@ -356,12 +271,12 @@
     .filter-tab{
       padding:8px 14px; border-radius:999px;
       border:1px solid var(--border);
-      background:rgba(255,255,255,.02);
+      background:#ffffff;
       color:var(--muted); font-size:13px; font-weight:500;
       cursor:pointer; transition:all .15s; white-space:nowrap;
       font-family:var(--font);
     }
-    .filter-tab:hover{color:var(--text);border-color:rgba(255,255,255,.15)}
+    .filter-tab:hover{color:var(--text);border-color:#cfcac1}
     .filter-tab.active{
       background: var(--brand-soft);
       border-color: rgba(255,106,0,.3);
@@ -381,7 +296,7 @@
     @media(max-width:640px){.tutorial-grid{grid-template-columns:1fr}}
 
     .tut-card{
-      background: rgba(18,28,41,.7);
+      background:#ffffff;
       border: 1px solid var(--border);
       border-radius: var(--radius-sm);
       padding: 20px; display:flex; flex-direction:column;
@@ -395,7 +310,7 @@
     .tut-card:hover{
       border-color: var(--border-hover);
       transform: translateY(-2px);
-      box-shadow: 0 12px 30px rgba(0,0,0,.3);
+      box-shadow:0 12px 30px rgba(22,22,22,.10);
     }
     .tut-card:hover::before{opacity:1}
     .tut-card-top{
@@ -418,12 +333,12 @@
     }
     .diff-dot{
       width:6px; height:6px; border-radius:50%;
-      background: rgba(255,255,255,.12);
+      background:#d8d8d8;
     }
     .diff-dot.on{background:var(--brand)}
     .tut-card h3{
       margin:0 0 8px 0; font-size:16px; line-height:1.35;
-      letter-spacing:-.01em; font-weight:700;
+      letter-spacing:0; font-weight:700;
     }
     .tut-card p.desc{
       margin:0; color:var(--muted); font-size:13px;
@@ -440,8 +355,8 @@
     }
     .tut-tag{
       display:inline-flex; padding:3px 8px; border-radius:6px;
-      font-size:11px; font-weight:600; letter-spacing:.02em;
-      background: rgba(255,255,255,.04); color:var(--muted);
+      font-size:11px; font-weight:600; letter-spacing:0;
+      background:#f5f5f5;color:var(--muted);
       border:1px solid var(--border);
     }
     .tut-tag.cut{background:var(--brand-soft);color:var(--brand);border-color:rgba(255,106,0,.2)}
@@ -466,10 +381,10 @@
     .faq-item{
       border:1px solid var(--border); border-radius:var(--radius-sm);
       padding:14px 16px; margin-bottom:10px;
-      background:rgba(255,255,255,.015);
+      background:#ffffff;
       transition:border-color .15s;
     }
-    .faq-item:hover{border-color:rgba(255,255,255,.12)}
+    .faq-item:hover{border-color:#cfcac1}
     .faq-item summary{
       cursor:pointer; font-weight:650; font-size:14px;
       color:var(--text); list-style:none;
@@ -486,14 +401,12 @@
     .cta-banner{
       margin-top:28px; padding:36px 32px;
       border-radius:var(--radius);
-      background:
-        radial-gradient(600px 300px at 20% 50%, rgba(255,106,0,.15), transparent 70%),
-        linear-gradient(135deg, rgba(255,106,0,.06), rgba(34,197,94,.04));
-      border:1px solid rgba(255,106,0,.15);
+      background:#fff7f0;
+      border:1px solid #ffd5b5;
       text-align:center;
     }
     .cta-banner h2{
-      margin:0 0 10px 0; font-size:26px; letter-spacing:-.02em;
+      margin:0 0 10px 0; font-size:26px; letter-spacing:0;
     }
     .cta-banner p{color:var(--muted);margin:0 0 20px 0;font-size:15px}
     .cta-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
@@ -518,36 +431,87 @@
       background:rgba(255,106,0,.08); color:var(--text);
       border-radius:999px; padding:5px 10px; font-size:12px;
     }
+    @media(max-width:720px){
+      .tutorials-page .hub-header__inner{grid-template-columns:1fr auto}
+      .tutorials-page .hub-menu-btn{justify-self:end}
+      .container{padding-top:24px}
+      .hero-copy{padding:30px 24px 26px}
+      .hero h1{font-size:36px}
+    }
     .hidden{display:none !important}
     .fade-in{animation: fadeIn .3s ease-out}
     @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
   </style>
 </head>
-<body>
+<body class="wood-page tutorials-page">
 
   <!-- ============ Header ============ -->
-  <header class="header">
-    <div class="header-inner">
-      <a class="brand" href="../">
+  <header class="hub-header">
+    <div class="hub-header__inner">
+      <a class="hub-logo" href="../index.html" aria-label="TOOCAA home">
         <img src="https://www.toocaa.com/cdn/shop/files/logo.png?v=1760693299&width=150" alt="TOOCAA"/>
-        <div>
-          <div class="brand-name">TOOCAA</div>
-          <div class="sub">Tutorials &amp; How-To Guides</div>
-        </div>
       </a>
-      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="siteNav" aria-expanded="false">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <button class="hub-menu-btn" type="button" aria-label="Open navigation" aria-expanded="false" data-menu-toggle>
+        <span></span><span></span><span></span>
       </button>
-      <nav class="nav" id="siteNav" aria-label="TOOCAA tutorials navigation">
-        <a href="../">Home</a>
-        <a href="https://www.toocaa.com/collections/all">Shop</a>
-        <a href="https://www.toocaa.com/pages/help-center-for-toocaa">Support</a>
-        <a href="../use-cases/">Use Cases</a>
-        <a href="./" class="active" aria-current="page">Tutorials</a>
-        <a href="../learn/materials/wood/">Materials</a>
-        <a href="../troubleshooting/">Troubleshooting</a>
-        <a href="https://www.toocaa.com/pages/contact" class="nav-cta">Get Help</a>
+      <nav class="hub-nav" aria-label="TOOCAA guides">
+        <div class="hub-nav__item">
+          <a href="../use-cases/">Use Cases</a>
+          <div class="hub-dropdown">
+            <a href="../use-cases/professional-studio-crafts/">Studio &amp; Crafts</a>
+            <a href="../use-cases/personalized-gifts/">Personalized Gifts</a>
+            <a href="../use-cases/qr-code-signage/">QR Code Signs</a>
+            <a href="../use-cases/home-decor/">Home Decor</a>
+            <a href="../use-cases/jewelry/">Jewelry</a>
+            <a href="../use-cases/gift-box-packaging/">Gift Packaging</a>
+            <a href="../use-cases/photo-engraving/">Photo Engraving</a>
+          </div>
+        </div>
+        <div class="hub-nav__item">
+          <a class="is-active" href="./" aria-current="page">Tutorials</a>
+          <div class="hub-dropdown">
+            <a class="is-current" href="#tutorial-list" data-tutorial-filter="all">Browse All Tutorials</a>
+            <a href="#tutorial-list" data-tutorial-filter="start">Getting Started</a>
+            <a href="#tutorial-list" data-tutorial-filter="cut">Cutting</a>
+            <a href="#tutorial-list" data-tutorial-filter="engrave">Engraving</a>
+            <a href="#tutorial-list" data-tutorial-filter="material">Materials &amp; Settings</a>
+            <a href="#tutorial-list" data-tutorial-filter="software">Software</a>
+            <a href="#tutorial-list" data-tutorial-filter="advanced">Advanced Workflows</a>
+          </div>
+        </div>
+        <div class="hub-nav__item">
+          <a href="../learn/materials/wood/">Materials</a>
+          <div class="hub-dropdown">
+            <a href="../learn/materials/wood/">Wood</a>
+            <a href="../learn/materials/wood/#material-selection">Material Selection</a>
+            <a href="../learn/materials/wood/#settings-table">Wood Settings</a>
+            <a href="../learn/materials/wood/#safety">Safety Notes</a>
+          </div>
+        </div>
+        <div class="hub-nav__item">
+          <a href="../learn/materials/wood/#faq">Support</a>
+          <div class="hub-dropdown">
+            <a href="../learn/materials/wood/#material-selection">Before You Buy</a>
+            <a href="../learn/materials/wood/#clean-workflow">After You Buy</a>
+            <a href="../learn/materials/wood/#faq">Common Questions</a>
+            <a href="https://www.toocaa.com/pages/contact" target="_blank" rel="noopener">Contact TOOCAA</a>
+          </div>
+        </div>
+        <div class="hub-nav__item">
+          <a href="../troubleshooting/">Troubleshooting</a>
+          <div class="hub-dropdown">
+            <a href="../troubleshooting/#laser-cutting">Laser &amp; Cutting</a>
+            <a href="../troubleshooting/#software">Software &amp; Connection</a>
+            <a href="../troubleshooting/#safety">Safety &amp; Ventilation</a>
+          </div>
+        </div>
       </nav>
+      <form class="hub-search" role="search" aria-label="Search tutorials" data-guide-search>
+        <input type="search" placeholder="Search tutorials" aria-label="Search tutorials"/>
+        <button type="submit" aria-label="Search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg>
+        </button>
+      </form>
     </div>
   </header>
 
@@ -570,12 +534,12 @@
           </p>
           <div class="hero-stats">
             <div class="hero-stat">
-              <div class="num">20+</div>
-              <div class="label">Step-by-step guides</div>
+              <div class="num">20</div>
+              <div class="label">Tutorial resources</div>
             </div>
             <div class="hero-stat">
-              <div class="num">300+</div>
-              <div class="label">Materials supported</div>
+              <div class="num">6</div>
+              <div class="label">Guide categories</div>
             </div>
             <div class="hero-stat">
               <div class="num">2</div>
@@ -588,10 +552,10 @@
             <a class="btn ghost" href="../learn/materials/wood/#settings-calculator">Wood Settings Calculator</a>
           </div>
         </div>
-        <div class="hero-media" style="background-image:url('https://www.toocaa.com/cdn/shop/files/2_1_09460790-9b7d-43d2-9adc-5cd252b10469.gif?v=1732938491&width=2000')">
+        <div class="hero-media" style="background-image:url('https://www.toocaa.com/cdn/shop/files/20241201-180837.jpg?v=1733047705&width=1920')">
           <div class="media-badge">
             <span class="pulse"></span>
-            <span>Live laser cutting demo</span>
+            <span>TOOCAA laser workspace</span>
           </div>
         </div>
       </div>
@@ -871,7 +835,7 @@
           </div>
         </div>
         <h3>Materials &amp; Settings Hub</h3>
-        <p class="desc">The single source of truth for material parameters. Browse 300+ materials with validated speed, power, and pass settings — plus known issues and fixes.</p>
+        <p class="desc">Open TOOCAA's official material settings reference to compare the available speed, power, and pass guidance for compatible machines and materials.</p>
         <div class="tut-meta">
           <span class="tut-tag material">Materials</span>
           <span class="tut-meta-item">&#9201; Reference</span>
@@ -1024,9 +988,11 @@
       const grid = document.getElementById('tutorialGrid');
       const searchInput = document.getElementById('searchInput');
       const filterTabs = document.querySelectorAll('.filter-tab');
+      const filterLinks = document.querySelectorAll('[data-tutorial-filter]');
       const noResults = document.getElementById('noResults');
-      const menuToggle = document.querySelector('.menu-toggle');
-      const nav = document.getElementById('siteNav');
+      const menuToggle = document.querySelector('[data-menu-toggle]');
+      const nav = document.querySelector('.hub-nav');
+      const guideSearch = document.querySelector('[data-guide-search]');
       let activeCat = 'all';
       let searchTerm = '';
 
@@ -1069,13 +1035,23 @@
         noResults.classList.toggle('hidden', visibleCount > 0);
       }
 
+      function setCategory(category){
+        activeCat = category || 'all';
+        filterTabs.forEach(tab => tab.classList.toggle('active', tab.dataset.cat === activeCat));
+        filterLinks.forEach(link => link.classList.toggle('is-current', link.dataset.tutorialFilter === activeCat));
+        applyFilters();
+      }
+
       // Filter tabs
       filterTabs.forEach(tab => {
         tab.addEventListener('click', () => {
-          filterTabs.forEach(t => t.classList.remove('active'));
-          tab.classList.add('active');
-          activeCat = tab.dataset.cat;
-          applyFilters();
+          setCategory(tab.dataset.cat);
+        });
+      });
+
+      filterLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          setCategory(link.dataset.tutorialFilter);
         });
       });
 
@@ -1084,6 +1060,17 @@
         searchTerm = e.target.value.toLowerCase().trim();
         applyFilters();
       });
+
+      if(guideSearch){
+        guideSearch.addEventListener('submit', (event) => {
+          event.preventDefault();
+          const input = guideSearch.querySelector('input');
+          searchTerm = (input && input.value || '').toLowerCase().trim();
+          searchInput.value = input && input.value || '';
+          setCategory('all');
+          document.getElementById('tutorial-list').scrollIntoView({behavior:'smooth', block:'start'});
+        });
+      }
 
       // Keyboard shortcut: focus search on '/'
       document.addEventListener('keydown', (e) => {
