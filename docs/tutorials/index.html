@@ -14,7 +14,7 @@
   <meta property="og:url" content="https://luckykingking.github.io/toocaa-test/tutorials/"/>
   <meta property="og:image" content="https://www.toocaa.com/cdn/shop/files/20241201-180837.jpg?v=1733047705&width=1920"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <link rel="stylesheet" href="../assets/main.css?v=tutorials-20260810"/>
+  <link rel="stylesheet" href="../assets/main.css?v=tutorials-20260810-editorial"/>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -64,7 +64,7 @@
     "itemListElement": [
       {"@type":"ListItem","position":1,"name":"Unboxing and First Setup Guide","url":"https://www.toocaa.com/blogs/toocaa-knowledge-share/step-by-step-guide-to-using-a-laser-engraver-at-home"},
       {"@type":"ListItem","position":2,"name":"Laser Safety and Protection Basics","url":"https://www.toocaa.com/pages/help-center-for-toocaa"},
-      {"@type":"ListItem","position":3,"name":"TOOCAA Studio and LightBurn Installation","url":"https://www.toocaa.com/pages/toocaa-studio"},
+      {"@type":"ListItem","position":3,"name":"TOOCAA Studio Setup","url":"https://www.toocaa.com/pages/toocaa-studio"},
       {"@type":"ListItem","position":4,"name":"Your First Engraving Project","url":"https://www.toocaa.com/blogs/toocaa-knowledge-share/step-by-step-guide-to-using-a-laser-engraver-at-home"},
       {"@type":"ListItem","position":5,"name":"Focus and Positioning Guide","url":"https://www.toocaa.com/pages/help-center-for-toocaa"},
       {"@type":"ListItem","position":6,"name":"Acrylic Cutting Settings","url":"https://www.toocaa.com/pages/material-settings-for-toocaa-machines"},
@@ -74,14 +74,14 @@
       {"@type":"ListItem","position":10,"name":"How to Laser Engrave Stone","url":"https://www.toocaa.com/blogs/news/how-to-laser-engrave-stone"},
       {"@type":"ListItem","position":11,"name":"Engraving Irregular and Curved Shapes","url":"https://www.toocaa.com/blogs/news/how-to-engrave-irregular-shapes"},
       {"@type":"ListItem","position":12,"name":"Photo Engraving on Wood and Acrylic","url":"https://luckykingking.github.io/toocaa-test/use-cases/photo-engraving/"},
-      {"@type":"ListItem","position":13,"name":"Complex Multi-Layer Designs","url":"https://www.toocaa.com/blogs/news/engraving-complex-designs-on-materials-toocaa-l2-guide"},
-      {"@type":"ListItem","position":14,"name":"Engraving Anodized Aluminum and Metal","url":"https://www.toocaa.com/blogs/all-blog"},
+      {"@type":"ListItem","position":13,"name":"Complex Designs on the TOOCAA L2","url":"https://www.toocaa.com/blogs/news/engraving-complex-designs-on-materials-toocaa-l2-guide"},
+      {"@type":"ListItem","position":14,"name":"Metal Marking References","url":"https://www.toocaa.com/blogs/all-blog"},
       {"@type":"ListItem","position":15,"name":"Wood Settings Calculator and Test Plan","url":"https://luckykingking.github.io/toocaa-test/learn/materials/wood/#settings-calculator"},
       {"@type":"ListItem","position":16,"name":"TOOCAA Material Settings","url":"https://www.toocaa.com/pages/material-settings-for-toocaa-machines"},
-      {"@type":"ListItem","position":17,"name":"TOOCAA Studio Smart Settings and AI Design","url":"https://www.toocaa.com/pages/toocaa-studio"},
+      {"@type":"ListItem","position":17,"name":"TOOCAA Studio Design Tools","url":"https://www.toocaa.com/pages/toocaa-studio"},
       {"@type":"ListItem","position":18,"name":"LightBurn Configuration and Workflows","url":"https://www.toocaa.com/blogs/user-guide/operate-toocaa-l2-desktop-laser-engraver-with-lightburn"},
-      {"@type":"ListItem","position":19,"name":"Rotary Engraving","url":"https://www.toocaa.com/blogs/user-guide/how-to-install-and-use-toocaa-5-in-1-rotary-for-l2"},
-      {"@type":"ListItem","position":20,"name":"Exhaust and Ventilation Troubleshooting","url":"https://luckykingking.github.io/toocaa-test/troubleshooting/#safety"}
+      {"@type":"ListItem","position":19,"name":"TOOCAA 5-in-1 Rotary for L2","url":"https://www.toocaa.com/blogs/user-guide/how-to-install-and-use-toocaa-5-in-1-rotary-for-l2"},
+      {"@type":"ListItem","position":20,"name":"Smoke and Ventilation Checks","url":"https://luckykingking.github.io/toocaa-test/troubleshooting/#safety"}
     ]
   }
   </script>
@@ -441,6 +441,401 @@
     .hidden{display:none !important}
     .fade-in{animation: fadeIn .3s ease-out}
     @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+    /* Editorial tutorial library */
+    .tutorials-page{
+      --text:#171717;
+      --muted:#656565;
+      --muted-2:#858585;
+      --border:#dedede;
+      --brand:#ff6a00;
+      background:#fff;
+    }
+    .tutorials-page .container{
+      max-width:1180px;
+      padding:0 28px 64px;
+    }
+    .tutorials-page .hero{
+      padding:64px 0 58px;
+      overflow:visible;
+      border:0;
+      border-bottom:1px solid var(--border);
+      border-radius:0;
+      background:#fff;
+      box-shadow:none;
+    }
+    .tutorials-page .hero-grid{
+      grid-template-columns:minmax(0,1fr) minmax(400px,.86fr);
+      gap:68px;
+      align-items:center;
+    }
+    .tutorials-page .hero-copy{
+      max-width:620px;
+      padding:0;
+    }
+    .tutorials-page .kicker{
+      display:block;
+      margin:0 0 20px;
+      padding:0;
+      border:0;
+      border-radius:0;
+      background:none;
+      color:var(--brand);
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:0;
+      text-transform:uppercase;
+    }
+    .tutorials-page .hero h1{
+      max-width:600px;
+      margin:0 0 22px;
+      color:var(--text);
+      font-size:58px;
+      line-height:1.03;
+      letter-spacing:0;
+    }
+    .tutorials-page .hero p.lead{
+      max-width:590px;
+      margin:0;
+      color:var(--muted);
+      font-size:17px;
+      line-height:1.7;
+    }
+    .tutorials-page .hero-actions{
+      margin-top:30px;
+      gap:18px;
+      align-items:center;
+    }
+    .tutorials-page .btn{
+      min-height:44px;
+      padding:10px 17px;
+      border-radius:6px;
+      font-size:14px;
+    }
+    .tutorials-page .btn.primary{
+      background:var(--brand);
+      border-color:var(--brand);
+      color:#fff;
+    }
+    .tutorials-page .btn.primary:hover{
+      background:#e95f00;
+      border-color:#e95f00;
+      box-shadow:none;
+      transform:none;
+    }
+    .tutorials-page .btn.secondary{
+      background:#fff;
+      border-color:#cfcfcf;
+      color:var(--text);
+    }
+    .tutorials-page .btn.secondary:hover{
+      background:#f6f6f6;
+      transform:none;
+    }
+    .tutorials-page .btn.ghost{
+      min-height:auto;
+      padding:0;
+      border:0;
+      border-bottom:1px solid #b8b8b8;
+      border-radius:0;
+      color:var(--text);
+    }
+    .tutorials-page .hero-media{
+      min-height:0;
+      margin:0;
+      background:none !important;
+    }
+    .tutorials-page .hero-media::after{display:none}
+    .tutorials-page .hero-media img{
+      display:block;
+      width:100%;
+      height:500px;
+      border-radius:8px;
+      object-fit:cover;
+      object-position:center;
+    }
+    .tutorials-page .hero-media figcaption{
+      margin-top:10px;
+      color:var(--muted-2);
+      font-size:12px;
+      text-align:right;
+    }
+    .tutorials-page .library-intro{
+      display:grid;
+      grid-template-columns:minmax(0,.68fr) minmax(280px,.32fr);
+      gap:48px;
+      align-items:end;
+      padding:62px 0 28px;
+    }
+    .tutorials-page .library-kicker{
+      margin:0 0 10px;
+      color:var(--brand);
+      font-size:12px;
+      font-weight:800;
+      text-transform:uppercase;
+    }
+    .tutorials-page .library-intro h2{
+      margin:0;
+      font-size:34px;
+      line-height:1.15;
+      letter-spacing:0;
+    }
+    .tutorials-page .library-intro p:last-child{
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.7;
+    }
+    .tutorials-page .toolbar{
+      margin:0;
+      border-top:1px solid var(--border);
+    }
+    .tutorials-page .search-box{min-width:0}
+    .tutorials-page .search-box input{
+      height:58px;
+      padding:0 14px 0 32px;
+      border:0;
+      border-radius:0;
+      background:#fff;
+      color:var(--text);
+      font-size:15px;
+    }
+    .tutorials-page .search-box input:focus{
+      border-color:transparent;
+      box-shadow:inset 0 -2px 0 var(--brand);
+    }
+    .tutorials-page .search-box .icon{left:2px}
+    .tutorials-page .filter-tabs{
+      gap:0;
+      margin-top:0 !important;
+      overflow-x:auto;
+      border-top:1px solid var(--border);
+      border-bottom:1px solid var(--border);
+      flex-wrap:nowrap;
+      scrollbar-width:none;
+    }
+    .tutorials-page .filter-tabs::-webkit-scrollbar{display:none}
+    .tutorials-page .filter-tab{
+      flex:0 0 auto;
+      padding:14px 16px 12px;
+      border:0;
+      border-bottom:2px solid transparent;
+      border-radius:0;
+      background:transparent;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .tutorials-page .filter-tab:hover{
+      border-color:transparent;
+      color:var(--text);
+    }
+    .tutorials-page .filter-tab.active{
+      border-color:var(--brand);
+      background:transparent;
+      color:var(--text);
+    }
+    .tutorials-page .filter-tab .count{
+      margin-left:3px;
+      color:var(--muted-2);
+      opacity:1;
+    }
+    .tutorials-page .tutorial-grid{
+      counter-reset:tutorial;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      column-gap:54px;
+      row-gap:0;
+      margin-top:42px;
+    }
+    .tutorials-page .tut-card{
+      counter-increment:tutorial;
+      display:grid;
+      grid-template-columns:42px minmax(0,1fr);
+      align-content:start;
+      padding:28px 0 30px;
+      border:0;
+      border-top:1px solid var(--border);
+      border-radius:0;
+      background:transparent;
+      box-shadow:none;
+      overflow:visible;
+      transition:border-color 150ms ease;
+    }
+    .tutorials-page .tut-card::before{
+      content:counter(tutorial,decimal-leading-zero);
+      position:static;
+      width:auto;
+      height:auto;
+      grid-column:1;
+      grid-row:1 / span 4;
+      background:none;
+      color:var(--muted-2);
+      font-size:12px;
+      font-variant-numeric:tabular-nums;
+      opacity:1;
+    }
+    .tutorials-page .tut-card:hover{
+      border-color:var(--brand);
+      box-shadow:none;
+      transform:none;
+    }
+    .tutorials-page .tut-card-top{display:none}
+    .tutorials-page .tut-card h3{
+      grid-column:2;
+      margin:0 0 9px;
+      color:var(--text);
+      font-size:19px;
+      line-height:1.3;
+      letter-spacing:0;
+    }
+    .tutorials-page .tut-card p.desc{
+      grid-column:2;
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.65;
+    }
+    .tutorials-page .tut-card .tut-meta{
+      grid-column:2;
+      margin:18px 0 0;
+      padding:0;
+      border:0;
+    }
+    .tutorials-page .tut-tag,
+    .tutorials-page .tut-tag.cut,
+    .tutorials-page .tut-tag.engrave,
+    .tutorials-page .tut-tag.start,
+    .tutorials-page .tut-tag.material,
+    .tutorials-page .tut-tag.software,
+    .tutorials-page .tut-tag.advanced{
+      padding:0;
+      border:0;
+      border-radius:0;
+      background:transparent;
+      color:var(--brand);
+      font-size:11px;
+      font-weight:800;
+      text-transform:uppercase;
+    }
+    .tutorials-page .tut-meta-item{display:none}
+    .tutorials-page .tut-link{
+      grid-column:2;
+      margin-top:13px;
+      color:var(--text);
+      font-size:13px;
+      font-weight:700;
+    }
+    .tutorials-page .tut-link:hover{color:var(--brand)}
+    .tutorials-page .no-results{
+      padding:48px 0;
+      border-top:1px solid var(--border);
+    }
+    .tutorials-page .section{
+      margin-top:72px;
+      padding:54px 0;
+      border:0;
+      border-top:1px solid var(--border);
+      border-bottom:1px solid var(--border);
+      border-radius:0;
+      background:#fff;
+    }
+    .tutorials-page .section-head{margin-bottom:26px}
+    .tutorials-page .section h2{
+      font-size:30px;
+      letter-spacing:0;
+    }
+    .tutorials-page .faq-list{
+      margin-top:0;
+      border-top:1px solid var(--border);
+    }
+    .tutorials-page .faq-item{
+      margin:0;
+      padding:0;
+      border:0;
+      border-bottom:1px solid var(--border);
+      border-radius:0;
+      background:#fff;
+    }
+    .tutorials-page .faq-item:hover{border-color:var(--border)}
+    .tutorials-page .faq-item summary{
+      padding:18px 0;
+      font-size:15px;
+    }
+    .tutorials-page .faq-item p{
+      max-width:760px;
+      margin:0;
+      padding:0 0 20px;
+      font-size:14px;
+      line-height:1.7;
+    }
+    .tutorials-page .cta-banner{
+      display:grid;
+      grid-template-columns:minmax(0,1fr) auto;
+      gap:36px;
+      align-items:center;
+      margin-top:64px;
+      padding:38px 40px;
+      border:0;
+      border-radius:8px;
+      background:#191919;
+      color:#fff;
+      text-align:left;
+    }
+    .tutorials-page .cta-banner h2{
+      margin:0 0 8px;
+      color:#fff;
+      font-size:26px;
+    }
+    .tutorials-page .cta-banner p{
+      max-width:650px;
+      margin:0;
+      color:#c7c7c7;
+    }
+    .tutorials-page .cta-actions{
+      justify-content:flex-end;
+      flex-wrap:nowrap;
+    }
+    .tutorials-page .cta-banner .btn.secondary{
+      border-color:#505050;
+      background:transparent;
+      color:#fff;
+    }
+    .tutorials-page .cta-banner .btn.secondary:hover{background:#2b2b2b}
+    .tutorials-page .cta-banner .btn.ghost{
+      border-color:#666;
+      color:#fff;
+    }
+    .tutorials-page .footer{
+      margin-top:32px;
+      padding-top:26px;
+    }
+    @media(max-width:900px){
+      .tutorials-page .hero-grid{grid-template-columns:1fr;gap:40px}
+      .tutorials-page .hero-copy{max-width:720px}
+      .tutorials-page .hero h1{font-size:50px}
+      .tutorials-page .hero-media img{height:430px}
+      .tutorials-page .tutorial-grid{grid-template-columns:1fr}
+      .tutorials-page .cta-banner{grid-template-columns:1fr}
+      .tutorials-page .cta-actions{justify-content:flex-start}
+    }
+    @media(max-width:720px){
+      .tutorials-page .container{padding:0 18px 48px}
+      .tutorials-page .hero{padding:38px 0 42px}
+      .tutorials-page .hero-copy{padding:0}
+      .tutorials-page .hero h1{font-size:38px;line-height:1.08}
+      .tutorials-page .hero p.lead{font-size:16px}
+      .tutorials-page .hero-actions{align-items:flex-start;flex-direction:column}
+      .tutorials-page .hero-media img{height:320px}
+      .tutorials-page .hero-media figcaption{text-align:left}
+      .tutorials-page .library-intro{grid-template-columns:1fr;gap:14px;padding:48px 0 24px}
+      .tutorials-page .library-intro h2{font-size:29px}
+      .tutorials-page .filter-tab{padding-left:12px;padding-right:12px}
+      .tutorials-page .tutorial-grid{margin-top:28px}
+      .tutorials-page .tut-card{grid-template-columns:34px minmax(0,1fr);padding:24px 0 26px}
+      .tutorials-page .section{margin-top:54px;padding:42px 0}
+      .tutorials-page .cta-banner{margin-top:48px;padding:30px 24px}
+      .tutorials-page .cta-actions{align-items:flex-start;flex-direction:column}
+      .tutorials-page .footer-row{align-items:flex-start;flex-direction:column}
+    }
   </style>
 </head>
 <body class="wood-page tutorials-page">
@@ -521,44 +916,31 @@
     <section class="hero">
       <div class="hero-grid">
         <div class="hero-copy">
-          <div class="kicker">
-            <span class="dot"></span>
-            <b>TOOCAA Tutorials</b>
-            <span>· Step-by-step laser guides</span>
-          </div>
-          <h1>Master Laser Cutting &amp; Engraving with <span class="grad">Confidence</span></h1>
+          <p class="kicker">TOOCAA tutorial library</p>
+          <h1>TOOCAA Laser Cutting &amp; Engraving Tutorials</h1>
           <p class="lead">
-            From first setup to advanced workflows, explore practical references for the TOOCAA L2 and
-            TOOCAA NOVA. Browse machine setup, cutting, engraving, material settings, software,
-            safety, and troubleshooting topics in one searchable library.
+            Set up your machine, choose a material, and solve common cutting or engraving problems.
+            These guides cover TOOCAA NOVA and L2, with direct links to official settings and support
+            when you need them.
           </p>
-          <div class="hero-stats">
-            <div class="hero-stat">
-              <div class="num">20</div>
-              <div class="label">Tutorial resources</div>
-            </div>
-            <div class="hero-stat">
-              <div class="num">6</div>
-              <div class="label">Guide categories</div>
-            </div>
-            <div class="hero-stat">
-              <div class="num">2</div>
-              <div class="label">TOOCAA machine families</div>
-            </div>
-          </div>
           <div class="hero-actions">
-            <a class="btn primary" href="#tutorial-list">Browse Tutorials</a>
-            <a class="btn secondary" href="https://www.toocaa.com/pages/material-settings-for-toocaa-machines">Acrylic Cutting Settings</a>
-            <a class="btn ghost" href="../learn/materials/wood/#settings-calculator">Wood Settings Calculator</a>
+            <a class="btn primary" href="#tutorial-list">Browse the guides</a>
+            <a class="btn ghost" href="https://www.toocaa.com/pages/material-settings-for-toocaa-machines">View material settings</a>
           </div>
         </div>
-        <div class="hero-media" style="background-image:url('https://www.toocaa.com/cdn/shop/files/20241201-180837.jpg?v=1733047705&width=1920')">
-          <div class="media-badge">
-            <span class="pulse"></span>
-            <span>TOOCAA laser workspace</span>
-          </div>
-        </div>
+        <figure class="hero-media">
+          <img src="https://www.toocaa.com/cdn/shop/files/20241201-180837.jpg?v=1733047705&amp;width=1920" alt="TOOCAA laser machine in a home studio"/>
+          <figcaption>TOOCAA laser workspace</figcaption>
+        </figure>
       </div>
+    </section>
+
+    <section class="library-intro" aria-labelledby="library-title">
+      <div>
+        <p class="library-kicker">Guide library</p>
+        <h2 id="library-title">Find the guide that matches your project</h2>
+      </div>
+      <p>Search by material or task, or narrow the library by setup, cutting, engraving, software, and advanced workflows.</p>
     </section>
 
     <!-- ============ Search + Filter ============ -->
@@ -592,10 +974,10 @@
           </div>
         </div>
         <h3>Unboxing &amp; First Setup Guide</h3>
-        <p class="desc">Follow the first-project path from setup and safety checks through focus, positioning, and a small test engraving on the TOOCAA NOVA or L2.</p>
+        <p class="desc">A starting point for unpacking, basic checks, focusing, positioning, and running a small test job.</p>
         <div class="tut-meta">
           <span class="tut-tag start">Getting Started</span>
-          <span class="tut-meta-item">&#9201; 10 min</span>
+          <span class="tut-meta-item">10 min</span>
         </div>
         <span class="tut-link">Read guide &#8594;</span>
       </a>
@@ -608,10 +990,10 @@
           </div>
         </div>
         <h3>Laser Safety &amp; Protection Basics</h3>
-        <p class="desc">Understand Class 1 laser safety, enclosed operation, eye protection, ventilation requirements, and safe material handling for home and studio use.</p>
+        <p class="desc">Review basic laser safety, ventilation, material checks, and what to prepare before starting a job.</p>
         <div class="tut-meta">
           <span class="tut-tag start">Getting Started</span>
-          <span class="tut-meta-item">&#9201; 8 min</span>
+          <span class="tut-meta-item">8 min</span>
         </div>
         <span class="tut-link">Read guide &#8594;</span>
       </a>
@@ -623,11 +1005,11 @@
             <span class="diff-dot on"></span><span class="diff-dot"></span><span class="diff-dot"></span>
           </div>
         </div>
-        <h3>Software Installation: TOOCAA Studio &amp; LightBurn</h3>
-        <p class="desc">Step-by-step setup for TOOCAA Studio and LightBurn. Includes driver installation, machine connection (USB/Wi-Fi), firmware check, and first calibration.</p>
+        <h3>TOOCAA Studio Setup</h3>
+        <p class="desc">Open the official TOOCAA Studio page for current downloads, supported systems, and setup information.</p>
         <div class="tut-meta">
           <span class="tut-tag start">Getting Started</span>
-          <span class="tut-meta-item">&#9201; 15 min</span>
+          <span class="tut-meta-item">15 min</span>
         </div>
         <span class="tut-link">Read guide &#8594;</span>
       </a>
@@ -640,10 +1022,10 @@
           </div>
         </div>
         <h3>Your First Engraving Project</h3>
-        <p class="desc">A complete walkthrough from design import to finished engraving. Use the array test template to find perfect settings for any new material in minutes.</p>
+        <p class="desc">Follow a first project from importing a simple design through focus, placement, and a test engraving.</p>
         <div class="tut-meta">
           <span class="tut-tag start">Getting Started</span>
-          <span class="tut-meta-item">&#9201; 12 min</span>
+          <span class="tut-meta-item">12 min</span>
         </div>
         <span class="tut-link">Read guide &#8594;</span>
       </a>
@@ -656,10 +1038,10 @@
           </div>
         </div>
         <h3>Focus &amp; Positioning Guide</h3>
-        <p class="desc">Master focal distance setting — the #1 factor for clean results. Covers manual focus, auto-focus (NOVA), camera preview positioning, and jig alignment tips.</p>
+        <p class="desc">Check focus and placement before a job, including manual positioning and alignment with the work area.</p>
         <div class="tut-meta">
           <span class="tut-tag start">Getting Started</span>
-          <span class="tut-meta-item">&#9201; 6 min</span>
+          <span class="tut-meta-item">6 min</span>
         </div>
         <span class="tut-link">Read guide &#8594;</span>
       </a>
@@ -672,11 +1054,11 @@
             <span class="diff-dot on"></span><span class="diff-dot on"></span><span class="diff-dot"></span>
           </div>
         </div>
-        <h3>How to Cut 5mm Acrylic Cleanly</h3>
-        <p class="desc">Full workflow: air assist + honeycomb + multi-pass strategy. Includes parameter table, edge quality troubleshooting, and a downloadable array test CSV.</p>
+        <h3>Acrylic Cutting Settings</h3>
+        <p class="desc">Use TOOCAA's material settings as a starting point, then test the actual acrylic before running the full design.</p>
         <div class="tut-meta">
           <span class="tut-tag cut">Cutting</span>
-          <span class="tut-meta-item">&#9201; 20 min</span>
+          <span class="tut-meta-item">20 min</span>
         </div>
         <span class="tut-link">Read guide &#8594;</span>
       </a>
@@ -689,10 +1071,10 @@
           </div>
         </div>
         <h3>Wood &amp; Plywood Cutting Guide</h3>
-        <p class="desc">Cutting parameters for plywood, MDF, and hardwood from 3mm to 10mm. Covers scorch prevention, masking techniques, and honeycomb bed optimization.</p>
+        <p class="desc">Compare common wood types, build a small test plan, and review cutting, edge quality, and safety notes.</p>
         <div class="tut-meta">
           <span class="tut-tag cut">Cutting</span>
-          <span class="tut-meta-item">&#9201; 15 min</span>
+          <span class="tut-meta-item">15 min</span>
         </div>
         <span class="tut-link">Read guide &#8594;</span>
       </a>
@@ -705,10 +1087,10 @@
           </div>
         </div>
         <h3>Leather Cutting &amp; Personalization</h3>
-        <p class="desc">Cut and engrave genuine and faux leather for wallets, tags, and accessories. Includes settings for clean edges without burning, plus design tips.</p>
+        <p class="desc">Browse project references for leather tags, accessories, and personalized pieces, then confirm material compatibility before testing.</p>
         <div class="tut-meta">
           <span class="tut-tag cut">Cutting</span>
-          <span class="tut-meta-item">&#9201; 18 min</span>
+          <span class="tut-meta-item">18 min</span>
         </div>
         <span class="tut-link">Read guide &#8594;</span>
       </a>
@@ -721,10 +1103,10 @@
           </div>
         </div>
         <h3>Paper &amp; Cardboard Cutting</h3>
-        <p class="desc">Create intricate paper crafts, pop-up cards, and packaging prototypes. Low-power settings, air assist management, and preventing edge browning.</p>
+        <p class="desc">Browse ideas for paper crafts, cards, and packaging prototypes, with a small material test before the final cut.</p>
         <div class="tut-meta">
           <span class="tut-tag cut">Cutting</span>
-          <span class="tut-meta-item">&#9201; 10 min</span>
+          <span class="tut-meta-item">10 min</span>
         </div>
         <span class="tut-link">Read guide &#8594;</span>
       </a>
@@ -738,10 +1120,10 @@
           </div>
         </div>
         <h3>How to Laser Engrave Stone</h3>
-        <p class="desc">Engrave slate, granite, and river stones with crisp, high-contrast results. Covers image preparation, dithering settings, and contrast enhancement techniques.</p>
+        <p class="desc">Read TOOCAA's stone engraving guide for surface preparation, artwork setup, and testing the result on the selected stone.</p>
         <div class="tut-meta">
           <span class="tut-tag engrave">Engraving</span>
-          <span class="tut-meta-item">&#9201; 15 min</span>
+          <span class="tut-meta-item">15 min</span>
         </div>
         <span class="tut-link">Read guide &#8594;</span>
       </a>
@@ -754,10 +1136,10 @@
           </div>
         </div>
         <h3>Engraving Irregular &amp; Curved Shapes</h3>
-        <p class="desc">Jigs, fixtures, and rotary attachment techniques for engraving tumblers, pens, and uneven surfaces. Includes 3D-printed jig templates and alignment methods.</p>
+        <p class="desc">Review TOOCAA's guide to positioning irregular objects and keeping artwork aligned on non-flat surfaces.</p>
         <div class="tut-meta">
           <span class="tut-tag engrave">Engraving</span>
-          <span class="tut-meta-item">&#9201; 25 min</span>
+          <span class="tut-meta-item">25 min</span>
         </div>
         <span class="tut-link">Read guide &#8594;</span>
       </a>
@@ -770,10 +1152,10 @@
           </div>
         </div>
         <h3>Photo Engraving on Wood &amp; Acrylic</h3>
-        <p class="desc">Turn photos into laser-ready engravings. Image processing, dithering modes (Jarvis/Stucki), contrast adjustment, and material-specific parameter tuning.</p>
+        <p class="desc">Prepare a photo for engraving, check contrast and detail, and test the image on the chosen wood or acrylic.</p>
         <div class="tut-meta">
           <span class="tut-tag engrave">Engraving</span>
-          <span class="tut-meta-item">&#9201; 20 min</span>
+          <span class="tut-meta-item">20 min</span>
         </div>
         <span class="tut-link">Read guide &#8594;</span>
       </a>
@@ -785,11 +1167,11 @@
             <span class="diff-dot on"></span><span class="diff-dot on"></span><span class="diff-dot on"></span>
           </div>
         </div>
-        <h3>Complex Multi-Layer Designs (L2 Guide)</h3>
-        <p class="desc">Layered engraving strategies for the TOOCAA L2 40W. Multi-pass registration, depth control, fill patterns, and combining cut + engrave in one job.</p>
+        <h3>Complex Designs on the TOOCAA L2</h3>
+        <p class="desc">Read TOOCAA's L2 guide to planning detailed artwork and organizing a project that combines engraving and cutting.</p>
         <div class="tut-meta">
           <span class="tut-tag engrave">Engraving</span>
-          <span class="tut-meta-item">&#9201; 30 min</span>
+          <span class="tut-meta-item">30 min</span>
         </div>
         <span class="tut-link">Read guide &#8594;</span>
       </a>
@@ -801,11 +1183,11 @@
             <span class="diff-dot on"></span><span class="diff-dot on"></span><span class="diff-dot"></span>
           </div>
         </div>
-        <h3>Engraving Anodized Aluminum &amp; Metal</h3>
-        <p class="desc">Mark anodized aluminum, painted metal, and stainless steel (with marking compound). Settings, safety notes, and achieving consistent contrast.</p>
+        <h3>Metal Marking References</h3>
+        <p class="desc">Check material compatibility and machine guidance before testing coated, painted, or anodized metal surfaces.</p>
         <div class="tut-meta">
           <span class="tut-tag engrave">Engraving</span>
-          <span class="tut-meta-item">&#9201; 15 min</span>
+          <span class="tut-meta-item">15 min</span>
         </div>
         <span class="tut-link">Read guide &#8594;</span>
       </a>
@@ -822,12 +1204,12 @@
         <p class="desc">Choose a wood type, thickness, and laser power to generate a starting test plan, then verify the result on a small sample before running the full project.</p>
         <div class="tut-meta">
           <span class="tut-tag material">Materials</span>
-          <span class="tut-meta-item">&#9201; 10 min</span>
+          <span class="tut-meta-item">10 min</span>
         </div>
         <span class="tut-link">Read guide &#8594;</span>
       </a>
 
-      <a class="tut-card" data-cat="material" data-keywords="materials hub settings table 300 materials official" href="https://www.toocaa.com/pages/material-settings-for-toocaa-machines">
+      <a class="tut-card" data-cat="material" data-keywords="materials hub settings table official" href="https://www.toocaa.com/pages/material-settings-for-toocaa-machines">
         <div class="tut-card-top">
           <div class="tut-icon material">&#128218;</div>
           <div class="tut-difficulty" title="All levels">
@@ -838,7 +1220,7 @@
         <p class="desc">Open TOOCAA's official material settings reference to compare the available speed, power, and pass guidance for compatible machines and materials.</p>
         <div class="tut-meta">
           <span class="tut-tag material">Materials</span>
-          <span class="tut-meta-item">&#9201; Reference</span>
+          <span class="tut-meta-item">Reference</span>
         </div>
         <span class="tut-link">Browse hub &#8594;</span>
       </a>
@@ -851,11 +1233,11 @@
             <span class="diff-dot on"></span><span class="diff-dot"></span><span class="diff-dot"></span>
           </div>
         </div>
-        <h3>TOOCAA Studio: Smart Settings &amp; AI Design</h3>
-        <p class="desc">Let TOOCAA Studio auto-apply perfect power and speed for your material. Explore AI-generated art, the project library, and one-click workflow features.</p>
+        <h3>TOOCAA Studio Design Tools</h3>
+        <p class="desc">Review the design, project, and machine-control tools currently described on the official TOOCAA Studio page.</p>
         <div class="tut-meta">
           <span class="tut-tag software">Software</span>
-          <span class="tut-meta-item">&#9201; 12 min</span>
+          <span class="tut-meta-item">12 min</span>
         </div>
         <span class="tut-link">Read guide &#8594;</span>
       </a>
@@ -868,10 +1250,10 @@
           </div>
         </div>
         <h3>LightBurn Configuration &amp; Workflows</h3>
-        <p class="desc">Complete LightBurn setup for TOOCAA machines. Device profile, layer management, cut/engrave ordering, camera alignment, and G-code optimization tips.</p>
+        <p class="desc">Follow TOOCAA's guide for adding the L2 to LightBurn and preparing a file for cutting or engraving.</p>
         <div class="tut-meta">
           <span class="tut-tag software">Software</span>
-          <span class="tut-meta-item">&#9201; 18 min</span>
+          <span class="tut-meta-item">18 min</span>
         </div>
         <span class="tut-link">Read guide &#8594;</span>
       </a>
@@ -884,11 +1266,11 @@
             <span class="diff-dot on"></span><span class="diff-dot on"></span><span class="diff-dot on"></span>
           </div>
         </div>
-        <h3>Rotary Engraving: Tumblers &amp; Cylinders</h3>
-        <p class="desc">Set up the rotary module (NOVA's 90° X-axis rotation) for cups, bottles, and pens. Diameter calibration, wrap-around design, and speed adjustments.</p>
+        <h3>TOOCAA 5-in-1 Rotary for L2</h3>
+        <p class="desc">Read the official installation and use guide before preparing a supported cylindrical object for engraving.</p>
         <div class="tut-meta">
           <span class="tut-tag advanced">Advanced</span>
-          <span class="tut-meta-item">&#9201; 20 min</span>
+          <span class="tut-meta-item">20 min</span>
         </div>
         <span class="tut-link">Read guide &#8594;</span>
       </a>
@@ -900,11 +1282,11 @@
             <span class="diff-dot on"></span><span class="diff-dot on"></span><span class="diff-dot"></span>
           </div>
         </div>
-        <h3>Dual-Channel Exhaust Optimization</h3>
-        <p class="desc">Maximize cut cleanliness with TOOCAA's dual-channel exhaust system. Airflow tuning, smoke management, and back-side staining prevention techniques.</p>
+        <h3>Smoke and Ventilation Checks</h3>
+        <p class="desc">Use the troubleshooting guide to review airflow, smoke extraction, cleaning, and basic ventilation checks.</p>
         <div class="tut-meta">
           <span class="tut-tag advanced">Advanced</span>
-          <span class="tut-meta-item">&#9201; 12 min</span>
+          <span class="tut-meta-item">12 min</span>
         </div>
         <span class="tut-link">Read guide &#8594;</span>
       </a>
@@ -954,12 +1336,14 @@
 
     <!-- ============ CTA Banner ============ -->
     <section class="cta-banner">
-      <h2>Ready to Start Creating?</h2>
-      <p>Compare TOOCAA NOVA and L2 systems, then open the setup and material guides for the machine you choose.</p>
+      <div>
+        <h2>Continue with TOOCAA</h2>
+        <p>Compare NOVA and L2, or contact TOOCAA support before choosing your next machine or accessory.</p>
+      </div>
       <div class="cta-actions">
-        <a class="btn primary" href="https://www.toocaa.com/products/toocaa-nova-smart-laser-engraver" target="_blank" rel="noopener">Explore TOOCAA NOVA</a>
-        <a class="btn secondary" href="https://www.toocaa.com/products/toocaa-l2-desktop-laser-engraver-cutter" target="_blank" rel="noopener">Explore TOOCAA L2</a>
-        <a class="btn ghost" href="https://www.toocaa.com/pages/contact" target="_blank" rel="noopener">Talk to an Expert</a>
+        <a class="btn primary" href="https://www.toocaa.com/products/toocaa-nova-smart-laser-engraver" target="_blank" rel="noopener">View NOVA</a>
+        <a class="btn secondary" href="https://www.toocaa.com/products/toocaa-l2-desktop-laser-engraver-cutter" target="_blank" rel="noopener">View L2</a>
+        <a class="btn ghost" href="https://www.toocaa.com/pages/contact" target="_blank" rel="noopener">Contact support</a>
       </div>
     </section>
 
