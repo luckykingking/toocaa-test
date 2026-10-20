@@ -240,7 +240,6 @@ for slug, category, title, kw, intro, heading, context, steps, final_heading, co
           ("What should I keep with a successful test?", "Save the file, material identity and thickness, module, software units, settings, and a photo or physical sample. This makes later changes easier to compare.")])
     PAGES[-1]["category"] = category
 
-
 # Keep each FAQ about the actual page rather than repeating generic SEO questions.
 CASE_FAQS = {
     "professional-studio-crafts": ("How do I keep a craft batch consistent?", "Keep an approved sample, artwork revision, material batch, and fixture reference. Inspect pieces from the beginning, middle, and end, and recheck when stock changes."),
@@ -399,3 +398,11 @@ for issue in ISSUES:
     ], keywords=kw, related=related + ["support/ticket-checklist/"], sources=sources,
     faqs=[("What should I check for: " + title.lower() + "?", context)])
     PAGES[-1]["category"] = category
+
+
+from troubleshooting_additions import add_guides
+add_guides(page, section, PAGES)
+from tutorial_additions import add_tutorials
+add_tutorials(page, section, PAGES)
+from framework_additions import add_frameworks
+FRAMEWORK_HUBS = add_frameworks(page, section, PAGES)

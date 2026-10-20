@@ -1,5 +1,6 @@
 """Download the official, explicitly recorded site images without altering them."""
 import json
+import argparse
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from urllib.request import Request, urlopen
@@ -37,9 +38,14 @@ def download_ui(item):
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--only', nargs='+', help='Fetch only the selected recorded image or UI filenames')
+    args = parser.parse_args()
+    if args.only and set(args.only) - set(IMAGES) - set(UI_ASSETS):
+        parser.error('Unknown asset filename')
     TARGET.mkdir(parents=True, exist_ok=True)
     with ThreadPoolExecutor(max_workers=4) as pool:
-        for result in pool.map(download, IMAGES.items()):
+        for result in pool.map(download, [(k, v) for k, v in IMAGES.items() if not args.only or k in args.only]):
             print(result)
-        for result in pool.map(download_ui, UI_ASSETS.items()):
+        for result in pool.map(download_ui, [(k, v) for k, v in UI_ASSETS.items() if not args.only or k in args.only]):
             print(result)

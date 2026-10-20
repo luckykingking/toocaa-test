@@ -1,0 +1,19 @@
+{
+  "created": "2026-10-20",
+  "method": "Built-in image_gen",
+  "usage": "Illustrative concepts only; never presented as measured test data, customer work, or machine maintenance photographs.",
+  "images": [
+    {
+      "file": "docs/assets/images/cut-quality-concept.png",
+      "width": 1536,
+      "height": 1024,
+      "prompt": "Educational editorial photograph: three birch plywood test coupons showing scorched edges, incomplete separation and a neatly separated cut. Neutral work surface, ruler, orange pencil; no machine, active laser, person, text, logo or watermark. A conceptual cut-quality illustration, not a real test result."
+    },
+    {
+      "file": "docs/assets/images/wood-project-concepts.png",
+      "width": 1536,
+      "height": 1024,
+      "prompt": "Product-concept photograph of a small finger-jointed plywood keepsake box, two botanically engraved coasters and a blank hanging sign. White tabletop, plausible wood construction, daylight, orange pencil. Fictional project ideas; no machine, person, active laser, logos, text, ratings or watermark."
+    }
+  ]
+}

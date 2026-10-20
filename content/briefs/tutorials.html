@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laser Engraving Tutorials &amp; Guides — Beginner to Advanced | TOOCAA</title>
+  <meta name="description" content="Free laser engraving tutorials from TOOCAA. Learn how to laser engrave wood, metal, leather and more. Material settings, software guides, project ideas and step-by-step instructions for beginners.">
+  <meta name="keywords" content="laser engraving tutorial, laser engraver software, free laser engraving software, laser engraving materials, best laser engraver for beginners, laser engrave wood, laser engrave on metal, laser cutting materials, laser cutter file, desktop laser engraver, fiber laser vs diode laser, laser cutting machine, home use laser cutter">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <link rel="canonical" href="https://www.toocaa.com/tutorials/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Laser Engraving Tutorials & Guides | TOOCAA">
+  <meta property="og:description" content="Free step-by-step laser engraving tutorials. Material settings, software guides, project ideas — from beginner to pro.">
+  <meta property="og:url" content="https://www.toocaa.com/tutorials/">
+  <meta property="og:site_name" content="TOOCAA">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.toocaa.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Tutorials", "item": "https://www.toocaa.com/tutorials/" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Laser Engraving Tutorials & Guides",
+    "description": "Free laser engraving and cutting tutorials. Material settings, software guides, project ideas and step-by-step instructions.",
+    "url": "https://www.toocaa.com/tutorials/",
+    "publisher": { "@type": "Organization", "name": "TOOCAA", "url": "https://www.toocaa.com" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the best free software for laser engraving?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "TOOCAA Studio is a free AI-powered laser engraving software compatible with TOOCAA machines. Other popular options include LaserGRBL (free, open-source) and LightBurn (paid). See our software comparison guide for a detailed breakdown."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What materials can you laser engrave and cut?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Common laser engraving materials include wood, plywood, leather, acrylic, cork, silicone, anodized aluminum, stainless steel (with marking spray), fabric, and paper. Each material requires different speed and power settings."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the best laser engraver for beginners?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The TOOCAA NOVA is designed specifically for beginners. It features an enclosed design for safety, sets up in under 10 minutes, and includes free AI-powered software that requires no design experience."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --text-primary: #1a1a1a;
+      --text-secondary: #6b7280;
+      --text-white: #ffffff;
+      --bg-page: #ffffff;
+      --bg-hero: #0d0d0d;
+      --bg-card: #f7f8fa;
+      --bg-tag: #f0f0f0;
+      --border-light: #e5e7eb;
+      --accent: #ff6b35;
+      --accent-hover: #e85a2a;
+      --tag-green-bg: #d1fae5; --tag-green-text: #065f46;
+      --tag-blue-bg: #dbeafe;  --tag-blue-text: #1e40af;
+      --tag-purple-bg: #f3e8ff; --tag-purple-text: #6b21a8;
+      --tag-amber-bg: #fef3c7; --tag-amber-text: #92400e;
+      --tag-red-bg: #fee2e2;   --tag-red-text: #991b1b;
+      --tag-teal-bg: #ccfbf1;  --tag-teal-text: #115e59;
+      --radius: 12px;
+      --shadow-card: 0 1px 3px rgba(0,0,0,0.04);
+      --shadow-hover: 0 12px 40px rgba(0,0,0,0.08);
+      --transition: 0.25s ease;
+      --max-w: 1280px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: var(--text-primary); background: var(--bg-page); line-height: 1.6; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+
+
+    /* ── BREADCRUMB ── */
+    .breadcrumb {
+      padding: 20px 0;
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+    .breadcrumb a { color: var(--text-secondary); transition: color var(--transition); }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb .sep { margin: 0 8px; }
+
+
+    /* ── HERO ── */
+    .tutorials-hero {
+      background: var(--bg-hero);
+      color: var(--text-white);
+      padding: 72px 0 56px;
+      text-align: center;
+    }
+    .tutorials-hero h1 {
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 14px;
+      letter-spacing: -0.02em;
+    }
+    .tutorials-hero p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.72);
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+
+    /* ── CATEGORY NAV ── */
+    .cat-nav {
+      border-bottom: 1px solid var(--border-light);
+      padding: 20px 0;
+      overflow-x: auto;
+    }
+    .cat-nav-inner {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .cat-nav a {
+      padding: 8px 20px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-primary);
+      border: 1px solid var(--border-light);
+      white-space: nowrap;
+      transition: all var(--transition);
+    }
+    .cat-nav a:hover,
+    .cat-nav a.active {
+      background: var(--text-primary);
+      color: var(--text-white);
+      border-color: var(--text-primary);
+    }
+
+
+    /* ── SECTION WRAPPER ── */
+    .tut-section {
+      padding: 56px 0 0;
+    }
+    .tut-section:last-of-type {
+      padding-bottom: 72px;
+    }
+    .section-label {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
+    }
+    .section-desc {
+      font-size: 15px;
+      color: var(--text-secondary);
+      margin-bottom: 28px;
+      max-width: 680px;
+    }
+
+
+    /* ── TUTORIAL CARD GRID ── */
+    .tut-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .tut-card {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .tut-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
+    }
+    .tut-card img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+    }
+    .tut-card-body {
+      padding: 20px 22px 24px;
+    }
+    .tut-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 3px 10px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+    .tut-tag--beginner   { background: var(--tag-green-bg);  color: var(--tag-green-text); }
+    .tut-tag--software   { background: var(--tag-blue-bg);   color: var(--tag-blue-text); }
+    .tut-tag--material   { background: var(--tag-purple-bg); color: var(--tag-purple-text); }
+    .tut-tag--guide      { background: var(--tag-amber-bg);  color: var(--tag-amber-text); }
+    .tut-tag--safety     { background: var(--tag-red-bg);    color: var(--tag-red-text); }
+    .tut-tag--technology { background: var(--tag-teal-bg);   color: var(--tag-teal-text); }
+    .tut-tag--placeholder { background: var(--bg-tag); color: var(--text-secondary); }
+
+    .tut-card-body h3 {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+    .tut-card-body h3 a { transition: color var(--transition); }
+    .tut-card-body h3 a:hover { color: var(--accent); }
+    .tut-card-body p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.55;
+      margin-bottom: 10px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tut-meta {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    /* Placeholder card */
+    .tut-card--placeholder {
+      border: 2px dashed var(--border-light);
+      background: transparent;
+      box-shadow: none;
+    }
+    .tut-card--placeholder .tut-card-img-placeholder {
+      width: 100%;
+      aspect-ratio: 16/10;
+      background: var(--bg-card);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+
+    /* ── SEO CONTENT BLOCK ── */
+    .seo-block {
+      padding: 56px 0 64px;
+      background: var(--bg-card);
+      border-top: 1px solid var(--border-light);
+    }
+    .seo-block-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .seo-block h2 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .seo-block h3 {
+      font-size: 17px;
+      font-weight: 600;
+      margin: 24px 0 6px;
+    }
+    .seo-block p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      .tut-grid { grid-template-columns: repeat(2, 1fr); }
+      .tutorials-hero h1 { font-size: 28px; }
+    }
+    @media (max-width: 600px) {
+      .tut-grid { grid-template-columns: 1fr; }
+      .tutorials-hero { padding: 48px 0 40px; }
+      .tutorials-hero h1 { font-size: 24px; }
+      .cat-nav-inner { justify-content: flex-start; flex-wrap: nowrap; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Breadcrumb -->
+  <nav class="container" aria-label="Breadcrumb">
+    <div class="breadcrumb">
+      <a href="https://www.toocaa.com/">Home</a>
+      <span class="sep">›</span>
+      <strong>Tutorials</strong>
+    </div>
+  </nav>
+
+
+  <!-- Hero -->
+  <section class="tutorials-hero">
+    <div class="container">
+      <h1>Laser Engraving Tutorials &amp; Guides</h1>
+      <p>Step-by-step guides to help you master your desktop laser engraver — from first unboxing to advanced material settings and project ideas.</p>
+    </div>
+  </section>
+
+
+  <!-- Category Nav -->
+  <nav class="cat-nav" aria-label="Tutorial categories">
+    <div class="cat-nav-inner">
+      <a href="#getting-started" class="active">Getting Started</a>
+      <a href="#materials">Material Guides</a>
+      <a href="#software">Software</a>
+      <a href="#laser-technology">Laser Technology</a>
+      <a href="#buyers-guide">Buyer's Guide</a>
+      <a href="#safety">Safety</a>
+    </div>
+  </nav>
+
+
+  <main>
+
+    <!-- ============================
+         SECTION 1: GETTING STARTED
+         Keywords: best laser engraver for beginners, home use laser cutter,
+         laser cutting machine, laser cut items
+         ============================ -->
+    <section class="tut-section" id="getting-started">
+      <div class="container">
+        <h2 class="section-label">Getting Started</h2>
+        <p class="section-desc">New to laser engraving? These guides walk you through setup, first projects, and what you can create with a desktop laser engraver at home.</p>
+
+        <div class="tut-grid">
+
+          <!-- Existing article -->
+          <article class="tut-card">
+            <a href="https://www.toocaa.com/blogs/toocaa-knowledge-share/the-best-laser-engraver-for-beginners">
+              <img src="https://www.toocaa.com/cdn/shop/articles/cover_2704cdec-2ff5-4e0e-bb0b-733e57ff5640-973302.jpg?v=1766730160&width=800"
+                   alt="The best laser engraver for beginners — TOOCAA L2 and NOVA comparison"
+                   loading="lazy" width="800" height="500">
+            </a>
+            <div class="tut-card-body">
+              <span class="tut-tag tut-tag--beginner">Beginner</span>
+              <h3><a href="https://www.toocaa.com/blogs/toocaa-knowledge-share/the-best-laser-engraver-for-beginners">The Best Laser Engraver for Beginners</a></h3>
+              <p>A complete comparison guide to help first-time buyers choose the right desktop laser engraver. Covers what to look for in power, safety, ease of use, and software.</p>
+              <div class="tut-meta">TOOCAA Knowledge Share</div>
+            </div>
+          </article>
+
+          <!-- Existing article -->
+          <article class="tut-card">
+            <a href="https://www.toocaa.com/blogs/toocaa-knowledge-share/step-by-step-guide-to-using-a-laser-engraver-at-home">
+              <img src="https://www.toocaa.com/cdn/shop/articles/20250319-134042-682611.jpg?v=1742386480&width=800"
+                   alt="Step-by-step guide to using a laser engraver at home"
+                   loading="lazy" width="800" height="500">
+            </a>
+            <div class="tut-card-body">
+              <span class="tut-tag tut-tag--beginner">Beginner</span>
+              <h3><a href="https://www.toocaa.com/blogs/toocaa-knowledge-share/step-by-step-guide-to-using-a-laser-engraver-at-home">Step-by-Step Guide to Using a Laser Engraver at Home</a></h3>
+              <p>From unboxing to your first finished piece — this guide covers setup, software connection, material placement, and running your first engraving job at home.</p>
+              <div class="tut-meta">TOOCAA Knowledge Share</div>
+            </div>
+          </article>
+
+          <!-- Existing article -->
+          <article class="tut-card">
+            <a href="https://www.toocaa.com/blogs/toocaa-knowledge-share/what-are-the-common-applications-of-a-laser-cutting-machine">
+              <img src="https://www.toocaa.com/cdn/shop/articles/Frame_2147223266-195889.png?v=1744811743&width=800"
+                   alt="Common applications of a laser cutting machine — project ideas"
+                   loading="lazy" width="800" height="500">
+            </a>
+            <div class="tut-card-body">
+              <span class="tut-tag tut-tag--guide">Guide</span>
+              <h3><a href="https://www.toocaa.com/blogs/toocaa-knowledge-share/what-are-the-common-applications-of-a-laser-cutting-machine">What Are the Common Applications of a Laser Cutting Machine?</a></h3>
+              <p>Discover everything you can do with a desktop laser cutter — from personalized gifts and signage to small-batch product manufacturing and educational projects.</p>
+              <div class="tut-meta">TOOCAA Knowledge Share</div>
+            </div>
+          </article>
+
+          <!-- Existing article -->
+          <article class="tut-card">
+            <a href="https://www.toocaa.com/blogs/toocaa-knowledge-share/is-the-operation-of-a-laser-cutting-machine-complex">
+              <img src="https://www.toocaa.com/cdn/shop/articles/20250331-170201-677054.png?v=1766649821&width=800"
+                   alt="How to operate a laser cutting machine — is it complex?"
+                   loading="lazy" width="800" height="500">
+            </a>
+            <div class="tut-card-body">
+              <span class="tut-tag tut-tag--beginner">Beginner</span>
+              <h3><a href="https://www.toocaa.com/blogs/toocaa-knowledge-share/is-the-operation-of-a-laser-cutting-machine-complex">How to Operate a Laser Cutting Machine: Is It Complex?</a></h3>
+              <p>Breaks down the learning curve for operating a laser cutting machine. Covers common concerns about difficulty and shows why modern desktop engravers are simpler than you think.</p>
+              <div class="tut-meta">TOOCAA Knowledge Share</div>
+            </div>
+          </article>
+
+          <!-- Existing article -->
+          <article class="tut-card">
+            <a href="https://www.toocaa.com/blogs/toocaa-knowledge-share/toocaa-nova-a4-size-canvas-the-perfect-smart-laser-engraver-for-home-use">
+              <img src="https://www.toocaa.com/cdn/shop/articles/TOOCAA_NOVA_smart_laser_engraver_for_home_use_7f2b0d81-0cfe-4a0d-801e-0357c979794a.jpg?v=1773995883&width=800"
+                   alt="TOOCAA NOVA A4 — the smart laser engraver for home use"
+                   loading="lazy" width="800" height="500">
+            </a>
+            <div class="tut-card-body">
+              <span class="tut-tag tut-tag--guide">Guide</span>
+              <h3><a href="https://www.toocaa.com/blogs/toocaa-knowledge-share/toocaa-nova-a4-size-canvas-the-perfect-smart-laser-engraver-for-home-use">Why TOOCAA NOVA's A4 Is the Ideal Choice for Home Engraving</a></h3>
+              <p>Explains why the A4 working area is the perfect balance of compactness and capability for home laser engraving — ergonomics, material efficiency, and scalable creativity.</p>
+              <div class="tut-meta">TOOCAA Knowledge Share</div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================
+         SECTION 2: MATERIAL GUIDES
+         Keywords: laser engraving materials, laser cutting materials,
+         laser engrave on metal, laser engraver for aluminum,
+         laser cutting leather, laser engrave wood
+         ============================ -->
+    <section class="tut-section" id="materials">
+      <div class="container">
+        <h2 class="section-label">Material Guides</h2>
+        <p class="section-desc">Settings and techniques for every laser engraving material — wood, metal, leather, acrylic, and more.</p>
+
+        <div class="tut-grid">
+
+          <!-- Existing article -->
+          <article class="tut-card">
+            <a href="https://www.toocaa.com/blogs/toocaa-knowledge-share/choosing-the-right-laser-for-aluminum-engraving-in-2025">
+              <img src="https://www.toocaa.com/cdn/shop/articles/9f51552b11f9d48d1aa47638aceefcfb-400176_37c497a9-c5d0-4991-a139-39aaa85052de.jpg?v=1741333283&width=800"
+                   alt="Choosing the right laser for aluminum engraving"
+                   loading="lazy" width="800" height="500">
+            </a>
+            <div class="tut-card-body">
+              <span class="tut-tag tut-tag--material">Material</span>
+              <h3><a href="https://www.toocaa.com/blogs/toocaa-knowledge-share/choosing-the-right-laser-for-aluminum-engraving-in-2025">Choosing the Right Laser for Aluminum Engraving</a></h3>
+              <p>Covers which laser types work best for engraving aluminum — including anodized vs. bare aluminum, recommended power levels, and marking spray techniques.</p>
+              <div class="tut-meta">TOOCAA Knowledge Share</div>
+            </div>
+          </article>
+
+          <!-- Existing article -->
+          <article class="tut-card">
+            <a href="https://www.toocaa.com/blogs/toocaa-knowledge-share/can-a-desktop-diode-laser-cutting-machine-engrave-or-cut-leather-9">
+              <img src="https://www.toocaa.com/cdn/shop/articles/Frame_2147223282_81b81ff1-2bbe-4204-a674-64ab0c5f530e-492294.png?v=1745811754&width=800"
+                   alt="Can a desktop diode laser engrave or cut leather?"
+                   loading="lazy" width="800" height="500">
+            </a>
+            <div class="tut-card-body">
+              <span class="tut-tag tut-tag--material">Material</span>
+              <h3><a href="https://www.toocaa.com/blogs/toocaa-knowledge-share/can-a-desktop-diode-laser-cutting-machine-engrave-or-cut-leather-9">Can a Desktop Diode Laser Engrave or Cut Leather?</a></h3>
+              <p>Answers the most common question about laser cutting leather with a diode laser — what's possible, PU vs. genuine leather, safety considerations, and optimal settings.</p>
+              <div class="tut-meta">TOOCAA Knowledge Share</div>
+            </div>
+          </article>
+
+          <!-- Existing page -->
+          <article class="tut-card">
+            <a href="https://www.toocaa.com/pages/material-settings-for-toocaa-machines">
+              <img src="https://www.toocaa.com/cdn/shop/articles/20250530-184518-1787823.jpg?v=1766807388&width=800"
+                   alt="Material settings chart for TOOCAA laser engraving machines"
+                   loading="lazy" width="800" height="500">
+            </a>
+            <div class="tut-card-body">
+              <span class="tut-tag tut-tag--material">Settings</span>
+              <h3><a href="https://www.toocaa.com/pages/material-settings-for-toocaa-machines">Material Settings for TOOCAA Machines</a></h3>
+              <p>Complete reference table of recommended speed, power, and pass settings for all supported laser engraving and cutting materials on the TOOCAA NOVA and L2.</p>
+              <div class="tut-meta">TOOCAA Reference Guide</div>
+            </div>
+          </article>
+
+          <!-- PLACEHOLDER — Client to create -->
+          <article class="tut-card tut-card--placeholder">
+            <div class="tut-card-img-placeholder">Content Needed</div>
+            <div class="tut-card-body">
+              <span class="tut-tag tut-tag--placeholder">To Create</span>
+              <h3>How to Laser Engrave Wood — Complete Guide with Settings</h3>
+              <p>Target keywords: <em>laser engrave wood</em> (256 traffic), <em>laser carving on wood</em> (217), <em>laser engraving on wood</em> (127). Cover wood types, settings table, tips for clean results.</p>
+              <div class="tut-meta">Priority: HIGH — 600+ combined monthly searches</div>
+            </div>
+          </article>
+
+          <!-- PLACEHOLDER — Client to create -->
+          <article class="tut-card tut-card--placeholder">
+            <div class="tut-card-img-placeholder">Content Needed</div>
+            <div class="tut-card-body">
+              <span class="tut-tag tut-tag--placeholder">To Create</span>
+              <h3>How to Laser Engrave on Metal — Stainless Steel, Aluminum &amp; More</h3>
+              <p>Target keywords: <em>laser engrave on metal</em> (3,577 traffic), <em>engraving on metal</em> (316), <em>laser engraving steel</em> (704). Cover marking spray, settings, diode vs. fiber for metal.</p>
+              <div class="tut-meta">Priority: HIGH — 4,500+ combined monthly searches</div>
+            </div>
+          </article>
+
+          <!-- PLACEHOLDER — Client to create -->
+          <article class="tut-card tut-card--placeholder">
+            <div class="tut-card-img-placeholder">Content Needed</div>
+            <div class="tut-card-body">
+              <span class="tut-tag tut-tag--placeholder">To Create</span>
+              <h3>Acrylic Laser Cutting — Settings for Clean, Polished Edges</h3>
+              <p>Target keywords: <em>acrylic laser cutting</em> (256 traffic), <em>co2 laser for cutting acrylic</em> (312). Cover cast vs. extruded acrylic, optimal settings, edge quality tips.</p>
+              <div class="tut-meta">Priority: MEDIUM — 560+ combined monthly searches</div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================
+         SECTION 3: SOFTWARE
+         Keywords: free laser engraving software, laser engraving software,
+         laser engraver software, laser cutter software, laser cutter file
+         ============================ -->
+    <section class="tut-section" id="software">
+      <div class="container">
+        <h2 class="section-label">Software Guides</h2>
+        <p class="section-desc">Master your laser engraving software — from TOOCAA Studio basics to file formats and software comparisons.</p>
+
+        <div class="tut-grid">
+
+          <!-- Existing article -->
+          <article class="tut-card">
+            <a href="https://www.toocaa.com/blogs/toocaa-knowledge-share/discover-toocaastudio-the-free-laser-engraving-software-perfectly-compatible-with-toocaa-machines">
+              <img src="https://www.toocaa.com/cdn/shop/articles/20250224-153648-532532_e11cfcea-285c-43cf-a227-12e50e9816c3.jpg?v=1741332881&width=800"
+                   alt="TOOCAA Studio — free laser engraving software guide"
+                   loading="lazy" width="800" height="500">
+            </a>
+            <div class="tut-card-body">
+              <span class="tut-tag tut-tag--software">Software</span>
+              <h3><a href="https://www.toocaa.com/blogs/toocaa-knowledge-share/discover-toocaastudio-the-free-laser-engraving-software-perfectly-compatible-with-toocaa-machines">Discover TOOCAA Studio: The Free Laser Engraving Software</a></h3>
+              <p>Complete introduction to TOOCAA Studio — the free AI-powered laser engraving and cutting software. Installation, features, material calibration, and AI-generated design tools.</p>
+              <div class="tut-meta">TOOCAA Knowledge Share</div>
+            </div>
+          </article>
+
+          <!-- Existing article -->
+          <article class="tut-card">
+            <a href="https://www.toocaa.com/blogs/toocaa-knowledge-share/what-s-the-best-software-for-laser-engraving-a-comparison-guide">
+              <img src="https://www.toocaa.com/cdn/shop/articles/20250109-181505-349687_0a7f7261-2892-4a2f-9800-1ec6b62327c6.jpg?v=1741333155&width=800"
+                   alt="Best software for laser engraving — comparison guide"
+                   loading="lazy" width="800" height="500">
+            </a>
+            <div class="tut-card-body">
+              <span class="tut-tag tut-tag--software">Software</span>
+              <h3><a href="https://www.toocaa.com/blogs/toocaa-knowledge-share/what-s-the-best-software-for-laser-engraving-a-comparison-guide">What's the Best Software for Laser Engraving? A Comparison Guide</a></h3>
+              <p>Side-by-side comparison of popular laser engraver software — LightBurn, LaserGRBL, TOOCAA Studio, and more. Features, pricing, and which is best for your workflow.</p>
+              <div class="tut-meta">TOOCAA Knowledge Share</div>
+            </div>
+          </article>
+
+          <!-- Existing article -->
+          <article class="tut-card">
+            <a href="https://www.toocaa.com/blogs/news/laser-engraver-software-a-beginners-guide-and-advanced-tips">
+              <img src="https://www.toocaa.com/cdn/shop/articles/resized_1280x720_ec5491df-4e56-4ce4-ae5e-b8ce95d1bf7d-3074825.jpg?v=1764399432&width=800"
+                   alt="Laser engraver software — beginner's guide and advanced tips"
+                   loading="lazy" width="800" height="500">
+            </a>
+            <div class="tut-card-body">
+              <span class="tut-tag tut-tag--software">Software</span>
+              <h3><a href="https://www.toocaa.com/blogs/news/laser-engraver-software-a-beginners-guide-and-advanced-tips">Laser Engraver Software: A Beginner's Guide and Advanced Tips</a></h3>
+              <p>Covers the full landscape of laser engraver software — from free options for getting started to advanced features for power users. Includes tips on file preparation and optimization.</p>
+              <div class="tut-meta">TOOCAA News</div>
+            </div>
+          </article>
+
+          <!-- PLACEHOLDER — Client to create -->
+          <article class="tut-card tut-card--placeholder">
+            <div class="tut-card-img-placeholder">Content Needed</div>
+            <div class="tut-card-body">
+              <span class="tut-tag tut-tag--placeholder">To Create</span>
+              <h3>Laser Cutter File Formats Explained — SVG, DXF, PNG &amp; More</h3>
+              <p>Target keyword: <em>laser cutter file</em> (5,280 traffic). Cover which formats work best for cutting vs. engraving, vector vs. raster, and where to find free design files.</p>
+              <div class="tut-meta">Priority: HIGH — 5,280 monthly searches</div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================
+         SECTION 4: LASER TECHNOLOGY
+         Keywords: fiber laser vs diode laser, what is a mopa laser,
+         laser engraving machine, laser module
+         ============================ -->
+    <section class="tut-section" id="laser-technology">
+      <div class="container">
+        <h2 class="section-label">Laser Technology</h2>
+        <p class="section-desc">Understand the technology behind your machine — laser types, how they work, and which is best for different applications.</p>
+
+        <div class="tut-grid">
+
+          <!-- Existing article -->
+          <article class="tut-card">
+            <a href="https://www.toocaa.com/blogs/toocaa-knowledge-share/guide-to-fiber-lasers-diode-lasers-jpt-lasers-mopa-lasers-and-co2-lasers">
+              <img src="https://www.toocaa.com/cdn/shop/articles/9cf9d12003a513bc277914aa7aef8865-485901.jpg?v=1744185371&width=800"
+                   alt="Guide to fiber lasers, diode lasers, MOPA lasers and CO2 lasers"
+                   loading="lazy" width="800" height="500">
+            </a>
+            <div class="tut-card-body">
+              <span class="tut-tag tut-tag--technology">Technology</span>
+              <h3><a href="https://www.toocaa.com/blogs/toocaa-knowledge-share/guide-to-fiber-lasers-diode-lasers-jpt-lasers-mopa-lasers-and-co2-lasers">Guide to Fiber, Diode, JPT, MOPA &amp; CO2 Lasers</a></h3>
+              <p>A comprehensive breakdown of every major laser type — how they work, what materials they handle best, and how to choose between fiber laser vs diode laser for your projects.</p>
+              <div class="tut-meta">TOOCAA Knowledge Share</div>
+            </div>
+          </article>
+
+          <!-- Existing article -->
+          <article class="tut-card">
+            <a href="https://www.toocaa.com/blogs/toocaa-knowledge-share/the-benefits-and-risks-of-laser-cutting-engraving">
+              <img src="https://www.toocaa.com/cdn/shop/articles/20250430-164826-238380.jpg?v=1747445413&width=800"
+                   alt="Benefits and risks of laser cutting and engraving"
+                   loading="lazy" width="800" height="500">
+            </a>
+            <div class="tut-card-body">
+              <span class="tut-tag tut-tag--technology">Technology</span>
+              <h3><a href="https://www.toocaa.com/blogs/toocaa-knowledge-share/the-benefits-and-risks-of-laser-cutting-engraving">The Benefits and Risks of Laser Cutting &amp; Engraving</a></h3>
+              <p>An honest look at the advantages and potential risks of laser engraving. Covers fume safety, material limitations, eye protection, and how enclosed machines mitigate hazards.</p>
+              <div class="tut-meta">TOOCAA Knowledge Share</div>
+            </div>
+          </article>
+
+          <!-- PLACEHOLDER — Client to create -->
+          <article class="tut-card tut-card--placeholder">
+            <div class="tut-card-img-placeholder">Content Needed</div>
+            <div class="tut-card-body">
+              <span class="tut-tag tut-tag--placeholder">To Create</span>
+              <h3>Color Laser Engraving — How It Works &amp; What You Need</h3>
+              <p>Target keywords: <em>color laser etching</em> (705 traffic), <em>colour laser engraving</em> (478). Cover MOPA techniques, MagicBox Chroma materials, and color-on-metal methods.</p>
+              <div class="tut-meta">Priority: MEDIUM — 1,180+ combined monthly searches</div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================
+         SECTION 5: BUYER'S GUIDE
+         Keywords: desktop laser engraver and cutter, laser cutter price,
+         enclosed laser engraver, how to choose laser cutting machine
+         ============================ -->
+    <section class="tut-section" id="buyers-guide">
+      <div class="container">
+        <h2 class="section-label">Buyer's Guide</h2>
+        <p class="section-desc">Choosing the right machine and accessories for your needs, budget, and creative goals.</p>
+
+        <div class="tut-grid">
+
+          <!-- Existing article -->
+          <article class="tut-card">
+            <a href="https://www.toocaa.com/blogs/toocaa-knowledge-share/how-to-choose-a-laser-cutting-machine-that-suits-your-needs-1">
+              <img src="https://www.toocaa.com/cdn/shop/articles/20250530-184518-1787823.jpg?v=1766807388&width=800"
+                   alt="How to choose a laser cutting machine that suits your needs"
+                   loading="lazy" width="800" height="500">
+            </a>
+            <div class="tut-card-body">
+              <span class="tut-tag tut-tag--guide">Buyer's Guide</span>
+              <h3><a href="https://www.toocaa.com/blogs/toocaa-knowledge-share/how-to-choose-a-laser-cutting-machine-that-suits-your-needs-1">How to Choose a Laser Cutting Machine That Suits Your Needs</a></h3>
+              <p>Walks through the key factors when purchasing a desktop laser engraver and cutter — power, working area, enclosed vs. open-frame, software compatibility, and budget considerations.</p>
+              <div class="tut-meta">TOOCAA Knowledge Share</div>
+            </div>
+          </article>
+
+          <!-- Existing article -->
+          <article class="tut-card">
+            <a href="https://www.toocaa.com/blogs/toocaa-knowledge-share/laser-cutters-and-engravers-2025">
+              <img src="https://www.toocaa.com/cdn/shop/articles/9f51552b11f9d48d1aa47638aceefcfb_ee26a08d-e479-434e-a100-52884fbfb1a9-335381.jpg?v=1741333225&width=800"
+                   alt="A must-try laser cutter and engraver — desktop models compared"
+                   loading="lazy" width="800" height="500">
+            </a>
+            <div class="tut-card-body">
+              <span class="tut-tag tut-tag--guide">Buyer's Guide</span>
+              <h3><a href="https://www.toocaa.com/blogs/toocaa-knowledge-share/laser-cutters-and-engravers-2025">A Must-Try Laser Cutter and Engraver</a></h3>
+              <p>A curated look at standout desktop laser cutters and engravers — what makes each one unique, who they're best for, and how they compare on real-world performance.</p>
+              <div class="tut-meta">TOOCAA Knowledge Share</div>
+            </div>
+          </article>
+
+          <!-- Existing page -->
+          <article class="tut-card">
+            <a href="https://www.toocaa.com/pages/accessories-select">
+              <img src="https://www.toocaa.com/cdn/shop/collections/20240522-135033-171803.jpg?v=1775105654&width=800"
+                   alt="Laser engraver accessories selection guide"
+                   loading="lazy" width="800" height="500">
+            </a>
+            <div class="tut-card-body">
+              <span class="tut-tag tut-tag--guide">Accessories</span>
+              <h3><a href="https://www.toocaa.com/pages/accessories-select">Accessories Selection Guide</a></h3>
+              <p>Which accessories do you actually need? Air assist, honeycomb beds, rotary rollers, smart cameras — learn what each one does and when it's worth adding to your setup.</p>
+              <div class="tut-meta">TOOCAA Reference Guide</div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================
+         SECTION 6: SAFETY
+         Keywords: laser engraver safety, fire safety laser engraver,
+         laser safety glasses
+         ============================ -->
+    <section class="tut-section" id="safety">
+      <div class="container">
+        <h2 class="section-label">Safety</h2>
+        <p class="section-desc">Essential safety practices for laser engraving at home — ventilation, fire prevention, eye protection, and safe material handling.</p>
+
+        <div class="tut-grid">
+
+          <!-- Existing article -->
+          <article class="tut-card">
+            <a href="https://www.toocaa.com/blogs/news/fire-safety-for-laser-engravers">
+              <img src="https://www.toocaa.com/cdn/shop/articles/resized_1280x720_3-1588669.png?v=1766113678&width=800"
+                   alt="Fire safety for laser engravers — prevention and best practices"
+                   loading="lazy" width="800" height="500">
+            </a>
+            <div class="tut-card-body">
+              <span class="tut-tag tut-tag--safety">Safety</span>
+              <h3><a href="https://www.toocaa.com/blogs/news/fire-safety-for-laser-engravers">Fire Safety for Laser Engravers</a></h3>
+              <p>Covers fire prevention best practices for laser engraving — material flammability, proper supervision, fire suppression systems, and how enclosed designs like TOOCAA NOVA reduce risk.</p>
+              <div class="tut-meta">TOOCAA News</div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================
+         SEO CONTENT BLOCK (below fold — crawl value)
+         ============================ -->
+    <section class="seo-block">
+      <div class="container">
+        <div class="seo-block-inner">
+          <h2>Learn Laser Engraving &amp; Cutting with TOOCAA</h2>
+
+          <p>Whether you're a beginner learning how to use a laser engraver at home, or an experienced maker refining your material settings, TOOCAA's tutorials cover the full spectrum of desktop laser engraving and cutting.</p>
+
+          <h3>Laser Engraving Materials — Settings &amp; Techniques</h3>
+          <p>Our material guides provide tested parameters for popular laser engraving materials including wood, plywood, leather, stainless steel, anodized aluminum, acrylic, cork, and fabric. Each guide includes recommended speed, power, and pass settings for both the TOOCAA NOVA and TOOCAA L2.</p>
+
+          <h3>Free Laser Engraving Software</h3>
+          <p>TOOCAA Studio is free AI-powered laser engraving software included with every TOOCAA machine. Our software tutorials cover everything from initial setup to advanced features, and compare TOOCAA Studio with other popular options like LightBurn and LaserGRBL.</p>
+
+          <h3>Choosing the Best Laser Engraver for Beginners</h3>
+          <p>If you're new to laser engraving, our getting started guides help you understand what to look for in a desktop laser engraver — including safety features, laser power, working area, and ease of use. The TOOCAA NOVA is designed specifically for beginners with its enclosed design, 10-minute setup, and AI-assisted workflow.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>

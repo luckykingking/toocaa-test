@@ -94,6 +94,55 @@
   }
 
   const lookup = document.querySelector("#lookupResult");
+
+  const settingsFilters = [...document.querySelectorAll("[data-setting-filter]")];
+  if (settingsFilters.length) {
+    const rows = [...document.querySelectorAll("#materialSettingsTable tbody tr")];
+    const filterSettings = () => {
+      let count = 0;
+      rows.forEach(row => {
+        row.hidden = !settingsFilters.every(select => select.value === "all" || row.dataset[select.dataset.settingFilter] === select.value);
+        if (!row.hidden) count++;
+      });
+      document.querySelector("#materialSettingsCount").textContent = count ? `${count} matching reference ${count === 1 ? "row" : "rows"}` : "No published L2 row matches this combination. Do not calculate a substitute.";
+    };
+    settingsFilters.forEach(select => select.addEventListener("change", filterSettings));
+    filterSettings();
+  }
+
+  const issueQuery = document.querySelector("#issueQuery");
+  if (issueQuery) {
+    const modelButtons = [...document.querySelectorAll("[data-machine]")];
+    const issueSections = [...document.querySelectorAll("[data-issue-section]")];
+    let model = "all";
+    const filterIssues = () => {
+      const terms = issueQuery.value.trim().toLowerCase().split(/\s+/).filter(Boolean);
+      let count = 0;
+      issueSections.forEach(section => {
+        let visible = 0;
+        section.querySelectorAll("[data-guide]").forEach(item => {
+          const matchModel = model === "all" || item.dataset.models.split(",").includes(model);
+          const text = item.textContent.toLowerCase();
+          item.hidden = !(matchModel && terms.every(term => text.includes(term)));
+          if (!item.hidden) visible++;
+        });
+        section.hidden = visible === 0;
+        const jump = document.querySelector(`.issue-jumps a[href="#${section.id}"]`);
+        if (jump) jump.hidden = section.hidden;
+        count += visible;
+      });
+      modelButtons.forEach(button => button.setAttribute("aria-pressed", String(button.dataset.machine === model)));
+      document.querySelector("#issueCount").textContent = `${count} ${count === 1 ? "guide" : "guides"}`;
+      document.querySelector("#issueEmpty").hidden = count > 0;
+    };
+    issueQuery.addEventListener("input", filterIssues);
+    modelButtons.forEach(button => button.addEventListener("click", () => {
+      model = button.dataset.machine;
+      filterIssues();
+    }));
+    filterIssues();
+  }
+
   if (lookup) {
     const data = JSON.parse(document.querySelector("#settingsData").textContent);
     const material = document.querySelector("#woodMaterial");

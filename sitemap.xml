@@ -6,6 +6,8 @@
   <url><loc>https://luckykingking.github.io/toocaa-test/learn/materials/</loc></url>
   <url><loc>https://luckykingking.github.io/toocaa-test/support/</loc></url>
   <url><loc>https://luckykingking.github.io/toocaa-test/troubleshooting/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/software/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/who-is-it-for/</loc></url>
   <url><loc>https://luckykingking.github.io/toocaa-test/learn/materials/wood/</loc></url>
   <url><loc>https://luckykingking.github.io/toocaa-test/learn/materials/acrylic/</loc></url>
   <url><loc>https://luckykingking.github.io/toocaa-test/learn/materials/leather/</loc></url>
@@ -60,4 +62,51 @@
   <url><loc>https://luckykingking.github.io/toocaa-test/troubleshooting/excessive-smoke-odor/</loc></url>
   <url><loc>https://luckykingking.github.io/toocaa-test/troubleshooting/safety-alarm/</loc></url>
   <url><loc>https://luckykingking.github.io/toocaa-test/troubleshooting/firmware-update-stuck/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/troubleshooting/uneven-cutting-depth/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/troubleshooting/kerf-too-wide/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/troubleshooting/gradient-banding-photos/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/troubleshooting/scorch-marks-engraving/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/troubleshooting/motor-skipping-grinding/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/troubleshooting/strange-noises-during-operation/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/troubleshooting/axis-drift-calibration/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/troubleshooting/frame-squareness-alignment/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/troubleshooting/nova-rotary-90-degree/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/troubleshooting/toocaa-studio-connection/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/troubleshooting/file-transfer-failed/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/troubleshooting/toocaa-app-crashes/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/troubleshooting/nova-firmware-ota/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/troubleshooting/nova-camera-positioning-offset/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/troubleshooting/nova-autofocus-failed/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/troubleshooting/nova-touchscreen-issues/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/troubleshooting/nova-ai-material-recognition/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/troubleshooting/nova-smart-air-assist/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/troubleshooting/nova-dual-exhaust-weak/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/troubleshooting/nova-breathing-light-status/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/troubleshooting/nova-child-lock-forgot-password/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/troubleshooting/nova-module-swap-not-recognized/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/troubleshooting/nova-camera-preview-lag/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/troubleshooting/nova-smart-settings-reset/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/troubleshooting/flame-detection-false-alarm/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/troubleshooting/protective-cover-sensor/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/troubleshooting/emergency-stop-reset/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/troubleshooting/overheating-warning/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/troubleshooting/nova-exhaust-filter-replacement/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/troubleshooting/lens-mirror-cleaning/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/troubleshooting/belt-tension-adjustment/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/troubleshooting/rail-lubrication-guide/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/troubleshooting/air-assist-pump-maintenance/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/troubleshooting/honeycomb-bed-cleaning/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/troubleshooting/laser-module-lifespan/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/troubleshooting/nova-module-removal-install/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/tutorials/laser-file-formats/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/tutorials/color-laser-engraving/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/support/accessories/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/learn/materials/other/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/support/material-settings/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/software/toocaa-studio/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/software/comparison/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/who-is-it-for/studios/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/who-is-it-for/diy-gifts/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/who-is-it-for/classrooms/</loc></url>
+  <url><loc>https://luckykingking.github.io/toocaa-test/who-is-it-for/small-businesses/</loc></url>
 </urlset>

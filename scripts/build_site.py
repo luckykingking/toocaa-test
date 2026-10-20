@@ -10,15 +10,22 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "content"))
-from pages import PAGES, section  # noqa: E402
+from pages import PAGES, FRAMEWORK_HUBS, section  # noqa: E402
 
 DOCS = ROOT / "docs"
 BASE = "https://luckykingking.github.io/toocaa-test/"
-VERSION = "20261020-brand2"
+VERSION = "20261020-complete"
 SOURCES = json.loads((ROOT / "content/sources.json").read_text(encoding="utf-8"))
 SETTINGS = json.loads((ROOT / "content/settings.json").read_text(encoding="utf-8"))
-GROUP_PATHS = {"Use Cases": "use-cases/", "Tutorials": "tutorials/", "Materials": "learn/materials/", "Support": "support/", "Troubleshooting": "troubleshooting/"}
-ISSUE_GROUPS = {"laser-cutting": "Laser & Cutting", "engraving": "Engraving Quality", "hardware": "Hardware & Motion", "software": "Software & Connection", "safety": "Safety & Ventilation"}
+GROUP_PATHS = {"Use Cases": "use-cases/", "Tutorials": "tutorials/", "Materials": "learn/materials/", "Support": "support/", "Troubleshooting": "troubleshooting/", "Software": "software/", "Who It's For": "who-is-it-for/"}
+ISSUE_GROUPS = {"laser-cutting": "Laser & Cutting", "engraving": "Engraving Quality", "hardware": "Hardware & Motion", "software": "Software & Connection", "nova-smart": "NOVA Smart Features", "safety": "Safety & Ventilation", "maintenance": "Maintenance & Care"}
+REQUIREMENTS = json.loads((ROOT / 'content/requirements.json').read_text(encoding='utf-8'))
+ILLUSTRATIONS = {
+    'cut-quality': dict(file='cut-quality-concept.png', alt='Illustrated comparison of scorched, incomplete and cleanly separated plywood cuts', caption='AI-generated cut-quality illustration, not a measured machine test. Left: scorched edges. Center: incomplete separation. Right: a separated cut.', width=1536, height=1024),
+    'wood-projects': dict(file='wood-project-concepts.png', alt='Concepts for a plywood box, engraved coasters and a hanging sign', caption='AI-generated project concepts. These are not customer cases, downloadable designs or proof of tested settings.', width=1536, height=1024),
+    'nova-window': dict(file='nova-window-screws.png', alt='TOOCAA NOVA module securing screws identified in the official maintenance photograph', caption='TOOCAA NOVA 10W/20W maintenance reference: securing screws. Disconnect power and let the module cool before maintenance.', width=1310, height=985, source='novaLens'),
+    'nova-filter': dict(file='nova-filter-housing.png', alt='NOVA rear built-in filter housing in the TOOCAA maintenance guide', caption='The NOVA built-in machine-filter housing, shown in the TOOCAA maintenance guide. This is not the optional purifier cartridge.', width=1300, height=969, source='novaInternalFilter'),
+}
 ASSETS = {
     "workspace": ("workspace.jpg", "TOOCAA laser machine and computer in a studio"),
     "wood": ("wood.jpg", "Wood blanks offered by TOOCAA"),
@@ -35,6 +42,7 @@ HUBS = [
     dict(path="support/", title="TOOCAA Support: Setup, Maintenance & Contact", description="Get help with your TOOCAA laser: first setup, maintenance, troubleshooting, manuals, and contact details for the support team.", group="Support", keywords="TOOCAA support, TOOCAA setup, TOOCAA maintenance", sources=["wiki", "contact"], sections=[], label="Support"),
     dict(path="troubleshooting/", title="TOOCAA Troubleshooting: Cutting, Connection & Safety", description="Find symptom-based checks for TOOCAA laser output, incomplete cuts, engraving quality, movement, connection, smoke, safety alerts, and firmware.", group="Troubleshooting", keywords="TOOCAA troubleshooting, laser not cutting through, laser connection issues", sources=["support", "manual"], sections=[], label="Troubleshooting"),
 ]
+HUBS += FRAMEWORK_HUBS
 ALL = HUBS + PAGES
 BY_PATH = {p["path"]: p for p in ALL}
 HUBS[1]["faqs"] = [("Which project should I try first?", "Choose a small design on documented stock, such as a simple wood name tag or coaster. Test the material and inspect focus, placement, and edge quality before making a batch.")]
@@ -56,8 +64,8 @@ def relative(path, target):
     return ("" if root == "." else root + "/") + (target or "index.html")
 
 
-def link(page, target, label, cls=""):
-    return f'<a href="{esc(relative(page["path"], target))}"' + (f' class="{cls}"' if cls else "") + f'>{esc(label)}</a>'
+def link(page, target, label, cls="", download=False):
+    return f'<a href="{esc(relative(page["path"], target))}"' + (f' class="{cls}"' if cls else "") + (' download' if download else '') + f'>{esc(label)}</a>'
 
 
 def title(page):
@@ -81,16 +89,16 @@ def header(page):
         ("Accessories", [(store + "collections/air-assist", "Air Assist"), (store + "collections/smoke-purifier", "Smoke Purifier"), (store + "collections/smart-camera", "Smart Camera"), (store + "collections/rotary-roller", "Rotary Roller"), (store + "collections/accessories", "All accessories")]),
     ])
     learn_menu = menu("Learn", "", [
-        ("Learn with TOOCAA", [("", "Learning Center"), ("tutorials/", "Tutorials"), ("learn/materials/", "Material Guides"), ("use-cases/", "Use Cases")]),
-        ("Tools & inspiration", [(SOURCES["settings"]["url"], "Material Settings"), (store + "pages/accessories-select", "Accessories Select"), (store + "blogs/toocaa-knowledge-share", "Blog"), (SOURCES["space"]["url"], "Project Files on TOOCAA Space")]),
-    ], page["group"] in {"Home", "Tutorials", "Materials", "Use Cases"})
+        ("Learn with TOOCAA", [("", "Learning Center"), ("tutorials/", "Tutorials"), ("learn/materials/", "Material Guides"), ("use-cases/", "Use Cases"), ("who-is-it-for/", "Who It's For")]),
+        ("Tools & inspiration", [("software/", "Software Guides"), ("support/material-settings/", "Material Settings"), ("support/accessories/", "Accessories Guide"), (store + "blogs/toocaa-knowledge-share", "Blog"), (SOURCES["space"]["url"], "Project Files on TOOCAA Space")]),
+    ], page["group"] in {"Home", "Tutorials", "Materials", "Use Cases", "Software", "Who It's For"})
     support_menu = menu("Support", "support/", [
-        ("Machine help", [("support/", "Support"), ("troubleshooting/", "Troubleshooting"), ("tutorials/first-setup/", "First Setup"), ("support/maintenance/", "Maintenance & Care"), (SOURCES["wiki"]["url"], "Support Center & Manuals"), ("support/contact/", "Contact Us")]),
+        ("Machine help", [("support/", "Support"), ("support/before-you-buy/", "Before You Buy"), ("support/material-settings/", "Material Settings"), ("troubleshooting/", "Troubleshooting"), ("tutorials/first-setup/", "First Setup"), ("support/maintenance/", "Maintenance & Care"), (SOURCES["wiki"]["url"], "Support Center & Manuals"), ("support/contact/", "Contact Us")]),
         ("Orders & policies", [(store + "pages/shipping-policy", "Shipping Policy"), (store + "pages/aftersales-policies", "Aftersales Policy"), (store + "pages/warranty-policy", "Warranty"), (store + "pages/refund-policy", "Return & Refund Policy")]),
     ], page["group"] in {"Support", "Troubleshooting"})
     groups = [products_menu, link(page, SOURCES["space"]["url"], "TOOCAA Space", "nav-direct"), link(page, SOURCES["studio"]["url"], "TOOCAA Studio", "nav-direct"), learn_menu, support_menu, link(page, SOURCES["choose"]["url"], "Help Me Choose", "nav-direct"), link(page, store + "pages/about-us", "About TOOCAA", "nav-direct")]
     family = "Support" if page["group"] in {"Support", "Troubleshooting"} else "Learn"
-    secondary = [("support/", "Support"), ("troubleshooting/", "Troubleshooting"), ("support/maintenance/", "Maintenance"), ("support/contact/", "Contact Us")] if family == "Support" else [("", "Learning Center"), ("use-cases/", "Use Cases"), ("tutorials/", "Tutorials"), ("learn/materials/", "Materials")]
+    secondary = [("support/", "Support"), ("troubleshooting/", "Troubleshooting"), ("support/material-settings/", "Material Settings"), ("support/maintenance/", "Maintenance"), ("support/contact/", "Contact Us")] if family == "Support" else [("", "Learning Center"), ("use-cases/", "Use Cases"), ("tutorials/", "Tutorials"), ("learn/materials/", "Materials"), ("software/", "Software"), ("who-is-it-for/", "Who It's For")]
     sublinks = ''.join(f'<a href="{esc(relative(path, dest))}"' + (' aria-current="page"' if path == dest else ' aria-current="location"' if dest and path.startswith(dest) and not any(path.startswith(d) for d, _ in secondary if d != dest and d.startswith(dest)) else '') + f'>{label}</a>' for dest, label in secondary)
     return f'''<a class="skip" href="#main">Skip to content</a>
 <div class="utility"><div class="wide-shell"><span>TOOCAA Learning Center</span>{link(page, store, 'Shop TOOCAA &rarr;').replace('&amp;rarr;', '&rarr;')}</div></div>
@@ -118,12 +126,15 @@ def breadcrumb(page):
 
 def directory(page, entries, searchable=False):
     out = ['<ul class="directory"' + (' id="guide-list"' if searchable else '') + '>']
-    cats = {"Getting Started":"start", "Cutting":"cut", "Engraving":"engrave", "Materials":"material", "Software":"software", "Advanced":"advanced"}
+    cats = {"Getting Started":"start", "Cutting":"cut", "Engraving":"engrave", "Materials":"material", "Software":"software", "Advanced":"advanced", "Technology":"technology", "Buying Guides":"buying", "Safety":"safety"}
     for i, item in enumerate(entries):
         category = item.get("category", item["group"])
         key = cats.get(category, category)
-        anchor = f' id="{item["path"].rstrip("/").split("/")[-1]}"' if page["path"] == "use-cases/" else ""
-        out.append(f'<li{anchor} data-guide data-category="{esc(key)}"><a href="{esc(relative(page["path"], item["path"]))}"><span class="category">{esc(ISSUE_GROUPS.get(category, category))}</span><h3>{esc(item["label"])}</h3><p>{esc(item["description"])}</p><span class="read">Read guide &rarr;</span></a></li>')
+        anchor = ''
+        models = ','.join(item.get('models', ['L2', 'NOVA']))
+        read = 'Read on toocaa.com &nearr;' if item['path'].startswith('https://') else 'Read guide &rarr;'
+        model_tag = '<span class="model-tag">TOOCAA NOVA</span>' if item.get('models') == ['NOVA'] else ''
+        out.append(f'<li{anchor} data-guide data-category="{esc(key)}" data-models="{esc(models)}"><a href="{esc(relative(page["path"], item["path"]))}"><span class="category">{esc(ISSUE_GROUPS.get(category, category))}</span>{model_tag}<h3>{esc(item["label"])}</h3><p>{esc(item["description"])}</p><span class="read">{read}</span></a></li>')
     out.append('</ul>')
     return "\n".join(out)
 
@@ -134,12 +145,19 @@ def products(page):
 
 def settings_table(page):
     key = page["path"].split("/")[-2]
-    keys = {"wood": {"basswood", "birch", "walnut", "cherry"}, "acrylic": {"acrylic"}, "leather": {"leather"}}.get(key, set())
+    all_settings = page['path'] == 'support/material-settings/'
+    keys = {r['key'] for r in SETTINGS['rows']} if all_settings else {"wood": {"basswood", "birch", "walnut", "cherry"}, "acrylic": {"acrylic"}, "leather": {"leather"}}.get(key, set())
     rows = [r for r in SETTINGS["rows"] if r["key"] in keys]
     if not rows:
-        return ""
-    body = ''.join('<tr>' + ''.join(f'<td>{esc(v)}</td>' for v in [r["material"], str(r["module"])+"W", str(r["thickness"])+" mm", r["mode"], str(r["power"])+"%", str(r["speed"])+" mm/min", r["passes"]]) + '</tr>' for r in rows)
-    return f'''<p>These settings are for the TOOCAA L2 configurations listed below. Match the material, thickness, module, and operation, then test an offcut before starting your project. For NOVA, use the settings in the NOVA documentation. All speeds below are in mm/min.</p><div class="table-wrap"><table><caption>TOOCAA L2 material settings</caption><thead><tr><th scope="col">Material</th><th scope="col">Module</th><th scope="col">Thickness</th><th scope="col">Operation</th><th scope="col">Power</th><th scope="col">Speed</th><th scope="col">Passes</th></tr></thead><tbody>{body}</tbody></table></div><p>{link(page, SETTINGS['source'], 'View the full TOOCAA material settings table')}</p>'''
+        return '<p>No matching numerical row is included for this material in the retained L2 data. Do not calculate a substitute for another machine or stock. ' + link(page, SOURCES['settings']['url'], 'Check the current TOOCAA material reference') + '.</p>'
+    body = ''.join(f'<tr data-material="{esc(r["key"])}" data-module="{r["module"]}" data-operation="{esc(r["mode"])}">' + ''.join(f'<td>{esc(v)}</td>' for v in [r["material"], str(r["module"])+"W", str(r["thickness"])+" mm", r["mode"], str(r["power"])+"%", str(r["speed"])+" mm/min", r["passes"]]) + '</tr>' for r in rows)
+    filters = ''
+    if all_settings:
+        materials = {r['key']: r['material'] for r in rows}
+        options = ''.join(f'<option value="{esc(k)}">{esc(v)}</option>' for k, v in materials.items())
+        filters = '<div class="lookup-form" id="materialSettingsFilters"><label>Material<select data-setting-filter="material"><option value="all">All materials</option>' + options + '</select></label><label>L2 module<select data-setting-filter="module"><option value="all">All modules</option><option value="10">10W</option><option value="20">20W</option><option value="40">40W</option></select></label><label>Operation<select data-setting-filter="operation"><option value="all">All operations</option><option value="Cutting">Cutting</option><option value="Engraving">Engraving</option></select></label></div><p id="materialSettingsCount" class="result-count" role="status">17 reference rows</p>'
+    table_id = ' id="materialSettingsTable"' if all_settings else ''
+    return filters + f'''<p>These settings are for the TOOCAA L2 configurations listed below. Match the material, thickness, module, and operation, then test an offcut before starting your project. For NOVA, use the settings in the NOVA documentation. All speeds below are in mm/min.</p><div class="table-wrap"><table{table_id}><caption>TOOCAA L2 material settings</caption><thead><tr><th scope="col">Material</th><th scope="col">Module</th><th scope="col">Thickness</th><th scope="col">Operation</th><th scope="col">Power</th><th scope="col">Speed</th><th scope="col">Passes</th></tr></thead><tbody>{body}</tbody></table></div><p>{link(page, SETTINGS['source'], 'View the full TOOCAA material settings table')}</p>'''
 
 
 def wood_lookup(page):
@@ -150,21 +168,39 @@ def ticket_tool():
     return '''<section class="article-section" id="request-builder"><h2>Prepare your support notes</h2><p>Use this checklist to draft a request locally. Copy the result and send it through TOOCAA's official contact page. Nothing is sent from this form.</p><form class="support-tool" id="ticketForm"><label>Machine and module<input name="machine" placeholder="Model, module, and accessory" required/></label><label>Material and settings<input name="settings" placeholder="Material, thickness, power, speed with units, passes" required/></label><label>Problem and checks already completed<textarea name="symptom" placeholder="What happened, exact error, and results of checks" required></textarea></label><button class="button" type="submit">Prepare support notes</button></form><textarea id="ticketOutput" aria-label="Prepared support notes" rows="9" hidden></textarea><button class="button secondary" type="button" id="copyTicket" hidden>Copy notes</button><p class="copy-status" id="copyStatus" role="status"></p></section>'''
 
 
+def illustration(page, key):
+    item = ILLUSTRATIONS[key]
+    source = ' ' + link(page, SOURCES[item['source']]['url'], 'View the illustrated TOOCAA procedure') if item.get('source') else ''
+    return f'<figure class="article-media"><img src="{relative(page["path"], "assets/images/" + item["file"])}" alt="{esc(item["alt"])}" width="{item["width"]}" height="{item["height"]}" loading="lazy"/><figcaption>{esc(item["caption"])}{source}</figcaption></figure>'
+
+
 def article(page):
     sections = []
     toc = []
-    for block in page["sections"]:
+    for index, block in enumerate(page["sections"]):
         anchor = block.get("anchor") or slug(block["title"])
         toc.append(f'<a href="#{anchor}">{esc(block["title"])}</a>')
-        bullets = '<ul>' + ''.join(f'<li>{esc(x)}</li>' for x in block["bullets"]) + '</ul>' if block["bullets"] else ''
+        tag = 'ol' if block.get('ordered') else 'ul'
+        bullets = f'<{tag}>' + ''.join(f'<li>{esc(x)}</li>' for x in block["bullets"]) + f'</{tag}>' if block["bullets"] else ''
         extra = settings_table(page) if anchor == "settings-table" else ""
+        if block.get('table'):
+            table = block['table']
+            extra += '<div class="table-wrap"><table><thead><tr>' + ''.join(f'<th scope="col">{esc(v)}</th>' for v in table['headers']) + '</tr></thead><tbody>' + ''.join('<tr>' + ''.join(f'<td>{esc(v)}</td>' for v in row) + '</tr>' for row in table['rows']) + '</tbody></table></div>'
+        if block.get('links'):
+            extra += '<div class="actions">' + ''.join(link(page, dest, label, 'text-link', download=dest.startswith('downloads/')) for dest, label in block['links']) + '</div>'
         sections.append(f'<section class="article-section" id="{anchor}"><h2>{esc(block["title"])}</h2><p>{esc(block["text"])}</p>{bullets}{extra}</section>')
+        if index == 0 and page.get('illustration') and page['path'] != 'learn/materials/wood/':
+            sections.append(illustration(page, page['illustration']))
     if page["path"] == "learn/materials/wood/":
         sections.insert(2, wood_lookup(page))
         toc.insert(2, '<a href="#settings-calculator">L2 wood settings</a>')
-        sections.append('<section class="article-section" id="projects"><h2>Wood project ideas</h2>' + directory(page, [BY_PATH[x] for x in ["use-cases/home-decor/", "use-cases/personalized-gifts/", "use-cases/gift-box-packaging/"]]) + '</section>')
+        sections.append('<section class="article-section" id="projects"><h2>Wood project ideas</h2>' + illustration(page, 'wood-projects') + directory(page, [BY_PATH[x] for x in ["use-cases/home-decor/", "use-cases/personalized-gifts/", "use-cases/gift-box-packaging/"]]) + '</section>')
     if page["group"] == "Use Cases":
         sections.append(f'<section class="article-section" id="settings"><h2>Set up your material</h2><p>Find preparation tips for your material, then run a small test with settings for your machine and laser module.</p><div class="actions">{link(page, "learn/materials/", "Browse material guides", "text-link")}{link(page, "tutorials/material-test/", "Run a material test", "text-link")}</div></section>')
+    if page['group'] == 'Materials' and page['path'] != 'learn/materials/wood/':
+        projects = [BY_PATH[p] for p in page.get('related', []) if p.startswith('use-cases/')]
+        if projects:
+            sections.append('<section class="article-section" id="project-ideas"><h2>Projects for this material</h2>' + directory(page, projects) + '</section>')
     if page["path"] == "support/ticket-checklist/":
         sections.append(ticket_tool())
     if page["path"] == "support/contact/":
@@ -172,45 +208,82 @@ def article(page):
     return '<div class="article-layout"><div class="article-body">' + ''.join(sections) + '</div><aside class="toc" aria-label="On this page"><strong>On this page</strong>' + ''.join(toc) + '</aside></div>'
 
 
+def project_showcase(page, entries):
+    images = {'professional-studio-crafts':'workspace', 'personalized-gifts':'leather', 'qr-code-signage':'metal', 'home-decor':'wood', 'jewelry':'metal', 'gift-box-packaging':'wood', 'photo-engraving':'stone'}
+    sections = []
+    for item in entries:
+        key = item['path'].rstrip('/').split('/')[-1]
+        name, alt = ASSETS[images.get(key, item.get('image') or 'workspace')]
+        media = f'<figure><img src="{relative(page["path"], "assets/images/" + name)}" alt="{esc(alt)}" width="900" height="600" loading="lazy"/><figcaption>{esc(alt)}.</figcaption></figure>'
+        if key in {'home-decor', 'gift-box-packaging', 'diy-gifts'}:
+            media = illustration(page, 'wood-projects')
+        is_case = item['group'] == 'Use Cases'
+        projects = item['sections'][0]['bullets'] if is_case else [row[0] for row in item['sections'][1]['table']['rows']]
+        ideas = ''.join('<li>' + esc(x) + '</li>' for x in projects)
+        preparation = item['sections'][1 if is_case else 0]['text']
+        quality = item['sections'][3 if is_case else 4]['text']
+        sections.append(f'<section class="scenario-band" id="{key}"><div class="scenario-layout"><div><h2>{esc(item["label"])}</h2><p>{esc(item["description"])}</p><ul>{ideas}</ul><h3>Prepare your project</h3><p>{esc(preparation)}</p><h3>Check the finished piece</h3><p>{esc(quality)}</p>{link(page, item["path"], "Open the " + item["label"].lower() + " guide", "text-link")}</div>{media}</div></section>')
+    return ''.join(sections)
+
+
 def hub_content(page):
     group = page["group"]
     entries = [p for p in PAGES if p["group"] == group]
+    if page.get('collections'):
+        sections = []
+        for heading, paths in page['collections']:
+            sections.append('<section class="section"><h2>' + esc(heading) + '</h2>' + directory(page, [BY_PATH[p] for p in paths]) + '</section>')
+        if group == 'Software':
+            sections.insert(0, '<section class="section"><div class="actions">' + link(page, SOURCES['studio']['url'], 'Open TOOCAA Studio', 'button') + link(page, SOURCES['lightburn']['url'], 'L2 LightBurn setup reference', 'text-link') + '</div></section>')
+            sections.insert(1, f'<figure class="workspace-band"><img src="{relative(page["path"], "assets/images/workspace.jpg")}" alt="TOOCAA L2 and a computer used to prepare a laser project" width="1400" height="729" loading="lazy"/></figure>')
+        if group == "Who It's For":
+            sections.insert(1, project_showcase(page, entries))
+        return ''.join(sections) + (products(page) if group == "Who It's For" else '')
     if group == "Home":
         tasks = [("tutorials/first-setup/", "Set up your laser", "Unboxing, workspace, and your first job"), ("learn/materials/wood/#settings-calculator", "Find material settings", "Wood references for your L2 module"), ("troubleshooting/", "Solve a problem", "Cut quality, connections, and machine checks"), ("https://wiki.toocaa.com/en/home", "Find your machine manual", "NOVA and L2 documentation in the Support Center")]
         shortcuts = '<div class="task-links">' + ''.join(f'<a href="{esc(relative(page["path"], dest))}"><strong>{label}</strong><span>{desc}</span><span class="task-arrow" aria-hidden="true">&rarr;</span></a>' for dest, label, desc in tasks) + '</div>'
         resources = [(SOURCES["studio"]["url"], "TOOCAA Studio", "Open the design and machine-control software."), (SOURCES["space"]["url"], "TOOCAA Space", "Browse designs and project files for your next make."), (SOURCES["settings"]["url"], "Material settings", "Find the full TOOCAA machine settings reference.")]
         resource_links = '<div class="resource-links">' + ''.join(f'<a href="{dest}"><h3>{label}</h3><p>{desc}</p><span aria-hidden="true">&rarr;</span></a>' for dest, label, desc in resources) + '</div>'
-        return shortcuts + f'<figure class="workspace-band"><img src="{relative(page["path"], "assets/images/workspace.jpg")}" alt="TOOCAA L2 and a computer on a craft studio workbench" width="1400" height="729" fetchpriority="high"/></figure>' + '<section class="section"><div class="section-head"><h2>Make something with TOOCAA</h2><p>Find a project, choose your material, and learn the process.</p></div>' + directory(page, HUBS[1:4]) + '</section><section class="section"><div class="section-head"><h2>Your first projects</h2>' + link(page, "tutorials/", "All tutorials", "text-link") + '</div>' + directory(page, [BY_PATH[x] for x in ["tutorials/first-engraving/", "tutorials/material-test/", "learn/materials/wood/", "tutorials/photo-preparation/"]]) + '</section><section class="section"><h2>Designs, software & settings</h2>' + resource_links + '</section>' + products(page)
+        return shortcuts + f'<figure class="workspace-band"><img src="{relative(page["path"], "assets/images/workspace.jpg")}" alt="TOOCAA L2 and a computer on a craft studio workbench" width="1400" height="729" fetchpriority="high"/></figure>' + '<section class="section"><div class="section-head"><h2>Explore the guides</h2><p>Find a project, choose your material, and get help with your setup.</p></div>' + directory(page, HUBS[1:]) + '</section><section class="section"><div class="section-head"><h2>Your first projects</h2>' + link(page, "tutorials/", "All tutorials", "text-link") + '</div>' + directory(page, [BY_PATH[x] for x in ["tutorials/first-engraving/", "tutorials/material-test/", "learn/materials/wood/", "tutorials/photo-preparation/"]]) + '</section><section class="section"><h2>Designs, software & settings</h2>' + resource_links + '</section>' + products(page)
     if group == "Tutorials":
         # Keep material and smoke resources in the library alongside standalone tutorials.
         entries = entries + [BY_PATH["learn/materials/wood/"], BY_PATH["learn/materials/wood/"], BY_PATH["troubleshooting/excessive-smoke-odor/"]]
         entries[-3] = dict(entries[-3], label="Wood & Plywood Cutting Guide", category="Cutting")
         entries[-2] = dict(entries[-2], label="Wood Settings Reference Lookup", category="Materials", path="learn/materials/wood/#settings-calculator")
         entries[-1] = dict(entries[-1], category="Advanced")
-        cats = [("all", "All guides"), ("start", "Getting Started"), ("cut", "Cutting"), ("engrave", "Engraving"), ("material", "Materials"), ("software", "Software"), ("advanced", "Advanced")]
+        entries += [BY_PATH['learn/materials/metal/'], BY_PATH['learn/materials/acrylic/']]
+        categories = {'Getting Started':'Getting Started', 'Material Guides':'Materials', 'Software Guides':'Software', 'Laser Technology':'Technology', "Buyer's Guide":'Buying Guides', 'Safety':'Safety'}
+        for required in REQUIREMENTS['requirements']:
+            if required['brief'] == 'tutorials' and required['kind'] == 'external':
+                entries.append(dict(path=required['target'], label=required['title'], description=required['description'], group='Tutorials', category=categories[required['section']]))
+            elif required['brief'] == 'tutorials' and required.get('original_kind') == 'external':
+                entries.append(dict(BY_PATH[required['target']], category=categories[required['section']]))
+        cats = [("all", "All guides"), ("start", "Getting Started"), ("cut", "Cutting"), ("engrave", "Engraving"), ("material", "Materials"), ("software", "Software"), ("advanced", "Advanced"), ("technology", "Technology"), ("buying", "Buying Guides"), ("safety", "Safety")]
         filters = ''.join(f'<button type="button" data-category-filter="{key}" aria-pressed="{str(key == "all").lower()}">{name}</button>' for key, name in cats)
         return '<section class="section" id="tutorial-list"><h2>Browse the tutorials</h2><div class="library-search"><label for="guideQuery">Find a tutorial</label><input type="search" id="guideQuery" placeholder="Search by material or task"/></div><div class="filterbar" role="group" aria-label="Tutorial categories">' + filters + '</div><p class="result-count" id="resultCount" role="status">All guides</p>' + directory(page, entries, True) + '<p class="empty" id="emptyResult" hidden>No matching tutorials. Try another term or choose All guides.</p></section>'
     if group == "Troubleshooting":
         chunks = ['<section class="section"><div class="notice"><p>For a damaged safeguard, persistent flame, unexpected motion, or abnormal smoke condition, stop the job and follow the model-specific safety instructions before further checks.</p></div><h2>Find the symptom</h2>']
-        chunks.append('<p>' + ' &middot; '.join(f'<a class="text-link" href="#{key}">{value}</a>' for key, value in ISSUE_GROUPS.items()) + '</p></section>')
+        chunks.append('<div class="library-search"><label for="issueQuery">Search issues</label><input id="issueQuery" type="search" placeholder="For example: camera, USB, smoke"/></div><div class="machine-filter" role="group" aria-label="Machine model"><button type="button" data-machine="all" aria-pressed="true">All machines</button><button type="button" data-machine="L2" aria-pressed="false">L2</button><button type="button" data-machine="NOVA" aria-pressed="false">NOVA</button></div><p class="result-count" id="issueCount" role="status"></p><p id="issueEmpty" class="empty" hidden>No matching issues. Try another symptom or choose All machines.</p>')
+        chunks.append('<nav class="issue-jumps" aria-label="Issue categories">' + ''.join(f'<a class="text-link" href="#{key}">{value}</a>' for key, value in ISSUE_GROUPS.items()) + '</nav></section>')
         for key, name in ISSUE_GROUPS.items():
-            chunks.append(f'<section class="section" id="{key}"><h2>{name}</h2>' + directory(page, [p for p in entries if p["category"] == key]) + '</section>')
-        chunks.append(f'<section class="section" id="nova-smart"><h2>NOVA model-specific features</h2><p>Use the current TOOCAA documentation for camera, autofocus, display, or other model-specific warnings. Record the exact message and installed module rather than following an L2 recovery procedure.</p><div class="actions">{link(page, "support/contact/", "Get model-specific support", "button secondary")}</div></section>')
-        chunks.append(f'<section class="section" id="maintenance"><h2>Maintenance & Care</h2><p>Keep a baseline sample and follow the documented cleaning and inspection routine.</p><div class="actions">{link(page, "support/maintenance/", "Read the maintenance guide", "text-link")}</div></section>')
+            chunks.append(f'<section class="section" data-issue-section id="{key}"><h2>{name}</h2>' + directory(page, [p for p in entries if p["category"] == key]) + '</section>')
         return ''.join(chunks)
     overview = ''
     if group == "Use Cases":
         rows = ''.join('<tr><td>' + link(page, p['path'], p['label']) + '</td><td>' + esc(', '.join(p['sections'][0]['bullets'])) + '</td></tr>' for p in entries)
         overview = '<section class="section" id="project-overview"><h2>Project overview</h2><div class="table-wrap"><table><thead><tr><th scope="col">Use case</th><th scope="col">Project ideas</th></tr></thead><tbody>' + rows + '</tbody></table></div></section>'
+        overview = project_showcase(page, entries) + overview
     manuals = f'<section class="section"><div class="section-head"><div><h2>Manuals for your machine</h2><p>Find NOVA and L2 documentation, installation instructions, and machine-specific help in the TOOCAA Support Center.</p></div>{link(page, SOURCES["wiki"]["url"], "Open Support Center", "button")}</div></section>' if group == "Support" else ''
+    if group == 'Materials':
+        overview = '<section class="section"><h2>From a material to a tested setup</h2>' + directory(page, [BY_PATH[p] for p in ['support/material-settings/', 'tutorials/material-test/', 'tutorials/laser-safety/']]) + '</section>'
     return manuals + '<section class="section"><h2>' + {"Materials":"Choose a material", "Use Cases":"Project guides", "Support":"How can we help?"}[group] + '</h2>' + directory(page, entries) + '</section>' + overview + (products(page) if group == "Use Cases" else '')
 
 
 def footer(page):
     groups = [
         ("Shop", [("https://www.toocaa.com/collections/toocaa-nova", "TOOCAA NOVA"), ("https://www.toocaa.com/collections/laser-engraving-machine", "TOOCAA L2"), ("https://www.toocaa.com/collections/materials", "Materials"), ("https://www.toocaa.com/collections/accessories", "Accessories")]),
-        ("Learn", [("use-cases/", "Use Cases"), ("tutorials/", "Tutorials"), ("learn/materials/", "Material Guides"), (SOURCES["studio"]["url"], "TOOCAA Studio"), (SOURCES["space"]["url"], "TOOCAA Space")]),
-        ("Support", [("support/", "Support"), ("troubleshooting/", "Troubleshooting"), (SOURCES["wiki"]["url"], "Manuals & Documentation"), ("support/contact/", "Contact Us")]),
+        ("Learn", [("use-cases/", "Use Cases"), ("tutorials/", "Tutorials"), ("learn/materials/", "Material Guides"), ("software/", "Software Guides"), ("who-is-it-for/", "Who It's For"), (SOURCES["studio"]["url"], "TOOCAA Studio"), (SOURCES["space"]["url"], "TOOCAA Space")]),
+        ("Support", [("support/", "Support"), ("support/material-settings/", "Material Settings"), ("troubleshooting/", "Troubleshooting"), (SOURCES["wiki"]["url"], "Manuals & Documentation"), ("support/contact/", "Contact Us")]),
         ("Orders & policies", [("https://www.toocaa.com/pages/shipping-policy", "Shipping Policy"), ("https://www.toocaa.com/pages/warranty-policy", "Warranty"), ("https://www.toocaa.com/pages/refund-policy", "Returns & Refunds"), ("https://www.toocaa.com/pages/privacy-policy", "Privacy Policy")]),
     ]
     columns = ''.join(f'<div><h3>{name}</h3>' + ''.join(link(page, dest, label) for dest, label in entries) + '</div>' for name, entries in groups)
@@ -246,6 +319,8 @@ def render(page):
         body += f'<section class="learning-intro"><h1>{esc(page["title"])}</h1><p class="intro">From your first engraving to your next collection.<br/>Find tutorials, material advice, and help for your TOOCAA laser.</p><form class="learning-search" action="search/" role="search" aria-label="Learning Center search"><label class="sr-only" for="homeQuery">What would you like to make or solve?</label><input id="homeQuery" type="search" name="q" placeholder="Search a project, material, or problem" required/><button class="icon-button" type="submit" aria-label="Search Learning Center" title="Search Learning Center"><img src="assets/icons/search.svg" alt="Search" width="24" height="24"/></button></form><p class="popular">Popular: {link(page, "tutorials/first-engraving/", "First engraving")} {link(page, "learn/materials/wood/", "Wood settings")} {link(page, "tutorials/lightburn-setup/", "LightBurn")}</p></section>'
     else:
         body += f'<section class="hero"><h1>{esc(page["title"])}</h1><p class="intro">{esc(page["description"])}</p>'
+        if page.get('models'):
+            body += '<p class="applies-to">Applies to: ' + esc(' / '.join('TOOCAA ' + m for m in page['models'])) + '</p>'
         if page.get("image") and image_key != "workspace":
             body += f'<figure class="hero-media"><img src="{relative(path, "assets/images/"+image_name)}" alt="{esc(image_alt)}" width="1200" height="650" fetchpriority="high"/></figure>'
         body += '</section>'
@@ -256,7 +331,7 @@ def render(page):
     if related:
         entries = [BY_PATH[p.split('#')[0]] for p in related]
         body += '<section class="section"><h2>Related guides</h2>' + directory(page, entries) + '</section>'
-    if page["group"] == "Use Cases" and not hub:
+    if page["group"] in {"Use Cases", "Who It's For"} and not hub:
         body += products(page)
     if not hub:
         body += '<details class="references"><summary>Manuals &amp; material references</summary><ul class="source-list">' + ''.join(f'<li>{link(page, SOURCES[k]["url"], SOURCES[k]["title"])}</li>' for k in page.get("sources", [])) + '</ul></details>'
@@ -282,10 +357,42 @@ def exports():
         w = csv.DictWriter(f, fieldnames=rows[0].keys(), lineterminator="\n")
         w.writeheader()
         w.writerows(rows)
+    checks_path = ROOT / 'content/reference-checks.json'
+    checks = json.loads(checks_path.read_text(encoding='utf-8')) if checks_path.exists() else {'checks': []}
+    references = {r['url']: r for r in checks['checks']}
+    delivery = []
+    for required in REQUIREMENTS['requirements']:
+        local = required['kind'] == 'local'
+        p = BY_PATH.get(required['target']) if local else None
+        reference = references.get(required['target'], {})
+        delivery.append(dict(
+            requirement_id=required['id'], brief=required['brief'], section=required['section'],
+            source_cell=required.get('source_cell', ''),
+            original_request=required['title'], requested_detail=required['description'], original_target=required.get('original_target', required['target']),
+            delivery_url=BASE + required['target'] if local else required['target'],
+            coverage='Local content page' if local else 'Verified TOOCAA article' if reference.get('accessible') else 'Reference check required',
+            title=title(p) if p else reference.get('title', ''), description=p['description'] if p else reference.get('description', ''),
+            keywords=p['keywords'] if p else reference.get('keywords', ''), h1=p['title'] if p else reference.get('h1', ''),
+            canonical=BASE + p['path'] if p else reference.get('canonical', ''),
+            models=' / '.join(p.get('models', [])) if p else '',
+            references=' | '.join(SOURCES[k]['url'] for k in p.get('sources', [])) if p else required['target'],
+            scope_notes=' '.join(filter(None, [required.get('resolution_note', ''), p.get('scope_note', '')])) if local else 'Existing official article, not newly authored here. Metadata is copied from the linked page; a blank description or keywords field means that meta tag was not found.',
+            checked=SOURCES['checked'] if local else checks.get('checked', ''),
+        ))
+    with (DOCS / 'keyword-table/delivery-checklist.csv').open('w', encoding='utf-8-sig', newline='') as f:
+        w = csv.DictWriter(f, fieldnames=delivery[0].keys(), lineterminator='\n')
+        w.writeheader()
+        w.writerows(delivery)
+    with (DOCS / 'keyword-table/contract-delivery.csv').open('w', encoding='utf-8-sig', newline='') as f:
+        w = csv.DictWriter(f, fieldnames=delivery[0].keys(), lineterminator='\n')
+        w.writeheader()
+        w.writerows(row for row in delivery if row['brief'].startswith('contract-'))
     # The existing wood keyword files are retained as a dated research snapshot.
     page = dict(path="keyword-table/", group="SEO", title="TOOCAA SEO Inventory", description="Page titles, descriptions, keywords and canonical URLs for the guide site.", label="SEO Inventory")
     table = '<div class="table-wrap"><table><thead><tr><th>Section</th><th>Page / H1</th><th>Title</th><th>Description</th><th>Keywords</th></tr></thead><tbody>' + ''.join('<tr>' + ''.join(f'<td>{v}</td>' for v in [esc(r["section"]), link(page, r["url"], r["h1"]), esc(r["title"]), esc(r["description"]), esc(r["keywords"])]) + '</tr>' for r in rows) + '</tbody></table></div>'
-    write('keyword-table/index.html', f'<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>TOOCAA SEO Inventory</title><meta name="description" content="Download and review the site page titles, descriptions, target keywords and canonical URLs."/><meta name="robots" content="noindex,follow"/><link rel="canonical" href="{BASE}keyword-table/"/><link rel="stylesheet" href="../assets/site.css?v={VERSION}"/></head><body><main class="shell"><section class="hero"><h1>Site SEO Inventory</h1><p class="intro">{len(rows)} public pages. Target keywords describe each page topic; this export does not claim rankings or a new audit of keyword ownership on toocaa.com.</p><div class="actions"><a class="button" download href="site-seo-inventory.csv">Download all-page TDK CSV</a><a class="text-link" download href="toocaa-wood-guide-keywords.xlsx">Original wood keyword XLSX</a><a class="text-link" download href="toocaa-wood-guide-keywords.csv">Original wood keyword CSV</a><a class="text-link" href="../">Back to guides</a></div></section><p>Original keyword research files are historical snapshots. Their ownership and volume fields have not been recrawled for this update.</p>{table}</main></body></html>')
+    contract_link = link(page, 'keyword-table/contract-delivery.csv', 'Download contract scope: 7 hubs + 22 articles', 'button', download=True)
+    contract_section = '<section class="section"><h2>Original scope table</h2><p>The contract-only export separates the seven section frameworks from the 22 specified articles and retains the original sheet references.</p>' + contract_link + '</section>'
+    write('keyword-table/index.html', f'<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>TOOCAA SEO Inventory</title><meta name="description" content="Download and review the site page titles, descriptions, target keywords and canonical URLs."/><meta name="robots" content="noindex,follow"/><link rel="canonical" href="{BASE}keyword-table/"/><link rel="stylesheet" href="../assets/site.css?v={VERSION}"/></head><body><main class="shell"><section class="hero"><h1>Site SEO Inventory</h1><p class="intro">{len(rows)} public pages and {len(delivery)} document requirements. Target keywords describe page topics; this export does not claim rankings or a new audit of keyword ownership on toocaa.com.</p><div class="actions"><a class="button" download href="site-seo-inventory.csv">Download all-page TDK CSV</a><a class="button secondary" download href="delivery-checklist.csv">Download full delivery checklist</a><a class="text-link" download href="toocaa-wood-guide-keywords.xlsx">Original wood keyword XLSX</a><a class="text-link" download href="toocaa-wood-guide-keywords.csv">Original wood keyword CSV</a><a class="text-link" href="../">Back to guides</a></div></section><p>Original keyword research files are historical snapshots. Their ownership and volume fields have not been recrawled for this update.</p>{contract_section}{table}</main></body></html>')
 
 
 def search_page():

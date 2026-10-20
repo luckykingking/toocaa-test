@@ -1,0 +1,7 @@
+{
+  "https://www.toocaa.com/pages/accessories-select": {
+    "target": "support/accessories/",
+    "kind": "local",
+    "resolution_note": "The original official destination contains generic template copy rather than a complete selection guide. Supply a local, model-specific accessory guide with links to current TOOCAA products and manuals."
+  }
+}

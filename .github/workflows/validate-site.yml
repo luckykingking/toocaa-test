@@ -13,8 +13,10 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
+      - run: python scripts/import_requirements.py
       - run: python scripts/build_site.py
       - run: python scripts/validate_site.py
+      - run: python scripts/validate_requirements.py
       - run: node --check docs/assets/site.js
       - name: Ensure generated pages are committed
-        run: git diff --exit-code -- docs sitemap.xml robots.txt llms.txt
+        run: git diff --exit-code -- content/requirements.json docs sitemap.xml robots.txt llms.txt

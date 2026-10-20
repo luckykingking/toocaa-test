@@ -1,0 +1,355 @@
+{
+  "source_name": "TOOCAA\u5408\u540c\u6307\u6807.xlsx",
+  "source_sha256": "807fbdf22e7b7245846302813baa4cefebd6fdd4a3e9b447dbe1e900ded7d350",
+  "sheet": "Sheet1",
+  "groups": [
+    {
+      "name": "\u5e94\u7528\u573a\u666f",
+      "framework": "use-cases/",
+      "articles": 7,
+      "task": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa7\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_range": "A2:F8",
+      "original_url": "https://luckykingking.github.io/toocaa-new-cases/use-cases/index.html"
+    },
+    {
+      "name": "\u6559\u7a0b",
+      "framework": "tutorials/",
+      "articles": 0,
+      "task": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u9700\u8981\u7532\u65b9\u81ea\u5df1\u8865\u5145\u6559\u7a0b\u6587\u7ae0\uff0c\u6211\u4eec\u8f85\u52a9\u63d0\u4f9b\u6807\u9898\u4ee5\u53ca\u6838\u5fc3\u5173\u952e\u8bcd",
+      "source_range": "A9:F9",
+      "original_url": "https://luckykingking.github.io/toocaa-new-cases/tutorials/index.html"
+    },
+    {
+      "name": "\u6750\u6599",
+      "framework": "learn/materials/",
+      "articles": 7,
+      "task": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa7\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_range": "A10:F16",
+      "original_url": "https://luckykingking.github.io/toocaa-new-cases/materials/index.html"
+    },
+    {
+      "name": "\u652f\u6301",
+      "framework": "support/",
+      "articles": 2,
+      "task": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa2\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_range": "A17:F18",
+      "original_url": "https://luckykingking.github.io/toocaa-new-cases/support/index.html"
+    },
+    {
+      "name": "\u6545\u969c\u6392\u9664",
+      "framework": "troubleshooting/",
+      "articles": 0,
+      "task": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u9700\u8981\u7532\u65b9\u81ea\u5df1\u8865\u5145\u95ee\u9898\u6587\u7ae0\uff0c\u6211\u4eec\u8f85\u52a9\u63d0\u4f9b\u6807\u9898\u4ee5\u53ca\u6838\u5fc3\u5173\u952e\u8bcd",
+      "source_range": "A19:F19",
+      "original_url": "https://luckykingking.github.io/toocaa-new-cases/troubleshooting/index.html"
+    },
+    {
+      "name": "\u8f6f\u4ef6",
+      "framework": "software/",
+      "articles": 2,
+      "task": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa2\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_range": "A20:F21",
+      "original_url": "https://luckykingking.github.io/toocaa-new-cases/software/index.html"
+    },
+    {
+      "name": "\u8d2d\u4e70\u4eba\u7fa4",
+      "framework": "who-is-it-for/",
+      "articles": 4,
+      "task": "\u9700\u8981\u5efa\u8bbe\u4e00\u4e2a\u65b0\u7684\u9875\u9762\uff0c\u8f93\u51fa4\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_range": "A22:F25",
+      "original_url": "\u65e0"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "contract-framework-2",
+      "brief": "contract-framework",
+      "section": "\u5e94\u7528\u573a\u666f",
+      "title": "\u5e94\u7528\u573a\u666f",
+      "target": "use-cases/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa7\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!B2:E2"
+    },
+    {
+      "id": "contract-article-2",
+      "brief": "contract-article",
+      "section": "\u5e94\u7528\u573a\u666f",
+      "title": "\u4e13\u4e1a\u5de5\u4f5c\u5ba4/\u5de5\u827a\u54c1",
+      "target": "use-cases/professional-studio-crafts/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa7\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!C2"
+    },
+    {
+      "id": "contract-article-3",
+      "brief": "contract-article",
+      "section": "\u5e94\u7528\u573a\u666f",
+      "title": "\u793c\u7269",
+      "target": "use-cases/personalized-gifts/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa7\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!C3"
+    },
+    {
+      "id": "contract-article-4",
+      "brief": "contract-article",
+      "section": "\u5e94\u7528\u573a\u666f",
+      "title": "\u4e8c\u7ef4\u7801",
+      "target": "use-cases/qr-code-signage/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa7\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!C4"
+    },
+    {
+      "id": "contract-article-5",
+      "brief": "contract-article",
+      "section": "\u5e94\u7528\u573a\u666f",
+      "title": "\u5bb6\u5c45\u88c5\u9970",
+      "target": "use-cases/home-decor/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa7\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!C5"
+    },
+    {
+      "id": "contract-article-6",
+      "brief": "contract-article",
+      "section": "\u5e94\u7528\u573a\u666f",
+      "title": "\u73e0\u5b9d",
+      "target": "use-cases/jewelry/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa7\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!C6"
+    },
+    {
+      "id": "contract-article-7",
+      "brief": "contract-article",
+      "section": "\u5e94\u7528\u573a\u666f",
+      "title": "\u793c\u7269\u76d2\u5305\u88c5",
+      "target": "use-cases/gift-box-packaging/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa7\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!C7"
+    },
+    {
+      "id": "contract-article-8",
+      "brief": "contract-article",
+      "section": "\u5e94\u7528\u573a\u666f",
+      "title": "\u7167\u7247\u96d5\u523b",
+      "target": "use-cases/photo-engraving/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa7\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!C8"
+    },
+    {
+      "id": "contract-framework-9",
+      "brief": "contract-framework",
+      "section": "\u6559\u7a0b",
+      "title": "\u6559\u7a0b",
+      "target": "tutorials/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u9700\u8981\u7532\u65b9\u81ea\u5df1\u8865\u5145\u6559\u7a0b\u6587\u7ae0\uff0c\u6211\u4eec\u8f85\u52a9\u63d0\u4f9b\u6807\u9898\u4ee5\u53ca\u6838\u5fc3\u5173\u952e\u8bcd",
+      "source_cell": "Sheet1!B9:E9"
+    },
+    {
+      "id": "contract-framework-10",
+      "brief": "contract-framework",
+      "section": "\u6750\u6599",
+      "title": "\u6750\u6599",
+      "target": "learn/materials/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa7\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!B10:E10"
+    },
+    {
+      "id": "contract-article-10",
+      "brief": "contract-article",
+      "section": "\u6750\u6599",
+      "title": "\u6728\u6750",
+      "target": "learn/materials/wood/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa7\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!C10"
+    },
+    {
+      "id": "contract-article-11",
+      "brief": "contract-article",
+      "section": "\u6750\u6599",
+      "title": "\u4e9a\u514b\u529b",
+      "target": "learn/materials/acrylic/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa7\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!C11"
+    },
+    {
+      "id": "contract-article-12",
+      "brief": "contract-article",
+      "section": "\u6750\u6599",
+      "title": "\u77f3\u5934",
+      "target": "learn/materials/stone/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa7\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!C12"
+    },
+    {
+      "id": "contract-article-13",
+      "brief": "contract-article",
+      "section": "\u6750\u6599",
+      "title": "\u91d1\u5c5e",
+      "target": "learn/materials/metal/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa7\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!C13"
+    },
+    {
+      "id": "contract-article-14",
+      "brief": "contract-article",
+      "section": "\u6750\u6599",
+      "title": "paper",
+      "target": "learn/materials/paper/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa7\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!C14"
+    },
+    {
+      "id": "contract-article-15",
+      "brief": "contract-article",
+      "section": "\u6750\u6599",
+      "title": "other",
+      "target": "learn/materials/other/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa7\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!C15"
+    },
+    {
+      "id": "contract-article-16",
+      "brief": "contract-article",
+      "section": "\u6750\u6599",
+      "title": "\u76ae\u9769",
+      "target": "learn/materials/leather/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa7\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!C16"
+    },
+    {
+      "id": "contract-framework-17",
+      "brief": "contract-framework",
+      "section": "\u652f\u6301",
+      "title": "\u652f\u6301",
+      "target": "support/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa2\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!B17:E17"
+    },
+    {
+      "id": "contract-article-17",
+      "brief": "contract-article",
+      "section": "\u652f\u6301",
+      "title": "\u4e70\u524d\u987b\u77e5",
+      "target": "support/before-you-buy/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa2\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!C17"
+    },
+    {
+      "id": "contract-article-18",
+      "brief": "contract-article",
+      "section": "\u652f\u6301",
+      "title": "\u6750\u6599\u8bbe\u7f6e",
+      "target": "support/material-settings/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa2\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!C18"
+    },
+    {
+      "id": "contract-framework-19",
+      "brief": "contract-framework",
+      "section": "\u6545\u969c\u6392\u9664",
+      "title": "\u6545\u969c\u6392\u9664",
+      "target": "troubleshooting/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u9700\u8981\u7532\u65b9\u81ea\u5df1\u8865\u5145\u95ee\u9898\u6587\u7ae0\uff0c\u6211\u4eec\u8f85\u52a9\u63d0\u4f9b\u6807\u9898\u4ee5\u53ca\u6838\u5fc3\u5173\u952e\u8bcd",
+      "source_cell": "Sheet1!B19:E19"
+    },
+    {
+      "id": "contract-framework-20",
+      "brief": "contract-framework",
+      "section": "\u8f6f\u4ef6",
+      "title": "\u8f6f\u4ef6",
+      "target": "software/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa2\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!B20:E20"
+    },
+    {
+      "id": "contract-article-20",
+      "brief": "contract-article",
+      "section": "\u8f6f\u4ef6",
+      "title": "TOOCAA\u8f6f\u4ef6\u4ecb\u7ecd",
+      "target": "software/toocaa-studio/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa2\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!C20"
+    },
+    {
+      "id": "contract-article-21",
+      "brief": "contract-article",
+      "section": "\u8f6f\u4ef6",
+      "title": "\u8f6f\u4ef6\u5bf9\u6bd4",
+      "target": "software/comparison/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa2\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!C21"
+    },
+    {
+      "id": "contract-framework-22",
+      "brief": "contract-framework",
+      "section": "\u8d2d\u4e70\u4eba\u7fa4",
+      "title": "\u8d2d\u4e70\u4eba\u7fa4",
+      "target": "who-is-it-for/",
+      "kind": "local",
+      "description": "\u9700\u8981\u5efa\u8bbe\u4e00\u4e2a\u65b0\u7684\u9875\u9762\uff0c\u8f93\u51fa4\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!B22:E22"
+    },
+    {
+      "id": "contract-article-22",
+      "brief": "contract-article",
+      "section": "\u8d2d\u4e70\u4eba\u7fa4",
+      "title": "\u5de5\u4f5c\u5ba4",
+      "target": "who-is-it-for/studios/",
+      "kind": "local",
+      "description": "\u9700\u8981\u5efa\u8bbe\u4e00\u4e2a\u65b0\u7684\u9875\u9762\uff0c\u8f93\u51fa4\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!C22"
+    },
+    {
+      "id": "contract-article-23",
+      "brief": "contract-article",
+      "section": "\u8d2d\u4e70\u4eba\u7fa4",
+      "title": "DIY\u793c\u7269",
+      "target": "who-is-it-for/diy-gifts/",
+      "kind": "local",
+      "description": "\u9700\u8981\u5efa\u8bbe\u4e00\u4e2a\u65b0\u7684\u9875\u9762\uff0c\u8f93\u51fa4\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!C23"
+    },
+    {
+      "id": "contract-article-24",
+      "brief": "contract-article",
+      "section": "\u8d2d\u4e70\u4eba\u7fa4",
+      "title": "\u8bfe\u5802",
+      "target": "who-is-it-for/classrooms/",
+      "kind": "local",
+      "description": "\u9700\u8981\u5efa\u8bbe\u4e00\u4e2a\u65b0\u7684\u9875\u9762\uff0c\u8f93\u51fa4\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!C24"
+    },
+    {
+      "id": "contract-article-25",
+      "brief": "contract-article",
+      "section": "\u8d2d\u4e70\u4eba\u7fa4",
+      "title": "\u5c0f\u578b\u4f01\u4e1a",
+      "target": "who-is-it-for/small-businesses/",
+      "kind": "local",
+      "description": "\u9700\u8981\u5efa\u8bbe\u4e00\u4e2a\u65b0\u7684\u9875\u9762\uff0c\u8f93\u51fa4\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!C25"
+    }
+  ]
+}

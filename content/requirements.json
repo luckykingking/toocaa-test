@@ -1,0 +1,1027 @@
+{
+  "sources": [
+    {
+      "file": "content/briefs/troubleshooting.html",
+      "sha256_lf": "c5c2657e266017efbb673cc212b940f292f0af893a3a6a14278a10005b74b114"
+    },
+    {
+      "file": "content/briefs/tutorials.html",
+      "sha256_lf": "f053cf82b0660b5db721c0f4bcbebbdceee6528f62d82dc06801cd3130f9c6bc"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "troubleshooting-01",
+      "brief": "troubleshooting",
+      "section": "Laser & Cutting Issues",
+      "title": "Laser Not Firing: Complete Troubleshooting Guide L2 & NOVA",
+      "target": "troubleshooting/laser-not-firing/",
+      "kind": "local",
+      "description": "Safety interlock check, focus verification, laser module diagnosis \u2014 for both models"
+    },
+    {
+      "id": "troubleshooting-02",
+      "brief": "troubleshooting",
+      "section": "Laser & Cutting Issues",
+      "title": "Weak Laser Output: Lens Cleaning & Power Diagnosis L2 & NOVA",
+      "target": "troubleshooting/weak-laser-output/",
+      "kind": "local",
+      "description": "Power drop reasons, lens contamination check, module aging test, output measurement"
+    },
+    {
+      "id": "troubleshooting-03",
+      "brief": "troubleshooting",
+      "section": "Laser & Cutting Issues",
+      "title": "Material Not Cutting Through: Power, Speed & Multi-Pass Settings L2 & NOVA",
+      "target": "troubleshooting/not-cutting-through/",
+      "kind": "local",
+      "description": "Incorrect parameters, focus distance error, material thickness verification"
+    },
+    {
+      "id": "troubleshooting-04",
+      "brief": "troubleshooting",
+      "section": "Laser & Cutting Issues",
+      "title": "Uneven Cutting Depth: Bed Leveling & Focus Calibration L2 & NOVA",
+      "target": "troubleshooting/uneven-cutting-depth/",
+      "kind": "local",
+      "description": "Warped honeycomb bed, uneven material, focus ramp/manual adjustment"
+    },
+    {
+      "id": "troubleshooting-05",
+      "brief": "troubleshooting",
+      "section": "Laser & Cutting Issues",
+      "title": "Burnt or Charred Edges: Air Assist & Speed Optimization Guide L2 & NOVA",
+      "target": "troubleshooting/burnt-charred-edges/",
+      "kind": "local",
+      "description": "Air assist pressure, speed-to-power ratio, masking tape technique \u2014 L2 manual / NOVA auto"
+    },
+    {
+      "id": "troubleshooting-06",
+      "brief": "troubleshooting",
+      "section": "Laser & Cutting Issues",
+      "title": "Kerf Too Wide: Focus Distance & Lens Selection L2 & NOVA",
+      "target": "troubleshooting/kerf-too-wide/",
+      "kind": "local",
+      "description": "Focal length impact, focus calibration, material-specific kerf offset reference table"
+    },
+    {
+      "id": "troubleshooting-07",
+      "brief": "troubleshooting",
+      "section": "Engraving Quality Issues",
+      "title": "Engraving Too Light or Too Dark: DPI & Power Settings Explained L2 & NOVA",
+      "target": "troubleshooting/engraving-too-light-or-dark/",
+      "kind": "local",
+      "description": "DPI vs line interval, min/max power in LightBurn / TOOCAA Studio, material test grid"
+    },
+    {
+      "id": "troubleshooting-08",
+      "brief": "troubleshooting",
+      "section": "Engraving Quality Issues",
+      "title": "Engraving Misalignment: Belt Tension & Calibration Fix L2 & NOVA",
+      "target": "troubleshooting/engraving-misalignment/",
+      "kind": "local",
+      "description": "X/Y belt check, pulley set screw, axis calibration, rotary alignment"
+    },
+    {
+      "id": "troubleshooting-09",
+      "brief": "troubleshooting",
+      "section": "Engraving Quality Issues",
+      "title": "Wavy or Blurry Engraving Patterns: Vibration Diagnosis L2 & NOVA",
+      "target": "troubleshooting/wavy-blurry-engraving/",
+      "kind": "local",
+      "description": "Table stability, speed setting trade-off, belt resonance, frame squareness"
+    },
+    {
+      "id": "troubleshooting-10",
+      "brief": "troubleshooting",
+      "section": "Engraving Quality Issues",
+      "title": "Gradient Banding in Photos: Grayscale & Dithering Settings L2 & NOVA",
+      "target": "troubleshooting/gradient-banding-photos/",
+      "kind": "local",
+      "description": "Jarvis vs Stucki dither, grayscale mode, image preprocessing tips"
+    },
+    {
+      "id": "troubleshooting-11",
+      "brief": "troubleshooting",
+      "section": "Engraving Quality Issues",
+      "title": "Surface Scorch Marks During Engraving: Speed & Air Flow Fix L2 & NOVA",
+      "target": "troubleshooting/scorch-marks-engraving/",
+      "kind": "local",
+      "description": "Air assist during engraving, masking application, speed-power balance"
+    },
+    {
+      "id": "troubleshooting-12",
+      "brief": "troubleshooting",
+      "section": "Hardware & Mechanical Issues",
+      "title": "Machine Won't Turn On: Power Supply & Fuse Check L2 & NOVA",
+      "target": "troubleshooting/machine-wont-turn-on/",
+      "kind": "local",
+      "description": "Power cord check, emergency stop reset \u2014 L2 external adapter / NOVA internal PSU"
+    },
+    {
+      "id": "troubleshooting-13",
+      "brief": "troubleshooting",
+      "section": "Hardware & Mechanical Issues",
+      "title": "Homing Failure: Limit Switch Diagnosis & Reset L2 & NOVA",
+      "target": "troubleshooting/homing-failure/",
+      "kind": "local",
+      "description": "Limit switch wiring, physical obstruction check, firmware homing direction setting"
+    },
+    {
+      "id": "troubleshooting-14",
+      "brief": "troubleshooting",
+      "section": "Hardware & Mechanical Issues",
+      "title": "Stepper Motor Skipping or Grinding: Belt & Driver Adjustment L2 & NOVA",
+      "target": "troubleshooting/motor-skipping-grinding/",
+      "kind": "local",
+      "description": "Belt tension, V-wheel inspection, stepper driver current, acceleration settings"
+    },
+    {
+      "id": "troubleshooting-15",
+      "brief": "troubleshooting",
+      "section": "Hardware & Mechanical Issues",
+      "title": "Strange Noises During Operation: Full Mechanical Inspection L2 & NOVA",
+      "target": "troubleshooting/strange-noises-during-operation/",
+      "kind": "local",
+      "description": "Bearing wear, loose screws, rail debris, resonance frequencies at speed"
+    },
+    {
+      "id": "troubleshooting-16",
+      "brief": "troubleshooting",
+      "section": "Hardware & Mechanical Issues",
+      "title": "X/Y Axis Drift: Calibration & Firmware Sync L2 & NOVA",
+      "target": "troubleshooting/axis-drift-calibration/",
+      "kind": "local",
+      "description": "Steps-per-mm calibration, backlash compensation, origin offset, firmware save"
+    },
+    {
+      "id": "troubleshooting-17",
+      "brief": "troubleshooting",
+      "section": "Hardware & Mechanical Issues",
+      "title": "Rotary Attachment Not Working: Connection & Setup Guide L2 & NOVA",
+      "target": "troubleshooting/rotary-attachment-issues/",
+      "kind": "local",
+      "description": "Y-axis swap, rotary enable in firmware, steps-per-rotation \u2014 L2 standard / NOVA 90\u00b0 flip"
+    },
+    {
+      "id": "troubleshooting-18",
+      "brief": "troubleshooting",
+      "section": "Hardware & Mechanical Issues",
+      "title": "Frame Not Square: Assembly Re-Alignment Guide L2 & NOVA",
+      "target": "troubleshooting/frame-squareness-alignment/",
+      "kind": "local",
+      "description": "Diagonal measurement check, corner bracket adjustment, gantry squareness"
+    },
+    {
+      "id": "troubleshooting-19",
+      "brief": "troubleshooting",
+      "section": "Hardware & Mechanical Issues",
+      "title": "NOVA 90\u00b0 X-Axis Rotation for Rotary: Setup & Calibration NOVA",
+      "target": "troubleshooting/nova-rotary-90-degree/",
+      "kind": "local",
+      "description": "X-axis flip mechanism, rotary chuck alignment, steps-per-rotation for NOVA-specific mode"
+    },
+    {
+      "id": "troubleshooting-20",
+      "brief": "troubleshooting",
+      "section": "Software & Connection Issues",
+      "title": "TOOCAA Not Connecting via USB: Driver Installation Fix L2 & NOVA",
+      "target": "troubleshooting/usb-not-connecting/",
+      "kind": "local",
+      "description": "CH340/CH341 driver, port selection, data vs charge-only cable, Windows/Mac steps"
+    },
+    {
+      "id": "troubleshooting-21",
+      "brief": "troubleshooting",
+      "section": "Software & Connection Issues",
+      "title": "Wi-Fi Connection Troubleshooting: Complete Setup Guide NOVA",
+      "target": "troubleshooting/wifi-connection-troubleshooting/",
+      "kind": "local",
+      "description": "2.4GHz requirement, IP address finding via touchscreen, firewall exception, router channel"
+    },
+    {
+      "id": "troubleshooting-22",
+      "brief": "troubleshooting",
+      "section": "Software & Connection Issues",
+      "title": "LightBurn Not Detecting TOOCAA: Connection Protocol Fix L2 & NOVA",
+      "target": "troubleshooting/lightburn-not-detecting/",
+      "kind": "local",
+      "description": "GRBL selection, baud rate 115200, device list refresh, manual COM / IP entry"
+    },
+    {
+      "id": "troubleshooting-23",
+      "brief": "troubleshooting",
+      "section": "Software & Connection Issues",
+      "title": "TOOCAA Studio Not Connecting to NOVA NOVA",
+      "target": "troubleshooting/toocaa-studio-connection/",
+      "kind": "local",
+      "description": "App version check, device discovery, Wi-Fi vs USB preference, firewall permissions"
+    },
+    {
+      "id": "troubleshooting-24",
+      "brief": "troubleshooting",
+      "section": "Software & Connection Issues",
+      "title": "File Transfer Failed: SD Card & USB Troubleshooting L2 & NOVA",
+      "target": "troubleshooting/file-transfer-failed/",
+      "kind": "local",
+      "description": "File format compatibility, SD card formatting, file name length \u2014 L2 TF card / NOVA USB"
+    },
+    {
+      "id": "troubleshooting-25",
+      "brief": "troubleshooting",
+      "section": "Software & Connection Issues",
+      "title": "Firmware Update Stuck or Failed: Recovery Guide L2 & NOVA",
+      "target": "troubleshooting/firmware-update-stuck/",
+      "kind": "local",
+      "description": "Bootloader mode, manual flash, backup before update, brick recovery \u2014 model-specific steps"
+    },
+    {
+      "id": "troubleshooting-26",
+      "brief": "troubleshooting",
+      "section": "Software & Connection Issues",
+      "title": "TOOCAA Studio App Crashes or Freezes: Troubleshooting NOVA",
+      "target": "troubleshooting/toocaa-app-crashes/",
+      "kind": "local",
+      "description": "App version check, cache clear, device compatibility, reinstallation on Windows/Mac/iOS"
+    },
+    {
+      "id": "troubleshooting-27",
+      "brief": "troubleshooting",
+      "section": "Software & Connection Issues",
+      "title": "NOVA OTA Firmware Update: Wi-Fi Update Troubleshooting NOVA",
+      "target": "troubleshooting/nova-firmware-ota/",
+      "kind": "local",
+      "description": "Over-the-air update procedure, update stuck at X%, recovery via USB fallback"
+    },
+    {
+      "id": "troubleshooting-28",
+      "brief": "troubleshooting",
+      "section": "NOVA Smart Features \u2014 Exclusive",
+      "title": "Camera Positioning Offset: Calibration & Realignment NOVA",
+      "target": "troubleshooting/nova-camera-positioning-offset/",
+      "kind": "local",
+      "description": "5MP camera calibration grid, crosshair alignment, lighting conditions, recalibration steps"
+    },
+    {
+      "id": "troubleshooting-29",
+      "brief": "troubleshooting",
+      "section": "NOVA Smart Features \u2014 Exclusive",
+      "title": "Auto-Focus Calibration Failed: Manual Override & Sensor Check NOVA",
+      "target": "troubleshooting/nova-autofocus-failed/",
+      "kind": "local",
+      "description": "3-second auto-focus sensor, manual focus override, probe cleaning, height offset correction"
+    },
+    {
+      "id": "troubleshooting-30",
+      "brief": "troubleshooting",
+      "section": "NOVA Smart Features \u2014 Exclusive",
+      "title": "Touchscreen Unresponsive / Frozen / Glitchy Display NOVA",
+      "target": "troubleshooting/nova-touchscreen-issues/",
+      "kind": "local",
+      "description": "2.4\" touchscreen reboot, calibration, firmware reflash, static discharge issue"
+    },
+    {
+      "id": "troubleshooting-31",
+      "brief": "troubleshooting",
+      "section": "NOVA Smart Features \u2014 Exclusive",
+      "title": "AI Material Recognition Not Working / Incorrect Suggestions NOVA",
+      "target": "troubleshooting/nova-ai-material-recognition/",
+      "kind": "local",
+      "description": "AI model update, lighting conditions, material database sync, manual override workflow"
+    },
+    {
+      "id": "troubleshooting-32",
+      "brief": "troubleshooting",
+      "section": "NOVA Smart Features \u2014 Exclusive",
+      "title": "Smart Air Assist Not Auto-Adjusting / No Air Output NOVA",
+      "target": "troubleshooting/nova-smart-air-assist/",
+      "kind": "local",
+      "description": "Auto air assist calibration, pump check, tube blockage, manual override in touchscreen"
+    },
+    {
+      "id": "troubleshooting-33",
+      "brief": "troubleshooting",
+      "section": "NOVA Smart Features \u2014 Exclusive",
+      "title": "Dual-Channel Exhaust Weak Airflow / Fan Not Spinning NOVA",
+      "target": "troubleshooting/nova-dual-exhaust-weak/",
+      "kind": "local",
+      "description": "Fan speed settings, internal filter cleaning, exhaust path obstruction, motor check"
+    },
+    {
+      "id": "troubleshooting-34",
+      "brief": "troubleshooting",
+      "section": "NOVA Smart Features \u2014 Exclusive",
+      "title": "Breathing Light Shows Abnormal Color / Pattern NOVA",
+      "target": "troubleshooting/nova-breathing-light-status/",
+      "kind": "local",
+      "description": "LED status code reference: green=ready, blue=working, red=error, flashing patterns"
+    },
+    {
+      "id": "troubleshooting-35",
+      "brief": "troubleshooting",
+      "section": "NOVA Smart Features \u2014 Exclusive",
+      "title": "Child Safety Lock \u2014 Forgot Password / Lock Stuck NOVA",
+      "target": "troubleshooting/nova-child-lock-forgot-password/",
+      "kind": "local",
+      "description": "Password reset via TOOCAA Studio, factory reset option, master unlock code procedure"
+    },
+    {
+      "id": "troubleshooting-36",
+      "brief": "troubleshooting",
+      "section": "NOVA Smart Features \u2014 Exclusive",
+      "title": "Laser Module Not Recognized After Swap NOVA",
+      "target": "troubleshooting/nova-module-swap-not-recognized/",
+      "kind": "local",
+      "description": "Module seating check, contact pin cleaning, module type auto-detect, firmware recognition"
+    },
+    {
+      "id": "troubleshooting-37",
+      "brief": "troubleshooting",
+      "section": "NOVA Smart Features \u2014 Exclusive",
+      "title": "Camera Preview Lag or Freezing in TOOCAA Studio NOVA",
+      "target": "troubleshooting/nova-camera-preview-lag/",
+      "kind": "local",
+      "description": "USB bandwidth, Wi-Fi latency vs wired, camera resolution setting, GPU acceleration"
+    },
+    {
+      "id": "troubleshooting-38",
+      "brief": "troubleshooting",
+      "section": "NOVA Smart Features \u2014 Exclusive",
+      "title": "NOVA Smart Settings Reset: Restore All Defaults NOVA",
+      "target": "troubleshooting/nova-smart-settings-reset/",
+      "kind": "local",
+      "description": "Factory reset via touchscreen, TOOCAA Studio reset, calibration backup & restore"
+    },
+    {
+      "id": "troubleshooting-39",
+      "brief": "troubleshooting",
+      "section": "Safety & Ventilation Issues",
+      "title": "Smoke & Odor Control: Exhaust System Setup & Optimization L2 & NOVA",
+      "target": "troubleshooting/excessive-smoke-odor/",
+      "kind": "local",
+      "description": "L2 external hose routing / NOVA dual-channel fan settings, inline booster, window vent"
+    },
+    {
+      "id": "troubleshooting-40",
+      "brief": "troubleshooting",
+      "section": "Safety & Ventilation Issues",
+      "title": "Flame Detection Keeps Triggering: False Alarm Fix L2 & NOVA",
+      "target": "troubleshooting/flame-detection-false-alarm/",
+      "kind": "local",
+      "description": "Sensor cleaning, sensitivity adjustment, bright ambient light interference"
+    },
+    {
+      "id": "troubleshooting-41",
+      "brief": "troubleshooting",
+      "section": "Safety & Ventilation Issues",
+      "title": "Protective Cover Won't Close / Sensor Error L2 & NOVA",
+      "target": "troubleshooting/protective-cover-sensor/",
+      "kind": "local",
+      "description": "L2 outer enclosure magnetic sensor / NOVA lid magnet sensor, hinge adjustment, wiring"
+    },
+    {
+      "id": "troubleshooting-42",
+      "brief": "troubleshooting",
+      "section": "Safety & Ventilation Issues",
+      "title": "Emergency Stop Activated: Reset Procedure & System Self-Check L2 & NOVA",
+      "target": "troubleshooting/emergency-stop-reset/",
+      "kind": "local",
+      "description": "E-stop release, controller reset sequence, safety system verification checklist"
+    },
+    {
+      "id": "troubleshooting-43",
+      "brief": "troubleshooting",
+      "section": "Safety & Ventilation Issues",
+      "title": "Overheating Warning: Cooling Fan Diagnosis L2 & NOVA",
+      "target": "troubleshooting/overheating-warning/",
+      "kind": "local",
+      "description": "Fan obstruction check, ambient temperature limits, duty cycle management for both models"
+    },
+    {
+      "id": "troubleshooting-44",
+      "brief": "troubleshooting",
+      "section": "Safety & Ventilation Issues",
+      "title": "NOVA Internal Exhaust Filter: Cleaning & Replacement NOVA",
+      "target": "troubleshooting/nova-exhaust-filter-replacement/",
+      "kind": "local",
+      "description": "Filter location, cleaning frequency, replacement part number, lifespan by usage"
+    },
+    {
+      "id": "troubleshooting-45",
+      "brief": "troubleshooting",
+      "section": "Maintenance & Care",
+      "title": "Lens Cleaning: Step-by-Step with Photos L2 & NOVA",
+      "target": "troubleshooting/lens-mirror-cleaning/",
+      "kind": "local",
+      "description": "99% IPA method, lint-free wipes, cleaning frequency, NOVA modular head easy access guide"
+    },
+    {
+      "id": "troubleshooting-46",
+      "brief": "troubleshooting",
+      "section": "Maintenance & Care",
+      "title": "Belt Tension Adjustment: When & How to Tighten L2 & NOVA",
+      "target": "troubleshooting/belt-tension-adjustment/",
+      "kind": "local",
+      "description": "Tension test frequency, over-tightening risk, belt replacement signs"
+    },
+    {
+      "id": "troubleshooting-47",
+      "brief": "troubleshooting",
+      "section": "Maintenance & Care",
+      "title": "Rail Lubrication Guide: Recommended Products & Schedule L2 & NOVA",
+      "target": "troubleshooting/rail-lubrication-guide/",
+      "kind": "local",
+      "description": "Grease vs oil, application method, frequency by usage, contamination warning"
+    },
+    {
+      "id": "troubleshooting-48",
+      "brief": "troubleshooting",
+      "section": "Maintenance & Care",
+      "title": "Air Assist Pump Maintenance: Filter Cleaning & Replacement L2 & NOVA",
+      "target": "troubleshooting/air-assist-pump-maintenance/",
+      "kind": "local",
+      "description": "L2 external pump / NOVA internal smart pump, intake filter, air tube inspection"
+    },
+    {
+      "id": "troubleshooting-49",
+      "brief": "troubleshooting",
+      "section": "Maintenance & Care",
+      "title": "Bed Cleaning: Removing Residue & Debris L2 & NOVA",
+      "target": "troubleshooting/honeycomb-bed-cleaning/",
+      "kind": "local",
+      "description": "Resin removal, degreaser choice, compressed air method, bed replacement timing"
+    },
+    {
+      "id": "troubleshooting-50",
+      "brief": "troubleshooting",
+      "section": "Maintenance & Care",
+      "title": "Laser Module Lifespan: When to Replace & What to Expect L2 & NOVA",
+      "target": "troubleshooting/laser-module-lifespan/",
+      "kind": "local",
+      "description": "Power drop measurement, expected lifetime by usage, L2 fixed module / NOVA swappable"
+    },
+    {
+      "id": "troubleshooting-51",
+      "brief": "troubleshooting",
+      "section": "Maintenance & Care",
+      "title": "NOVA Laser Module Removal & Installation Guide NOVA",
+      "target": "troubleshooting/nova-module-removal-install/",
+      "kind": "local",
+      "description": "Safe module swap procedure, contact pin alignment, 10W/20W/2W IR compatibility check"
+    },
+    {
+      "id": "tutorials-01",
+      "brief": "tutorials",
+      "section": "Getting Started",
+      "title": "The Best Laser Engraver for Beginners",
+      "target": "https://www.toocaa.com/blogs/toocaa-knowledge-share/the-best-laser-engraver-for-beginners",
+      "kind": "external",
+      "description": "A complete comparison guide to help first-time buyers choose the right desktop laser engraver. Covers what to look for in power, safety, ease of use, and software."
+    },
+    {
+      "id": "tutorials-02",
+      "brief": "tutorials",
+      "section": "Getting Started",
+      "title": "Step-by-Step Guide to Using a Laser Engraver at Home",
+      "target": "https://www.toocaa.com/blogs/toocaa-knowledge-share/step-by-step-guide-to-using-a-laser-engraver-at-home",
+      "kind": "external",
+      "description": "From unboxing to your first finished piece \u2014 this guide covers setup, software connection, material placement, and running your first engraving job at home."
+    },
+    {
+      "id": "tutorials-03",
+      "brief": "tutorials",
+      "section": "Getting Started",
+      "title": "What Are the Common Applications of a Laser Cutting Machine?",
+      "target": "https://www.toocaa.com/blogs/toocaa-knowledge-share/what-are-the-common-applications-of-a-laser-cutting-machine",
+      "kind": "external",
+      "description": "Discover everything you can do with a desktop laser cutter \u2014 from personalized gifts and signage to small-batch product manufacturing and educational projects."
+    },
+    {
+      "id": "tutorials-04",
+      "brief": "tutorials",
+      "section": "Getting Started",
+      "title": "How to Operate a Laser Cutting Machine: Is It Complex?",
+      "target": "https://www.toocaa.com/blogs/toocaa-knowledge-share/is-the-operation-of-a-laser-cutting-machine-complex",
+      "kind": "external",
+      "description": "Breaks down the learning curve for operating a laser cutting machine. Covers common concerns about difficulty and shows why modern desktop engravers are simpler than you think."
+    },
+    {
+      "id": "tutorials-05",
+      "brief": "tutorials",
+      "section": "Getting Started",
+      "title": "Why TOOCAA NOVA's A4 Is the Ideal Choice for Home Engraving",
+      "target": "https://www.toocaa.com/blogs/toocaa-knowledge-share/toocaa-nova-a4-size-canvas-the-perfect-smart-laser-engraver-for-home-use",
+      "kind": "external",
+      "description": "Explains why the A4 working area is the perfect balance of compactness and capability for home laser engraving \u2014 ergonomics, material efficiency, and scalable creativity."
+    },
+    {
+      "id": "tutorials-06",
+      "brief": "tutorials",
+      "section": "Material Guides",
+      "title": "Choosing the Right Laser for Aluminum Engraving",
+      "target": "https://www.toocaa.com/blogs/toocaa-knowledge-share/choosing-the-right-laser-for-aluminum-engraving-in-2025",
+      "kind": "external",
+      "description": "Covers which laser types work best for engraving aluminum \u2014 including anodized vs. bare aluminum, recommended power levels, and marking spray techniques."
+    },
+    {
+      "id": "tutorials-07",
+      "brief": "tutorials",
+      "section": "Material Guides",
+      "title": "Can a Desktop Diode Laser Engrave or Cut Leather?",
+      "target": "https://www.toocaa.com/blogs/toocaa-knowledge-share/can-a-desktop-diode-laser-cutting-machine-engrave-or-cut-leather-9",
+      "kind": "external",
+      "description": "Answers the most common question about laser cutting leather with a diode laser \u2014 what's possible, PU vs. genuine leather, safety considerations, and optimal settings."
+    },
+    {
+      "id": "tutorials-08",
+      "brief": "tutorials",
+      "section": "Material Guides",
+      "title": "Material Settings for TOOCAA Machines",
+      "target": "https://www.toocaa.com/pages/material-settings-for-toocaa-machines",
+      "kind": "external",
+      "description": "Complete reference table of recommended speed, power, and pass settings for all supported laser engraving and cutting materials on the TOOCAA NOVA and L2."
+    },
+    {
+      "id": "tutorials-09",
+      "brief": "tutorials",
+      "section": "Material Guides",
+      "title": "How to Laser Engrave Wood \u2014 Complete Guide with Settings",
+      "target": "learn/materials/wood/",
+      "kind": "local",
+      "description": "Target keywords: laser engrave wood (256 traffic), laser carving on wood (217), laser engraving on wood (127). Cover wood types, settings table, tips for clean results."
+    },
+    {
+      "id": "tutorials-10",
+      "brief": "tutorials",
+      "section": "Material Guides",
+      "title": "How to Laser Engrave on Metal \u2014 Stainless Steel, Aluminum & More",
+      "target": "learn/materials/metal/",
+      "kind": "local",
+      "description": "Target keywords: laser engrave on metal (3,577 traffic), engraving on metal (316), laser engraving steel (704). Cover marking spray, settings, diode vs. fiber for metal."
+    },
+    {
+      "id": "tutorials-11",
+      "brief": "tutorials",
+      "section": "Material Guides",
+      "title": "Acrylic Laser Cutting \u2014 Settings for Clean, Polished Edges",
+      "target": "learn/materials/acrylic/",
+      "kind": "local",
+      "description": "Target keywords: acrylic laser cutting (256 traffic), co2 laser for cutting acrylic (312). Cover cast vs. extruded acrylic, optimal settings, edge quality tips."
+    },
+    {
+      "id": "tutorials-12",
+      "brief": "tutorials",
+      "section": "Software Guides",
+      "title": "Discover TOOCAA Studio: The Free Laser Engraving Software",
+      "target": "https://www.toocaa.com/blogs/toocaa-knowledge-share/discover-toocaastudio-the-free-laser-engraving-software-perfectly-compatible-with-toocaa-machines",
+      "kind": "external",
+      "description": "Complete introduction to TOOCAA Studio \u2014 the free AI-powered laser engraving and cutting software. Installation, features, material calibration, and AI-generated design tools."
+    },
+    {
+      "id": "tutorials-13",
+      "brief": "tutorials",
+      "section": "Software Guides",
+      "title": "What's the Best Software for Laser Engraving? A Comparison Guide",
+      "target": "https://www.toocaa.com/blogs/toocaa-knowledge-share/what-s-the-best-software-for-laser-engraving-a-comparison-guide",
+      "kind": "external",
+      "description": "Side-by-side comparison of popular laser engraver software \u2014 LightBurn, LaserGRBL, TOOCAA Studio, and more. Features, pricing, and which is best for your workflow."
+    },
+    {
+      "id": "tutorials-14",
+      "brief": "tutorials",
+      "section": "Software Guides",
+      "title": "Laser Engraver Software: A Beginner's Guide and Advanced Tips",
+      "target": "https://www.toocaa.com/blogs/news/laser-engraver-software-a-beginners-guide-and-advanced-tips",
+      "kind": "external",
+      "description": "Covers the full landscape of laser engraver software \u2014 from free options for getting started to advanced features for power users. Includes tips on file preparation and optimization."
+    },
+    {
+      "id": "tutorials-15",
+      "brief": "tutorials",
+      "section": "Software Guides",
+      "title": "Laser Cutter File Formats Explained \u2014 SVG, DXF, PNG & More",
+      "target": "tutorials/laser-file-formats/",
+      "kind": "local",
+      "description": "Target keyword: laser cutter file (5,280 traffic). Cover which formats work best for cutting vs. engraving, vector vs. raster, and where to find free design files."
+    },
+    {
+      "id": "tutorials-16",
+      "brief": "tutorials",
+      "section": "Laser Technology",
+      "title": "Guide to Fiber, Diode, JPT, MOPA & CO2 Lasers",
+      "target": "https://www.toocaa.com/blogs/toocaa-knowledge-share/guide-to-fiber-lasers-diode-lasers-jpt-lasers-mopa-lasers-and-co2-lasers",
+      "kind": "external",
+      "description": "A comprehensive breakdown of every major laser type \u2014 how they work, what materials they handle best, and how to choose between fiber laser vs diode laser for your projects."
+    },
+    {
+      "id": "tutorials-17",
+      "brief": "tutorials",
+      "section": "Laser Technology",
+      "title": "The Benefits and Risks of Laser Cutting & Engraving",
+      "target": "https://www.toocaa.com/blogs/toocaa-knowledge-share/the-benefits-and-risks-of-laser-cutting-engraving",
+      "kind": "external",
+      "description": "An honest look at the advantages and potential risks of laser engraving. Covers fume safety, material limitations, eye protection, and how enclosed machines mitigate hazards."
+    },
+    {
+      "id": "tutorials-18",
+      "brief": "tutorials",
+      "section": "Laser Technology",
+      "title": "Color Laser Engraving \u2014 How It Works & What You Need",
+      "target": "tutorials/color-laser-engraving/",
+      "kind": "local",
+      "description": "Target keywords: color laser etching (705 traffic), colour laser engraving (478). Cover MOPA techniques, MagicBox Chroma materials, and color-on-metal methods."
+    },
+    {
+      "id": "tutorials-19",
+      "brief": "tutorials",
+      "section": "Buyer's Guide",
+      "title": "How to Choose a Laser Cutting Machine That Suits Your Needs",
+      "target": "https://www.toocaa.com/blogs/toocaa-knowledge-share/how-to-choose-a-laser-cutting-machine-that-suits-your-needs-1",
+      "kind": "external",
+      "description": "Walks through the key factors when purchasing a desktop laser engraver and cutter \u2014 power, working area, enclosed vs. open-frame, software compatibility, and budget considerations."
+    },
+    {
+      "id": "tutorials-20",
+      "brief": "tutorials",
+      "section": "Buyer's Guide",
+      "title": "A Must-Try Laser Cutter and Engraver",
+      "target": "https://www.toocaa.com/blogs/toocaa-knowledge-share/laser-cutters-and-engravers-2025",
+      "kind": "external",
+      "description": "A curated look at standout desktop laser cutters and engravers \u2014 what makes each one unique, who they're best for, and how they compare on real-world performance."
+    },
+    {
+      "id": "tutorials-21",
+      "brief": "tutorials",
+      "section": "Buyer's Guide",
+      "title": "Accessories Selection Guide",
+      "target": "support/accessories/",
+      "kind": "local",
+      "description": "Which accessories do you actually need? Air assist, honeycomb beds, rotary rollers, smart cameras \u2014 learn what each one does and when it's worth adding to your setup.",
+      "original_target": "https://www.toocaa.com/pages/accessories-select",
+      "original_kind": "external",
+      "resolution_note": "The original official destination contains generic template copy rather than a complete selection guide. Supply a local, model-specific accessory guide with links to current TOOCAA products and manuals."
+    },
+    {
+      "id": "tutorials-22",
+      "brief": "tutorials",
+      "section": "Safety",
+      "title": "Fire Safety for Laser Engravers",
+      "target": "https://www.toocaa.com/blogs/news/fire-safety-for-laser-engravers",
+      "kind": "external",
+      "description": "Covers fire prevention best practices for laser engraving \u2014 material flammability, proper supervision, fire suppression systems, and how enclosed designs like TOOCAA NOVA reduce risk."
+    },
+    {
+      "id": "scenario-professional-studio-crafts",
+      "brief": "scenario-screenshot",
+      "section": "Use Cases",
+      "title": "Studio & Crafts",
+      "target": "use-cases/professional-studio-crafts/",
+      "kind": "local",
+      "description": "Seven application areas specified in the supplied page-planning screenshot."
+    },
+    {
+      "id": "scenario-personalized-gifts",
+      "brief": "scenario-screenshot",
+      "section": "Use Cases",
+      "title": "Personalized Gifts",
+      "target": "use-cases/personalized-gifts/",
+      "kind": "local",
+      "description": "Seven application areas specified in the supplied page-planning screenshot."
+    },
+    {
+      "id": "scenario-qr-code-signage",
+      "brief": "scenario-screenshot",
+      "section": "Use Cases",
+      "title": "QR Code Signage",
+      "target": "use-cases/qr-code-signage/",
+      "kind": "local",
+      "description": "Seven application areas specified in the supplied page-planning screenshot."
+    },
+    {
+      "id": "scenario-home-decor",
+      "brief": "scenario-screenshot",
+      "section": "Use Cases",
+      "title": "Home Decor",
+      "target": "use-cases/home-decor/",
+      "kind": "local",
+      "description": "Seven application areas specified in the supplied page-planning screenshot."
+    },
+    {
+      "id": "scenario-jewelry",
+      "brief": "scenario-screenshot",
+      "section": "Use Cases",
+      "title": "Jewelry",
+      "target": "use-cases/jewelry/",
+      "kind": "local",
+      "description": "Seven application areas specified in the supplied page-planning screenshot."
+    },
+    {
+      "id": "scenario-gift-box-packaging",
+      "brief": "scenario-screenshot",
+      "section": "Use Cases",
+      "title": "Gift Boxes & Packaging",
+      "target": "use-cases/gift-box-packaging/",
+      "kind": "local",
+      "description": "Seven application areas specified in the supplied page-planning screenshot."
+    },
+    {
+      "id": "scenario-photo-engraving",
+      "brief": "scenario-screenshot",
+      "section": "Use Cases",
+      "title": "Photo Engraving",
+      "target": "use-cases/photo-engraving/",
+      "kind": "local",
+      "description": "Seven application areas specified in the supplied page-planning screenshot."
+    },
+    {
+      "id": "contract-framework-2",
+      "brief": "contract-framework",
+      "section": "\u5e94\u7528\u573a\u666f",
+      "title": "\u5e94\u7528\u573a\u666f",
+      "target": "use-cases/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa7\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!B2:E2"
+    },
+    {
+      "id": "contract-article-2",
+      "brief": "contract-article",
+      "section": "\u5e94\u7528\u573a\u666f",
+      "title": "\u4e13\u4e1a\u5de5\u4f5c\u5ba4/\u5de5\u827a\u54c1",
+      "target": "use-cases/professional-studio-crafts/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa7\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!C2"
+    },
+    {
+      "id": "contract-article-3",
+      "brief": "contract-article",
+      "section": "\u5e94\u7528\u573a\u666f",
+      "title": "\u793c\u7269",
+      "target": "use-cases/personalized-gifts/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa7\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!C3"
+    },
+    {
+      "id": "contract-article-4",
+      "brief": "contract-article",
+      "section": "\u5e94\u7528\u573a\u666f",
+      "title": "\u4e8c\u7ef4\u7801",
+      "target": "use-cases/qr-code-signage/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa7\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!C4"
+    },
+    {
+      "id": "contract-article-5",
+      "brief": "contract-article",
+      "section": "\u5e94\u7528\u573a\u666f",
+      "title": "\u5bb6\u5c45\u88c5\u9970",
+      "target": "use-cases/home-decor/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa7\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!C5"
+    },
+    {
+      "id": "contract-article-6",
+      "brief": "contract-article",
+      "section": "\u5e94\u7528\u573a\u666f",
+      "title": "\u73e0\u5b9d",
+      "target": "use-cases/jewelry/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa7\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!C6"
+    },
+    {
+      "id": "contract-article-7",
+      "brief": "contract-article",
+      "section": "\u5e94\u7528\u573a\u666f",
+      "title": "\u793c\u7269\u76d2\u5305\u88c5",
+      "target": "use-cases/gift-box-packaging/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa7\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!C7"
+    },
+    {
+      "id": "contract-article-8",
+      "brief": "contract-article",
+      "section": "\u5e94\u7528\u573a\u666f",
+      "title": "\u7167\u7247\u96d5\u523b",
+      "target": "use-cases/photo-engraving/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa7\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!C8"
+    },
+    {
+      "id": "contract-framework-9",
+      "brief": "contract-framework",
+      "section": "\u6559\u7a0b",
+      "title": "\u6559\u7a0b",
+      "target": "tutorials/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u9700\u8981\u7532\u65b9\u81ea\u5df1\u8865\u5145\u6559\u7a0b\u6587\u7ae0\uff0c\u6211\u4eec\u8f85\u52a9\u63d0\u4f9b\u6807\u9898\u4ee5\u53ca\u6838\u5fc3\u5173\u952e\u8bcd",
+      "source_cell": "Sheet1!B9:E9"
+    },
+    {
+      "id": "contract-framework-10",
+      "brief": "contract-framework",
+      "section": "\u6750\u6599",
+      "title": "\u6750\u6599",
+      "target": "learn/materials/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa7\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!B10:E10"
+    },
+    {
+      "id": "contract-article-10",
+      "brief": "contract-article",
+      "section": "\u6750\u6599",
+      "title": "\u6728\u6750",
+      "target": "learn/materials/wood/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa7\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!C10"
+    },
+    {
+      "id": "contract-article-11",
+      "brief": "contract-article",
+      "section": "\u6750\u6599",
+      "title": "\u4e9a\u514b\u529b",
+      "target": "learn/materials/acrylic/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa7\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!C11"
+    },
+    {
+      "id": "contract-article-12",
+      "brief": "contract-article",
+      "section": "\u6750\u6599",
+      "title": "\u77f3\u5934",
+      "target": "learn/materials/stone/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa7\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!C12"
+    },
+    {
+      "id": "contract-article-13",
+      "brief": "contract-article",
+      "section": "\u6750\u6599",
+      "title": "\u91d1\u5c5e",
+      "target": "learn/materials/metal/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa7\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!C13"
+    },
+    {
+      "id": "contract-article-14",
+      "brief": "contract-article",
+      "section": "\u6750\u6599",
+      "title": "paper",
+      "target": "learn/materials/paper/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa7\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!C14"
+    },
+    {
+      "id": "contract-article-15",
+      "brief": "contract-article",
+      "section": "\u6750\u6599",
+      "title": "other",
+      "target": "learn/materials/other/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa7\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!C15"
+    },
+    {
+      "id": "contract-article-16",
+      "brief": "contract-article",
+      "section": "\u6750\u6599",
+      "title": "\u76ae\u9769",
+      "target": "learn/materials/leather/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa7\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!C16"
+    },
+    {
+      "id": "contract-framework-17",
+      "brief": "contract-framework",
+      "section": "\u652f\u6301",
+      "title": "\u652f\u6301",
+      "target": "support/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa2\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!B17:E17"
+    },
+    {
+      "id": "contract-article-17",
+      "brief": "contract-article",
+      "section": "\u652f\u6301",
+      "title": "\u4e70\u524d\u987b\u77e5",
+      "target": "support/before-you-buy/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa2\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!C17"
+    },
+    {
+      "id": "contract-article-18",
+      "brief": "contract-article",
+      "section": "\u652f\u6301",
+      "title": "\u6750\u6599\u8bbe\u7f6e",
+      "target": "support/material-settings/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa2\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!C18"
+    },
+    {
+      "id": "contract-framework-19",
+      "brief": "contract-framework",
+      "section": "\u6545\u969c\u6392\u9664",
+      "title": "\u6545\u969c\u6392\u9664",
+      "target": "troubleshooting/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u9700\u8981\u7532\u65b9\u81ea\u5df1\u8865\u5145\u95ee\u9898\u6587\u7ae0\uff0c\u6211\u4eec\u8f85\u52a9\u63d0\u4f9b\u6807\u9898\u4ee5\u53ca\u6838\u5fc3\u5173\u952e\u8bcd",
+      "source_cell": "Sheet1!B19:E19"
+    },
+    {
+      "id": "contract-framework-20",
+      "brief": "contract-framework",
+      "section": "\u8f6f\u4ef6",
+      "title": "\u8f6f\u4ef6",
+      "target": "software/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa2\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!B20:E20"
+    },
+    {
+      "id": "contract-article-20",
+      "brief": "contract-article",
+      "section": "\u8f6f\u4ef6",
+      "title": "TOOCAA\u8f6f\u4ef6\u4ecb\u7ecd",
+      "target": "software/toocaa-studio/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa2\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!C20"
+    },
+    {
+      "id": "contract-article-21",
+      "brief": "contract-article",
+      "section": "\u8f6f\u4ef6",
+      "title": "\u8f6f\u4ef6\u5bf9\u6bd4",
+      "target": "software/comparison/",
+      "kind": "local",
+      "description": "\u4f18\u5316\u672c\u9875\u9762\u5185\u5bb9\uff0c\u8f93\u51fa2\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!C21"
+    },
+    {
+      "id": "contract-framework-22",
+      "brief": "contract-framework",
+      "section": "\u8d2d\u4e70\u4eba\u7fa4",
+      "title": "\u8d2d\u4e70\u4eba\u7fa4",
+      "target": "who-is-it-for/",
+      "kind": "local",
+      "description": "\u9700\u8981\u5efa\u8bbe\u4e00\u4e2a\u65b0\u7684\u9875\u9762\uff0c\u8f93\u51fa4\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!B22:E22"
+    },
+    {
+      "id": "contract-article-22",
+      "brief": "contract-article",
+      "section": "\u8d2d\u4e70\u4eba\u7fa4",
+      "title": "\u5de5\u4f5c\u5ba4",
+      "target": "who-is-it-for/studios/",
+      "kind": "local",
+      "description": "\u9700\u8981\u5efa\u8bbe\u4e00\u4e2a\u65b0\u7684\u9875\u9762\uff0c\u8f93\u51fa4\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!C22"
+    },
+    {
+      "id": "contract-article-23",
+      "brief": "contract-article",
+      "section": "\u8d2d\u4e70\u4eba\u7fa4",
+      "title": "DIY\u793c\u7269",
+      "target": "who-is-it-for/diy-gifts/",
+      "kind": "local",
+      "description": "\u9700\u8981\u5efa\u8bbe\u4e00\u4e2a\u65b0\u7684\u9875\u9762\uff0c\u8f93\u51fa4\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!C23"
+    },
+    {
+      "id": "contract-article-24",
+      "brief": "contract-article",
+      "section": "\u8d2d\u4e70\u4eba\u7fa4",
+      "title": "\u8bfe\u5802",
+      "target": "who-is-it-for/classrooms/",
+      "kind": "local",
+      "description": "\u9700\u8981\u5efa\u8bbe\u4e00\u4e2a\u65b0\u7684\u9875\u9762\uff0c\u8f93\u51fa4\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!C24"
+    },
+    {
+      "id": "contract-article-25",
+      "brief": "contract-article",
+      "section": "\u8d2d\u4e70\u4eba\u7fa4",
+      "title": "\u5c0f\u578b\u4f01\u4e1a",
+      "target": "who-is-it-for/small-businesses/",
+      "kind": "local",
+      "description": "\u9700\u8981\u5efa\u8bbe\u4e00\u4e2a\u65b0\u7684\u9875\u9762\uff0c\u8f93\u51fa4\u7bc7\u76f8\u5173\u6587\u7ae0",
+      "source_cell": "Sheet1!C25"
+    }
+  ]
+}
