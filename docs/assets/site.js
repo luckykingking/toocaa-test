@@ -1,6 +1,18 @@
 "use strict";
 
 (() => {
+  const sectionNav = document.querySelector(".section-nav > .shell");
+  const alignCurrentSection = () => {
+    const current = sectionNav?.querySelector("[aria-current]");
+    if (!current) return;
+    const bounds = sectionNav.getBoundingClientRect();
+    const tab = current.getBoundingClientRect();
+    if (tab.right > bounds.right - 16) sectionNav.scrollLeft += tab.right - bounds.right + 16;
+    else if (tab.left < bounds.left + 16) sectionNav.scrollLeft -= bounds.left + 16 - tab.left;
+  };
+  document.fonts.ready.then(alignCurrentSection);
+  window.addEventListener("resize", alignCurrentSection);
+
   const nav = document.querySelector(".site-nav");
   const menu = document.querySelector(".menu-button");
   const closeMenus = () => {

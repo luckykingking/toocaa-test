@@ -14,7 +14,7 @@ from pages import PAGES, FRAMEWORK_HUBS, section  # noqa: E402
 
 DOCS = ROOT / "docs"
 BASE = "https://luckykingking.github.io/toocaa-test/"
-VERSION = "20261020-complete"
+VERSION = "20261020-frameworks"
 SOURCES = json.loads((ROOT / "content/sources.json").read_text(encoding="utf-8"))
 SETTINGS = json.loads((ROOT / "content/settings.json").read_text(encoding="utf-8"))
 GROUP_PATHS = {"Use Cases": "use-cases/", "Tutorials": "tutorials/", "Materials": "learn/materials/", "Support": "support/", "Troubleshooting": "troubleshooting/", "Software": "software/", "Who It's For": "who-is-it-for/"}
