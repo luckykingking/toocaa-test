@@ -37,6 +37,13 @@ interpolates unsupported combinations or transfers L2 settings to NOVA.
 for reliable loading. Run `python scripts/fetch_assets.py` only when refreshing the
 approved assets. Check the images visually after a source refresh.
 
+The shared header follows the current TOOCAA store navigation. Tutorials, material
+guides and use cases live under Learn; troubleshooting and maintenance live under
+Support. Store, account, cart, Studio, Space, manuals and policy links go to the
+real TOOCAA services. They are not simulated locally. The observed Inter Tight
+font and Lucide icons are local assets with their licenses. The comparison and
+REA evidence references are recorded in `content/official-site-review.md`.
+
 ## SEO inventory
 
 The build exports `docs/keyword-table/site-seo-inventory.csv` with each public page's

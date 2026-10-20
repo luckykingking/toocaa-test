@@ -98,6 +98,9 @@ def main():
         if len(p.ids) != len(set(p.ids)):
             p.errors.append("duplicate element IDs")
         if not p.noindex:
+            for menu_id in ["site-nav", "nav-products", "nav-learn", "nav-support"]:
+                if menu_id not in p.ids:
+                    p.errors.append(f"missing customer navigation: {menu_id}")
             expected = BASE + path.parent.relative_to(DOCS).as_posix().replace(".", "").strip("/")
             if not expected.endswith("/"):
                 expected += "/"
@@ -120,6 +123,9 @@ def main():
             if not img.get("width") or not img.get("height"):
                 p.errors.append("missing explicit image dimensions")
         for href in p.links:
+            if href == "#":
+                p.errors.append("nonfunctional placeholder link")
+                continue
             u = urlparse(href)
             if u.scheme in {"mailto", "tel", "data"}:
                 continue
@@ -170,6 +176,12 @@ def main():
             errors.append(f"SEO CSV differs from actual metadata: {row['url']}")
     if BASE + "sitemap.xml" not in (DOCS / 'robots.txt').read_text(encoding="utf-8"):
         errors.append("robots.txt has no correct sitemap declaration")
+    settings = json.loads((ROOT / 'content/settings.json').read_text(encoding='utf-8'))
+    if json.loads((DOCS / 'assets/settings-data.json').read_text(encoding='utf-8')) != settings:
+        errors.append("published settings differ from the approved source data")
+    for asset in ['fonts/inter-tight.woff2', 'fonts/OFL.txt', 'icons/LICENSE.txt']:
+        if not (DOCS / 'assets' / asset).is_file():
+            errors.append(f"missing brand asset or license: {asset}")
     print(f"Checked {len(pages)} HTML routes, {len(indexed)} indexable pages, {len(locations)} sitemap URLs, {len(inventory)} SEO inventory rows.")
     print(f"Homepage-reachable indexable pages: {len(set(indexed.values()) & seen)} / {len(indexed)}")
     if errors:

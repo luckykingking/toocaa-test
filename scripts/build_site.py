@@ -14,7 +14,7 @@ from pages import PAGES, section  # noqa: E402
 
 DOCS = ROOT / "docs"
 BASE = "https://luckykingking.github.io/toocaa-test/"
-VERSION = "20261020"
+VERSION = "20261020-brand2"
 SOURCES = json.loads((ROOT / "content/sources.json").read_text(encoding="utf-8"))
 SETTINGS = json.loads((ROOT / "content/settings.json").read_text(encoding="utf-8"))
 GROUP_PATHS = {"Use Cases": "use-cases/", "Tutorials": "tutorials/", "Materials": "learn/materials/", "Support": "support/", "Troubleshooting": "troubleshooting/"}
@@ -28,11 +28,11 @@ ASSETS = {
 }
 
 HUBS = [
-    dict(path="", title="TOOCAA Laser Cutting & Engraving Guides", description="Find TOOCAA project ideas, practical laser tutorials, material guides, support resources, and troubleshooting for NOVA and L2.", group="Home", keywords="TOOCAA guides, TOOCAA laser cutting, TOOCAA laser engraving", sources=["manual", "settings"], sections=[], label="Home"),
+    dict(path="", title="TOOCAA Learning Center", description="Get started with your TOOCAA laser. Find setup tutorials, material settings, project ideas, and help for cutting and engraving with NOVA and L2.", group="Home", keywords="TOOCAA guides, TOOCAA tutorials, TOOCAA material settings, TOOCAA support", sources=["manual", "settings"], sections=[], label="Learning Center"),
     dict(path="use-cases/", title="Laser Cutting & Engraving Project Ideas", description="Explore seven laser project guides: craft studios, personalized gifts, QR code signs, home decor, jewelry, gift packaging, and photo engraving.", group="Use Cases", keywords="laser cutting project ideas, laser engraving projects, TOOCAA use cases", sources=["manual", "settings"], sections=[], label="Use Cases"),
     dict(path="tutorials/", title="TOOCAA Laser Cutting & Engraving Tutorials", description="Follow practical TOOCAA tutorials for setup, focus, cutting, engraving, material testing, TOOCAA Studio, LightBurn, and rotary preparation.", group="Tutorials", keywords="TOOCAA tutorials, laser cutting tutorials, laser engraving tutorials", sources=["manual", "studio"], sections=[], label="Tutorials"),
-    dict(path="learn/materials/", title="Laser Materials Guide: Wood, Acrylic, Leather & More", description="Compare nine laser material guides, check composition and machine compatibility, and find sourced settings for wood, acrylic, leather, and more.", group="Materials", keywords="laser materials guide, laser compatible materials, laser material settings", sources=["settings", "faq"], sections=[], label="Materials"),
-    dict(path="support/", title="TOOCAA Support: Setup, Maintenance & Contact", description="Prepare a TOOCAA purchase, set up a delivered machine, review maintenance, and collect the details needed for an official support request.", group="Support", keywords="TOOCAA support, TOOCAA setup, TOOCAA maintenance", sources=["support", "contact"], sections=[], label="Support"),
+    dict(path="learn/materials/", title="Laser Materials Guide: Wood, Acrylic, Leather & More", description="Choose wood, acrylic, leather, and other laser materials. Find L2 setting references, preparation steps, and tips for checking your finished work.", group="Materials", keywords="laser materials guide, laser compatible materials, laser material settings", sources=["settings", "faq"], sections=[], label="Materials"),
+    dict(path="support/", title="TOOCAA Support: Setup, Maintenance & Contact", description="Get help with your TOOCAA laser: first setup, maintenance, troubleshooting, manuals, and contact details for the support team.", group="Support", keywords="TOOCAA support, TOOCAA setup, TOOCAA maintenance", sources=["wiki", "contact"], sections=[], label="Support"),
     dict(path="troubleshooting/", title="TOOCAA Troubleshooting: Cutting, Connection & Safety", description="Find symptom-based checks for TOOCAA laser output, incomplete cuts, engraving quality, movement, connection, smoke, safety alerts, and firmware.", group="Troubleshooting", keywords="TOOCAA troubleshooting, laser not cutting through, laser connection issues", sources=["support", "manual"], sections=[], label="Troubleshooting"),
 ]
 ALL = HUBS + PAGES
@@ -66,28 +66,41 @@ def title(page):
 
 def header(page):
     path = page["path"]
-    groups = []
-    for group, hub in GROUP_PATHS.items():
-        children = [p for p in PAGES if p["group"] == group]
-        # Keep navigation compact; every child is available on the linked hub.
-        if group == "Tutorials":
-            extra = [("Getting Started", "start"), ("Cutting", "cut"), ("Engraving", "engrave"), ("Materials", "material"), ("Software", "software"), ("Advanced", "advanced")]
-            entries = [(hub + "?category=" + key, name) for name, key in extra]
-        elif group == "Troubleshooting":
-            entries = [(hub + "#" + key, name) for key, name in ISSUE_GROUPS.items()] + [("support/maintenance/", "Maintenance")]
-        else:
-            entries = [(p["path"], p["label"]) for p in children]
-        links = link(page, hub, "All " + group.lower()) + "".join(link(page, dest, name) for dest, name in entries)
-        active = ' aria-current="page"' if path == hub else (' aria-current="location"' if page["group"] == group else "")
-        menu_id = "nav-" + slug(group)
-        groups.append(f'<div class="nav-group"><a href="{esc(relative(path, hub))}"{active}>{group}</a><button class="nav-toggle" type="button" aria-label="Show {group.lower()} menu" aria-expanded="false" aria-controls="{menu_id}"></button><div class="dropdown" id="{menu_id}">{links}</div></div>')
+    store = "https://www.toocaa.com/"
+    def menu(name, target, columns, active=False):
+        menu_id = "nav-" + slug(name)
+        content = []
+        for heading, entries in columns:
+            links = ''.join(link(page, dest, label) for dest, label in entries)
+            content.append(f'<div class="menu-column"><p>{esc(heading)}</p>{links}</div>')
+        current = ' aria-current="location"' if active else ''
+        return f'<div class="nav-group"><a href="{esc(relative(path, target))}"{current}>{name}</a><button class="nav-toggle" type="button" aria-label="Show {name.lower()} menu" aria-expanded="false" aria-controls="{menu_id}"></button><div class="dropdown" id="{menu_id}">{"".join(content)}</div></div>'
+    products_menu = menu("Products", store + "collections/all-product", [
+        ("Machines", [(store + "collections/toocaa-nova", "TOOCAA NOVA"), (store + "collections/laser-engraving-machine", "TOOCAA L2"), (store + "pages/help-me-choose", "Compare machines")]),
+        ("Materials", [(store + "collections/plywood", "Plywood"), (store + "collections/leather", "PU Leather"), (store + "collections/metal", "Metal Blanks"), (store + "collections/slate-plant-labels", "Slate Plant Labels"), (store + "collections/materials", "All materials")]),
+        ("Accessories", [(store + "collections/air-assist", "Air Assist"), (store + "collections/smoke-purifier", "Smoke Purifier"), (store + "collections/smart-camera", "Smart Camera"), (store + "collections/rotary-roller", "Rotary Roller"), (store + "collections/accessories", "All accessories")]),
+    ])
+    learn_menu = menu("Learn", "", [
+        ("Learn with TOOCAA", [("", "Learning Center"), ("tutorials/", "Tutorials"), ("learn/materials/", "Material Guides"), ("use-cases/", "Use Cases")]),
+        ("Tools & inspiration", [(SOURCES["settings"]["url"], "Material Settings"), (store + "pages/accessories-select", "Accessories Select"), (store + "blogs/toocaa-knowledge-share", "Blog"), (SOURCES["space"]["url"], "Project Files on TOOCAA Space")]),
+    ], page["group"] in {"Home", "Tutorials", "Materials", "Use Cases"})
+    support_menu = menu("Support", "support/", [
+        ("Machine help", [("support/", "Support"), ("troubleshooting/", "Troubleshooting"), ("tutorials/first-setup/", "First Setup"), ("support/maintenance/", "Maintenance & Care"), (SOURCES["wiki"]["url"], "Support Center & Manuals"), ("support/contact/", "Contact Us")]),
+        ("Orders & policies", [(store + "pages/shipping-policy", "Shipping Policy"), (store + "pages/aftersales-policies", "Aftersales Policy"), (store + "pages/warranty-policy", "Warranty"), (store + "pages/refund-policy", "Return & Refund Policy")]),
+    ], page["group"] in {"Support", "Troubleshooting"})
+    groups = [products_menu, link(page, SOURCES["space"]["url"], "TOOCAA Space", "nav-direct"), link(page, SOURCES["studio"]["url"], "TOOCAA Studio", "nav-direct"), learn_menu, support_menu, link(page, SOURCES["choose"]["url"], "Help Me Choose", "nav-direct"), link(page, store + "pages/about-us", "About TOOCAA", "nav-direct")]
+    family = "Support" if page["group"] in {"Support", "Troubleshooting"} else "Learn"
+    secondary = [("support/", "Support"), ("troubleshooting/", "Troubleshooting"), ("support/maintenance/", "Maintenance"), ("support/contact/", "Contact Us")] if family == "Support" else [("", "Learning Center"), ("use-cases/", "Use Cases"), ("tutorials/", "Tutorials"), ("learn/materials/", "Materials")]
+    sublinks = ''.join(f'<a href="{esc(relative(path, dest))}"' + (' aria-current="page"' if path == dest else ' aria-current="location"' if dest and path.startswith(dest) and not any(path.startswith(d) for d, _ in secondary if d != dest and d.startswith(dest)) else '') + f'>{label}</a>' for dest, label in secondary)
     return f'''<a class="skip" href="#main">Skip to content</a>
+<div class="utility"><div class="wide-shell"><span>TOOCAA Learning Center</span>{link(page, store, 'Shop TOOCAA &rarr;').replace('&amp;rarr;', '&rarr;')}</div></div>
 <header class="header"><div class="header-inner">
-<a class="logo" href="{relative(path, '')}" aria-label="TOOCAA Guides home"><img src="{relative(path, 'assets/images/logo.png')}" alt="TOOCAA" width="116" height="34"/></a>
+<a class="logo" href="{relative(path, '')}" aria-label="TOOCAA Learning Center home"><img src="{relative(path, 'assets/images/logo.png')}" alt="TOOCAA" width="150" height="15"/></a>
 <button class="menu-button" type="button" aria-label="Open navigation" aria-controls="site-nav" aria-expanded="false"><span></span><span></span><span></span></button>
+<form class="header-search" action="{relative(path, 'search/')}" role="search"><input type="search" name="q" aria-label="Search all guides" placeholder="Search tutorials, materials, and support" required/><button class="icon-button" aria-label="Search guides" title="Search guides" type="submit"><img src="{relative(path, 'assets/icons/search.svg')}" alt="Search" width="22" height="22"/></button></form>
+<div class="store-actions"><a class="icon-button" href="{store}customer_authentication/redirect?locale=en&amp;region_country=US" aria-label="TOOCAA store account" title="TOOCAA store account"><img src="{relative(path, 'assets/icons/user-round.svg')}" alt="Account" width="23" height="23"/></a><a class="icon-button" href="{store}cart" aria-label="TOOCAA store cart" title="TOOCAA store cart"><img src="{relative(path, 'assets/icons/shopping-bag.svg')}" alt="Cart" width="23" height="23"/></a></div>
 <nav class="site-nav" id="site-nav" aria-label="Main navigation">{''.join(groups)}</nav>
-<form class="header-search" action="{relative(path, 'search/')}" role="search"><input type="search" name="q" aria-label="Search all guides" placeholder="Search guides" required/><button class="icon-button" aria-label="Search guides" type="submit"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></button></form>
-</div></header>'''
+</div></header><nav class="section-nav" aria-label="{family} navigation"><div class="shell"><span>{family}</span>{sublinks}</div></nav>'''
 
 
 def breadcrumb(page):
@@ -110,13 +123,13 @@ def directory(page, entries, searchable=False):
         category = item.get("category", item["group"])
         key = cats.get(category, category)
         anchor = f' id="{item["path"].rstrip("/").split("/")[-1]}"' if page["path"] == "use-cases/" else ""
-        out.append(f'<li{anchor} data-guide data-category="{esc(key)}"><a href="{esc(relative(page["path"], item["path"]))}"><span class="number">{i+1:02d}</span><span class="category">{esc(category)}</span><h3>{esc(item["label"])}</h3><p>{esc(item["description"])}</p><span class="read">Open guide &rarr;</span></a></li>')
+        out.append(f'<li{anchor} data-guide data-category="{esc(key)}"><a href="{esc(relative(page["path"], item["path"]))}"><span class="category">{esc(ISSUE_GROUPS.get(category, category))}</span><h3>{esc(item["label"])}</h3><p>{esc(item["description"])}</p><span class="read">Read guide &rarr;</span></a></li>')
     out.append('</ul>')
     return "\n".join(out)
 
 
 def products(page):
-    return f'''<section class="section" id="product-recommendations"><h2>Explore TOOCAA machines</h2><div class="products"><div><h3>TOOCAA NOVA</h3><p>Check current modules, supported materials, accessories, workspace requirements, and availability on the official product collection.</p>{link(page, 'https://www.toocaa.com/collections/toocaa-nova', 'View TOOCAA NOVA', 'text-link')}</div><div><h3>TOOCAA L2</h3><p>Compare current L2 configurations and check the exact module and accessory requirements for the projects you plan to make.</p>{link(page, 'https://www.toocaa.com/collections/laser-engraving-machine', 'View TOOCAA L2', 'text-link')}</div></div></section>'''
+    return f'''<section class="section" id="product-recommendations"><div class="section-head"><h2>Find your TOOCAA</h2>{link(page, SOURCES['choose']['url'], 'Compare NOVA and L2', 'text-link')}</div><div class="products"><div><a class="product-image" href="https://www.toocaa.com/collections/toocaa-nova"><img src="{relative(page['path'], 'assets/images/nova.jpg')}" alt="TOOCAA NOVA enclosed desktop laser engraver" width="900" height="600" loading="lazy"/></a><h3>TOOCAA NOVA</h3><p>For home projects and everyday making. An enclosed laser with a built-in camera and autofocus to help you position and prepare your designs.</p>{link(page, 'https://www.toocaa.com/collections/toocaa-nova', 'Explore NOVA', 'button')}</div><div><a class="product-image" href="https://www.toocaa.com/collections/laser-engraving-machine"><img src="{relative(page['path'], 'assets/images/l2.webp')}" alt="TOOCAA L2 enclosed desktop laser engraver and cutter" width="900" height="600" loading="lazy"/></a><h3>TOOCAA L2</h3><p>For a dedicated craft workspace and repeat orders. A larger working area and a choice of laser modules for cutting and engraving projects.</p>{link(page, 'https://www.toocaa.com/collections/laser-engraving-machine', 'Explore L2', 'button')}</div></div></section>'''
 
 
 def settings_table(page):
@@ -126,11 +139,11 @@ def settings_table(page):
     if not rows:
         return ""
     body = ''.join('<tr>' + ''.join(f'<td>{esc(v)}</td>' for v in [r["material"], str(r["module"])+"W", str(r["thickness"])+" mm", r["mode"], str(r["power"])+"%", str(r["speed"])+" mm/min", r["passes"]]) + '</tr>' for r in rows)
-    return f'''<p>Published TOOCAA L2 reference samples. Do not apply these rows to NOVA or a different material or thickness without model-specific confirmation. Speed values below are in mm/min.</p><div class="table-wrap"><table><caption>TOOCAA L2 reference settings, checked {SOURCES['checked']}</caption><thead><tr><th scope="col">Material</th><th scope="col">Module</th><th scope="col">Thickness</th><th scope="col">Operation</th><th scope="col">Power</th><th scope="col">Speed</th><th scope="col">Passes</th></tr></thead><tbody>{body}</tbody></table></div><p>{link(page, SETTINGS['source'], 'Read the official material settings and conditions')}</p>'''
+    return f'''<p>These settings are for the TOOCAA L2 configurations listed below. Match the material, thickness, module, and operation, then test an offcut before starting your project. For NOVA, use the settings in the NOVA documentation. All speeds below are in mm/min.</p><div class="table-wrap"><table><caption>TOOCAA L2 material settings</caption><thead><tr><th scope="col">Material</th><th scope="col">Module</th><th scope="col">Thickness</th><th scope="col">Operation</th><th scope="col">Power</th><th scope="col">Speed</th><th scope="col">Passes</th></tr></thead><tbody>{body}</tbody></table></div><p>{link(page, SETTINGS['source'], 'View the full TOOCAA material settings table')}</p>'''
 
 
 def wood_lookup(page):
-    return '''<section class="article-section" id="settings-calculator"><h2>Find a published wood setting</h2><p>Select the material, L2 module, and operation to see matching published samples. This lookup does not interpolate thicknesses or calculate settings for undocumented materials. Birch means the material named in the source, not every plywood product.</p><form class="lookup-form" aria-label="Published wood settings lookup"><label>Material<select id="woodMaterial"><option value="basswood">Basswood</option><option value="birch">Birch</option><option value="walnut">Walnut Wood</option><option value="cherry">Red Cherry Wood</option><option value="mdf">MDF (no published row here)</option><option value="poplar">Poplar plywood (no published row here)</option></select></label><label>L2 laser module<select id="woodPowerClass"><option value="10">10W</option><option value="20" selected>20W</option><option value="40">40W</option></select></label><label>Operation<select id="woodMode"><option value="Cutting">Cutting</option><option value="Engraving">Engraving</option></select></label></form><div class="lookup-result" id="lookupResult" role="status" aria-live="polite"><p>Use the reference table below; select a combination to filter the published samples.</p></div><p class="review-date">Check the listed sample thickness before using any reference. The source does not guarantee your result.</p></section>''' + '<script type="application/json" id="settingsData">' + json.dumps(SETTINGS) + '</script>'
+    return '''<section class="article-section" id="settings-calculator"><h2>Find wood settings for your L2</h2><p>Choose your wood, laser module, and operation. Results show the matching entries from the TOOCAA L2 material table, including the tested thickness.</p><form class="lookup-form" aria-label="TOOCAA L2 wood settings"><label>Material<select id="woodMaterial"><option value="basswood">Basswood</option><option value="birch">Birch</option><option value="walnut">Walnut Wood</option><option value="cherry">Red Cherry Wood</option><option value="mdf">MDF</option><option value="poplar">Poplar plywood</option></select></label><label>L2 laser module<select id="woodPowerClass"><option value="10">10W</option><option value="20" selected>20W</option><option value="40">40W</option></select></label><label>Operation<select id="woodMode"><option value="Cutting">Cutting</option><option value="Engraving">Engraving</option></select></label></form><div class="lookup-result" id="lookupResult" role="status" aria-live="polite"><p>Select a combination to find a matching L2 setting, or use the table below.</p></div><p class="review-date">Use a small test piece from your material batch. Settings for birch do not cover every type of birch plywood. Unlisted combinations have no calculated substitute.</p></section>''' + '<script type="application/json" id="settingsData">' + json.dumps(SETTINGS) + '</script>'
 
 
 def ticket_tool():
@@ -148,14 +161,14 @@ def article(page):
         sections.append(f'<section class="article-section" id="{anchor}"><h2>{esc(block["title"])}</h2><p>{esc(block["text"])}</p>{bullets}{extra}</section>')
     if page["path"] == "learn/materials/wood/":
         sections.insert(2, wood_lookup(page))
-        toc.insert(2, '<a href="#settings-calculator">Find a published setting</a>')
+        toc.insert(2, '<a href="#settings-calculator">L2 wood settings</a>')
         sections.append('<section class="article-section" id="projects"><h2>Wood project ideas</h2>' + directory(page, [BY_PATH[x] for x in ["use-cases/home-decor/", "use-cases/personalized-gifts/", "use-cases/gift-box-packaging/"]]) + '</section>')
     if page["group"] == "Use Cases":
-        sections.append(f'<section class="article-section" id="settings"><h2>Material settings for the project</h2><p>Choose the material guide and the exact model reference before testing. A sample result does not establish settings for a different laser module or sheet.</p><div class="actions">{link(page, "learn/materials/", "Browse material guides", "text-link")}{link(page, "tutorials/material-test/", "Plan a material test", "text-link")}</div></section>')
+        sections.append(f'<section class="article-section" id="settings"><h2>Set up your material</h2><p>Find preparation tips for your material, then run a small test with settings for your machine and laser module.</p><div class="actions">{link(page, "learn/materials/", "Browse material guides", "text-link")}{link(page, "tutorials/material-test/", "Run a material test", "text-link")}</div></section>')
     if page["path"] == "support/ticket-checklist/":
         sections.append(ticket_tool())
     if page["path"] == "support/contact/":
-        sections.append(f'<section class="article-section"><h2>Official TOOCAA channels</h2><div class="actions">{link(page, SOURCES["contact"]["url"], "Contact TOOCAA", "button")}{link(page, SOURCES["support"]["url"], "Open Help Center", "button secondary")}</div></section>')
+        sections.append(f'<section class="article-section"><h2>Contact & manuals</h2><div class="actions">{link(page, "mailto:service@toocaa.com", "Email support", "button")}{link(page, SOURCES["contact"]["url"], "Contact page", "text-link")}{link(page, SOURCES["wiki"]["url"], "Open Support Center", "text-link")}</div></section>')
     return '<div class="article-layout"><div class="article-body">' + ''.join(sections) + '</div><aside class="toc" aria-label="On this page"><strong>On this page</strong>' + ''.join(toc) + '</aside></div>'
 
 
@@ -163,7 +176,11 @@ def hub_content(page):
     group = page["group"]
     entries = [p for p in PAGES if p["group"] == group]
     if group == "Home":
-        return '<section class="section"><div class="section-head"><h2>Choose where to start</h2><p>Plan a project, learn a process, or work through a problem with the machine you already have.</p></div>' + directory(page, HUBS[1:]) + '</section><section class="section"><h2>Start with the basics</h2>' + directory(page, [BY_PATH[x] for x in ["tutorials/first-setup/", "tutorials/material-test/", "learn/materials/wood/", "support/ticket-checklist/"]]) + '</section>' + products(page)
+        tasks = [("tutorials/first-setup/", "Set up your laser", "Unboxing, workspace, and your first job"), ("learn/materials/wood/#settings-calculator", "Find material settings", "Wood references for your L2 module"), ("troubleshooting/", "Solve a problem", "Cut quality, connections, and machine checks"), ("https://wiki.toocaa.com/en/home", "Find your machine manual", "NOVA and L2 documentation in the Support Center")]
+        shortcuts = '<div class="task-links">' + ''.join(f'<a href="{esc(relative(page["path"], dest))}"><strong>{label}</strong><span>{desc}</span><span class="task-arrow" aria-hidden="true">&rarr;</span></a>' for dest, label, desc in tasks) + '</div>'
+        resources = [(SOURCES["studio"]["url"], "TOOCAA Studio", "Open the design and machine-control software."), (SOURCES["space"]["url"], "TOOCAA Space", "Browse designs and project files for your next make."), (SOURCES["settings"]["url"], "Material settings", "Find the full TOOCAA machine settings reference.")]
+        resource_links = '<div class="resource-links">' + ''.join(f'<a href="{dest}"><h3>{label}</h3><p>{desc}</p><span aria-hidden="true">&rarr;</span></a>' for dest, label, desc in resources) + '</div>'
+        return shortcuts + f'<figure class="workspace-band"><img src="{relative(page["path"], "assets/images/workspace.jpg")}" alt="TOOCAA L2 and a computer on a craft studio workbench" width="1400" height="729" fetchpriority="high"/></figure>' + '<section class="section"><div class="section-head"><h2>Make something with TOOCAA</h2><p>Find a project, choose your material, and learn the process.</p></div>' + directory(page, HUBS[1:4]) + '</section><section class="section"><div class="section-head"><h2>Your first projects</h2>' + link(page, "tutorials/", "All tutorials", "text-link") + '</div>' + directory(page, [BY_PATH[x] for x in ["tutorials/first-engraving/", "tutorials/material-test/", "learn/materials/wood/", "tutorials/photo-preparation/"]]) + '</section><section class="section"><h2>Designs, software & settings</h2>' + resource_links + '</section>' + products(page)
     if group == "Tutorials":
         # Keep material and smoke resources in the library alongside standalone tutorials.
         entries = entries + [BY_PATH["learn/materials/wood/"], BY_PATH["learn/materials/wood/"], BY_PATH["troubleshooting/excessive-smoke-odor/"]]
@@ -185,7 +202,19 @@ def hub_content(page):
     if group == "Use Cases":
         rows = ''.join('<tr><td>' + link(page, p['path'], p['label']) + '</td><td>' + esc(', '.join(p['sections'][0]['bullets'])) + '</td></tr>' for p in entries)
         overview = '<section class="section" id="project-overview"><h2>Project overview</h2><div class="table-wrap"><table><thead><tr><th scope="col">Use case</th><th scope="col">Project ideas</th></tr></thead><tbody>' + rows + '</tbody></table></div></section>'
-    return '<section class="section"><h2>' + {"Materials":"Choose a material", "Use Cases":"Project guides", "Support":"Help for your next step"}[group] + '</h2>' + directory(page, entries) + '</section>' + overview + (products(page) if group in {"Use Cases", "Support"} else '')
+    manuals = f'<section class="section"><div class="section-head"><div><h2>Manuals for your machine</h2><p>Find NOVA and L2 documentation, installation instructions, and machine-specific help in the TOOCAA Support Center.</p></div>{link(page, SOURCES["wiki"]["url"], "Open Support Center", "button")}</div></section>' if group == "Support" else ''
+    return manuals + '<section class="section"><h2>' + {"Materials":"Choose a material", "Use Cases":"Project guides", "Support":"How can we help?"}[group] + '</h2>' + directory(page, entries) + '</section>' + overview + (products(page) if group == "Use Cases" else '')
+
+
+def footer(page):
+    groups = [
+        ("Shop", [("https://www.toocaa.com/collections/toocaa-nova", "TOOCAA NOVA"), ("https://www.toocaa.com/collections/laser-engraving-machine", "TOOCAA L2"), ("https://www.toocaa.com/collections/materials", "Materials"), ("https://www.toocaa.com/collections/accessories", "Accessories")]),
+        ("Learn", [("use-cases/", "Use Cases"), ("tutorials/", "Tutorials"), ("learn/materials/", "Material Guides"), (SOURCES["studio"]["url"], "TOOCAA Studio"), (SOURCES["space"]["url"], "TOOCAA Space")]),
+        ("Support", [("support/", "Support"), ("troubleshooting/", "Troubleshooting"), (SOURCES["wiki"]["url"], "Manuals & Documentation"), ("support/contact/", "Contact Us")]),
+        ("Orders & policies", [("https://www.toocaa.com/pages/shipping-policy", "Shipping Policy"), ("https://www.toocaa.com/pages/warranty-policy", "Warranty"), ("https://www.toocaa.com/pages/refund-policy", "Returns & Refunds"), ("https://www.toocaa.com/pages/privacy-policy", "Privacy Policy")]),
+    ]
+    columns = ''.join(f'<div><h3>{name}</h3>' + ''.join(link(page, dest, label) for dest, label in entries) + '</div>' for name, entries in groups)
+    return f'<footer class="footer"><div class="shell"><div class="footer-brand"><img src="{relative(page["path"], "assets/images/logo.png")}" alt="TOOCAA" width="150" height="15"/>{link(page, "mailto:service@toocaa.com", "service@toocaa.com")}</div><nav class="footer-columns" aria-label="Footer">{columns}</nav><div class="footer-bottom"><span>&copy; 2026 TOOCAA Learning Center</span>{link(page, "sitemap.xml", "Sitemap")}{link(page, "https://www.toocaa.com/", "TOOCAA Store")}</div></div></footer>'
 
 
 def render(page):
@@ -195,7 +224,7 @@ def render(page):
     image_key = page.get("image") or "workspace"
     image_name, image_alt = ASSETS[image_key]
     image_url = BASE + 'assets/images/' + image_name
-    schema = {"@context":"https://schema.org", "@type":"CollectionPage" if hub else "Article", "name": page["title"], "description":page["description"], "url": BASE+path, "inLanguage":"en", "isPartOf":{"@type":"WebSite", "name":"TOOCAA Guides", "url":BASE}}
+    schema = {"@context":"https://schema.org", "@type":"CollectionPage" if hub else "Article", "name": page["title"], "description":page["description"], "url": BASE+path, "inLanguage":"en", "isPartOf":{"@type":"WebSite", "name":"TOOCAA Learning Center", "url":BASE}}
     if not hub:
         schema.update(headline=page["title"], mainEntityOfPage=BASE+path)
         if page.get("image"):
@@ -214,11 +243,11 @@ def render(page):
 <script defer src="{relative(path, 'assets/site.js')}?v={VERSION}"></script></head><body>'''
     body = header(page) + '<main id="main" class="shell">' + (bc if path else '')
     if page["group"] == "Home":
-        body += f'<section class="home-hero"><div><h1>{esc(page["title"])}</h1><p class="intro">{esc(page["description"])}</p><div class="actions">{link(page, "use-cases/", "Explore projects", "button")}{link(page, "tutorials/first-setup/", "Start with setup", "text-link")}</div></div><img src="{relative(path, "assets/images/workspace.jpg")}" alt="{ASSETS["workspace"][1]}" width="1000" height="800" fetchpriority="high"/></section>'
+        body += f'<section class="learning-intro"><h1>{esc(page["title"])}</h1><p class="intro">From your first engraving to your next collection.<br/>Find tutorials, material advice, and help for your TOOCAA laser.</p><form class="learning-search" action="search/" role="search" aria-label="Learning Center search"><label class="sr-only" for="homeQuery">What would you like to make or solve?</label><input id="homeQuery" type="search" name="q" placeholder="Search a project, material, or problem" required/><button class="icon-button" type="submit" aria-label="Search Learning Center" title="Search Learning Center"><img src="assets/icons/search.svg" alt="Search" width="24" height="24"/></button></form><p class="popular">Popular: {link(page, "tutorials/first-engraving/", "First engraving")} {link(page, "learn/materials/wood/", "Wood settings")} {link(page, "tutorials/lightburn-setup/", "LightBurn")}</p></section>'
     else:
         body += f'<section class="hero"><h1>{esc(page["title"])}</h1><p class="intro">{esc(page["description"])}</p>'
-        if page.get("image"):
-            body += f'<figure class="hero-media"><img src="{relative(path, "assets/images/"+image_name)}" alt="{esc(image_alt)}" width="1200" height="650" fetchpriority="high"/><figcaption>Material and equipment imagery: TOOCAA.</figcaption></figure>'
+        if page.get("image") and image_key != "workspace":
+            body += f'<figure class="hero-media"><img src="{relative(path, "assets/images/"+image_name)}" alt="{esc(image_alt)}" width="1200" height="650" fetchpriority="high"/></figure>'
         body += '</section>'
     body += hub_content(page) if hub else article(page)
     if faqs:
@@ -229,9 +258,10 @@ def render(page):
         body += '<section class="section"><h2>Related guides</h2>' + directory(page, entries) + '</section>'
     if page["group"] == "Use Cases" and not hub:
         body += products(page)
-    body += '<section class="section"><h2>Official references</h2><ul class="source-list">' + ''.join(f'<li>{link(page, SOURCES[k]["url"], SOURCES[k]["title"])}</li>' for k in page.get("sources", [])) + f'</ul><p class="review-date">References checked {SOURCES["checked"]}. Settings and compatibility must match your exact machine and material.</p></section>'
-    body += f'<section class="support-strip"><div><h2>Need help with a specific job?</h2><p>Keep the model, material, file, and settings together when you request support.</p></div>{link(page, "support/ticket-checklist/", "Prepare a support request", "button secondary")}</section></main>'
-    body += f'<footer class="footer"><div class="shell footer-inner"><p>TOOCAA Guides &copy; 2026</p><nav class="footer-links" aria-label="Footer">{link(page, "", "Home")}{link(page, "support/contact/", "Contact TOOCAA")}{link(page, "sitemap.xml", "Sitemap")}{link(page, "https://www.toocaa.com/", "Official store")}</nav></div></footer></body></html>'
+    if not hub:
+        body += '<details class="references"><summary>Manuals &amp; material references</summary><ul class="source-list">' + ''.join(f'<li>{link(page, SOURCES[k]["url"], SOURCES[k]["title"])}</li>' for k in page.get("sources", [])) + '</ul></details>'
+    body += f'<section class="support-strip"><div><h2>Need a hand?</h2><p>Get help with your machine, material, or project.</p></div><div class="actions">{link(page, "troubleshooting/", "Troubleshooting", "text-link")}{link(page, "support/contact/", "Contact TOOCAA", "button secondary")}</div></section></main>'
+    body += footer(page) + '</body></html>'
     return head + body
 
 
@@ -262,7 +292,7 @@ def search_page():
     p = dict(path="search/", group="Search", title="Search TOOCAA Guides", description="Search project ideas, materials, tutorials and support guides.", label="Search")
     items = [{"title":x["title"], "description":x["description"], "group":x["group"], "path":x["path"], "keywords":x["keywords"]} for x in ALL]
     data = json.dumps(items).replace('</', '<\\/')
-    write('search/index.html', f'<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Search TOOCAA Guides</title><meta name="description" content="Search project ideas, material guides, laser tutorials, support and troubleshooting."/><meta name="robots" content="noindex,follow"/><link rel="canonical" href="{BASE}search/"/><link rel="stylesheet" href="../assets/site.css?v={VERSION}"/><script defer src="../assets/site.js?v={VERSION}"></script></head><body>{header(p)}<main class="shell" id="main"><section class="hero"><h1>Search the guides</h1><p class="intro">Find a material, project, setup task, or symptom.</p></section><section class="section"><form id="siteSearchForm" class="library-search"><label for="siteQuery">Search</label><input id="siteQuery" type="search" name="q" placeholder="For example: plywood, LightBurn, smoke"/></form><p id="searchCount" class="result-count" role="status"></p><ul class="directory" id="searchResults"></ul><noscript>Use the navigation menus to browse all project, tutorial, material, support, and troubleshooting pages.</noscript></section></main><script type="application/json" id="searchData">{data}</script></body></html>')
+    write('search/index.html', f'<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Search TOOCAA Guides</title><meta name="description" content="Search project ideas, material guides, laser tutorials, support and troubleshooting."/><meta name="robots" content="noindex,follow"/><link rel="canonical" href="{BASE}search/"/><link rel="stylesheet" href="../assets/site.css?v={VERSION}"/><script defer src="../assets/site.js?v={VERSION}"></script></head><body>{header(p)}<main class="shell" id="main"><section class="hero"><h1>Search the guides</h1><p class="intro">Find a material, project, setup task, or symptom.</p></section><section class="section"><form id="siteSearchForm" class="library-search"><label for="siteQuery">Search</label><input id="siteQuery" type="search" name="q" placeholder="For example: plywood, LightBurn, smoke"/></form><p id="searchCount" class="result-count" role="status"></p><ul class="directory" id="searchResults"></ul><noscript>Use the navigation menus to browse all project, tutorial, material, support, and troubleshooting pages.</noscript></section></main>{footer(p)}<script type="application/json" id="searchData">{data}</script></body></html>')
 
 
 def main():

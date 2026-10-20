@@ -16,12 +16,28 @@
     if (!open) closeMenus();
   });
   document.querySelectorAll(".nav-toggle").forEach(button => {
+    const group = button.closest(".nav-group");
     button.addEventListener("click", () => {
-      const group = button.closest(".nav-group");
       const open = !group.classList.contains("is-open");
       closeMenus();
       group.classList.toggle("is-open", open);
       button.setAttribute("aria-expanded", String(open));
+    });
+    group.addEventListener("pointerenter", event => {
+      if (event.pointerType !== "mouse" || !matchMedia("(min-width: 1001px)").matches) return;
+      closeMenus();
+      group.classList.add("is-open");
+      button.setAttribute("aria-expanded", "true");
+    });
+    group.addEventListener("pointerleave", () => {
+      if (!matchMedia("(min-width: 1001px)").matches || group.contains(document.activeElement)) return;
+      group.classList.remove("is-open");
+      button.setAttribute("aria-expanded", "false");
+    });
+    group.addEventListener("focusout", event => {
+      if (group.contains(event.relatedTarget)) return;
+      group.classList.remove("is-open");
+      button.setAttribute("aria-expanded", "false");
     });
   });
   nav?.querySelectorAll("a").forEach(link => {
@@ -37,7 +53,9 @@
   });
   document.addEventListener("keydown", event => {
     if (event.key !== "Escape") return;
+    const focusedGroup = event.target.closest(".nav-group.is-open");
     closeMenus();
+    focusedGroup?.querySelector(".nav-toggle").focus();
     if (nav?.classList.contains("is-open")) {
       nav.classList.remove("is-open");
       menu.setAttribute("aria-expanded", "false");
@@ -85,7 +103,7 @@
       const rows = data.rows.filter(row => row.key === material.value && row.module === Number(moduleSelect.value) && row.mode === mode.value);
       lookup.replaceChildren();
       if (!rows.length) {
-        lookup.textContent = "No matching published sample in this reference. Do not calculate a substitute setting; check the current model documentation or contact TOOCAA.";
+        lookup.textContent = "No L2 setting is listed for this combination. Check the full TOOCAA material table or contact support with your material and module details.";
         return;
       }
       rows.forEach(row => {
