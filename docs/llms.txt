@@ -1,0 +1,10 @@
+# TOOCAA Guides
+
+Practical guides for laser projects, materials, setup and troubleshooting.
+
+- [TOOCAA Laser Cutting & Engraving Guides](https://luckykingking.github.io/toocaa-test/): Find TOOCAA project ideas, practical laser tutorials, material guides, support resources, and troubleshooting for NOVA and L2.
+- [Laser Cutting & Engraving Project Ideas](https://luckykingking.github.io/toocaa-test/use-cases/): Explore seven laser project guides: craft studios, personalized gifts, QR code signs, home decor, jewelry, gift packaging, and photo engraving.
+- [TOOCAA Laser Cutting & Engraving Tutorials](https://luckykingking.github.io/toocaa-test/tutorials/): Follow practical TOOCAA tutorials for setup, focus, cutting, engraving, material testing, TOOCAA Studio, LightBurn, and rotary preparation.
+- [Laser Materials Guide: Wood, Acrylic, Leather & More](https://luckykingking.github.io/toocaa-test/learn/materials/): Compare nine laser material guides, check composition and machine compatibility, and find sourced settings for wood, acrylic, leather, and more.
+- [TOOCAA Support: Setup, Maintenance & Contact](https://luckykingking.github.io/toocaa-test/support/): Prepare a TOOCAA purchase, set up a delivered machine, review maintenance, and collect the details needed for an official support request.
+- [TOOCAA Troubleshooting: Cutting, Connection & Safety](https://luckykingking.github.io/toocaa-test/troubleshooting/): Find symptom-based checks for TOOCAA laser output, incomplete cuts, engraving quality, movement, connection, smoke, safety alerts, and firmware.

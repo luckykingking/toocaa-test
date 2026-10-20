@@ -1,0 +1,20 @@
+name: Validate static site
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - run: python scripts/build_site.py
+      - run: python scripts/validate_site.py
+      - run: node --check docs/assets/site.js
+      - name: Ensure generated pages are committed
+        run: git diff --exit-code -- docs sitemap.xml robots.txt llms.txt

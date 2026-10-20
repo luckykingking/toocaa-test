@@ -1,0 +1,12 @@
+{
+  "checked": "2026-10-20",
+  "settings": {"title": "TOOCAA material settings", "url": "https://www.toocaa.com/pages/material-settings-for-toocaa-machines"},
+  "manual": {"title": "TOOCAA L2 online operation guide", "url": "https://www.toocaa.com/blogs/user-guide/online-operation-guide-for-toocaa-l2"},
+  "faq": {"title": "TOOCAA L2 support documentation", "url": "https://wiki.toocaa.com/en/TOOCAA-L2-FAQ"},
+  "support": {"title": "TOOCAA Help Center", "url": "https://www.toocaa.com/pages/help-center-for-toocaa"},
+  "studio": {"title": "TOOCAA Studio", "url": "https://www.toocaa.com/pages/toocaa-studio"},
+  "lightburn": {"title": "TOOCAA L2 with LightBurn", "url": "https://www.toocaa.com/blogs/user-guide/operate-toocaa-l2-desktop-laser-engraver-with-lightburn"},
+  "rotary": {"title": "TOOCAA 5-in-1 rotary installation for L2", "url": "https://www.toocaa.com/blogs/user-guide/how-to-install-and-use-toocaa-5-in-1-rotary-for-l2"},
+  "stone": {"title": "TOOCAA stone engraving guide", "url": "https://www.toocaa.com/blogs/toocaa-knowledge-share/stone-laser-engraving-settings-for-toocaa-nova-and-l2"},
+  "contact": {"title": "Contact TOOCAA", "url": "https://www.toocaa.com/pages/contact"}
+}

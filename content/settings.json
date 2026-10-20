@@ -1,0 +1,25 @@
+{
+  "source": "https://www.toocaa.com/pages/material-settings-for-toocaa-machines",
+  "checked": "2026-10-20",
+  "model": "TOOCAA L2",
+  "note": "Published reference samples, not calculated or guaranteed production settings. Match model, module, material, thickness and processing mode. Speed is mm/min.",
+  "rows": [
+    {"material":"Basswood","key":"basswood","module":10,"thickness":2,"mode":"Engraving","power":40,"speed":3000,"passes":1},
+    {"material":"Basswood","key":"basswood","module":10,"thickness":4,"mode":"Cutting","power":100,"speed":200,"passes":1},
+    {"material":"Basswood","key":"basswood","module":10,"thickness":5,"mode":"Cutting","power":100,"speed":150,"passes":1},
+    {"material":"Basswood","key":"basswood","module":20,"thickness":2.8,"mode":"Engraving","power":40,"speed":24000,"passes":1},
+    {"material":"Basswood","key":"basswood","module":20,"thickness":2.8,"mode":"Cutting","power":100,"speed":500,"passes":1},
+    {"material":"Birch","key":"birch","module":20,"thickness":3,"mode":"Engraving","power":80,"speed":24000,"passes":1},
+    {"material":"Birch","key":"birch","module":20,"thickness":3,"mode":"Cutting","power":100,"speed":400,"passes":1},
+    {"material":"Walnut Wood","key":"walnut","module":20,"thickness":3.6,"mode":"Engraving","power":80,"speed":21000,"passes":1},
+    {"material":"Walnut Wood","key":"walnut","module":20,"thickness":3.6,"mode":"Cutting","power":100,"speed":400,"passes":1},
+    {"material":"Red Cherry Wood","key":"cherry","module":20,"thickness":3.2,"mode":"Engraving","power":20,"speed":24000,"passes":1},
+    {"material":"Red Cherry Wood","key":"cherry","module":20,"thickness":3.2,"mode":"Cutting","power":100,"speed":700,"passes":1},
+    {"material":"Black Acrylic","key":"acrylic","module":20,"thickness":2.6,"mode":"Engraving","power":60,"speed":21000,"passes":1},
+    {"material":"Black Acrylic","key":"acrylic","module":20,"thickness":2.6,"mode":"Cutting","power":100,"speed":200,"passes":1},
+    {"material":"Dark Brown Leather","key":"leather","module":20,"thickness":1.4,"mode":"Engraving","power":100,"speed":16500,"passes":1},
+    {"material":"Dark Brown Leather","key":"leather","module":20,"thickness":1.4,"mode":"Cutting","power":50,"speed":900,"passes":1},
+    {"material":"Basswood","key":"basswood","module":40,"thickness":2.8,"mode":"Cutting","power":100,"speed":600,"passes":1},
+    {"material":"Birch","key":"birch","module":40,"thickness":3,"mode":"Cutting","power":100,"speed":600,"passes":1}
+  ]
+}
