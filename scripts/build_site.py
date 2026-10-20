@@ -249,7 +249,7 @@ def exports():
     rows = [dict(url=BASE+p["path"], section=p["group"], title=title(p), description=p["description"], keywords=p["keywords"], h1=p["title"], canonical=BASE+p["path"], robots="index,follow", official_references=" | ".join(SOURCES[k]["url"] for k in p.get("sources", [])), checked=SOURCES["checked"]) for p in ALL]
     target = DOCS / 'keyword-table/site-seo-inventory.csv'
     with target.open('w', encoding='utf-8-sig', newline='') as f:
-        w = csv.DictWriter(f, fieldnames=rows[0].keys())
+        w = csv.DictWriter(f, fieldnames=rows[0].keys(), lineterminator="\n")
         w.writeheader()
         w.writerows(rows)
     # The existing wood keyword files are retained as a dated research snapshot.
